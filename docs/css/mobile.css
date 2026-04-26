@@ -6,8 +6,34 @@
 
 /* ===== Universal: prevent overflow + improve tap targets ===== */
 @media (max-width: 900px) {
-  html, body { overflow-x: hidden; }
+  html, body { overflow-x: hidden; max-width: 100%; }
   body { -webkit-tap-highlight-color: rgba(255, 51, 102, 0.15); }
+
+  /* Anything that can grow inside a constrained container should be
+     allowed to break/scroll instead of pushing the parent wider than the
+     viewport. This is the root cause of the "text cut off on the right"
+     bug: grid/flex children default to min-width: auto so a single wide
+     descendant (table, KaTeX, long inline code) blows the column wider
+     than the screen, then `overflow-x: hidden` clips the rest. */
+  .container,
+  .hero,
+  .view,
+  main.app,
+  article,
+  .fiche-layout,
+  .fiche-layout > *,
+  .md,
+  .md > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .md p,
+  .md li,
+  .md blockquote,
+  .md h1, .md h2, .md h3, .md h4 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 
   /* Lock background scroll while a drawer/modal/nav is open. Uses :has()
      so we don't need to set classes from JS. Falls back gracefully on
@@ -52,6 +78,14 @@
     transform: none !important;
     box-shadow: none !important;
   }
+
+  /* Reduce the giant blurred glow blobs so they don't dominate the
+     small viewport (each blob is ~500-600px and clearly visible as a
+     coloured haze on phones). */
+  .glow-blob { opacity: 0.3 !important; filter: blur(80px) !important; }
+  .glow-1 { width: 320px; height: 320px; }
+  .glow-2 { width: 360px; height: 360px; }
+  .glow-3 { width: 280px; height: 280px; }
 }
 
 /* ===== Top nav: full-screen drawer on mobile ===== */
@@ -64,8 +98,13 @@
     z-index: 800;
     flex-direction: column;
     align-items: stretch;
-    background: var(--bg);
+    /* Solid layered background so the glowing footer brand and bg blobs
+       behind don't bleed through. */
+    background:
+      linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%),
+      var(--bg);
     padding: 24px 24px 80px;
+    border-top: 1px solid var(--border);
     border-bottom: 0;
     overflow-y: auto;
     gap: 8px;
@@ -92,15 +131,37 @@
 
 /* ===== Hero ===== */
 @media (max-width: 700px) {
-  .hero { padding: 40px 0 60px; }
-  .hero-top { flex-wrap: wrap; gap: 8px; }
-  .hero-meta { flex-wrap: wrap; gap: 8px; }
-  .hero-display { font-size: clamp(48px, 12vw, 90px); }
+  .hero { padding: 32px 0 48px; }
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .hero-meta { flex-wrap: wrap; gap: 6px; }
+  .hero-meta .eyebrow {
+    padding: 5px 11px;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+  }
+  .hero-display { font-size: clamp(44px, 11vw, 80px); margin: 16px 0 24px; }
   .subtitle { font-size: 15px; }
-  .cta-row { flex-wrap: wrap; gap: 10px; }
-  .cta-row .btn-pill { flex: 1 1 auto; text-align: center; min-width: 140px; }
-  .hero-stats { gap: 12px; padding: 24px 0; }
-  .hero-stats .stat-number { font-size: clamp(36px, 9vw, 60px); }
+  .cta-row { flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .cta-row .btn-pill {
+    flex: 1 1 calc(50% - 5px);
+    text-align: center;
+    justify-content: center;
+    min-width: 140px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+  .cta-row .btn-pill:last-child { flex-basis: 100%; }
+  .hero-stats { gap: 12px; padding: 24px 0; margin-top: 40px; }
+  .hero-stats .stat-number { font-size: clamp(32px, 9vw, 56px); }
+}
+@media (max-width: 420px) {
+  .hero-stats { grid-template-columns: 1fr 1fr !important; }
+  .hero-display { font-size: clamp(40px, 12vw, 72px); }
 }
 
 /* ===== Section heads ===== */
@@ -109,8 +170,12 @@
     flex-direction: column;
     align-items: flex-start !important;
     gap: 12px;
+    padding-top: 48px;
+    margin-bottom: 24px;
   }
   .section-head .subtitle { max-width: 100% !important; }
+  .section-title { font-size: clamp(26px, 7vw, 40px); }
+  .section-num { font-size: 12px; }
 }
 
 /* ===== Chapter cards ===== */
@@ -169,59 +234,109 @@
 
 /* ===== FICHE READER — mobile drawer + bottom bar ===== */
 @media (max-width: 900px) {
+  /* minmax(0, 1fr) is critical: a plain `1fr` lets a single wide
+     descendant (table, KaTeX block, long inline code) blow the column
+     past the viewport, which then gets clipped by `overflow-x: hidden`
+     and looks like text being cut off on the right. */
   .fiche-layout {
-    grid-template-columns: 1fr !important;
-    padding: 32px 18px 100px !important;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 24px 16px 96px !important;
+    gap: 16px;
   }
+  .fiche-layout > article { min-width: 0; max-width: 100%; }
   .fiche-toc, .fiche-progress-side { display: none !important; }
   .fiche-content { font-size: 15.5px; }
-  .fiche-title { font-size: clamp(36px, 10vw, 56px) !important; }
-  .fiche-summary { gap: 8px; font-size: 12px; }
-  .fiche-summary span { padding: 4px 10px; }
 
-  /* Floating "outline" button — opens TOC drawer */
+  .fiche-header {
+    padding-bottom: 22px;
+    margin-bottom: 24px;
+  }
+  .fiche-eyebrow { margin-bottom: 12px; font-size: 10.5px; }
+  .fiche-title {
+    font-size: clamp(34px, 9vw, 52px) !important;
+    line-height: 0.98;
+    margin-bottom: 12px !important;
+    /* Wrap the gradient title cleanly even on very narrow phones */
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .fiche-header .subtitle { font-size: 14px; line-height: 1.5; }
+  .fiche-summary {
+    gap: 6px;
+    font-size: 11.5px;
+    margin-top: 14px;
+  }
+  .fiche-summary > span {
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  /* Tighten body text + KaTeX so they never push horizontal scroll */
+  #ficheBody { min-width: 0; max-width: 100%; }
+  .md h2 { font-size: clamp(22px, 5.5vw, 28px); padding-top: 14px; }
+  .md h3 { font-size: clamp(18px, 4.5vw, 22px); }
+  .md h4 { font-size: 16px; }
+  .md p { margin-bottom: 1em; }
+  .md blockquote {
+    margin: 1.2em 0;
+    padding: 14px 16px;
+    font-size: 14.5px;
+  }
+  .md pre {
+    padding: 14px 16px;
+    font-size: 12.5px;
+    border-radius: 10px;
+  }
+  .md .katex-display { padding: 12px; font-size: 0.95em; }
+
+  /* Floating "outline" button — opens TOC drawer.
+     Anchored to the LEFT so it doesn't fight the bottombar PDF button
+     on the right. Sits just above the bottombar. */
   .fiche-fab {
     display: flex !important;
     position: fixed;
-    bottom: 78px;
-    right: 16px;
+    bottom: 76px;
+    left: 16px;
     z-index: 700;
-    width: 52px; height: 52px;
+    width: 48px; height: 48px;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border-strong);
-    background: var(--bg-elev);
+    background: rgba(20, 20, 28, 0.9);
     color: var(--text);
     border-radius: 50%;
     box-shadow: 0 6px 24px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
+  .fiche-fab svg { width: 18px; height: 18px; }
 
-  /* Sticky bottom action bar (mark read / copy / download PDF) */
+  /* Sticky bottom action bar (mark read / progress / download PDF) */
   .fiche-bottombar {
     display: grid !important;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     position: fixed;
-    left: 12px; right: 12px; bottom: 12px;
-    padding: 8px 8px 8px 14px;
+    left: 12px; right: 12px;
+    /* Honour iOS safe area */
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: 6px 6px 6px 12px;
     z-index: 700;
-    background: rgba(20, 20, 28, 0.92);
+    background: rgba(15, 15, 22, 0.94);
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
     border: 1px solid var(--border-strong);
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+    border-radius: 14px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.55);
   }
   .fiche-bottombar .progress-mini {
-    flex: 1;
     height: 4px;
     background: var(--bg-card);
     border-radius: 2px;
     overflow: hidden;
+    min-width: 0;
   }
   .fiche-bottombar .progress-mini-fill {
     height: 100%;
@@ -232,12 +347,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; height: 40px;
-    border-radius: 10px;
+    width: 36px; height: 36px;
+    border-radius: 8px;
     background: transparent;
     color: var(--text-muted);
     border: 0;
   }
+  .fiche-bottombar .bb-btn svg { width: 16px; height: 16px; }
   .fiche-bottombar .bb-btn:hover,
   .fiche-bottombar .bb-btn.active {
     background: rgba(255,255,255,0.08);
@@ -252,7 +368,9 @@
     font-size: 11px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+    height: 36px;
+    border-radius: 8px;
   }
 }
 /* Hide mobile-only fiche UI on desktop */
@@ -467,20 +585,45 @@
 /* ===== Reduce body padding-top once mobile bottombar exists on fiche ===== */
 @media (max-width: 900px) {
   body.has-fiche-bar {
-    padding-bottom: 80px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
   }
 }
 
 /* ===== Make sure long URLs/code don't break layout ===== */
 @media (max-width: 700px) {
-  .md pre, .md code { word-break: break-word; }
+  .md pre, .md code { word-break: break-word; overflow-wrap: anywhere; }
   .md table { word-break: normal; }
+
+  /* The auto callout styling (paragraph starting with <strong>) gets
+     visually heavy on mobile — every reflex/piège looks like a card.
+     Soften it. */
+  .md p:has(strong:first-child) {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  /* Inline KaTeX should never force a page-wide horizontal scroll. */
+  .md .katex { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
 }
 
 /* ===== Tweaks for catalogue title / patterns sections ===== */
 @media (max-width: 700px) {
   .display { font-size: clamp(40px, 12vw, 90px) !important; line-height: 1; }
   .display.it { font-size: clamp(40px, 12vw, 90px) !important; }
+
+  /* Marquee: smaller text + tighter padding so it doesn't dominate */
+  .marquee { padding: 16px 0; margin: 40px 0; }
+  .marquee-track { gap: 32px; }
+  .marquee-track span { font-size: clamp(20px, 5vw, 32px); gap: 32px; }
+
+  /* Daily banner: less padding, bigger CTA */
+  .daily-banner { padding: 22px 18px; }
+  .daily-title { font-size: clamp(22px, 5.5vw, 28px); }
+  .daily-desc { font-size: 13.5px; }
+
+  /* Footer brand: cap the giant gradient at something sensible on phones */
+  .footer-brand { font-size: clamp(48px, 14vw, 72px) !important; }
+  .footer { padding: 40px 0 32px; margin-top: 60px; }
 }
 
 /* ===== Topnav: hide brand text on very small screens ===== */
