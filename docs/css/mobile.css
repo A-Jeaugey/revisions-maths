@@ -151,21 +151,41 @@
 
 /* ===== Hero ===== */
 @media (max-width: 700px) {
-  .hero { padding: 32px 0 48px; }
+  .hero { padding: 24px 0 36px; }
+  /* Merge the two .hero-meta groups into a single wrap-friendly row of
+     chips. Two stacked groups was wasting 3-4 vertical lines. */
   .hero-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 28px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
   }
-  .hero-meta { flex-wrap: wrap; gap: 6px; }
+  .hero-meta {
+    display: contents;
+  }
   .hero-meta .eyebrow {
-    padding: 5px 11px;
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
   }
-  .hero-display { font-size: clamp(44px, 11vw, 80px); margin: 16px 0 24px; }
-  .subtitle { font-size: 15px; }
+  /* Title: hide the desktop <br> so the headline flows naturally and
+     uses just enough font-size that "Tout le programme." / "Aucune
+     surprise." each take a single line (instead of wrapping into 3
+     lines). */
+  .hero-display {
+    font-size: clamp(36px, 10vw, 64px);
+    line-height: 1.05;
+    margin: 14px 0 20px;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  .hero-display br { display: none !important; }
+  .hero-display .it { display: inline; }
+  .subtitle { font-size: 14.5px; line-height: 1.55; }
+  .hero .subtitle { max-width: 46ch; }
   .cta-row { flex-wrap: wrap; gap: 10px; margin-top: 20px; }
   .cta-row .btn-pill {
     flex: 1 1 calc(50% - 5px);
@@ -176,12 +196,19 @@
     font-size: 14px;
   }
   .cta-row .btn-pill:last-child { flex-basis: 100%; }
-  .hero-stats { gap: 12px; padding: 24px 0; margin-top: 40px; }
-  .hero-stats .stat-number { font-size: clamp(32px, 9vw, 56px); }
+  .hero-stats {
+    gap: 12px;
+    padding: 22px 0;
+    margin-top: 32px;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .hero-stats .stat-number { font-size: clamp(30px, 8vw, 48px); }
+  .hero-stats .stat-number span { font-size: 0.4em !important; }
+  .hero-stats .stat-label { font-size: 10px; letter-spacing: 0.1em; }
 }
 @media (max-width: 420px) {
-  .hero-stats { grid-template-columns: 1fr 1fr !important; }
-  .hero-display { font-size: clamp(40px, 12vw, 72px); }
+  .hero-display { font-size: clamp(34px, 9.4vw, 56px); }
+  .hero-meta .eyebrow { font-size: 9.5px; padding: 3px 9px; }
 }
 
 /* ===== Section heads ===== */
@@ -607,8 +634,10 @@
 
 /* ===== Tweaks for catalogue title / patterns sections ===== */
 @media (max-width: 700px) {
-  .display { font-size: clamp(40px, 12vw, 90px) !important; line-height: 1; }
-  .display.it { font-size: clamp(40px, 12vw, 90px) !important; }
+  /* Generic .display only — .hero-display has its own (smaller) rule above
+     so the home title can fit on one line. */
+  .display:not(.hero-display) { font-size: clamp(40px, 12vw, 90px); line-height: 1; }
+  .display:not(.hero-display) .it { font-size: 1em; }
 
   /* Marquee: smaller text + tighter padding so it doesn't dominate */
   .marquee { padding: 16px 0; margin: 40px 0; }
