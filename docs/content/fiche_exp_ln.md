@@ -565,4 +565,3 @@ Tu vois exp ou ln dans l'énoncé. Que faire ?
 
 ---
 
-*Bon courage Arthur 🎯*

@@ -395,7 +395,7 @@ Partie B — Modèle continu via équation différentielle (BASCULE !)
 
 **Méthode** : dériver $g = 1/f$ → $g'(t) = -\dfrac{f'(t)}{f(t)^2}$, puis substituer $f'(t) = 0{,}02 f(t)(15 - f(t))$ et simplifier.
 
-**Astuce** : ces exos décomposent le difficile en étapes guidées. Tu n'as **jamais** à inventer la transformation toi-même au bac.
+**Astuce** : ces exos décomposent le difficile en étapes guidées. On n'a **jamais** à inventer la transformation soi-même au bac.
 
 ### Exemple complet : Métropole 2025 J1 (posidonie)
 
@@ -462,4 +462,3 @@ Partie B — Modèle continu via équation différentielle (BASCULE !)
 
 ---
 
-*Bon courage Arthur 🎯*

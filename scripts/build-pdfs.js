@@ -494,7 +494,7 @@ function renderTemplate(ch, html) {
       </div>
     </div>
     <div class="cover-footer" style="margin-top:8mm">
-      <span>arthurjeaugey.com / revisions-maths</span>
+      <span>FICHE DE RÉVISION</span>
       <span>${new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
     </div>
   </div>

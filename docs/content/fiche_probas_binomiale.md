@@ -26,7 +26,7 @@
 
 Avant **toute** formule, pose-toi ces deux questions dans cet ordre :
 
-1. **L'ordre compte-t-il ?** (est-ce que (Arthur, Zoé) est différent de (Zoé, Arthur) ?)
+1. **L'ordre compte-t-il ?** (est-ce que (Alice, Bob) est différent de (Bob, Alice) ?)
 2. **Y a-t-il répétition ?** (est-ce qu'on peut prendre 2 fois le même élément ?)
 
 Selon les réponses, tu tombes dans une case du tableau :
@@ -523,4 +523,3 @@ $$P_B(A) = \dfrac{P(A \cap B)}{P(B)}$$
 
 ---
 
-*Bon courage Arthur 🎯*

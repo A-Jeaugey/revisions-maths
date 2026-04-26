@@ -414,4 +414,3 @@ On décompose par linéarité, puis on utilise les intégrales calculées dans l
 
 ---
 
-*Bon courage Arthur 🎯*

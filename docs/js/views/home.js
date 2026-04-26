@@ -265,8 +265,8 @@ export function footerHTML(meta) {
         </div>
       </div>
       <div class="footer-bottom">
-        <span>BAC BLANC · TERMINALE SPÉ MATHS</span>
-        <span>fait avec ⚡ pour Arthur</span>
+        <span>BAC · TERMINALE SPÉ MATHS</span>
+        <span>session 2026</span>
       </div>
     </footer>
   `;

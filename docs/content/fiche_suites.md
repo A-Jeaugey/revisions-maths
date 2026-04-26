@@ -67,7 +67,7 @@ Soit `Un = 4 · 2^n`. Alors `Un+1 / Un = (4·2^(n+1)) / (4·2^n) = 2`. Donc (Un)
 5. « Rebondir » horizontalement sur `y = x` pour reporter U1 sur l'axe des abscisses.
 6. Recommencer. On obtient une figure « en escalier » (si f croissante) ou « en escargot » (si f décroissante autour du point fixe).
 
-⚠️ **Piège classique (à toi-même tu l'as noté) :** Les variations de **f** ne donnent **PAS** les variations de la suite (Un) dans une suite récurrente. Une fonction f croissante peut générer une suite croissante OU décroissante selon U0.
+⚠️ **Piège classique :** Les variations de **f** ne donnent **PAS** les variations de la suite (Un) dans une suite récurrente. Une fonction f croissante peut générer une suite croissante OU décroissante selon U0.
 
 **Cas `Un = f(n)` (suite explicite) :** Là OUI, les variations de f sur `[0 ; +∞[` donnent directement les variations de (Un).
 
@@ -231,7 +231,7 @@ On applique f à l'HR. **Attention au sens** :
 | `1/n`, `1/n²`, `1/√n` | — | 0 |
 | `n`, `n²`, `√n` | — | +∞ |
 
-### 2. Stratégie de calcul — LA règle d'or (toi-même tu l'as soulignée)
+### 2. Stratégie de calcul — LA règle d'or
 
 > **Forme explicite → calcul direct.**
 > **Forme récurrente → théorèmes (gendarmes / comparaison / convergence monotone + point fixe).**
@@ -267,7 +267,7 @@ Les **4 FI classiques** :
 
 ### 5. Théorèmes de comparaison (minoration / majoration)
 
-🎯 **Toi-même tu as identifié que tu confonds tout le temps les deux. On clarifie une fois pour toutes :**
+🎯 **Erreur classique : on confond les deux. Clarifions une fois pour toutes :**
 
 | Si tu sais que… | Et que… | Alors… |
 |---|---|---|
@@ -527,4 +527,3 @@ def seuil(S):
 
 ---
 
-*Bon courage Arthur 🎯*

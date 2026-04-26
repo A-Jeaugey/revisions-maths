@@ -83,7 +83,7 @@ $$+\infty - \infty \quad ; \quad 0 \times \infty \quad ; \quad \dfrac{\infty}{\i
 
 ⚠️ **Piège classique :** $\dfrac{L}{0}$ n'est PAS une FI, mais nécessite l'étude du signe de $0^+$ vs $0^-$. Toujours préciser.
 
-### 4. Méthode pour lever une FI (LA méthode officielle de ton prof)
+### 4. Méthode pour lever une FI (LA méthode officielle)
 
 **Règle générale :** transformer l'expression pour faire disparaître l'indétermination.
 
@@ -117,7 +117,7 @@ Quand $x \to +\infty$, le dénominateur tend vers $+\infty$, donc la limite vaut
 **Théorème :**
 $$\lim_{x \to +\infty} \dfrac{e^x}{x^n} = +\infty \quad \text{et} \quad \lim_{x \to -\infty} x^n e^x = 0 \quad (\text{pour tout } n)$$
 
-🎯 **Conseil de ton prof :** **NE PAS** mettre "par croissances comparées" quand c'est inutile — par exemple, on peut éviter de l'utiliser si on factorise simplement par $x^n$ ou $e^x$. **C.C. à invoquer uniquement quand il y a une exp, et que c'est strictement nécessaire pour conclure.**
+🎯 **Conseil :** **NE PAS** mettre "par croissances comparées" quand c'est inutile — par exemple, on peut éviter de l'utiliser si on factorise simplement par $x^n$ ou $e^x$. **C.C. à invoquer uniquement quand il y a une exp, et que c'est strictement nécessaire pour conclure.**
 
 **Application typique :** $\lim_{x \to +\infty} (x^3 - e^x)$ est une FI de la forme $-\infty + \infty$ (si on lit $-e^x = -\infty$).
 
@@ -140,7 +140,7 @@ Si $f(x) \leq g(x)$ et $\lim g = -\infty$, alors $\lim f = -\infty$.
 **Théorème 4 (gendarmes / encadrement) :**
 Si $h(x) \leq f(x) \leq g(x)$ et $\lim h = \lim g = L$, alors $\lim f = L$.
 
-**Mnémonique de ton prof :** "Inégalité(s) + Limite(s) → nouvelle limite". Quand tu repères cette structure dans un énoncé, tu sais qu'il faut un théorème de comparaison.
+**Mnémonique :** "Inégalité(s) + Limite(s) → nouvelle limite". Quand tu repères cette structure dans un énoncé, tu sais qu'il faut un théorème de comparaison.
 
 ⚠️ **Rédaction obligatoire :** toujours préciser **les deux hypothèses** (l'inégalité ET la limite) avant d'invoquer le théorème.
 
@@ -162,7 +162,7 @@ On décompose : $x \mapsto 25 + \dfrac{1}{x^2} \mapsto \sqrt{\cdot}$.
 
 Donc par composition, $\lim_{x \to +\infty} \sqrt{25 + \dfrac{1}{x^2}} = 5$.
 
-### 8. Méthode officielle "déterminer une limite" (la fiche méthode de ton prof)
+### 8. Méthode officielle "déterminer une limite"
 
 **Deux cas possibles :**
 
@@ -442,7 +442,7 @@ $$\boxed{(v \circ u)'(x) = v'(u(x)) \times u'(x)}$$
 3. **Limites** : calculer **étape par étape** en respectant l'ordre de composition.
 4. **Variations** : signe de $(v \circ u)'$.
 
-### 7. Conseil de ton prof
+### 7. Conseil de méthode
 
 > Pour décomposer une fonction et calculer une image, bien distinguer les étapes en écrivant le schéma de décomposition. Passer de la notation avec le « $\circ$ » à la notation avec parenthèses pas à pas.
 
@@ -679,7 +679,7 @@ Partie C — Aire (optionnelle, si intégrales au programme)
 
 2. **TVI vs bijection** : le TVI seul donne "au moins une solution". Pour l'unicité, il FAUT préciser **strictement monotone** en plus. Beaucoup d'élèves écrivent "TVI" au lieu de "théorème de la bijection".
 
-3. **Croissances comparées invoquées à tort** : si tu peux factoriser proprement, n'invoque pas C.C. — ton prof l'a souligné en cours. C.C. = uniquement quand exp est unique et que c'est nécessaire.
+3. **Croissances comparées invoquées à tort** : si tu peux factoriser proprement, n'invoque pas C.C. C.C. = uniquement quand exp est unique et que c'est nécessaire.
 
 4. **Convexité confondue avec monotonie** : convexe ≠ croissante. Une fonction peut être convexe et décroissante (ex. $1/x$ sur $]0\,;\,+\infty[$).
 
@@ -697,4 +697,3 @@ Partie C — Aire (optionnelle, si intégrales au programme)
 
 ---
 
-*Bon courage Arthur 🎯*

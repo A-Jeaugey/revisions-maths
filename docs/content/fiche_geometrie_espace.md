@@ -1,13 +1,13 @@
 # 📐 Fiche de Combat — Géométrie dans l'espace
 
 > **Bac blanc — Terminale Maths Spé**
-> Structurée selon la check-list officielle de ton prof (photo du tableau) + compléments pour blinder le 20.
+> Structurée selon la check-list pédagogique standard + compléments pour blinder le 20.
 
 ---
 
-## 🎯 La check-list de ton prof (à mémoriser)
+## 🎯 La check-list (à mémoriser)
 
-Ton prof a listé **8 types de questions** au tableau. C'est l'ordre dans lequel ils tombent presque toujours dans un exercice de géo dans l'espace :
+Les **8 types de questions** classiques, dans l'ordre où elles tombent presque toujours dans un exercice de géo dans l'espace :
 
 1. **(ABC) forme un plan** → §I.3
 2. **Calculer longueurs, coord d'un milieu** → §I.1-2
@@ -99,7 +99,7 @@ Un plan est défini par **un point A** et **un vecteur normal** `vec(n)(a, b, c)
 
 ### 3. Si l'énoncé donne 3 points A, B, C au lieu d'un normal
 
-Tu dois trouver `vec(n)` toi-même. Méthode :
+Il faut trouver `vec(n)` soi-même. Méthode :
 1. Calculer `vec(AB)` et `vec(AC)`.
 2. Chercher `vec(n) = (a, b, c)` tel que :
    - `vec(n) · vec(AB) = 0`
@@ -114,7 +114,7 @@ Tu dois trouver `vec(n)` toi-même. Méthode :
 
 ---
 
-## III. Positions relatives & orthogonalité (la zone que ton prof a soulignée)
+## III. Positions relatives & orthogonalité (la zone à blinder)
 
 ### 1. Montrer que (D) est orthogonale au plan (P)
 
@@ -203,7 +203,7 @@ Soit `vec(u)` le vecteur directeur de (D) et `vec(n)` le vecteur normal de (P).
 
 ### 2. Projeté orthogonal H d'un point M sur un plan (P)
 
-🎯 **Ton prof a noté DEUX VARIANTES distinctes** sur le tableau (« Mque » et « Dét les coord »). À toi de reconnaître laquelle on te demande.
+🎯 **Il existe DEUX VARIANTES distinctes** dans les énoncés (« Montrer que H est… » vs « Déterminer les coordonnées de H »). À toi de reconnaître laquelle on te demande.
 
 #### Variante A : "Déterminer les coordonnées de H" (méthode active)
 
@@ -466,4 +466,3 @@ Tu lis l'énoncé. Quelle est la première chose à faire ?
 
 ---
 
-*Bon courage Arthur 🎯 — Tu as toutes les armes pour le 19+*
