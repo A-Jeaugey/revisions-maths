@@ -72,8 +72,10 @@ function prettifyInlineCodes(html) {
     if (!/[\^_]/.test(inner)) return full;
     const out = inner
       .replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>')
+      .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
       .replace(/\^([A-Za-z0-9+\-]+)/g, '<sup>$1</sup>')
       .replace(/_\{([^}]+)\}/g, '<sub>$1</sub>')
+      .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>')
       .replace(/_([A-Za-z0-9+\-]+)/g, '<sub>$1</sub>');
     return `<code>${out}</code>`;
   });

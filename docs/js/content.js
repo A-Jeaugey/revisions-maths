@@ -57,14 +57,16 @@ export async function loadCatalogue() {
   return md;
 }
 
-// Convert math-y inline code spans (`U_{n+1}`, `q^n`, `(-1)^n`) into nicely
-// rendered super/subscripts. We only touch `^x` and `_x` patterns; everything
-// else inside the code stays as-is.
+// Convert math-y inline code spans (`U_{n+1}`, `q^n`, `(-1)^n`, `2^(n+1)`) into
+// nicely rendered super/subscripts. We handle `^x`, `^{x}` and `^(x)` (and the
+// `_` equivalents); everything else inside the code stays as-is.
 function prettifyInlineMath(text) {
   return String(text)
     .replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>')
+    .replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>')
     .replace(/\^([A-Za-z0-9+\-]+)/g, '<sup>$1</sup>')
     .replace(/_\{([^}]+)\}/g, '<sub>$1</sub>')
+    .replace(/_\(([^)]+)\)/g, '<sub>$1</sub>')
     .replace(/_([A-Za-z0-9+\-]+)/g, '<sub>$1</sub>');
 }
 
