@@ -359,6 +359,10 @@ function renderTemplate(ch, html, variant = 'full') {
     margin: 2mm 0 4mm 6mm;
     padding: 0;
     color: var(--text-muted);
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    orphans: 4;
+    widows: 4;
   }
   .doc-body li { margin-bottom: 1.2mm; }
   .doc-body li::marker { color: var(--c1); }
@@ -535,7 +539,7 @@ function renderTemplate(ch, html, variant = 'full') {
       </div>
       <div>
         <div class="cover-stat-label">Lecture</div>
-        <div class="cover-stat-value">~${ch.duration} min</div>
+        <div class="cover-stat-value">${isSynth ? '~5 min' : `~${ch.duration} min`}</div>
       </div>
       <div>
         <div class="cover-stat-label">Session</div>
@@ -544,7 +548,6 @@ function renderTemplate(ch, html, variant = 'full') {
     </div>
     <div class="cover-footer" style="margin-top:8mm">
       <span>arthurjeaugey.com / revisions-maths</span>
-      <span>${new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
     </div>
   </div>
 </section>
