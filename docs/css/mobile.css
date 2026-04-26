@@ -643,7 +643,7 @@
      Speed bumped up — at the smaller font/gap, the desktop 25s felt
      sluggish on a phone. */
   .marquee { padding: 16px 0; margin: 40px 0; }
-  .marquee-track { gap: 32px; animation-duration: 16s; }
+  .marquee-track { gap: 32px; animation-duration: 10s; }
   .marquee-track span { font-size: clamp(20px, 5vw, 32px); gap: 32px; }
 
   /* Daily banner: less padding, bigger CTA */
