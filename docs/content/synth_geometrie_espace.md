@@ -7,14 +7,14 @@
 
 ## ⚡ La check-list (8 types de questions)
 
-1. **(ABC) forme un plan** → §I.3
-2. **Longueurs · milieu** → §I.1-2
-3. **Représentation paramétrique d'une droite** → §II.1
-4. **Équation cartésienne d'un plan** → §II.2
-5. **(D) ⊥ (P) ; positions (D)/(P) et (P)/(P')** → §III
-6. **Intersection (D) ∩ (P)** → §IV.1
-7. **Projeté orthogonal d'un point sur un plan** → §IV.2
-8. **Aires, volumes** → §V
+1. **(ABC) forme un plan**
+2. **Longueurs et coordonnées d'un milieu**
+3. **Représentation paramétrique d'une droite**
+4. **Équation cartésienne d'un plan**
+5. **(D) orthogonale à (P) ; positions (D)/(P) et (P)/(P')**
+6. **Intersection (D) ∩ (P)**
+7. **Projeté orthogonal d'un point sur un plan** (« montrer que H est… » ou « déterminer les coordonnées de H »)
+8. **Aires et volumes**
 
 ---
 

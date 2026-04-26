@@ -673,7 +673,7 @@ Partie C — Aire (optionnelle, si intégrales au programme)
 
 ---
 
-## VIII. Anti-sèche : les "trucs de salope" du correcteur
+## VIII. Anti-sèche : les pièges classiques du correcteur
 
 1. **Continuité du point fixe oubliée** : si tu écris "donc $f(L) = L$" sans avoir mentionné que $f$ est continue, tu perds direct des points. C'est l'oubli n°1 sur les exos de suites.
 

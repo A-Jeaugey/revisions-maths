@@ -438,7 +438,7 @@ Partie B — Modèle continu via équation différentielle (BASCULE !)
 
 ---
 
-## VIII. Anti-sèche : les "trucs de salope" du correcteur
+## VIII. Anti-sèche : les pièges classiques du correcteur
 
 1. **Oubli du signe moins dans $-b/a$** : la solution particulière de $y' = ay + b$ est $-b/a$ et pas $b/a$. Erreur n°1.
 

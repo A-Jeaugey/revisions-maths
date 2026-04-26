@@ -9,14 +9,14 @@
 
 Les **8 types de questions** classiques, dans l'ordre où elles tombent presque toujours dans un exercice de géo dans l'espace :
 
-1. **(ABC) forme un plan** → §I.3
-2. **Calculer longueurs, coord d'un milieu** → §I.1-2
-3. **Représentation paramétrique de droite (A, $\vec{u}$)** → §II.1
-4. **Équation cartésienne de plan (A, $\vec{n}$)** → §II.2
-5. **Montrer que (D) orthogonale à (P), positions (D)/(P) et (P)/(P')** → §III
-6. **Intersection (D) et (P)** → §IV.1
-7. **Projeté orthogonal d'un point sur un plan** (2 variantes : "Mque" ou "Dét coord") → §IV.2
-8. **Aires, Volumes** → §V
+1. **[(ABC) forme un plan](#s-i-les-fondations-points-vecteurs)**
+2. **[Calculer longueurs, coordonnées d'un milieu](#s-i-les-fondations-points-vecteurs)**
+3. **[Représentation paramétrique de droite $(A, \vec{u})$](#s-ii-equations-de-droites-et-de-plans)**
+4. **[Équation cartésienne de plan $(A, \vec{n})$](#s-ii-equations-de-droites-et-de-plans)**
+5. **[Montrer que $(D)$ orthogonale à $(P)$, positions $(D)/(P)$ et $(P)/(P')$](#s-iii-positions-relatives-orthogonalite-la-zone-a-blinder)**
+6. **[Intersection $(D) \cap (P)$](#s-iv-intersections-projete-orthogonal-le-boss-final)**
+7. **[Projeté orthogonal d'un point sur un plan](#s-iv-intersections-projete-orthogonal-le-boss-final)** (2 variantes : « Montrer que H est… » ou « Déterminer les coordonnées de H »)
+8. **[Aires, volumes](#s-v-aires-et-volumes-les-points-faciles-de-fin-d-exo)**
 
 ⚡ **Réflexe stratégique :** quand tu vois un exercice de géo dans l'espace, scanne l'énoncé dans cet ordre. La question 7 (projeté) demande presque toujours d'utiliser les questions 3, 4 et 6 d'abord.
 
@@ -456,7 +456,7 @@ Tu lis l'énoncé. Quelle est la première chose à faire ?
 
 ---
 
-## IX. Anti-sèche : les "trucs de salope" du correcteur
+## IX. Anti-sèche : les pièges classiques du correcteur
 
 1. **Fractions partout :** au bac, ils mettent souvent des coords sales pour tester ta méthode, pas ton calcul. Garde les fractions, ne les arrondis pas.
 2. **Choix du paramètre :** quand tu cherches l'intersection de 2 plans, le choix du paramètre (`x = t` vs `z = t`) peut changer la simplicité des calculs. Si tu galères, change de paramètre.

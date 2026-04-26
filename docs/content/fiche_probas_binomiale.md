@@ -505,7 +505,7 @@ $$P_B(A) = \dfrac{P(A \cap B)}{P(B)}$$
 
 ---
 
-## VIII. Anti-sèche : les "trucs de salope" du correcteur
+## VIII. Anti-sèche : les pièges classiques du correcteur
 
 1. **"Au moins un" / "aucun"** : passer par l'événement contraire.
    - "Au moins un succès" sur n épreuves : $P(X \geq 1) = 1 - P(X = 0)$.

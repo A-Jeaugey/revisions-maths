@@ -542,7 +542,7 @@ Tu vois exp ou ln dans l'énoncé. Que faire ?
 
 ---
 
-## IX. Anti-sèche : les "trucs de salope" du correcteur
+## IX. Anti-sèche : les pièges classiques du correcteur
 
 1. **Confusion produit/somme :**
    - $e^{a+b} = e^a \times e^b$ (somme → produit)

@@ -390,7 +390,7 @@ On décompose par linéarité, puis on utilise les intégrales calculées dans l
 
 ---
 
-## VIII. Anti-sèche : les "trucs de salope" du correcteur
+## VIII. Anti-sèche : les pièges classiques du correcteur
 
 1. **Erreur d'intégration par parties** : oublier le crochet $[uv]_a^b$ ou se tromper de signe. La formule est $[uv]_a^b - \int uv'$ (avec un MOINS).
 
