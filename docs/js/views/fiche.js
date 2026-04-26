@@ -115,8 +115,23 @@ export async function renderFiche({ container, params }) {
         </button>
       </aside>
     </div>
+
+    <!-- Mobile FAB: opens TOC bottom-sheet drawer -->
+    <button class="fiche-fab" id="ficheFab" aria-label="Ouvrir le sommaire">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    </button>
+
+    <!-- Mobile bottom action bar: progress + mark done / copy / download -->
+    <div class="fiche-bottombar" id="ficheBottombar">
+      <button class="bb-btn ${User.isComplete(ch.slug) ? 'done' : ''}" id="bbMarkDone" aria-label="Marquer comme lu">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+      <div class="progress-mini"><div class="progress-mini-fill" id="bbProgFill"></div></div>
+      <button class="bb-btn dl" id="bbDownload" aria-label="Télécharger la fiche">PDF</button>
+    </div>
   `;
   container.appendChild(view);
+  document.body.classList.add('has-fiche-bar');
 
   // Load and render markdown
   try {
@@ -145,14 +160,20 @@ export async function renderFiche({ container, params }) {
     view.querySelector('#ficheBody').innerHTML = `<p style="color:var(--accent-1)">Erreur : ${err.message}</p>`;
   }
 
-  // Side actions
-  view.querySelector('#markDone')?.addEventListener('click', () => {
+  // Side actions (desktop sidebar + mobile bottom bar share the same handlers)
+  const toggleDone = () => {
     User.toggleComplete(ch.slug);
-    const btn = view.querySelector('#markDone');
-    btn.classList.toggle('done', User.isComplete(ch.slug));
-    btn.textContent = User.isComplete(ch.slug) ? '✓ Chapitre validé' : 'Marquer comme lu';
-    window.RM.toast(User.isComplete(ch.slug) ? 'Chapitre validé !' : 'Marque retirée', 'success');
-  });
+    const isDone = User.isComplete(ch.slug);
+    const desk = view.querySelector('#markDone');
+    if (desk) {
+      desk.classList.toggle('done', isDone);
+      desk.textContent = isDone ? '✓ Chapitre validé' : 'Marquer comme lu';
+    }
+    view.querySelector('#bbMarkDone')?.classList.toggle('done', isDone);
+    window.RM.toast(isDone ? 'Chapitre validé !' : 'Marque retirée', 'success');
+  };
+  view.querySelector('#markDone')?.addEventListener('click', toggleDone);
+  view.querySelector('#bbMarkDone')?.addEventListener('click', toggleDone);
 
   view.querySelector('#copyLink')?.addEventListener('click', () => {
     navigator.clipboard.writeText(location.href);
@@ -160,6 +181,15 @@ export async function renderFiche({ container, params }) {
   });
 
   view.querySelector('#printBtn')?.addEventListener('click', () => openDownloadChoice(ch));
+  view.querySelector('#bbDownload')?.addEventListener('click', () => openDownloadChoice(ch));
+
+  // Mobile FAB → TOC bottom-sheet drawer
+  view.querySelector('#ficheFab')?.addEventListener('click', () => openTocDrawer(view));
+
+  // Clean up the body class when the route changes away
+  window.addEventListener('routechange', () => {
+    document.body.classList.remove('has-fiche-bar');
+  }, { once: true });
 
   // Smooth scroll for anchor links inside TOC
   view.querySelectorAll('.toc-list a').forEach(a => {
@@ -205,11 +235,13 @@ function setupTocActive(tocList, body) {
 function setupProgress(view) {
   const fill = view.querySelector('#progFill');
   const pct = view.querySelector('#progPct');
+  const bbFill = view.querySelector('#bbProgFill');
   const update = () => {
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     const p = Math.min(100, Math.max(0, (window.scrollY / docH) * 100));
     if (fill) fill.style.width = p + '%';
     if (pct) pct.textContent = Math.round(p);
+    if (bbFill) bbFill.style.width = p + '%';
   };
   window.addEventListener('scroll', update, { passive: true });
   update();
@@ -229,6 +261,49 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+// Mobile TOC drawer — clones the desktop sommaire into a bottom sheet.
+function openTocDrawer(view) {
+  document.querySelectorAll('.toc-drawer').forEach(n => n.remove());
+
+  const tocList = view.querySelector('#tocList');
+  if (!tocList) return;
+
+  const drawer = document.createElement('div');
+  drawer.className = 'toc-drawer';
+  drawer.innerHTML = `
+    <div class="toc-drawer-backdrop"></div>
+    <div class="toc-drawer-sheet">
+      <div class="toc-drawer-handle"></div>
+      <div class="toc-drawer-head">
+        <h3>Sommaire</h3>
+        <button class="toc-drawer-close">Fermer</button>
+      </div>
+      <ul class="toc-drawer-list">${tocList.innerHTML}</ul>
+    </div>
+  `;
+  document.body.appendChild(drawer);
+  requestAnimationFrame(() => drawer.classList.add('open'));
+
+  const close = () => {
+    drawer.classList.remove('open');
+    setTimeout(() => drawer.remove(), 280);
+  };
+  drawer.querySelector('.toc-drawer-backdrop').addEventListener('click', close);
+  drawer.querySelector('.toc-drawer-close').addEventListener('click', close);
+  drawer.querySelectorAll('.toc-drawer-list a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      close();
+    });
+  });
+  document.addEventListener('keydown', function onEsc(e) {
+    if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onEsc); }
+  });
 }
 
 // PDFs are pre-built (scripts/build-pdfs.js) into docs/fiches-pdf/:

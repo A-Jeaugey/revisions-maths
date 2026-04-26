@@ -74,9 +74,45 @@ export async function renderReflexes({ container, params }) {
     showCard(0);
 
     const card = body.querySelector('#flashcard');
-    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    let suppressClick = false;
+    card.addEventListener('click', () => {
+      if (suppressClick) { suppressClick = false; return; }
+      card.classList.toggle('flipped');
+    });
     body.querySelector('#prevBtn').addEventListener('click', () => showCard(currentIdx - 1));
     body.querySelector('#nextBtn').addEventListener('click', () => showCard(currentIdx + 1));
+    attachSwipe(card, () => { suppressClick = true; });
+  }
+
+  // Touch swipe: horizontal drag > 60px advances/reverses, vertical drag is
+  // ignored so the user can still scroll the page. onSwiped() runs right
+  // before the synthetic 'click' fires so the parent can suppress the flip.
+  function attachSwipe(card, onSwiped) {
+    let startX = 0, startY = 0, dx = 0, dy = 0, swiping = false;
+    card.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      startX = t.clientX; startY = t.clientY; dx = 0; dy = 0; swiping = true;
+    }, { passive: true });
+    card.addEventListener('touchmove', (e) => {
+      if (!swiping) return;
+      const t = e.touches[0];
+      dx = t.clientX - startX;
+      dy = t.clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        card.style.transform = `translateX(${dx}px) rotate(${dx * 0.04}deg)`;
+        card.style.transition = 'none';
+      }
+    }, { passive: true });
+    card.addEventListener('touchend', () => {
+      swiping = false;
+      card.style.transform = '';
+      card.style.transition = '';
+      if (Math.abs(dx) > 10) onSwiped?.();
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) showCard(currentIdx + 1);
+        else showCard(currentIdx - 1);
+      }
+    });
   }
 
   function showCard(idx) {
