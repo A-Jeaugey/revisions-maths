@@ -69,27 +69,29 @@ export function renderMarkdown(md, container) {
   if (window.renderKatex) window.renderKatex(container);
 }
 
-// Slugify a heading text for IDs
+// Slugify a heading text for IDs.
+// Always prefix with "s-" so the id never starts with a digit (CSS query
+// selectors reject `#1-foo` style ids — they must be escaped, which is brittle).
 export function slugify(s) {
-  return String(s)
+  const base = String(s)
     .toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+  return 's-' + (base || 'section');
 }
 
 // Extract headings for TOC
 export function extractTOC(container) {
   const hs = container.querySelectorAll('h2, h3');
   const toc = [];
+  const seen = new Map();
   hs.forEach(h => {
     const text = h.textContent.trim();
     let id = slugify(text);
-    // ensure unique
-    let suf = 1;
-    while (container.querySelector(`#${id}`) && container.querySelector(`#${id}`) !== h) {
-      id = slugify(text) + '-' + (++suf);
-    }
+    const count = (seen.get(id) || 0) + 1;
+    seen.set(id, count);
+    if (count > 1) id = id + '-' + count;
     h.id = id;
     toc.push({
       level: h.tagName === 'H2' ? 2 : 3,

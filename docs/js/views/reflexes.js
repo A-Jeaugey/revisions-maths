@@ -2,6 +2,15 @@ import { Store } from '../store.js';
 import { loadReflexes } from '../content.js';
 import { footerHTML } from './home.js';
 
+// Render markdown inline (bold, italic, code) without wrapping in <p>.
+// Falls back to raw text if marked isn't loaded.
+function mdInline(s) {
+  if (window.marked && typeof marked.parseInline === 'function') {
+    return marked.parseInline(String(s));
+  }
+  return String(s);
+}
+
 export async function renderReflexes({ container, params }) {
   const meta = Store.get('meta');
   const data = await loadReflexes();
@@ -86,8 +95,8 @@ export async function renderReflexes({ container, params }) {
     const c = currentDeck.cards[idx];
     const card = body.querySelector('#flashcard');
     card.classList.remove('flipped');
-    body.querySelector('#trigText').innerHTML = c.trigger;
-    body.querySelector('#actText').innerHTML = c.action;
+    body.querySelector('#trigText').innerHTML = mdInline(c.trigger);
+    body.querySelector('#actText').innerHTML = mdInline(c.action);
     body.querySelector('#flashIdx').textContent = idx + 1;
     if (window.renderKatex) {
       window.renderKatex(body.querySelector('#trigText'));
@@ -100,8 +109,8 @@ export async function renderReflexes({ container, params }) {
       <div class="reflex-list">
         ${currentDeck.cards.map(c => `
           <div class="reflex-item">
-            <div class="reflex-trigger">${c.trigger}</div>
-            <div class="reflex-action">${c.action}</div>
+            <div class="reflex-trigger">${mdInline(c.trigger)}</div>
+            <div class="reflex-action">${mdInline(c.action)}</div>
           </div>
         `).join('')}
       </div>
