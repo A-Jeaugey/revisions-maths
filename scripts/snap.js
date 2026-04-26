@@ -69,7 +69,7 @@ for (const vp of VIEWPORTS) {
     // Snap the page in viewport-sized chunks by scrolling, so each PNG
     // stays sharp instead of being downscaled into illegibility.
     const totalH = await page.evaluate(() => document.documentElement.scrollHeight);
-    const chunks = Math.min(6, Math.ceil(totalH / vp.height));
+    const chunks = Math.min(10, Math.ceil(totalH / vp.height));
     let file = '';
     for (let i = 0; i < chunks; i++) {
       await page.evaluate((y) => window.scrollTo(0, y), i * vp.height);

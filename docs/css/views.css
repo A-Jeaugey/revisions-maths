@@ -396,7 +396,8 @@
 /* =================== REFLEXES VIEW =================== */
 
 .reflex-hero {
-  padding: 60px 0 40px;
+  padding-top: 60px;
+  padding-bottom: 40px;
   text-align: left;
 }
 
@@ -588,7 +589,8 @@
 /* =================== FORMULARY VIEW =================== */
 
 .formulary {
-  padding: 60px 0 120px;
+  padding-top: 60px;
+  padding-bottom: 120px;
 }
 
 .formulary-section {
@@ -854,7 +856,8 @@
 /* =================== CATALOGUE VIEW =================== */
 
 .catalogue-layout {
-  padding: 60px 0 120px;
+  padding-top: 60px;
+  padding-bottom: 120px;
 }
 
 .cat-filters {
@@ -941,7 +944,8 @@
 /* =================== ANNALES VIEW =================== */
 
 .annales-layout {
-  padding: 60px 0 120px;
+  padding-top: 60px;
+  padding-bottom: 120px;
 }
 
 .year-section {

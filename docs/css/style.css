@@ -427,7 +427,11 @@ h1, h2, h3, h4 {
 
 .hero {
   position: relative;
-  padding: clamp(60px, 12vh, 140px) 0 80px;
+  /* Vertical padding only — horizontal padding comes from .container so
+     that the shorthand here doesn't clobber it on phones (where it
+     glued the hero copy to the screen edge). */
+  padding-top: clamp(60px, 12vh, 140px);
+  padding-bottom: 80px;
 }
 
 .hero-top {
