@@ -103,11 +103,56 @@ function search(q) {
 }
 
 function extractSnippet(text, q, len) {
-  const idx = text.toLowerCase().indexOf(q.toLowerCase());
-  if (idx < 0) return text.slice(0, len) + (text.length > len ? '…' : '');
+  const cleaned = cleanMarkdown(text);
+  const idx = cleaned.toLowerCase().indexOf(q.toLowerCase());
+  if (idx < 0) return cleaned.slice(0, len) + (cleaned.length > len ? '…' : '');
   const start = Math.max(0, idx - 60);
-  const end = Math.min(text.length, idx + len - 60);
-  return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+  const end = Math.min(cleaned.length, idx + len - 60);
+  return (start > 0 ? '…' : '') + cleaned.slice(start, end) + (end < cleaned.length ? '…' : '');
+}
+
+// Strip markdown markers and common LaTeX commands so search snippets read
+// like prose. We don't try to render bold/italic in the dropdown — readability
+// matters more than fidelity for a 180-char preview.
+function cleanMarkdown(s) {
+  let t = String(s);
+  // Drop heading markers (### Title -> Title)
+  t = t.replace(/^#{1,6}\s+/gm, '');
+  // Bold/italic markers (greedy enough for short spans)
+  t = t.replace(/\*\*([^*]+)\*\*/g, '$1');
+  t = t.replace(/__([^_]+)__/g, '$1');
+  t = t.replace(/(^|[\s(])\*([^\s*][^*]*)\*/g, '$1$2');
+  t = t.replace(/(^|[\s(])_([^\s_][^_]*)_/g, '$1$2');
+  // Inline code (`...`)
+  t = t.replace(/`([^`]+)`/g, '$1');
+  // Math: drop $...$ and $$...$$ delimiters, then translate common commands.
+  t = t.replace(/\$\$([^$]+)\$\$/g, '$1');
+  t = t.replace(/\$([^$]+)\$/g, '$1');
+  t = t
+    .replace(/\\leq/g, '≤').replace(/\\geq/g, '≥')
+    .replace(/\\neq/g, '≠').replace(/\\approx/g, '≈')
+    .replace(/\\to/g, '→').replace(/\\Rightarrow/g, '⇒')
+    .replace(/\\Leftrightarrow/g, '⇔').replace(/\\iff/g, '⇔')
+    .replace(/\\infty/g, '∞').replace(/\\pm/g, '±')
+    .replace(/\\times/g, '×').replace(/\\cdot/g, '·')
+    .replace(/\\sqrt\{([^}]+)\}/g, '√($1)')
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1/$2')
+    .replace(/\\sum/g, 'Σ').replace(/\\int/g, '∫')
+    .replace(/\\ln/g, 'ln').replace(/\\log/g, 'log')
+    .replace(/\\sin/g, 'sin').replace(/\\cos/g, 'cos').replace(/\\tan/g, 'tan')
+    .replace(/\\mathbb\{N\}/g, 'ℕ').replace(/\\mathbb\{R\}/g, 'ℝ')
+    .replace(/\\mathbb\{Z\}/g, 'ℤ').replace(/\\mathbb\{Q\}/g, 'ℚ')
+    .replace(/\\vec\{([^}]+)\}/g, '$1⃗')
+    // Subscripts/superscripts: u_{n+1} -> u(n+1), x^2 -> x²
+    .replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\^n/g, 'ⁿ')
+    .replace(/_\{([^}]+)\}/g, '_$1')
+    .replace(/\^\{([^}]+)\}/g, '^$1')
+    // Drop any remaining backslash commands
+    .replace(/\\[a-zA-Z]+/g, '')
+    // Tidy braces and stray markdown leftovers
+    .replace(/[{}]/g, '')
+    .replace(/\s+/g, ' ');
+  return t.trim();
 }
 
 function highlight(text, q) {

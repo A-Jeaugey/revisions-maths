@@ -32,7 +32,8 @@ export async function renderAnnales({ container }) {
       </div>
       <h1 class="display" style="font-size:clamp(48px,9vw,140px);margin-bottom:24px">Annales.</h1>
       <p class="subtitle" style="margin-bottom:48px">
-        Tous les sujets et corrigés des sessions 2024 et 2025, classés par épreuve.
+        Tous les sujets et corrigés de spé maths, sessions 2024 et 2025
+        classés par centre et date.
         ${meta.annales.sessions2024.length + meta.annales.sessions2025.length} sessions au total.
       </p>
 
