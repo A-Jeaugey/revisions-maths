@@ -261,7 +261,7 @@
   .fiche-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) !important;
-    padding: 24px 22px 96px !important;
+    padding: 24px 24px 96px !important;
     gap: 16px;
   }
   .fiche-layout > article { min-width: 0; max-width: 100%; }
@@ -310,39 +310,18 @@
   }
   .md .katex-display { padding: 12px; font-size: 0.95em; }
 
-  /* Floating "outline" button — opens TOC drawer.
-     Anchored to the LEFT so it doesn't fight the bottombar PDF button
-     on the right. Sits just above the bottombar. */
-  .fiche-fab {
-    display: flex !important;
-    position: fixed;
-    bottom: 76px;
-    left: 16px;
-    z-index: 700;
-    width: 48px; height: 48px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-strong);
-    background: rgba(20, 20, 28, 0.9);
-    color: var(--text);
-    border-radius: 50%;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-  .fiche-fab svg { width: 18px; height: 18px; }
-
-  /* Sticky bottom action bar (mark read / progress / download PDF) */
+  /* Sticky bottom action bar (TOC / mark read / progress / download PDF).
+     All controls live HERE so nothing floats over the content. */
   .fiche-bottombar {
     display: grid !important;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     position: fixed;
     left: 12px; right: 12px;
     /* Honour iOS safe area */
     bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    padding: 6px 6px 6px 12px;
+    padding: 6px 8px 6px 8px;
     z-index: 700;
     background: rgba(15, 15, 22, 0.94);
     backdrop-filter: blur(14px) saturate(180%);
@@ -394,7 +373,7 @@
   }
 }
 /* Hide mobile-only fiche UI on desktop */
-.fiche-fab, .fiche-bottombar { display: none; }
+.fiche-bottombar { display: none; }
 
 /* ===== Mobile TOC drawer (bottom sheet) ===== */
 .toc-drawer {

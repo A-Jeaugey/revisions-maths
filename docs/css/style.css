@@ -355,11 +355,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 @media (max-width: 700px) {
-  .container { padding: 0 22px; }
+  .container { padding: 0 24px; }
   .topnav { padding: 0 18px; }
 }
 @media (max-width: 420px) {
-  .container { padding: 0 18px; }
+  .container { padding: 0 20px; }
 }
 
 /* =================== TYPOGRAPHY =================== */

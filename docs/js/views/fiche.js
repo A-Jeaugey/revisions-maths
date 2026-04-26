@@ -116,13 +116,13 @@ export async function renderFiche({ container, params }) {
       </aside>
     </div>
 
-    <!-- Mobile FAB: opens TOC bottom-sheet drawer -->
-    <button class="fiche-fab" id="ficheFab" aria-label="Ouvrir le sommaire">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-    </button>
-
-    <!-- Mobile bottom action bar: progress + mark done / copy / download -->
+    <!-- Mobile bottom action bar: TOC + mark done + progress + download.
+         Everything that would otherwise float over the content lives here,
+         so the page never has overlapping elements. -->
     <div class="fiche-bottombar" id="ficheBottombar">
+      <button class="bb-btn" id="bbToc" aria-label="Ouvrir le sommaire">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </button>
       <button class="bb-btn ${User.isComplete(ch.slug) ? 'done' : ''}" id="bbMarkDone" aria-label="Marquer comme lu">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
       </button>
@@ -183,8 +183,8 @@ export async function renderFiche({ container, params }) {
   view.querySelector('#printBtn')?.addEventListener('click', () => openDownloadChoice(ch));
   view.querySelector('#bbDownload')?.addEventListener('click', () => openDownloadChoice(ch));
 
-  // Mobile FAB → TOC bottom-sheet drawer
-  view.querySelector('#ficheFab')?.addEventListener('click', () => openTocDrawer(view));
+  // Mobile bottombar TOC button → bottom-sheet drawer
+  view.querySelector('#bbToc')?.addEventListener('click', () => openTocDrawer(view));
 
   // Clean up the body class when the route changes away
   window.addEventListener('routechange', () => {
