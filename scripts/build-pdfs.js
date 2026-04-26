@@ -58,6 +58,29 @@ function injectMath(html, blocks) {
   return html.replace(/@@MATHBLOCK(\d+)@@/g, (_, i) => blocks[+i] || '');
 }
 
+// Walk inline <code>...</code> spans (NOT inside <pre>) and turn `^x` / `_x`
+// patterns into <sup>/<sub>. Mirrors the same post-process used by the
+// website so PDFs and screen render identically.
+function prettifyInlineCodes(html) {
+  // Strip <pre>...</pre> blocks, transform inline <code>, then put <pre>s back.
+  const preBlocks = [];
+  html = html.replace(/<pre[\s\S]*?<\/pre>/g, m => {
+    preBlocks.push(m);
+    return `@@PREBLOCK${preBlocks.length - 1}@@`;
+  });
+  html = html.replace(/<code>([^<]*)<\/code>/g, (full, inner) => {
+    if (!/[\^_]/.test(inner)) return full;
+    const out = inner
+      .replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>')
+      .replace(/\^([A-Za-z0-9+\-]+)/g, '<sup>$1</sup>')
+      .replace(/_\{([^}]+)\}/g, '<sub>$1</sub>')
+      .replace(/_([A-Za-z0-9+\-]+)/g, '<sub>$1</sub>');
+    return `<code>${out}</code>`;
+  });
+  html = html.replace(/@@PREBLOCK(\d+)@@/g, (_, i) => preBlocks[+i]);
+  return html;
+}
+
 // Strip the leading H1 + blockquote subtitle so we don't duplicate them
 // (they're already in the cover page).
 function stripHead(md) {
@@ -384,6 +407,13 @@ function renderTemplate(ch, html) {
     color: var(--accent-1);
     border: 1px solid rgba(255,51,102,0.2);
   }
+  .doc-body code sup, .doc-body code sub {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+  }
+  .doc-body code sup { top: -0.5em; }
+  .doc-body code sub { bottom: -0.3em; }
 
   /* Code blocks */
   .doc-body pre {
@@ -527,6 +557,8 @@ async function buildOne(browser, ch) {
   let html = marked.parse(protectedMd);
   // 3) Splice the rendered math HTML back in.
   html = injectMath(html, blocks);
+  // 4) Pretty-print exponents/subscripts in inline <code> spans.
+  html = prettifyInlineCodes(html);
 
   const fullHtml = renderTemplate(ch, html);
 

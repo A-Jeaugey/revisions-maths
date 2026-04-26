@@ -57,6 +57,17 @@ export async function loadCatalogue() {
   return md;
 }
 
+// Convert math-y inline code spans (`U_{n+1}`, `q^n`, `(-1)^n`) into nicely
+// rendered super/subscripts. We only touch `^x` and `_x` patterns; everything
+// else inside the code stays as-is.
+function prettifyInlineMath(text) {
+  return String(text)
+    .replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>')
+    .replace(/\^([A-Za-z0-9+\-]+)/g, '<sup>$1</sup>')
+    .replace(/_\{([^}]+)\}/g, '<sub>$1</sub>')
+    .replace(/_([A-Za-z0-9+\-]+)/g, '<sub>$1</sub>');
+}
+
 // Render markdown to HTML with KaTeX rendered after
 export function renderMarkdown(md, container) {
   if (!window.marked) {
@@ -65,6 +76,16 @@ export function renderMarkdown(md, container) {
   }
   const html = marked.parse(md);
   container.innerHTML = html;
+
+  // Post-process inline <code> elements: turn `^n` / `_{n+1}` into proper
+  // <sup>/<sub>. We don't touch <code> inside <pre> (real code blocks).
+  container.querySelectorAll('code').forEach(el => {
+    if (el.closest('pre')) return;
+    const before = el.textContent;
+    if (!/[\^_]/.test(before)) return;
+    el.innerHTML = prettifyInlineMath(before);
+  });
+
   // Render LaTeX
   if (window.renderKatex) window.renderKatex(container);
 }

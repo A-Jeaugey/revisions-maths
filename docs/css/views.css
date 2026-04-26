@@ -290,6 +290,15 @@
   color: var(--accent-3);
 }
 
+.md code sup,
+.md code sub {
+  font-size: 0.78em;
+  line-height: 0;
+  position: relative;
+}
+.md code sup { top: -0.45em; }
+.md code sub { bottom: -0.3em; }
+
 .md pre {
   margin: 1.5em 0;
   padding: 20px 24px;
