@@ -87,8 +87,11 @@ function stripHead(md) {
   return md.replace(/^#\s+[^\n]+\n+(?:>\s+[^\n]+\n+)?(?:---\n+)?/, '');
 }
 
-function renderTemplate(ch, html) {
+function renderTemplate(ch, html, variant = 'full') {
   const num = String(META.chapters.findIndex(c => c.slug === ch.slug) + 1).padStart(2, '0');
+  const isSynth = variant === 'synth';
+  const badgeLabel = isSynth ? 'SYNTHÈSE · 2 PAGES' : 'FICHE COMPLÈTE';
+  const titleSuffix = isSynth ? '<span class="synth-tag">SYNTHÈSE</span>' : '';
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -245,6 +248,21 @@ function renderTemplate(ch, html) {
     border-radius: 99px;
     color: var(--text-muted);
     letter-spacing: 0.04em;
+  }
+
+  .synth-tag {
+    display: inline-block;
+    margin: -2mm 0 8mm;
+    padding: 2mm 5mm;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #0c0c12;
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    border-radius: 2mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .cover-stats {
@@ -494,7 +512,7 @@ function renderTemplate(ch, html) {
 <section class="cover">
   <div class="cover-top">
     <div class="cover-eyebrow">
-      <span><span class="num">CH.${num}</span> · FICHE DE COMBAT</span>
+      <span><span class="num">CH.${num}</span> · ${badgeLabel}</span>
       <span>BAC SPÉ MATHS · TERMINALE</span>
     </div>
   </div>
@@ -502,6 +520,7 @@ function renderTemplate(ch, html) {
   <div class="cover-mid">
     <div class="cover-icon">${ch.icon || '∫'}</div>
     <h1 class="cover-title">${ch.title}<span class="gradient">.</span></h1>
+    ${titleSuffix}
     <p class="cover-subtitle">${ch.subtitle}</p>
     <div class="cover-tags">
       ${(ch.tags || []).map(t => `<span class="cover-tag">#${t}</span>`).join('')}
@@ -544,10 +563,16 @@ function stripEmoji(s) {
   return String(s || '').replace(/[\u{1F300}-\u{1FAFF}]|[\u{2600}-\u{27BF}]/gu, '').trim();
 }
 
-async function buildOne(browser, ch) {
-  const mdPath = path.join(CONTENT, ch.file);
+async function buildOne(browser, ch, variant = 'full') {
+  // variant: 'full' (deep fiche, fiche_*.md) or 'synth' (1-2 pages, synth_*.md)
+  const fileName = variant === 'synth' ? ch.synthFile : ch.file;
+  if (!fileName) {
+    console.warn(`! No ${variant} source for ${ch.slug}`);
+    return;
+  }
+  const mdPath = path.join(CONTENT, fileName);
   if (!fs.existsSync(mdPath)) {
-    console.warn(`! Missing markdown for ${ch.slug}: ${mdPath}`);
+    console.warn(`! Missing markdown for ${ch.slug} (${variant}): ${mdPath}`);
     return;
   }
   const md = fs.readFileSync(mdPath, 'utf8');
@@ -560,7 +585,7 @@ async function buildOne(browser, ch) {
   // 4) Pretty-print exponents/subscripts in inline <code> spans.
   html = prettifyInlineCodes(html);
 
-  const fullHtml = renderTemplate(ch, html);
+  const fullHtml = renderTemplate(ch, html, variant);
 
   const page = await browser.newPage();
   await page.setContent(fullHtml, { waitUntil: 'load' });
@@ -568,7 +593,8 @@ async function buildOne(browser, ch) {
   await page.evaluate(() => document.fonts ? document.fonts.ready : Promise.resolve());
   await new Promise(r => setTimeout(r, 150));
 
-  const outPath = path.join(OUT, `${ch.slug}.pdf`);
+  const suffix = variant === 'synth' ? '-synth' : '';
+  const outPath = path.join(OUT, `${ch.slug}${suffix}.pdf`);
   await page.pdf({
     path: outPath,
     format: 'A4',
@@ -578,11 +604,17 @@ async function buildOne(browser, ch) {
   });
   await page.close();
   const size = fs.statSync(outPath).size;
-  console.log(`✓ ${ch.slug.padEnd(40)} ${(size/1024).toFixed(0)} KB`);
+  const label = `${ch.slug}${suffix}`;
+  console.log(`✓ ${label.padEnd(40)} ${(size/1024).toFixed(0)} KB`);
 }
 
 (async () => {
-  const filter = process.argv[2];
+  // Args: optional chapter slug, optional variant (full | synth | both, default both).
+  const args = process.argv.slice(2);
+  const filter = args.find(a => !['full','synth','both'].includes(a));
+  const variantArg = args.find(a => ['full','synth','both'].includes(a)) || 'both';
+  const variants = variantArg === 'both' ? ['full', 'synth'] : [variantArg];
+
   const chapters = filter
     ? META.chapters.filter(c => c.slug === filter)
     : META.chapters;
@@ -594,14 +626,17 @@ async function buildOne(browser, ch) {
 
   fs.mkdirSync(OUT, { recursive: true });
 
-  console.log(`Building ${chapters.length} fiche PDF(s) into ${path.relative(ROOT, OUT)}/`);
+  const total = chapters.length * variants.length;
+  console.log(`Building ${total} PDF(s) (${variants.join('+')}) into ${path.relative(ROOT, OUT)}/`);
   const browser = await puppeteer.launch({
     headless: 'new',
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   try {
     for (const ch of chapters) {
-      await buildOne(browser, ch);
+      for (const v of variants) {
+        await buildOne(browser, ch, v);
+      }
     }
   } finally {
     await browser.close();
