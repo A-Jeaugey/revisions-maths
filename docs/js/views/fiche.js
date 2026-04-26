@@ -171,7 +171,7 @@ export async function renderFiche({ container, params }) {
   // Smooth scroll for in-page anchor links inside the fiche body too
   // (the markdown can contain links like [§I.3](#s-i-les-fondations-...);
   // without intercepting them they'd replace the SPA hash and break routing).
-  view.querySelectorAll('.fiche-body a[href^="#"]').forEach(a => {
+  view.querySelectorAll('#ficheBody a[href^="#"]').forEach(a => {
     const href = a.getAttribute('href');
     if (!href || href === '#') return;
     a.addEventListener('click', (e) => {
