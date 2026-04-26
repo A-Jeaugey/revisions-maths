@@ -74,6 +74,14 @@ body {
   cursor: none;
 }
 
+/* Force every element to inherit `cursor: none` on desktop so the native
+   pointer/hand doesn't reappear on top of the custom cursor on clickable
+   elements (buttons, links, .qa-card, etc.). Mobile keeps the native
+   cursor since the custom one is hidden anyway. */
+@media (hover: hover) and (min-width: 901px) {
+  *, *::before, *::after { cursor: none !important; }
+}
+
 @media (max-width: 900px) {
   body { cursor: auto; }
   .cursor-dot, .cursor-ring { display: none; }
