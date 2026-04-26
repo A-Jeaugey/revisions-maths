@@ -1,5 +1,5 @@
 import { Store, User } from '../store.js';
-import { loadQuizQuestions } from '../content.js';
+import { loadQuizQuestions, mdInline } from '../content.js';
 
 export async function renderQuiz({ container, params }) {
   const meta = Store.get('meta');
@@ -81,12 +81,12 @@ export async function renderQuiz({ container, params }) {
         <span>${ch?.title || q.chapter}</span>
         <span>Question ${state.currentIdx + 1} / ${total}</span>
       </div>
-      <div class="quiz-q">${q.q}</div>
+      <div class="quiz-q">${mdInline(q.q)}</div>
       <div class="quiz-choices" id="choices">
         ${q.choices.map((c, i) => `
           <button class="quiz-choice" data-i="${i}">
             <span class="key">${String.fromCharCode(65 + i)}</span>
-            <span>${c}</span>
+            <span>${mdInline(c)}</span>
           </button>
         `).join('')}
       </div>
@@ -113,7 +113,7 @@ export async function renderQuiz({ container, params }) {
 
     const after = shell.querySelector('#afterArea');
     after.innerHTML = `
-      <div class="quiz-explain"><strong>${correct ? '✓ Bonne réponse' : '✕ Mauvaise réponse'}</strong> — ${q.explain}</div>
+      <div class="quiz-explain"><strong>${correct ? '✓ Bonne réponse' : '✕ Mauvaise réponse'}</strong> — ${mdInline(q.explain)}</div>
       <div class="quiz-controls">
         <button class="btn-pill" id="nextQ">${state.currentIdx === state.questions.length - 1 ? 'Voir le score' : 'Question suivante'} →</button>
       </div>

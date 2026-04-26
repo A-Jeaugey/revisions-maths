@@ -1,15 +1,6 @@
 import { Store } from '../store.js';
-import { loadReflexes } from '../content.js';
+import { loadReflexes, mdInline } from '../content.js';
 import { footerHTML } from './home.js';
-
-// Render markdown inline (bold, italic, code) without wrapping in <p>.
-// Falls back to raw text if marked isn't loaded.
-function mdInline(s) {
-  if (window.marked && typeof marked.parseInline === 'function') {
-    return marked.parseInline(String(s));
-  }
-  return String(s);
-}
 
 export async function renderReflexes({ container, params }) {
   const meta = Store.get('meta');

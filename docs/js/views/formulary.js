@@ -1,5 +1,5 @@
 import { Store } from '../store.js';
-import { loadFormulary } from '../content.js';
+import { loadFormulary, mdInline } from '../content.js';
 import { footerHTML } from './home.js';
 
 export async function renderFormulary({ container, params }) {
@@ -45,7 +45,7 @@ export async function renderFormulary({ container, params }) {
               <button class="formula-copy" data-tex="${escapeAttr(it.formula)}" title="Copier le LaTeX">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               </button>
-              <div class="formula-name">${it.name}</div>
+              <div class="formula-name">${mdInline(it.name)}</div>
               <div class="formula-body">$$${it.formula}$$</div>
             </div>
           `).join('')}

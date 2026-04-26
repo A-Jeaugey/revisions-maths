@@ -69,6 +69,31 @@ export function renderMarkdown(md, container) {
   if (window.renderKatex) window.renderKatex(container);
 }
 
+// Inline-render a short string: HTML-escape and parse as inline markdown
+// (bold, italic, code). KaTeX will handle the $...$ pieces afterwards because
+// the browser decodes &lt; back to '<' inside text nodes when KaTeX scans them.
+// Used for quiz questions, reflex cards, formula names — anywhere we inject
+// user content into innerHTML.
+export function mdInline(s) {
+  if (s == null) return '';
+  // Escape HTML first so user content like '$f(a)<k$' isn't parsed as broken
+  // tags by the browser. Then run inline markdown so **bold** still works.
+  // KaTeX reads from text nodes (which decode &lt; back to '<'), so the math
+  // round-trips intact.
+  const escaped = escapeHTML(String(s));
+  if (window.marked && typeof marked.parseInline === 'function') {
+    return marked.parseInline(escaped);
+  }
+  return escaped;
+}
+
+export function escapeHTML(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // Slugify a heading text for IDs.
 // Always prefix with "s-" so the id never starts with a digit (CSS query
 // selectors reject `#1-foo` style ids — they must be escaped, which is brittle).
