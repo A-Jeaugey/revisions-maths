@@ -117,6 +117,90 @@ export function escapeHTML(s) {
     .replace(/>/g, '&gt;');
 }
 
+// ---------------------------------------------------------------------------
+// linkifyCrossRefs(container, meta)
+// Walks the rendered fiche body and turns inline cross-references into real
+// anchor links. Two patterns are recognised:
+//   - In-fiche section refs: '§I.3', '§IV.2', '§V', '§I.1-2'
+//     -> linked to the H2 section starting with the same roman numeral.
+//   - Inter-fiche refs: 'cf. fiche suites', 'cf. fiche intégration', etc.
+//     -> linked to the corresponding fiche route '#/fiche/<slug>'.
+// Run AFTER extractTOC so H2/H3 already have their ids.
+// ---------------------------------------------------------------------------
+
+const CHAPTER_KEY_TO_SLUG = {
+  'suites': 'suites',
+  'géométrie': 'geometrie-espace',
+  'geometrie': 'geometrie-espace',
+  'probas': 'probas-binomiale',
+  'binomiale': 'probas-binomiale',
+  'exp': 'exp-ln',
+  'ln': 'exp-ln',
+  'exp/ln': 'exp-ln',
+  'exponentielle': 'exp-ln',
+  'logarithme': 'exp-ln',
+  'limites': 'limites-continuite',
+  'composée': 'limites-continuite',
+  'composee': 'limites-continuite',
+  'continuité': 'limites-continuite',
+  'convexité': 'limites-continuite',
+  'primitives': 'primitives-edo',
+  'edo': 'primitives-edo',
+  'différentielles': 'primitives-edo',
+  'intégration': 'integration',
+  'integration': 'integration',
+};
+
+export function linkifyCrossRefs(container) {
+  // 1) Build a "I" -> first-h2-with-that-roman-id map
+  const romanToId = {};
+  container.querySelectorAll('h2, h3').forEach(h => {
+    const m = h.textContent.trim().match(/^([IVX]+)\./);
+    if (m && !romanToId[m[1]] && h.id) romanToId[m[1]] = h.id;
+  });
+
+  // 2) Walk text nodes, replace § refs and cf-fiche refs.
+  // We don't touch text inside existing <a>, <code>, <pre>, or headings.
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+    acceptNode(n) {
+      if (!n.textContent || !n.textContent.match(/§|fiche/i)) return NodeFilter.FILTER_REJECT;
+      const p = n.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (p.closest('a, code, pre, h1, h2, h3, h4, h5, h6')) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  const targets = [];
+  while (walker.nextNode()) targets.push(walker.currentNode);
+
+  for (const node of targets) {
+    let html = escapeHTML(node.textContent);
+    let changed = false;
+
+    // §X / §X.Y / §X.Y-Z
+    html = html.replace(/§([IVX]+)(\.\d+(?:-\d+)?)?/g, (m, roman, sub) => {
+      const id = romanToId[roman];
+      if (!id) return m;
+      changed = true;
+      return `<a href="#${id}" class="xref">§${roman}${sub || ''}</a>`;
+    });
+
+    // 'cf. fiche XYZ' / 'voir fiche XYZ' (best-effort, single keyword)
+    html = html.replace(/\b(cf\.|voir)\s+fiche\s+([\wÀ-ÿ\/-]+)/gi, (m, prefix, name) => {
+      const slug = CHAPTER_KEY_TO_SLUG[name.toLowerCase()];
+      if (!slug) return m;
+      changed = true;
+      return `${prefix} <a href="#/fiche/${slug}" class="xref">fiche ${name}</a>`;
+    });
+
+    if (!changed) continue;
+    const wrap = document.createElement('span');
+    wrap.innerHTML = html;
+    while (wrap.firstChild) node.parentNode.insertBefore(wrap.firstChild, node);
+    node.parentNode.removeChild(node);
+  }
+}
+
 // Slugify a heading text for IDs.
 // Always prefix with "s-" so the id never starts with a digit (CSS query
 // selectors reject `#1-foo` style ids — they must be escaped, which is brittle).

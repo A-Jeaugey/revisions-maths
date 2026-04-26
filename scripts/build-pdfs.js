@@ -61,6 +61,59 @@ function injectMath(html, blocks) {
 // Walk inline <code>...</code> spans (NOT inside <pre>) and turn `^x` / `_x`
 // patterns into <sup>/<sub>. Mirrors the same post-process used by the
 // website so PDFs and screen render identically.
+// Mirrors docs/js/content.js slugify(): heading text -> stable id with 's-'
+// prefix so ids never start with a digit.
+function slugifyHeading(s) {
+  const base = String(s)
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return 's-' + (base || 'section');
+}
+
+// Add ids to h2/h3 elements in the rendered HTML, then linkify in-text
+// '§I.4' / '§IV' / '§V.7' refs to those ids. PDF readers honour internal
+// links so the user can click '§IV.2' in the PDF and jump to the section.
+// 'cf. fiche XYZ' refs are NOT linkified for PDFs (no way to reach another
+// PDF file from inside the current one).
+function linkifyCrossRefsHTML(html) {
+  // 1) Inject ids on every <h2>/<h3>. Text inside tags (e.g. <code>) is
+  //    stripped before slugifying; uniqueness uses a Map.
+  const seen = new Map();
+  html = html.replace(/<(h[23])>([\s\S]*?)<\/\1>/g, (_, tag, inner) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    let id = slugifyHeading(text);
+    const c = (seen.get(id) || 0) + 1;
+    seen.set(id, c);
+    if (c > 1) id = id + '-' + c;
+    return `<${tag} id="${id}">${inner}</${tag}>`;
+  });
+
+  // 2) Build roman -> id map from H2/H3 starting with 'I.', 'II.' ...
+  const romanToId = {};
+  const re = /<h[23] id="([^"]+)">([\s\S]*?)<\/h[23]>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const text = m[2].replace(/<[^>]+>/g, '').trim();
+    const rm = text.match(/^([IVX]+)\./);
+    if (rm && !romanToId[rm[1]]) romanToId[rm[1]] = m[1];
+  }
+
+  // 3) Replace §X.Y patterns ONLY in text segments (not inside tag attrs).
+  //    We tokenize on '<...>' so the regex never touches an attribute value.
+  const parts = html.split(/(<[^>]+>)/);
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i].startsWith('<')) continue;
+    parts[i] = parts[i].replace(/§([IVX]+)(\.\d+(?:-\d+)?)?/g, (full, roman, sub) => {
+      const id = romanToId[roman];
+      if (!id) return full;
+      return `<a href="#${id}" class="xref">§${roman}${sub || ''}</a>`;
+    });
+  }
+  return parts.join('');
+}
+
 function prettifyInlineCodes(html) {
   // Strip <pre>...</pre> blocks, transform inline <code>, then put <pre>s back.
   const preBlocks = [];
@@ -476,6 +529,19 @@ function renderTemplate(ch, html, variant = 'full') {
     text-decoration: none;
     border-bottom: 0.5pt dotted var(--accent-2);
   }
+  .doc-body a.xref {
+    display: inline-block;
+    padding: 0.2mm 1.5mm;
+    margin: 0 0.3mm;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    color: var(--accent-2);
+    background: rgba(0, 217, 255, 0.08);
+    border: 0.5pt solid rgba(0, 217, 255, 0.3);
+    border-bottom: 0.5pt solid rgba(0, 217, 255, 0.3);
+    border-radius: 1.5pt;
+    letter-spacing: 0.02em;
+  }
 
   /* KaTeX */
   .doc-body .katex {
@@ -589,6 +655,8 @@ async function buildOne(browser, ch, variant = 'full') {
   html = injectMath(html, blocks);
   // 4) Pretty-print exponents/subscripts in inline <code> spans.
   html = prettifyInlineCodes(html);
+  // 5) Add ids to h2/h3 and turn '§I.4' into anchor links inside the PDF.
+  html = linkifyCrossRefsHTML(html);
 
   const fullHtml = renderTemplate(ch, html, variant);
 

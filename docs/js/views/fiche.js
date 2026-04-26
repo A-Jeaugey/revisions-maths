@@ -1,5 +1,5 @@
 import { Store, User } from '../store.js';
-import { loadFiche, renderMarkdown, extractTOC } from '../content.js';
+import { loadFiche, renderMarkdown, extractTOC, linkifyCrossRefs } from '../content.js';
 import { footerHTML } from './home.js';
 
 export async function renderFicheList({ container }) {
@@ -126,12 +126,15 @@ export async function renderFiche({ container, params }) {
     const body = view.querySelector('#ficheBody');
     renderMarkdown(stripped, body);
 
-    // Build TOC
+    // Build TOC (also assigns ids to h2/h3 — required by linkifyCrossRefs)
     const toc = extractTOC(body);
     const tocList = view.querySelector('#tocList');
     tocList.innerHTML = toc.map(t => `
       <li><a href="#${t.id}" class="h${t.level}">${escapeHtml(t.text)}</a></li>
     `).join('');
+
+    // Convert in-text §I.4 / 'cf. fiche suites' refs into real links
+    linkifyCrossRefs(body);
 
     // Active heading observer
     setupTocActive(tocList, body);
