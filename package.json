@@ -1,0 +1,20 @@
+{
+  "name": "revisions-maths",
+  "version": "1.0.0",
+  "description": "Site de révisions Bac Spé Maths — fiches, réflexes, formulaire, quiz, annales 2024-2025.",
+  "private": true,
+  "scripts": {
+    "build:pdfs": "node scripts/build-pdfs.js",
+    "build:pdf": "node scripts/build-pdfs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/A-Jeaugey/revisions-maths"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "katex": "^0.16.45",
+    "marked": "^18.0.2",
+    "puppeteer": "^24.42.0"
+  }
+}

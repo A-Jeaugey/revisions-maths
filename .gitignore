@@ -1,3 +1,5 @@
 bac_maths/
 .DS_Store
 node_modules/
+package-lock.json
+.cache/
