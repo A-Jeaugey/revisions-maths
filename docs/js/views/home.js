@@ -94,6 +94,13 @@ export async function renderHome({ container }) {
         ${meta.chapters.map((ch, i) => chapterCard(ch, i)).join('')}
       </div>
 
+      <p class="freq-disclaimer">
+        Pourcentages calculés sur les <strong>36 sujets tombés depuis la réforme 2024</strong>
+        (sessions 2024 + 2025).
+        ⚠️ <strong>Tout</strong> peut tomber au bac : <strong>0 impasse à faire</strong>.
+        Les % donnent juste l'ordre des priorités si tu manques de temps.
+      </p>
+
       <div class="daily-banner">
         <div>
           <div class="daily-eyebrow">★ Mission du jour</div>
