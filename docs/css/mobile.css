@@ -135,32 +135,128 @@
     /* Solid layered background so the glowing footer brand and bg blobs
        behind don't bleed through. */
     background:
+      radial-gradient(120% 60% at 50% 0%, rgba(255,51,102,0.08), transparent 60%),
       linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%),
       var(--bg);
-    padding: 24px 24px 80px;
+    padding: 18px 16px calc(40px + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--border);
     border-bottom: 0;
     overflow-y: auto;
-    gap: 8px;
-    animation: navDrawerIn 0.22s cubic-bezier(.22,1,.36,1);
+    gap: 10px;
+    animation: navDrawerIn 0.32s cubic-bezier(.22,1,.36,1);
   }
+
+  /* Drawer items: number badge on the left, label + description in the
+     middle, arrow on the right. Override desktop padding/font wholesale. */
   .nav-links.open a {
-    padding: 18px 16px;
-    font-size: 18px;
-    font-family: var(--font-display);
-    font-weight: 600;
-    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding: 18px 52px 18px 60px;
+    border-radius: 14px;
     border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    transition: border-color 0.18s, background 0.18s, transform 0.18s;
+    /* Stagger entry — see per-child --i below */
+    opacity: 0;
+    transform: translateY(8px);
+    animation: navItemIn 0.42s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay: calc(0.04s + var(--i, 0) * 0.045s);
+  }
+  .nav-links.open a:nth-child(1) { --i: 0; }
+  .nav-links.open a:nth-child(2) { --i: 1; }
+  .nav-links.open a:nth-child(3) { --i: 2; }
+  .nav-links.open a:nth-child(4) { --i: 3; }
+  .nav-links.open a:nth-child(5) { --i: 4; }
+  .nav-links.open a:nth-child(6) { --i: 5; }
+  .nav-links.open a:nth-child(7) { --i: 6; }
+
+  .nav-links.open a > span { display: block; }
+  .nav-links.open a small {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0;
+    color: var(--text-muted);
+  }
+  /* Number badge */
+  .nav-links.open a::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.14em;
+  }
+  /* Arrow */
+  .nav-links.open a::after {
+    content: '→';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: transform 0.18s, color 0.18s;
+  }
+  .nav-links.open a:active {
+    transform: scale(0.985);
+    background: rgba(255,255,255,0.05);
   }
   .nav-links.open a.active {
     border-color: var(--accent-1);
-    background: rgba(255,51,102,0.05);
+    background:
+      linear-gradient(135deg, rgba(255,51,102,0.12), rgba(255,51,102,0.02));
   }
-  .nav-links.open a.active::after { display: none; }
+  .nav-links.open a.active::before { color: var(--accent-1); }
+  .nav-links.open a.active::after {
+    color: var(--accent-1);
+    transform: translateY(-50%) translateX(2px);
+  }
+
+  /* Hamburger → X morph when the drawer is open */
+  .menu-btn.open {
+    color: var(--text);
+    border-color: var(--border-strong);
+    background: var(--bg-card);
+  }
+  .menu-btn.open .hamburger .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-btn.open .hamburger .bar:nth-child(2) {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  .menu-btn.open .hamburger .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
 }
 @keyframes navDrawerIn {
-  from { opacity: 0; transform: translateY(-12px); }
+  from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes navItemIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1100px) and (prefers-reduced-motion: reduce) {
+  .nav-links.open,
+  .nav-links.open a { animation: none; opacity: 1; transform: none; }
+  .menu-btn .hamburger .bar { transition: none; }
 }
 
 /* ===== Hero ===== */

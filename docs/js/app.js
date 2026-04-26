@@ -67,8 +67,21 @@ async function bootstrap() {
     updateActiveNav();
 
     // Mobile menu toggle
-    document.getElementById('menuBtn')?.addEventListener('click', () => {
-      document.querySelector('.nav-links')?.classList.toggle('open');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    const closeMenu = () => {
+      navLinks?.classList.remove('open');
+      menuBtn?.classList.remove('open');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    };
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = navLinks?.classList.toggle('open');
+      menuBtn.classList.toggle('open', !!isOpen);
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navLinks?.classList.contains('open')) closeMenu();
     });
 
   } catch (err) {
