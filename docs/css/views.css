@@ -176,6 +176,17 @@
 
 .side-action:hover { border-color: var(--border-strong); color: var(--text); }
 .side-action.done { border-color: var(--accent-3); color: var(--accent-3); background: rgba(200,255,0,0.08); }
+.side-action.accent-action {
+  background: linear-gradient(135deg, rgba(255,51,102,0.10), rgba(0,217,255,0.10));
+  border-color: rgba(255,51,102,0.35);
+  color: var(--text);
+  font-weight: 500;
+}
+.side-action.accent-action:hover {
+  background: linear-gradient(135deg, rgba(255,51,102,0.18), rgba(0,217,255,0.18));
+  border-color: var(--accent-1);
+  transform: translateY(-1px);
+}
 
 /* =================== MARKDOWN CONTENT (rendered) =================== */
 

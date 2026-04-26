@@ -4,25 +4,11 @@ export function initCursor() {
   const ring = document.querySelector('.cursor-ring');
   if (!dot || !ring) return;
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX = mouseX;
-  let ringY = mouseY;
-
   document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+    const t = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+    dot.style.transform = t;
+    ring.style.transform = t;
   });
-
-  // Ring lerp
-  const tick = () => {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
-    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
-    requestAnimationFrame(tick);
-  };
-  tick();
 
   // Hover state on interactive elements
   document.addEventListener('mouseover', (e) => {

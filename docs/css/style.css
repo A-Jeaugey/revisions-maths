@@ -165,7 +165,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   pointer-events: none;
   z-index: 10000;
   border-radius: 50%;
-  transition: transform 0.1s ease;
 }
 
 .cursor-dot {
@@ -178,7 +177,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 36px; height: 36px;
   border: 1.5px solid var(--accent-2);
   transform: translate(-50%,-50%);
-  transition: transform 0.18s ease, width 0.2s, height 0.2s, border-color 0.2s;
+  transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .cursor-ring.hover {

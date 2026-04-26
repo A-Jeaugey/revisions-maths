@@ -5,10 +5,12 @@ export async function renderHome({ container }) {
   const view = document.createElement('div');
   view.className = 'view';
 
-  // Compute days until exam (placeholder: configurable)
-  const examDate = new Date('2026-06-15'); // Approximate Bac
+  // Countdown to the Bac de Spé Maths (Métropole J1 — typically mid-June).
+  // Update this date in meta.json or here when the official date is known.
+  const examDate = new Date(meta.examDate || '2026-06-17');
   const today = new Date();
   const daysLeft = Math.max(0, Math.ceil((examDate - today) / (1000*60*60*24)));
+  const examLabel = meta.examLabel || 'Bac Spé Maths';
 
   const totalChapters = meta.chapters.length;
   const completedCount = meta.chapters.filter(c => User.isComplete(c.slug)).length;
@@ -19,8 +21,8 @@ export async function renderHome({ container }) {
     <section class="hero container">
       <div class="hero-top">
         <div class="hero-meta">
-          <span class="eyebrow"><span class="dot"></span> Session 2026 · Bac blanc</span>
-          <span class="eyebrow">${daysLeft} jours · épreuve</span>
+          <span class="eyebrow"><span class="dot"></span> Session 2026 · ${examLabel}</span>
+          <span class="eyebrow" title="Jours restants avant l'épreuve de spécialité">J−${daysLeft} avant l'épreuve</span>
         </div>
         <div class="hero-meta">
           <span class="eyebrow">${totalChapters} chapitres</span>
@@ -203,7 +205,7 @@ function chapterCard(ch, i) {
         </div>
       </div>
       <div class="chapter-meta">
-        <span>${ch.frequency} · ${ch.duration} min</span>
+        <span title="Fréquence d'apparition au bac (analyse 36 sujets 2024-2025) · Durée de lecture estimée">${ch.frequency} au bac · ~${ch.duration} min</span>
         <span class="chapter-arrow">Lire <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </a>

@@ -109,9 +109,9 @@ export async function renderFiche({ container, params }) {
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
           Copier le lien
         </button>
-        <button class="side-action" id="printBtn">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Imprimer
+        <button class="side-action accent-action" id="printBtn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger la fiche
         </button>
       </aside>
     </div>
@@ -156,7 +156,7 @@ export async function renderFiche({ container, params }) {
     window.RM.toast('Lien copié', 'success');
   });
 
-  view.querySelector('#printBtn')?.addEventListener('click', () => window.print());
+  view.querySelector('#printBtn')?.addEventListener('click', () => downloadFiche(ch));
 
   // Smooth scroll for anchor links inside TOC
   view.querySelectorAll('.toc-list a').forEach(a => {
@@ -212,4 +212,61 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+// Trigger the browser's "Save as PDF" via window.print() with a print-only
+// document body that replaces everything with a clean fiche layout. The print
+// stylesheet (print.css) styles the .print-doc element. The user picks
+// "Save as PDF" in the print dialog to download.
+function downloadFiche(ch) {
+  const body = document.querySelector('.fiche-body')?.cloneNode(true);
+  if (!body) {
+    window.print();
+    return;
+  }
+
+  // Remove any KaTeX-rendered <annotation> nodes that double the math text
+  body.querySelectorAll('.katex-mathml').forEach(n => n.remove());
+
+  const doc = document.createElement('div');
+  doc.className = 'print-doc';
+  doc.innerHTML = `
+    <header class="print-header" style="--c1:${ch.color};--c2:${ch.color2}">
+      <div class="print-eyebrow">FICHE DE COMBAT · BAC SPÉ MATHS</div>
+      <h1 class="print-title">${escapeHtml(ch.title)}</h1>
+      <div class="print-subtitle">${escapeHtml(ch.subtitle)}</div>
+      <div class="print-meta">
+        <span>${escapeHtml(ch.frequency)} au bac</span>
+        <span>·</span>
+        <span>~${ch.duration} min de lecture</span>
+        <span>·</span>
+        <span>arthurjeaugey.com/revisions-maths</span>
+      </div>
+    </header>
+    <div class="print-body"></div>
+    <footer class="print-footer">
+      <span>${escapeHtml(ch.title)}</span>
+      <span>arthurjeaugey.com/revisions-maths</span>
+    </footer>
+  `;
+  doc.querySelector('.print-body').appendChild(body);
+  document.body.appendChild(doc);
+  document.body.classList.add('printing');
+
+  // Set the document title — most browsers use this for the default PDF filename
+  const prevTitle = document.title;
+  document.title = `Fiche-${ch.slug}-bac-maths`;
+
+  window.RM?.toast?.("Astuce : choisis « Enregistrer au format PDF » dans la boîte d'impression", 'info');
+
+  const after = () => {
+    document.body.classList.remove('printing');
+    doc.remove();
+    document.title = prevTitle;
+    window.removeEventListener('afterprint', after);
+  };
+  window.addEventListener('afterprint', after);
+
+  // Give the browser a tick to apply the .printing class before opening dialog
+  setTimeout(() => window.print(), 50);
 }
