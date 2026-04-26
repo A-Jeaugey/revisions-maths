@@ -639,9 +639,11 @@
   .display:not(.hero-display) { font-size: clamp(40px, 12vw, 90px); line-height: 1; }
   .display:not(.hero-display) .it { font-size: 1em; }
 
-  /* Marquee: smaller text + tighter padding so it doesn't dominate */
+  /* Marquee: smaller text + tighter padding so it doesn't dominate.
+     Speed bumped up — at the smaller font/gap, the desktop 25s felt
+     sluggish on a phone. */
   .marquee { padding: 16px 0; margin: 40px 0; }
-  .marquee-track { gap: 32px; }
+  .marquee-track { gap: 32px; animation-duration: 16s; }
   .marquee-track span { font-size: clamp(20px, 5vw, 32px); gap: 32px; }
 
   /* Daily banner: less padding, bigger CTA */

@@ -508,7 +508,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 60px;
   white-space: nowrap;
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 25s linear infinite;
 }
 
 .marquee-track span {
