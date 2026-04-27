@@ -72,13 +72,37 @@ function prettifyInlineMath(text) {
     .replace(/_([A-Za-z0-9+\-]+)/g, '<sub>$1</sub>');
 }
 
+// Pull math spans out of the markdown before marked sees them, so that
+// inline emphasis (`*`, `_`) can't hijack characters inside `$$...$$` /
+// `$...$`. Each protected block is replaced by a sentinel which we splice
+// back in after rendering. Mirrors the PDF build pipeline.
+function protectMath(md) {
+  const blocks = [];
+  // $$...$$ display math (allowed to span lines)
+  md = md.replace(/\$\$([\s\S]+?)\$\$/g, (full) => {
+    blocks.push(full);
+    return `@@RM_MATH_${blocks.length - 1}@@`;
+  });
+  // $...$ inline math (single line, escapes preserved)
+  md = md.replace(/\$((?:[^$\n\\]|\\.)+)\$/g, (full) => {
+    blocks.push(full);
+    return `@@RM_MATH_${blocks.length - 1}@@`;
+  });
+  return { md, blocks };
+}
+
+function restoreMath(html, blocks) {
+  return html.replace(/@@RM_MATH_(\d+)@@/g, (_, i) => blocks[+i] || '');
+}
+
 // Render markdown to HTML with KaTeX rendered after
 export function renderMarkdown(md, container) {
   if (!window.marked) {
     container.textContent = md;
     return;
   }
-  const html = marked.parse(md);
+  const { md: protectedMd, blocks } = protectMath(md);
+  const html = restoreMath(marked.parse(protectedMd), blocks);
   container.innerHTML = html;
 
   // Post-process inline <code> elements: turn `^n` / `_{n+1}` into proper
