@@ -43,6 +43,7 @@ function renderMermaid(container) {
         mermaid.render(id, src).then(({ svg }) => {
           wrap.innerHTML = svg;
           wrap.dataset.rendered = '1';
+          attachMermaidZoom(wrap);
         }).catch(err => {
           wrap.innerHTML = `<pre class="visual-error">Erreur Mermaid : ${escapeHTML(err.message)}\n\n${escapeHTML(src)}</pre>`;
         });
@@ -53,6 +54,166 @@ function renderMermaid(container) {
   }).catch(err => {
     console.warn('Failed to load Mermaid', err);
   });
+}
+
+function attachMermaidZoom(wrap) {
+  const svg = wrap.querySelector('svg');
+  if (!svg) return;
+  const hint = document.createElement('button');
+  hint.className = 'visual-zoom-hint';
+  hint.type = 'button';
+  hint.setAttribute('aria-label', 'Agrandir le schéma');
+  hint.innerHTML = `
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/>
+    </svg>
+    <span>Agrandir</span>`;
+  wrap.appendChild(hint);
+  const open = (e) => { e.stopPropagation(); openZoomModal(wrap); };
+  hint.addEventListener('click', open);
+  wrap.addEventListener('click', (e) => {
+    if (e.target.closest('.visual-zoom-hint')) return;
+    openZoomModal(wrap);
+  });
+}
+
+function openZoomModal(source) {
+  const svg = source.querySelector('svg');
+  if (!svg) return;
+  document.querySelectorAll('.visual-zoom-modal').forEach(n => n.remove());
+
+  const modal = document.createElement('div');
+  modal.className = 'visual-zoom-modal';
+  modal.innerHTML = `
+    <div class="visual-zoom-backdrop"></div>
+    <div class="visual-zoom-stage">
+      <button class="visual-zoom-close" aria-label="Fermer">✕</button>
+      <div class="visual-zoom-canvas"></div>
+      <div class="visual-zoom-controls">
+        <button data-z="out" aria-label="Dézoomer">−</button>
+        <button data-z="reset">Reset</button>
+        <button data-z="in" aria-label="Zoomer">+</button>
+        <span class="visual-zoom-tip">Molette = zoom · Drag = pan · Pinch sur mobile</span>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const canvas = modal.querySelector('.visual-zoom-canvas');
+  const cloned = svg.cloneNode(true);
+  cloned.style.maxWidth = 'none';
+  cloned.removeAttribute('width');
+  cloned.removeAttribute('height');
+  canvas.appendChild(cloned);
+
+  let scale = 1, tx = 0, ty = 0;
+  const apply = () => {
+    cloned.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  };
+
+  // Wait one frame so canvas has its size before we fit the diagram into it.
+  requestAnimationFrame(() => {
+    modal.classList.add('open');
+    const cw = canvas.clientWidth;
+    const ch = canvas.clientHeight;
+    const sw = cloned.getBoundingClientRect().width / scale;
+    const sh = cloned.getBoundingClientRect().height / scale;
+    if (sw && sh) {
+      scale = Math.min((cw - 40) / sw, (ch - 80) / sh, 4);
+      if (!Number.isFinite(scale) || scale <= 0) scale = 1;
+    }
+    apply();
+  });
+
+  const zoomAt = (factor, cx, cy) => {
+    const rect = canvas.getBoundingClientRect();
+    const px = (cx ?? rect.left + rect.width / 2) - rect.left - rect.width / 2 - tx;
+    const py = (cy ?? rect.top + rect.height / 2) - rect.top - rect.height / 2 - ty;
+    const next = Math.max(0.2, Math.min(12, scale * factor));
+    const k = next / scale;
+    tx -= px * (k - 1);
+    ty -= py * (k - 1);
+    scale = next;
+    apply();
+  };
+
+  canvas.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    zoomAt(Math.exp(-e.deltaY * 0.0015), e.clientX, e.clientY);
+  }, { passive: false });
+
+  let dragging = false, sx = 0, sy = 0;
+  const onDown = (cx, cy) => {
+    dragging = true;
+    sx = cx - tx;
+    sy = cy - ty;
+    canvas.classList.add('dragging');
+  };
+  const onMove = (cx, cy) => {
+    if (!dragging) return;
+    tx = cx - sx;
+    ty = cy - sy;
+    apply();
+  };
+  const onUp = () => {
+    dragging = false;
+    canvas.classList.remove('dragging');
+  };
+  canvas.addEventListener('mousedown', e => onDown(e.clientX, e.clientY));
+  window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+  window.addEventListener('mouseup', onUp);
+
+  let pinch = null;
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      const [a, b] = e.touches;
+      pinch = {
+        d: Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY),
+        s: scale,
+        cx: (a.clientX + b.clientX) / 2,
+        cy: (a.clientY + b.clientY) / 2,
+      };
+    } else if (e.touches.length === 1) {
+      onDown(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+  canvas.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2 && pinch) {
+      e.preventDefault();
+      const [a, b] = e.touches;
+      const d = Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+      const factor = (d / pinch.d) * pinch.s / scale;
+      zoomAt(factor, pinch.cx, pinch.cy);
+    } else if (e.touches.length === 1 && dragging) {
+      e.preventDefault();
+      onMove(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: false });
+  canvas.addEventListener('touchend', () => { pinch = null; onUp(); });
+
+  modal.querySelector('[data-z="in"]').addEventListener('click', () => zoomAt(1.3));
+  modal.querySelector('[data-z="out"]').addEventListener('click', () => zoomAt(1 / 1.3));
+  modal.querySelector('[data-z="reset"]').addEventListener('click', () => {
+    scale = 1; tx = 0; ty = 0;
+    requestAnimationFrame(() => {
+      const cw = canvas.clientWidth, ch = canvas.clientHeight;
+      const sw = cloned.getBoundingClientRect().width / scale;
+      const sh = cloned.getBoundingClientRect().height / scale;
+      if (sw && sh) scale = Math.min((cw - 40) / sw, (ch - 80) / sh, 4);
+      apply();
+    });
+  });
+
+  const close = () => {
+    modal.classList.remove('open');
+    setTimeout(() => modal.remove(), 200);
+    document.removeEventListener('keydown', onKey);
+    window.removeEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+    window.removeEventListener('mouseup', onUp);
+  };
+  const onKey = (e) => { if (e.key === 'Escape') close(); };
+  document.addEventListener('keydown', onKey);
+  modal.querySelector('.visual-zoom-close').addEventListener('click', close);
+  modal.querySelector('.visual-zoom-backdrop').addEventListener('click', close);
 }
 
 function loadMermaid() {
