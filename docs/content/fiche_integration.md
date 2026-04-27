@@ -37,6 +37,24 @@ $$\int_a^b f(t)\,dt = \int_a^b f(x)\,dx = \int_a^b f(u)\,du$$
 
 🎯 **Conséquence visuelle** : pour une fonction positive, l'intégrale donne l'aire géométrique. Quand $f$ peut être négative, l'aire géométrique vaut $\int_a^b |f(t)|\,dt$ (à découper selon le signe de $f$).
 
+```plot
+{
+  "title": "Aire sous la courbe : ∫₀³ (-x² + 4x + 1) dx",
+  "fns": [
+    { "fn": "-x^2 + 4*x + 1", "color": "#00d9ff", "range": [0, 3], "closed": true }
+  ],
+  "xDomain": [-0.5, 4.5],
+  "yDomain": [-1, 6],
+  "annotations": [
+    { "x": 0, "text": "a = 0" },
+    { "x": 3, "text": "b = 3" }
+  ],
+  "height": 320
+}
+```
+
+> **Glisse la souris sur la courbe** : tu lis $f(x)$ en chaque point. Le domaine bleu sous la courbe est l'aire qu'on calcule.
+
 ### 2. Théorème fondamental (LE théorème central)
 
 🎯 **À CONNAÎTRE** : soit $f$ une fonction continue positive sur $[a\,;\,b]$. La fonction $F$ définie sur $[a\,;\,b]$ par :
@@ -141,6 +159,21 @@ $$\boxed{\mathcal{A} = \int_a^b [g(x) - f(x)]\,dx}$$
 
 🎯 **Réflexe bac** : "courbe du haut moins courbe du bas". Toujours.
 
+```plot
+{
+  "title": "Aire entre deux courbes : g(x) = -x² + 4 et f(x) = x²/2",
+  "fns": [
+    { "fn": "-x^2 + 4", "color": "#ff3366" },
+    { "fn": "x^2/2", "color": "#00d9ff" }
+  ],
+  "xDomain": [-2.5, 2.5],
+  "yDomain": [-1, 5],
+  "height": 340
+}
+```
+
+> Les deux courbes se croisent quand $-x^2 + 4 = \dfrac{x^2}{2}$, soit $x = \pm\sqrt{8/3}$. L'aire entre les deux vaut $\displaystyle\int_{-\sqrt{8/3}}^{\sqrt{8/3}} \left[(-x^2 + 4) - \dfrac{x^2}{2}\right] dx$.
+
 ### 3. Valeur moyenne d'une fonction
 
 **Définition** : la **valeur moyenne** de $f$ sur $[a\,;\,b]$ (avec $a \leq b$) est :
@@ -217,34 +250,42 @@ $$= \dfrac{e^2}{2} - \dfrac{1}{2}\left[\dfrac{1}{2}x^2\right]_1^e = \dfrac{e^2}{
 
 ## V. Diagramme de décision
 
-```
-Tu lis l'énoncé. Quel type de problème ?
-│
-├── "Calculer ∫_a^b f(t) dt" ?
-│       ├── f a une primitive immédiate → F(b) - F(a) directement
-│       ├── f = somme → linéarité, calculer chaque terme
-│       ├── f a une forme remarquable → primitive via §II.2 fiche primitives
-│       └── f est un produit (x·e^x, ln x, etc.) → IPP
-│
-├── "Aire sous la courbe (f positive)" ?
-│       └── ∫_a^b f(t) dt
-│
-├── "Aire entre C_f et C_g" ?
-│       ├── Identifier laquelle est au-dessus (g)
-│       ├── ∫_a^b [g(x) - f(x)] dx
-│       └── Si l'ordre s'inverse → découper avec Chasles
-│
-├── "Décomposer en plusieurs intégrales" ?
-│       └── Relation de Chasles : ∫_a^b = ∫_a^c + ∫_c^b
-│
-├── "Valeur moyenne de f sur [a, b]" ?
-│       └── μ = (1/(b-a)) ∫_a^b f(t) dt
-│
-├── "Comparer deux intégrales / montrer ≥ 0" ?
-│       └── Positivité / croissance de l'intégrale (§III.1)
-│
-└── "Produit dans l'intégrale (x e^x, x ln x, etc.)" ?
-        └── IPP : choisir u' simple à primitiver, v' simple en dérivant
+```mermaid
+flowchart TD
+  Q[Tu lis l'énoncé.<br/>Quel type de problème ?]
+  Q --> A1["« Calculer ∫ₐᵇ f(t) dt »"]
+  Q --> A2["« Aire sous courbe »<br/>(f ≥ 0)"]
+  Q --> A3["« Aire entre 𝒞_f et 𝒞_g »"]
+  Q --> A4["« Décomposer en plusieurs ∫ »"]
+  Q --> A5["« Valeur moyenne »"]
+  Q --> A6["« Comparer / montrer ≥ 0 »"]
+  Q --> A7["« Produit dans ∫ »<br/>(x·eˣ, x·ln x …)"]
+
+  A1 --> A1a["Primitive immédiate<br/>→ F(b) − F(a)"]
+  A1 --> A1b["Somme → linéarité"]
+  A1 --> A1c["Forme remarquable<br/>(cf. fiche primitives)"]
+  A1 --> A1d["Produit → IPP"]
+
+  A2 --> A2a["∫ₐᵇ f(t) dt<br/>directement"]
+
+  A3 --> A3a["1. Identifier g au-dessus"]
+  A3a --> A3b["2. ∫ₐᵇ [g(x) − f(x)] dx"]
+  A3b --> A3c["Si ordre s'inverse<br/>→ découper Chasles"]
+
+  A4 --> A4a["Chasles<br/>∫ₐᵇ = ∫ₐᶜ + ∫ᶜᵇ"]
+
+  A5 --> A5a["μ = 1/(b−a) · ∫ₐᵇ f(t) dt"]
+
+  A6 --> A6a["Positivité /<br/>croissance de l'intégrale"]
+
+  A7 --> A7a["IPP : u' simple<br/>à primitiver,<br/>v' simple en dérivant"]
+
+  classDef question fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef option fill:#0e0e16,stroke:#00d9ff,stroke-width:1px,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class Q question;
+  class A1,A2,A3,A4,A5,A6,A7 option;
+  class A1a,A1b,A1c,A1d,A2a,A3a,A3b,A3c,A4a,A5a,A6a,A7a leaf;
 ```
 
 ---
@@ -259,14 +300,24 @@ Tu lis l'énoncé. Quel type de problème ?
 
 **Structure type** :
 
-```
-Partie A — Lectures graphiques (tangente, convexité)
-Partie B — Étude analytique de f (limites, variations, convexité)
-Partie C — Calcul d'aire avec intégrales
-├── Q1. Justifier l'équation d'une tangente T_B
-├── Q2. (souvent) "À l'aide d'une IPP, montrer que ∫... = ..."
-├── Q3. Calculer l'aire A du domaine entre C_f et T_B (ou autre)
-└── Conclusion : valeur exacte en u.a.
+```mermaid
+flowchart TD
+  P[Énoncé<br/>type bac] --> A["Partie A<br/>Lectures graphiques<br/>(tangente, convexité)"]
+  P --> B["Partie B<br/>Étude analytique de f<br/>(limites, variations, convexité)"]
+  P --> C["Partie C<br/>Calcul d'aire avec intégrales"]
+  C --> Q1["Q1. Justifier l'équation<br/>d'une tangente T_B"]
+  C --> Q2["Q2. IPP :<br/>« Montrer que ∫… = … »"]
+  C --> Q3["Q3. Calculer l'aire 𝒜<br/>entre 𝒞_f et T_B"]
+  Q3 --> R["Conclusion :<br/>valeur exacte en u.a."]
+
+  classDef title fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef part fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef step fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  classDef result fill:#1a2200,stroke:#c8ff00,stroke-width:2px,color:#c8ff00;
+  class P title;
+  class A,B,C part;
+  class Q1,Q2,Q3 step;
+  class R result;
 ```
 
 ### Forme 2 : "Valeur moyenne" (Métropole sept 2025 J1)

@@ -1,4 +1,6 @@
 // Content loading utilities (markdown fiches, JSON data)
+import { renderVisuals } from './visuals.js';
+
 const _cache = new Map();
 
 export async function loadMeta() {
@@ -90,6 +92,10 @@ export function renderMarkdown(md, container) {
 
   // Render LaTeX
   if (window.renderKatex) window.renderKatex(container);
+
+  // Render custom visual blocks (mermaid, signe tables, plots).
+  // These are async/lazy: libraries load on demand.
+  renderVisuals(container);
 }
 
 // Inline-render a short string: HTML-escape and parse as inline markdown

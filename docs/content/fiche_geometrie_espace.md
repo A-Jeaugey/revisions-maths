@@ -313,19 +313,24 @@ Affirmation 4 : La distance du point C au plan (P) est égale à 2√3
 
 **Structure type** :
 
-```
-On considère le cube ABCDEFGH avec un point M tel que vec(BM) = vec(AB)
-│
-├── Q1. "Montrer que (FG) et (FM) sont perpendiculaires"
-│       → Produit scalaire des deux vecteurs directeurs
-├── Q2. "Montrer que les points A, M, G, H sont coplanaires"
-│       → Trouver un vecteur combinaison des deux autres
-├── Q3. Donner les coordonnées des vecteurs (calcul direct dans le repère)
-├── Q4. Montrer qu'un vecteur est normal à un plan (2 produits scalaires nuls)
-├── Q5. Donner l'équation cartésienne du plan
-├── Q6. Représentation paramétrique d'une droite
-├── Q7. Calculer le projeté orthogonal d'un point sur une droite/plan
-└── Q8. Calculer un volume (tétraèdre) ou une aire
+```mermaid
+flowchart TD
+  E["Cube ABCDEFGH<br/>+ point M : 𝐁𝐌 = 𝐀𝐁"]
+  E --> Q1["Q1. Perpendicularité<br/>(FG) ⟂ (FM)<br/>→ produit scalaire"]
+  E --> Q2["Q2. Coplanarité<br/>A, M, G, H<br/>→ combinaison linéaire"]
+  E --> Q3["Q3. Coordonnées<br/>vecteurs"]
+  E --> Q4["Q4. Vecteur normal<br/>(2 prod. scalaires nuls)"]
+  E --> Q5["Q5. Équation<br/>cartésienne du plan"]
+  E --> Q6["Q6. Représentation<br/>paramétrique"]
+  E --> Q7["Q7. Projeté<br/>orthogonal"]
+  E --> Q8["Q8. Volume / aire<br/>(tétraèdre)"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef done fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class Q1,Q2,Q3,Q4,Q5,Q6 step;
+  class Q7,Q8 done;
 ```
 
 ### Les 8 questions-types qui reviennent à TOUS les bacs
@@ -416,29 +421,32 @@ $$\begin{cases} x = x_A + t \cdot (x_B - x_A) \\ y = y_A + t \cdot (y_B - y_A) \
 
 ## VII. Diagramme de décision (par où commencer un exercice)
 
-```
-Tu lis l'énoncé. Quelle est la première chose à faire ?
-│
-├── On te donne 3 points → "Montrer que (ABC) forme un plan" probable (§I.3)
-│
-├── On te demande une équation cartésienne de plan ?
-│       ├── Avec un normal → §II.2 (3 étapes)
-│       └── Avec 3 points → §II.3 (calcul du normal d'abord)
-│
-├── On te demande une intersection ?
-│       ├── (D) ∩ (P) → §IV.1 (paramétrer (D), injecter dans (P))
-│       └── (P) ∩ (P') → §III.2 (résoudre le système)
-│
-├── On te parle de "projeté orthogonal" ?
-│       ├── "Déterminer les coordonnées de H" → §IV.2 variante A (méthode active)
-│       └── "Montrer que H est le projeté" → §IV.2 variante B (vérification)
-│
-├── On te demande une distance d'un point à un plan ?
-│       └── Faire le projeté orthogonal H, puis calculer MH (§IV.3)
-│
-└── Question finale "calculer un volume" ?
-        └── Tétraèdre : (1/3) × aire base × hauteur
-            La hauteur est souvent un projeté orthogonal calculé juste avant.
+```mermaid
+flowchart TD
+  E["Énoncé.<br/>Première chose à faire ?"]
+  E --> P3["3 points donnés"]
+  E --> EQ["Équation cartésienne de plan ?"]
+  E --> INT["Intersection ?"]
+  E --> PROJ["« Projeté orthogonal » ?"]
+  E --> D["Distance point–plan ?"]
+  E --> V["Volume ?"]
+
+  P3 --> P3a["« (ABC) forme un plan »<br/>(§I.3)"]
+  EQ --> EQa["Avec un normal<br/>→ §II.2"]
+  EQ --> EQb["Avec 3 points<br/>→ §II.3 (normal d'abord)"]
+  INT --> INTa["(D) ∩ (P) → §IV.1<br/>paramétrer + injecter"]
+  INT --> INTb["(P) ∩ (P') → §III.2<br/>résoudre système"]
+  PROJ --> PROJa["« Déterminer H »<br/>→ §IV.2 variante A"]
+  PROJ --> PROJb["« Montrer que H est le projeté »<br/>→ §IV.2 variante B"]
+  D --> Da["Projeté H puis MH<br/>(§IV.3)"]
+  V --> Va["Tétraèdre :<br/>V = ⅓ × 𝒜_base × h"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class P3,EQ,INT,PROJ,D,V branch;
+  class P3a,EQa,EQb,INTa,INTb,PROJa,PROJb,Da,Va leaf;
 ```
 
 ---

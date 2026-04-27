@@ -67,6 +67,22 @@ Soit `Un = 4 · 2^n`. Alors `Un+1 / Un = (4·2^(n+1)) / (4·2^n) = 2`. Donc (Un)
 5. « Rebondir » horizontalement sur `y = x` pour reporter U1 sur l'axe des abscisses.
 6. Recommencer. On obtient une figure « en escalier » (si f croissante) ou « en escargot » (si f décroissante autour du point fixe).
 
+```plot
+{
+  "title": "Point fixe : f(x) = √(x + 2) coupe y = x en L = 2",
+  "fns": [
+    { "fn": "sqrt(x + 2)", "color": "#ff3366" },
+    { "fn": "x", "color": "#a1a1aa" }
+  ],
+  "xDomain": [-2, 4],
+  "yDomain": [-1, 4],
+  "points": [[2, 2]],
+  "height": 320
+}
+```
+
+> La courbe rouge ($f(x) = \sqrt{x+2}$) coupe la droite $y = x$ au point fixe $L = 2$. Pour $u_0 \in [0\,;\,2]$, la suite $u_{n+1} = f(u_n)$ converge vers $L = 2$ « en escalier » (f croissante).
+
 ⚠️ **Piège classique :** Les variations de **f** ne donnent **PAS** les variations de la suite (Un) dans une suite récurrente. Une fonction f croissante peut générer une suite croissante OU décroissante selon U0.
 
 **Cas `Un = f(n)` (suite explicite) :** Là OUI, les variations de f sur `[0 ; +∞[` donnent directement les variations de (Un).
@@ -347,19 +363,24 @@ Les **4 FI classiques** :
 
 **Structure type** :
 
-```
-Partie A — Modèle discret (suite)
-├── Q1. Calculer u_1, u_2 (vérification de compréhension)
-├── Q2. "Montrer par récurrence que pour tout n, ... ≤ u_n ≤ ..."
-│       → Encadrement par récurrence
-├── Q3. Étudier la monotonie (signe de u_{n+1} - u_n OU récurrence)
-├── Q4. "En déduire que (u_n) est convergente"
-│       → TCM : monotone + bornée = convergente
-├── Q5. "Déterminer la limite L de (u_n)"
-│       → Point fixe : résoudre f(L) = L (avec continuité de f)
-└── Q6. (parfois) Algorithme Python pour seuil de convergence
+```mermaid
+flowchart TD
+  PA["Partie A<br/>Modèle discret (suite)"]
+  PA --> Q1["Q1. Calculer u₁, u₂<br/>(compréhension)"]
+  PA --> Q2["Q2. Récurrence :<br/>encadrement m ≤ u_n ≤ M"]
+  PA --> Q3["Q3. Monotonie<br/>signe(u_{n+1} − u_n)"]
+  PA --> Q4["Q4. TCM<br/>« (u_n) converge »"]
+  PA --> Q5["Q5. Point fixe<br/>f(L) = L"]
+  PA --> Q6["Q6. (parfois)<br/>Algo Python seuil"]
+  PB["Partie B (parfois)<br/>Modèle continu (ED, fonction)"]
+  PA -.-> PB
 
-Partie B (parfois) — Modèle continu via ED ou étude de fonction
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB part;
+  class Q1,Q2,Q3,Q6 step;
+  class Q4,Q5 key;
 ```
 
 ### Forme 2 : QCM Vrai/Faux sur les suites
@@ -471,18 +492,22 @@ def seuil(S):
 
 ### Schéma récap — le combo gagnant pour les suites récurrentes
 
-```
-1. u_{n+1} = f(u_n) avec u_0 donné
-   ↓
-2. Récurrence : montrer 0 ≤ u_n ≤ M (ou encadrement)
-   ↓
-3. Monotonie : étudier u_{n+1} - u_n (souvent factorisé via la récurrence)
-   ↓
-4. TCM : monotone + bornée = convergente vers L
-   ↓
-5. Point fixe : résoudre f(L) = L (avec continuité de f)
-   ↓
-6. Choisir L compatible avec l'encadrement
+```mermaid
+flowchart TD
+  S1["1. u_{n+1} = f(u_n)<br/>avec u₀ donné"]
+  S2["2. Récurrence :<br/>montrer 0 ≤ u_n ≤ M<br/>(encadrement)"]
+  S3["3. Monotonie :<br/>signe de u_{n+1} − u_n<br/>(souvent factorisé)"]
+  S4["4. TCM :<br/>monotone + bornée<br/>⇒ converge vers L"]
+  S5["5. Point fixe :<br/>résoudre f(L) = L<br/>(continuité de f)"]
+  S6["6. Choisir L compatible<br/>avec l'encadrement"]
+  S1 --> S2 --> S3 --> S4 --> S5 --> S6
+
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef done fill:#1a2200,stroke:#c8ff00,stroke-width:2px,color:#c8ff00;
+  class S1,S2,S3 step;
+  class S4,S5 key;
+  class S6 done;
 ```
 
 ---
@@ -491,25 +516,27 @@ def seuil(S):
 
 ### Diagramme de décision
 
-```
-ÉNONCÉ : "Trouver lim Un"
-│
-├── Forme explicite Un = f(n) ?
-│       └── Calcul direct (factoriser, croissances comparées si exp...)
-│
-├── Forme récurrente Un+1 = f(Un) ?
-│       │
-│       ├── Question préalable : "Montrer que (Un) est croissante/décroissante et bornée"
-│       │       → C'est un signal pour TCM puis point fixe
-│       │       1. Prouver la monotonie (récurrence ou Un+1 - Un)
-│       │       2. Prouver la majoration/minoration (récurrence)
-│       │       3. Conclure par TCM : (Un) converge vers L
-│       │       4. Appliquer le point fixe : résoudre f(x) = x
-│       │
-│       └── Pas de question préalable ? → Chercher si Un est SA, SG ou SAG
-│
-└── Présence de sin/cos/(-1)^n ?
-        └── Gendarmes (encadrement par des termes qu'on sait calculer)
+```mermaid
+flowchart TD
+  E["ÉNONCÉ : « Trouver lim u_n »"]
+  E --> A1["Forme explicite<br/>u_n = f(n) ?"]
+  E --> A2["Forme récurrente<br/>u_{n+1} = f(u_n) ?"]
+  E --> A3["Présence de<br/>sin / cos / (−1)ⁿ ?"]
+
+  A1 --> R1["Calcul direct<br/>(factoriser,<br/>croissances comparées)"]
+
+  A2 --> Q["Question préalable ?<br/>« montrer croissante / bornée »"]
+  Q -->|Oui| TCM["Signal TCM + point fixe<br/>1. Monotonie<br/>2. Majoration/minoration<br/>3. TCM<br/>4. Point fixe f(x) = x"]
+  Q -->|Non| R2["Chercher si u_n est<br/>SA, SG ou SAG"]
+
+  A3 --> R3["Théorème des gendarmes<br/>(encadrement)"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class A1,A2,A3,Q branch;
+  class R1,R2,R3,TCM leaf;
 ```
 
 ---

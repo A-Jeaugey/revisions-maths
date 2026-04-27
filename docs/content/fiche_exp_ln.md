@@ -175,6 +175,21 @@ $$e^x = a \iff x = \ln(a) \quad \text{(solution unique)}$$
 
 **Propriété :** dans un repère orthonormé, les courbes de exp et ln sont **symétriques par rapport à la droite y = x**.
 
+```plot
+{
+  "title": "Symétrie exp / ln par rapport à y = x",
+  "fns": [
+    { "fn": "exp(x)", "color": "#ff3366" },
+    { "fn": "log(x)", "color": "#00d9ff", "range": [0.01, 5] },
+    { "fn": "x", "color": "#a1a1aa" }
+  ],
+  "xDomain": [-3, 5],
+  "yDomain": [-3, 5],
+  "points": [[0, 1], [1, 0], [1, 2.71828], [2.71828, 1]],
+  "height": 360
+}
+```
+
 → Conséquence : tout ce que tu sais sur exp se transpose en "miroir" sur ln (limites, croissance, valeurs particulières).
 
 ### 6. Propriétés algébriques (le **cœur** des exos)
@@ -368,23 +383,30 @@ Or $\lim \ln x / x = 0$, donc le facteur entre parenthèses tend vers 1, et $\li
 
 **Structure type** :
 
-```
-Partie A — Lecture graphique
-├── Lire des valeurs particulières (f(0), tangente)
-├── Conjecturer le sens de variation
-└── Donner l'équation d'une tangente
+```mermaid
+flowchart TD
+  PA["Partie A<br/>Lecture graphique"]
+  PA --> PA1["Valeurs particulières<br/>f(0), tangente"]
+  PA --> PA2["Sens de variation<br/>(conjecture)"]
+  PA --> PA3["Équation d'une tangente"]
 
-Partie B — Étude analytique avec exp ou ln
-├── Q1. Calculer les limites en 0+, +∞ ou -∞
-│       → Croissances comparées si forme x^n e^x ou (ln x)/x^n
-├── Q2. Calculer f'(x) (dérivée composée e^u ou ln u)
-├── Q3. Étudier le signe de f'(x), tableau de variations
-├── Q4. Convexité (signe de f'')
-├── Q5. Tangentes remarquables
-├── Q6. Position relative entre C_f et tangente / autre courbe
-└── Q7. Application : intégrale, aire, valeur moyenne (cf. fiche intégration)
+  PB["Partie B<br/>Étude analytique"]
+  PB --> Q1["Q1. Limites<br/>(croissances comparées)"]
+  PB --> Q2["Q2. f'(x)<br/>(dérivée composée)"]
+  PB --> Q3["Q3. Signe de f'<br/>tableau de variations"]
+  PB --> Q4["Q4. Convexité<br/>(signe de f'')"]
+  PB --> Q5["Q5. Tangentes<br/>remarquables"]
+  PB --> Q6["Q6. Position relative<br/>𝒞_f vs tangente"]
+  PB --> Q7["Q7. Intégrale / aire<br/>(cf. fiche intégration)"]
 
-Partie C (parfois) — Suite définie par u_{n+1} = f(u_n)
+  PC["Partie C (parfois)<br/>Suite u_{n+1} = f(u_n)"]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB,PC part;
+  class PA1,PA2,PA3,Q5,Q6,Q7 leaf;
+  class Q1,Q2,Q3,Q4 step;
 ```
 
 ### Forme 2 : Équations et inéquations avec exp/ln
@@ -490,41 +512,58 @@ $$y = f'(a)(x - a) + f(a)$$
 
 ### Schéma récap — le combo gagnant exp/ln
 
-```
-1. Identifier la forme (e^u, u·e^v, ln u, x·ln x, etc.)
-2. Vérifier le domaine (ln nécessite u > 0)
-3. Dériver via les formules de composée
-4. Factoriser f'(x) (souvent e^x ou 1/x apparaît)
-5. Étudier le signe → tableau de variations
-6. Calculer les limites avec croissances comparées
-7. (parfois) Convexité, tangentes, position relative
+```mermaid
+flowchart TD
+  S1["1. Identifier la forme<br/>(eᵘ, u·eᵛ, ln u, x·ln x …)"]
+  S2["2. Vérifier le domaine<br/>(ln ⇒ u > 0)"]
+  S3["3. Dériver<br/>(formule composée)"]
+  S4["4. Factoriser f'(x)<br/>(eˣ ou 1/x apparaît)"]
+  S5["5. Signe → tableau<br/>de variations"]
+  S6["6. Limites<br/>croissances comparées"]
+  S7["7. (parfois) Convexité,<br/>tangentes, position relative"]
+  S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7
+
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef done fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class S1,S2,S3 step;
+  class S4,S5 key;
+  class S6,S7 done;
 ```
 
 ---
 
 ## VII. Diagramme de décision
 
-```
-Tu vois exp ou ln dans l'énoncé. Que faire ?
-│
-├── Équation / inéquation ?
-│       ├── e^A = e^B → A = B (injectivité)
-│       ├── e^A < e^B → A < B (croissance)
-│       ├── ln A = ln B (A,B>0) → A = B
-│       └── e^x = a → x = ln(a)  /  ln x = a → x = e^a
-│
-├── Dériver une fonction composée ?
-│       ├── e^{u(x)} → u'(x) · e^{u(x)}
-│       └── ln(u(x)) → u'(x) / u(x)  (vérif u > 0 d'abord)
-│
-├── Calculer une limite avec exp ou ln ?
-│       ├── Forme directe → calcul
-│       ├── e^x / x^n ou x^n e^{-x} → croissances comparées (exp gagne)
-│       ├── ln x / x^n ou x ln x → croissances comparées (puissance gagne)
-│       └── FI ∞-∞ → factoriser par le terme dominant
-│
-└── Suite avec inconnue en exposant (q^n < c) ?
-        └── Prendre le ln, attention au signe de ln(q) si q < 1
+```mermaid
+flowchart TD
+  E["exp ou ln dans l'énoncé.<br/>Que faire ?"]
+  E --> A1["Équation / inéquation ?"]
+  E --> A2["Dériver une composée ?"]
+  E --> A3["Limite avec exp / ln ?"]
+  E --> A4["Suite, inconnue<br/>en exposant qⁿ < c ?"]
+
+  A1 --> A1a["eᴬ = eᴮ → A = B<br/>(injectivité)"]
+  A1 --> A1b["eᴬ < eᴮ → A < B<br/>(croissance)"]
+  A1 --> A1c["ln A = ln B → A = B<br/>(A, B > 0)"]
+  A1 --> A1d["eˣ = a → x = ln a<br/>ln x = a → x = eᵃ"]
+
+  A2 --> A2a["eᵘ⁽ˣ⁾ → u'(x)·eᵘ⁽ˣ⁾"]
+  A2 --> A2b["ln(u(x)) → u'(x)/u(x)<br/>(vérifier u > 0)"]
+
+  A3 --> A3a["Forme directe → calcul"]
+  A3 --> A3b["eˣ/xⁿ, xⁿe⁻ˣ<br/>→ exp gagne"]
+  A3 --> A3c["ln x / xⁿ, x·ln x<br/>→ puissance gagne"]
+  A3 --> A3d["FI ∞−∞ → factoriser<br/>par le terme dominant"]
+
+  A4 --> A4a["Prendre le ln,<br/>attention au signe<br/>de ln(q) si q < 1"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class A1,A2,A3,A4 branch;
+  class A1a,A1b,A1c,A1d,A2a,A2b,A3a,A3b,A3c,A3d,A4a leaf;
 ```
 
 ---

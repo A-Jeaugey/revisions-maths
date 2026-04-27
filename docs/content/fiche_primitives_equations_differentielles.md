@@ -155,6 +155,23 @@ où $C$ est une constante réelle quelconque.
 - Si $a < 0$ et $C > 0$ : décroissante (décroissance exponentielle).
 - Si $a < 0$ et $C < 0$ : croissante (vers 0 par valeurs négatives).
 
+```plot
+{
+  "title": "Solutions de y' = ay : famille C·eᵃˣ (a = -0,5, plusieurs C)",
+  "fns": [
+    { "fn": "exp(-0.5*x)", "color": "#ff3366" },
+    { "fn": "2*exp(-0.5*x)", "color": "#00d9ff" },
+    { "fn": "0.5*exp(-0.5*x)", "color": "#c8ff00" },
+    { "fn": "-exp(-0.5*x)", "color": "#ff8a00" }
+  ],
+  "xDomain": [-2, 6],
+  "yDomain": [-3, 6],
+  "height": 320
+}
+```
+
+> Toutes les courbes sont des « cousines » de $e^{-0{,}5x}$ : seule la constante $C$ change. Décroissance exponentielle pour $C > 0$, croissance pour $C < 0$.
+
 ### 2. Équation $y' = ay + b$ (avec second membre constant, $a \neq 0$)
 
 🎯 **THÉORÈME** : les solutions de $y' = ay + b$ sur $\mathbb{R}$ sont les fonctions :
@@ -274,34 +291,40 @@ L'ensemble des solutions de $(E)$ est $\{x \mapsto Ce^{2x} + e^{3x} \mid C \in \
 
 ## V. Diagramme de décision
 
-```
-Tu lis l'énoncé. Quel type de problème ?
-│
-├── "Déterminer une primitive de f" ?
-│       ├── f est usuelle → tableau §II.1
-│       ├── f est une somme → linéarité, primitiver chaque terme
-│       └── f a une forme remarquable → identifier u et u', tableau §II.2
-│           └── Manque un facteur ? → multiplier/diviser pour forcer la forme
-│
-├── "Vérifier que F est une primitive de f" ?
-│       └── Calculer F' et vérifier F'(x) = f(x)
-│
-├── "Résoudre y' = ay" ?
-│       └── Solutions : x ↦ Ce^(ax)
-│
-├── "Résoudre y' = ay + b" ?
-│       ├── Solution particulière constante : -b/a
-│       └── Solutions : x ↦ Ce^(ax) - b/a
-│
-├── "Résoudre y' = ay + φ(x)" ?
-│       ├── Trouver/vérifier une solution particulière P
-│       ├── f - P solution de y' = ay donc f - P = Ce^(ax)
-│       └── Solutions : x ↦ Ce^(ax) + P(x)
-│
-└── "Trouver la solution telle que f(x₀) = y₀" ?
-        ├── Écrire la solution générale (avec C)
-        ├── Substituer x₀ : équation en C
-        └── Résoudre pour C, conclure
+```mermaid
+flowchart TD
+  E["Énoncé. Quel type<br/>de problème ?"]
+  E --> P1["Primitive de f ?"]
+  E --> P2["Vérifier F primitive ?"]
+  E --> P3["Résoudre y' = ay ?"]
+  E --> P4["Résoudre y' = ay + b ?"]
+  E --> P5["Résoudre y' = ay + φ(x) ?"]
+  E --> P6["Solution avec f(x₀) = y₀ ?"]
+
+  P1 --> P1a["f usuelle → tableau §II.1"]
+  P1 --> P1b["Somme → linéarité"]
+  P1 --> P1c["Forme remarquable<br/>identifier u et u'<br/>(§II.2)"]
+
+  P2 --> P2a["Calculer F'<br/>vérifier F'(x) = f(x)"]
+
+  P3 --> P3a["Solutions :<br/>x ↦ Ceᵃˣ"]
+
+  P4 --> P4a["Particulière : −b/a"]
+  P4 --> P4b["Solutions :<br/>x ↦ Ceᵃˣ − b/a"]
+
+  P5 --> P5a["Trouver une solution<br/>particulière P"]
+  P5 --> P5b["f − P solution<br/>de y' = ay"]
+  P5 --> P5c["Solutions :<br/>x ↦ Ceᵃˣ + P(x)"]
+
+  P6 --> P6a["Écrire la solution<br/>générale (avec C)"]
+  P6 --> P6b["Substituer x₀<br/>résoudre pour C"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class P1,P2,P3,P4,P5,P6 branch;
+  class P1a,P1b,P1c,P2a,P3a,P4a,P4b,P5a,P5b,P5c,P6a,P6b leaf;
 ```
 
 ---
@@ -329,17 +352,25 @@ L'affirmation "$f$ vérifie $(E)$" est **VRAIE**.
 
 **Structure type** :
 
-```
-Partie A — Suite récurrente discrète (modèle discret)
-└── Étude d'une suite u_{n+1} = f(u_n) (récurrence, encadrement, convergence)
+```mermaid
+flowchart TD
+  PA["Partie A<br/>Modèle discret<br/>(suite récurrente)"]
+  PA --> PA1["Étude u_{n+1} = f(u_n)<br/>récurrence, encadrement,<br/>convergence"]
 
-Partie B — Modèle continu via équation différentielle (BASCULE !)
-├── Q1. "Vérifier qu'une fonction donnée est solution d'une certaine équation"
-├── Q2. "Soit (H) : y' = ay l'équation homogène. Résoudre (H)."
-├── Q3. "En déduire les solutions de (E) : y' = ay + b ou y' = ay + φ(x)"
-├── Q4. "Trouver la solution telle que f(0) = ... ou avec C = ..."
-├── Q5. (étude de la fonction obtenue : limites, variations, asymptote)
-└── Q6. (parfois : intégrale ou valeur moyenne sur cette fonction)
+  PB["Partie B — BASCULE<br/>Modèle continu (ED)"]
+  PB --> Q1["Q1. Vérifier qu'une fonction<br/>est solution"]
+  PB --> Q2["Q2. Résoudre l'homogène<br/>(H) : y' = ay"]
+  PB --> Q3["Q3. En déduire (E)<br/>y' = ay + b ou y' = ay + φ(x)"]
+  PB --> Q4["Q4. Solution avec<br/>f(0) = … ou C = …"]
+  PB --> Q5["Q5. Étude de la solution<br/>(limites, variations, asymptote)"]
+  PB --> Q6["Q6. (parfois) intégrale<br/>ou valeur moyenne"]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB part;
+  class Q1,Q2,Q3 step;
+  class PA1,Q4,Q5,Q6 leaf;
 ```
 
 ### Les 5 questions-types qui reviennent à TOUS les bacs

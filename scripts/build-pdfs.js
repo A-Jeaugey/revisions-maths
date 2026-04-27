@@ -142,6 +142,13 @@ function stripHead(md) {
   return md.replace(/^#\s+[^\n]+\n+(?:>\s+[^\n]+\n+)?(?:---\n+)?/, '');
 }
 
+// Strip web-only visual blocks (rendered via JS on the site, not exported
+// to PDF). The site shows interactive Mermaid diagrams, sign tables, and
+// function plots; PDFs simply omit these blocks.
+function stripWebOnlyBlocks(md) {
+  return md.replace(/```(?:mermaid|signe|plot)\b[\s\S]*?```\s*/g, '');
+}
+
 function renderTemplate(ch, html, variant = 'full') {
   const num = String(META.chapters.findIndex(c => c.slug === ch.slug) + 1).padStart(2, '0');
   const isSynth = variant === 'synth';
@@ -648,7 +655,7 @@ async function buildOne(browser, ch, variant = 'full') {
   }
   const md = fs.readFileSync(mdPath, 'utf8');
   // 1) Pre-render math server-side so we don't need the browser to do it.
-  const { md: protectedMd, blocks } = renderMathInMarkdown(stripHead(md));
+  const { md: protectedMd, blocks } = renderMathInMarkdown(stripWebOnlyBlocks(stripHead(md)));
   // 2) Run marked on the math-free markdown.
   let html = marked.parse(protectedMd);
   // 3) Splice the rendered math HTML back in.

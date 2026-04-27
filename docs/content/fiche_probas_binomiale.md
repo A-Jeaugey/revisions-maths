@@ -106,16 +106,23 @@ C'est cette formule qu'on utilise sur un **arbre pondéré** : on multiplie les 
 3. Pour calculer $P(B)$ : on **somme** tous les chemins qui finissent par B (c'est la formule des probas totales).
 
 **Exemple type d'arbre :**
-```
-              ┌── B  (proba P_A(B))     → P(A∩B)  = P(A) × P_A(B)
-        A ───┤
-       /      └── B̄  (proba P_A(B̄))    → P(A∩B̄) = P(A) × P_A(B̄)
-P(A)  /
- ────┤
-P(Ā) \
-       \      ┌── B  (proba P_Ā(B))     → P(Ā∩B)  = P(Ā) × P_Ā(B)
-        Ā ───┤
-              └── B̄  (proba P_Ā(B̄))    → P(Ā∩B̄) = P(Ā) × P_Ā(B̄)
+
+```mermaid
+flowchart LR
+  R(( ))
+  R -- "P(A)" --> A((A))
+  R -- "P(Ā)" --> NA((Ā))
+  A -- "P_A(B)" --> AB["B<br/>P(A∩B) = P(A)·P_A(B)"]
+  A -- "P_A(B̄)" --> ANB["B̄<br/>P(A∩B̄) = P(A)·P_A(B̄)"]
+  NA -- "P_Ā(B)" --> NAB["B<br/>P(Ā∩B) = P(Ā)·P_Ā(B)"]
+  NA -- "P_Ā(B̄)" --> NANB["B̄<br/>P(Ā∩B̄) = P(Ā)·P_Ā(B̄)"]
+
+  classDef root fill:#1a1a24,stroke:#a1a1aa,color:#f5f5f7;
+  classDef event fill:#0e0e16,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#00d9ff,color:#00d9ff;
+  class R root;
+  class A,NA event;
+  class AB,ANB,NAB,NANB leaf;
 ```
 
 ### 3. Formule des probabilités totales
@@ -337,31 +344,39 @@ Soit $X \sim \mathcal{B}(98\,;\,0{,}77)$, $\alpha = 0{,}01$. Déterminer un inte
 
 ## V. Stratégie globale : quel outil pour quelle question ?
 
-```
-Tu lis l'énoncé. Que demande-t-on ?
-│
-├── "Combien de façons / combien de codes / combien de mains" ?
-│       └── DÉNOMBREMENT : tableau ordre/répétition (§I)
-│           ├── Ordre + répétition  → n^p
-│           ├── Ordre + sans répét. → A_n^k (ou n! si on prend tout)
-│           └── Pas d'ordre         → C(n,k) = "coefficient binomial"
-│
-├── "Quelle est la probabilité que…" + arbre / "sachant que" ?
-│       └── PROBAS CONDITIONNELLES (§II)
-│           ├── Direct : suivre le chemin sur l'arbre, multiplier
-│           ├── Probas totales : somme des chemins finissant par B
-│           └── À l'envers (P_B(A)) : 3 étapes — intersection, total, ratio
-│
-├── "On répète n fois de manière indépendante" ?
-│       └── LOI BINOMIALE (§III)
-│           ├── Justifier les 3 points obligatoires
-│           ├── P(X = k), P(X ≤ k), P(X ≥ k) → calculatrice
-│           └── E(X) = np, σ = √(np(1-p))
-│
-└── "Au seuil de 95 %", "intervalle de fluctuation" ?
-        └── INTERVALLE DE FLUCTUATION (§IV)
-            ├── Active : tableau, trouver a et b
-            └── Vérification : queues gauche/droite ≤ α/2
+```mermaid
+flowchart TD
+  E["Énoncé. Que demande-t-on ?"]
+  E --> D["« Combien de façons /<br/>codes / mains » ?"]
+  E --> C["« Quelle proba … » + arbre /<br/>« sachant que » ?"]
+  E --> B["« On répète n fois<br/>indépendamment » ?"]
+  E --> F["« Au seuil de 95 % » /<br/>intervalle de fluctuation ?"]
+
+  D --> D1["DÉNOMBREMENT (§I)"]
+  D1 --> D1a["Ordre + répétition → nᵖ"]
+  D1 --> D1b["Ordre, sans répét. → Aⁿₖ"]
+  D1 --> D1c["Sans ordre → C(n, k)"]
+
+  C --> C1["PROBAS CONDITIONNELLES (§II)"]
+  C1 --> C1a["Direct : chemin × probas"]
+  C1 --> C1b["Probas totales :<br/>somme des chemins"]
+  C1 --> C1c["À l'envers P_B(A) :<br/>intersection / total / ratio"]
+
+  B --> B1["LOI BINOMIALE (§III)"]
+  B1 --> B1a["Justifier les 3 points"]
+  B1 --> B1b["P(X = k), P(X ≤ k)<br/>→ calculatrice"]
+  B1 --> B1c["E(X) = np<br/>σ = √(np(1−p))"]
+
+  F --> F1["INTERVALLE DE FLUCTUATION (§IV)"]
+  F1 --> F1a["Active : trouver a et b"]
+  F1 --> F1b["Vérif : queues ≤ α/2"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class D,C,B,F,D1,C1,B1,F1 branch;
+  class D1a,D1b,D1c,C1a,C1b,C1c,B1a,B1b,B1c,F1a,F1b leaf;
 ```
 
 ---
@@ -374,26 +389,33 @@ Tu lis l'énoncé. Que demande-t-on ?
 
 🎯 **Pattern observé sur quasi TOUS les sujets** :
 
-```
-Énoncé : situation concrète (groupes sanguins, satisfaction client, sport, etc.)
-│
-├── Partie A — Probabilités conditionnelles (arbre pondéré)
-│   ├── Q1. Calculer une probabilité simple ou conditionnelle (lecture d'arbre)
-│   ├── Q2. Probabilité totale : P(B) = somme des chemins
-│   ├── Q3. Probabilité conditionnelle inverse (Bayes-like)
-│   └── Q4. Évènements indépendants (vérifier P(A∩B) = P(A)·P(B))
-│
-├── Partie B — Loi binomiale
-│   ├── Q5. "X = nombre de succès sur n personnes"
-│   │       → JUSTIFIER que X suit B(n, p) en récitant les 3 points
-│   ├── Q6. Calculer P(X = k), P(X ≤ k), P(X ≥ k)
-│   ├── Q7. Calculer E(X) et l'interpréter
-│   └── Q8. (parfois) Plus petit n tel que P(X ≥ 1) ≥ 0,95 — équation à résoudre
-│
-└── Partie C (depuis 2024) — Somme VA + Bienaymé-Tchebychev (cf. fiche dédiée)
-    ├── Linéarité de E
-    ├── Variance/écart-type d'une somme
-    └── Inégalité de B-T pour majorer une probabilité
+```mermaid
+flowchart TD
+  E["Énoncé : situation concrète<br/>(groupes sanguins, satisfaction…)"]
+
+  E --> PA["Partie A<br/>Probas conditionnelles"]
+  PA --> PA1["Q1. Probabilité simple<br/>(lecture d'arbre)"]
+  PA --> PA2["Q2. Proba totale :<br/>P(B) = somme des chemins"]
+  PA --> PA3["Q3. Conditionnelle inverse<br/>(Bayes-like)"]
+  PA --> PA4["Q4. Indépendance<br/>P(A∩B) = P(A)·P(B) ?"]
+
+  E --> PB["Partie B<br/>Loi binomiale"]
+  PB --> PB5["Q5. JUSTIFIER X ~ ℬ(n, p)<br/>(3 points)"]
+  PB --> PB6["Q6. P(X = k), P(X ≤ k),<br/>P(X ≥ k) → calculatrice"]
+  PB --> PB7["Q7. E(X) et interprétation"]
+  PB --> PB8["Q8. (parfois) plus petit n<br/>tel que P(X ≥ 1) ≥ 0,95"]
+
+  E --> PC["Partie C (depuis 2024)<br/>Somme VA + B-T"]
+  PC --> PC1["Linéarité de E"]
+  PC --> PC2["Variance / écart-type<br/>d'une somme"]
+  PC --> PC3["Inégalité de B-T<br/>(majoration de proba)"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef part fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef step fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class PA,PB,PC part;
+  class PA1,PA2,PA3,PA4,PB5,PB6,PB7,PB8,PC1,PC2,PC3 step;
 ```
 
 ### Les 8 questions-types qui reviennent à TOUS les bacs

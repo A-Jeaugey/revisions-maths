@@ -287,6 +287,12 @@ C'est un **résultat à invoquer directement** quand on a besoin de la continuit
 - Calculs : $f(-3) = 195$ et $f(3/2) = 51/4 = 12{,}75$
 - Limites : $\lim_{-\infty} f = -\infty$ (factoriser par $x^3$), $\lim_{+\infty} f = +\infty$
 
+```signe
+x: -∞ | -3 | 3/2 | +∞
+f'(x): + | 0 | - | 0 | +
+f(x): ↗ | 195 | ↘ | 12,75 | ↗
+```
+
 **Q2 — Unique solution :**
 - Sur $[-3\,;\,+\infty[$ : minimum de $f$ vaut $12{,}75 > 0$, donc $f(x) = 0$ n'a pas de solution sur cet intervalle.
 - Sur $]-\infty\,;\,-3]$ : $f$ est **continue** (polynôme), **strictement croissante**, et $0$ est compris entre $\lim_{-\infty} f = -\infty$ et $f(-3) = 195$. Par le théorème de la bijection, $f(x) = 0$ admet une **unique solution** $\alpha$ sur cet intervalle.
@@ -308,6 +314,19 @@ C'est un **résultat à invoquer directement** quand on a besoin de la continuit
 **Définition graphique :**
 - $f$ **convexe** sur $I$ : la courbe est **en dessous** de chacune de ses cordes (et au-dessus de ses tangentes). Ça "sourit" 😊.
 - $f$ **concave** sur $I$ : la courbe est **au-dessus** de chacune de ses cordes (et en dessous de ses tangentes). Ça "fait la gueule" 🙁.
+
+```plot
+{
+  "title": "Convexe (eˣ) vs concave (ln x) — passe la souris pour comparer",
+  "fns": [
+    { "fn": "exp(x) - 1", "color": "#ff3366" },
+    { "fn": "log(x + 1)", "color": "#00d9ff", "range": [-0.99, 4] }
+  ],
+  "xDomain": [-1, 4],
+  "yDomain": [-3, 5],
+  "height": 320
+}
+```
 
 ### 2. Caractérisations (les outils pratiques)
 
@@ -450,31 +469,36 @@ $$\boxed{(v \circ u)'(x) = v'(u(x)) \times u'(x)}$$
 
 ## V. Diagramme de décision
 
-```
-Tu lis l'énoncé. Quel chapitre est mobilisé ?
-│
-├── "Calculer une limite" ?
-│       ├── Pas de FI → calcul direct
-│       └── FI → factoriser par le terme dominant
-│           ├── Polynôme → plus haute puissance de x
-│           ├── Avec exp → e^x (croissances comparées si nécessaire)
-│           └── Avec racine → forme conjuguée
-│
-├── "Montrer que f(x) = k a une unique solution" ?
-│       └── Théorème de la bijection (3 hypothèses : continue, monotone, k entre f(a) et f(b))
-│
-├── "Donner une valeur approchée à 10⁻ⁿ près" ?
-│       └── Méthode de balayage à la calculatrice
-│
-├── "Étudier la convexité de f" ?
-│       └── Calculer f'', étudier son signe
-│           └── Point d'inflexion = f'' s'annule en changeant de signe
-│
-├── "Suite u_{n+1} = f(u_n) converge vers L" ?
-│       └── Point fixe → vérifier les 3 conditions (cf. fiche suites) : convergence, récurrence, CONTINUITÉ DE f EN L
-│
-└── "Dériver une fonction composée" ?
-        └── Identifier u et v, appliquer (v∘u)' = v'(u) × u'
+```mermaid
+flowchart TD
+  E["Énoncé. Quel chapitre<br/>est mobilisé ?"]
+  E --> L["Calculer une limite ?"]
+  E --> B["Unique solution f(x) = k ?"]
+  E --> A["Valeur approchée à 10⁻ⁿ ?"]
+  E --> C["Convexité de f ?"]
+  E --> S["Suite u_{n+1} = f(u_n)<br/>converge vers L ?"]
+  E --> D["Dériver une composée ?"]
+
+  L --> L1["Pas de FI → calcul direct"]
+  L --> L2["FI → factoriser<br/>par le terme dominant"]
+  L2 --> L2a["Polynôme : plus haute<br/>puissance de x"]
+  L2 --> L2b["Avec exp : eˣ<br/>(croissances comparées)"]
+  L2 --> L2c["Avec racine :<br/>forme conjuguée"]
+
+  B --> B1["Théorème de la bijection<br/>3 hypothèses :<br/>continue, monotone,<br/>k ∈ [f(a), f(b)]"]
+  A --> A1["Méthode de balayage<br/>à la calculatrice"]
+  C --> C1["Calculer f'',<br/>étudier son signe"]
+  C1 --> C2["Point d'inflexion :<br/>f'' s'annule en<br/>changeant de signe"]
+
+  S --> S1["Point fixe (cf. fiche suites)<br/>3 conditions :<br/>convergence, récurrence,<br/>CONTINUITÉ DE f EN L"]
+  D --> D1["Identifier u et v<br/>(v∘u)' = v'(u) × u'"]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class L,B,A,C,S,D,L2 branch;
+  class L1,L2a,L2b,L2c,B1,A1,C1,C2,S1,D1 leaf;
 ```
 
 ---
@@ -621,29 +645,37 @@ Construire un **tableau de signes** propre.
 
 ### Résumé : enchaînement type d'un exo bac
 
-```
-Partie A — Étude graphique OU fonction auxiliaire g
-├── Q1. Lectures graphiques (f(a), f'(a), tangente, convexité)  [SI graphique]
-└── Q9. Étude de g + signe de g                                 [SI auxiliaire]
+```mermaid
+flowchart TD
+  PA["Partie A<br/>Étude graphique OU<br/>fonction auxiliaire g"]
+  PA --> PA1["Q1. Lectures graphiques<br/>f(a), f'(a), tangente,<br/>convexité"]
+  PA --> PA9["Q9. Étude de g<br/>+ signe de g"]
 
-Partie B — Étude analytique de f
-├── Q2. Limites en bornes + asymptote
-├── Q3. Calcul de f' (forme factorisée à obtenir)
-├── Q4. Sens de variation + tableau
-├── Q5. Convexité (f'') + points d'inflexion
-├── Q6. f(x) = k a une unique solution (bijection)
-├── Q7. Valeur approchée de α (balayage)
-├── Q8. Signe de f
-└── Q10. Position relative C_f et tangente
+  PB["Partie B<br/>Étude analytique de f"]
+  PB --> PB2["Q2. Limites + asymptote"]
+  PB --> PB3["Q3. f' (forme factorisée)"]
+  PB --> PB4["Q4. Variations + tableau"]
+  PB --> PB5["Q5. Convexité (f'')<br/>+ points d'inflexion"]
+  PB --> PB6["Q6. Bijection :<br/>f(x) = k unique"]
+  PB --> PB7["Q7. Valeur approchée<br/>(balayage)"]
+  PB --> PB8["Q8. Signe de f"]
+  PB --> PB10["Q10. Position relative<br/>𝒞_f et tangente"]
 
-Partie B-bis ou C — Suite récurrente (très fréquent)
-├── Q11a. Calcul des premiers termes
-├── Q11b. Récurrence : encadrement + monotonie
-├── Q11c. Convergence (TCM)
-└── Q11d. Limite (point fixe avec continuité de f)
+  PBC["Partie B-bis / C<br/>Suite u_{n+1} = f(u_n)"]
+  PBC --> PBC1["Q11a. Premiers termes"]
+  PBC --> PBC2["Q11b. Récurrence :<br/>encadrement + monotonie"]
+  PBC --> PBC3["Q11c. TCM<br/>(convergence)"]
+  PBC --> PBC4["Q11d. Point fixe<br/>(continuité de f)"]
 
-Partie C — Aire (optionnelle, si intégrales au programme)
-└── Q12. Calcul d'aire entre courbe et axe / entre deux courbes
+  PC["Partie C (optionnelle)<br/>Aire / intégrale"]
+  PC --> PC1["Q12. Aire 𝒞_f / axe<br/>ou entre deux courbes"]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB,PBC,PC part;
+  class PA1,PA9,PB2,PB3,PB4,PB7,PB8,PBC1,PBC2,PC1 leaf;
+  class PB5,PB6,PB10,PBC3,PBC4 step;
 ```
 
 ### Sujets analysés (pour ta culture)
