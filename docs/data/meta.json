@@ -70,7 +70,7 @@
       "color2": "#00d9ff",
       "file": "fiche_sommes_va_echantillons_bienayme.md",
       "synthFile": "synth_sommes_va_echantillons_bienayme.md",
-      "frequency": "🟥 95%",
+      "frequency": "🟧 44%",
       "duration": 35,
       "tags": ["linéarité", "indépendance", "échantillon", "Bienaymé-Tchebychev", "LGN"],
       "keyFormulas": [
