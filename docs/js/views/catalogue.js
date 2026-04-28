@@ -49,8 +49,41 @@ export async function renderCatalogue({ container }) {
   try {
     const md = await loadCatalogue();
     const body = view.querySelector('#catBody');
-    renderMarkdown(md, body);
+
+    // The catalogue markdown contains GitHub-style in-page TOC links like
+    // [Conventions et codes](#conventions-et-codes). marked v18 no longer
+    // emits header ids automatically, and our hash router would otherwise
+    // intercept the resulting hash change and 404. Two fixes:
+    //   1) assign ids to every heading using the same slug rule the source
+    //      relied on. Done in the beforeKatex hook so the slug sees the raw
+    //      `$...$` heading text, not KaTeX-rendered math.
+    //   2) intercept clicks on in-page anchors and scroll instead of letting
+    //      the SPA hash router pick them up.
+    renderMarkdown(md, body, (root) => {
+      root.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(h => {
+        if (h.id) return;
+        h.id = ghSlug(h.textContent);
+      });
+    });
+
+    body.querySelectorAll('a[href^="#"]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('#/')) return;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = decodeURIComponent(href.slice(1));
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   } catch (err) {
     view.querySelector('#catBody').innerHTML = `<p style="color:var(--accent-1)">Erreur : ${err.message}</p>`;
   }
+}
+
+function ghSlug(text) {
+  return String(text)
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s_-]/gu, '')
+    .replace(/\s/g, '-');
 }

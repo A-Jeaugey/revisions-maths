@@ -95,8 +95,12 @@ function restoreMath(html, blocks) {
   return html.replace(/@@RM_MATH_(\d+)@@/g, (_, i) => blocks[+i] || '');
 }
 
-// Render markdown to HTML with KaTeX rendered after
-export function renderMarkdown(md, container) {
+// Render markdown to HTML with KaTeX rendered after.
+// `beforeKatex` is an optional hook that runs after the HTML has been
+// inserted but before KaTeX rewrites math nodes — useful when callers need
+// to read raw heading text (e.g. to assign anchor ids) without seeing the
+// KaTeX-rendered output.
+export function renderMarkdown(md, container, beforeKatex) {
   if (!window.marked) {
     container.textContent = md;
     return;
@@ -113,6 +117,8 @@ export function renderMarkdown(md, container) {
     if (!/[\^_]/.test(before)) return;
     el.innerHTML = prettifyInlineMath(before);
   });
+
+  if (typeof beforeKatex === 'function') beforeKatex(container);
 
   // Render LaTeX
   if (window.renderKatex) window.renderKatex(container);
