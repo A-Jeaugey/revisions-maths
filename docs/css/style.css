@@ -49,6 +49,9 @@
   --text-muted: #4b5563;
   --text-dim: #6b7280;
   --shadow-card: 0 10px 30px rgba(0,0,0,0.06);
+  /* Lime fluo (#c8ff00) is unreadable on the cream background — swap it for
+     a deep lime that keeps the same hue family but actually has contrast. */
+  --accent-3: #4d7c0f;
 }
 
 * {
