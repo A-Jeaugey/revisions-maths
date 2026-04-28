@@ -62,6 +62,24 @@
       ]
     },
     {
+      "slug": "sommes-va-bienayme",
+      "title": "Sommes de VA & Bienaymé-Tchebychev",
+      "subtitle": "Échantillons · Concentration · LGN",
+      "icon": "Σ²",
+      "color": "#7cffcb",
+      "color2": "#00d9ff",
+      "file": "fiche_sommes_va_echantillons_bienayme.md",
+      "synthFile": "synth_sommes_va_echantillons_bienayme.md",
+      "frequency": "🟥 95%",
+      "duration": 35,
+      "tags": ["linéarité", "indépendance", "échantillon", "Bienaymé-Tchebychev", "LGN"],
+      "keyFormulas": [
+        "E(aX+bY) = aE(X)+bE(Y)",
+        "V(M_n) = \\frac{V(X)}{n},\\ E(M_n)=E(X)",
+        "P(|X-E(X)|\\geq \\alpha) \\leq \\frac{V(X)}{\\alpha^2}"
+      ]
+    },
+    {
       "slug": "exp-ln",
       "title": "Exponentielle & Logarithme",
       "subtitle": "Fonctions réciproques · Croissances comparées",

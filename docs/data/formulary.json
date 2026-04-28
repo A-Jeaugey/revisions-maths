@@ -49,6 +49,23 @@
       ]
     },
     {
+      "title": "Sommes de VA & Bienaymé-Tchebychev",
+      "chapter": "sommes-va-bienayme",
+      "items": [
+        {"name": "Linéarité $E$ (toujours)", "formula": "E(aX+bY) = aE(X)+bE(Y)"},
+        {"name": "Variance d'un produit", "formula": "V(aX+b) = a^2 V(X)"},
+        {"name": "Écart-type d'un produit", "formula": "\\sigma(aX) = |a|\\sigma(X)"},
+        {"name": "Variance somme indépendante", "formula": "V(X+Y) = V(X)+V(Y)\\ (\\text{si } X \\perp\\!\\!\\!\\perp Y)"},
+        {"name": "Stabilité binomiale", "formula": "\\mathcal{B}(m,p) + \\mathcal{B}(n,p) = \\mathcal{B}(m+n,p)\\ (\\text{indép.})"},
+        {"name": "Échantillon — somme", "formula": "E(S_n) = nE(X),\\ V(S_n) = nV(X)"},
+        {"name": "Échantillon — moyenne", "formula": "E(M_n) = E(X),\\ V(M_n) = \\frac{V(X)}{n}"},
+        {"name": "Écart-type moyenne", "formula": "\\sigma(M_n) = \\frac{\\sigma(X)}{\\sqrt{n}}"},
+        {"name": "Bienaymé-Tchebychev", "formula": "P(|X-E(X)| \\geq \\alpha) \\leq \\frac{V(X)}{\\alpha^2}"},
+        {"name": "Inégalité de concentration", "formula": "P(|M_n-\\mu| \\geq \\alpha) \\leq \\frac{V(X)}{n\\alpha^2}"},
+        {"name": "Loi faible des grands nombres", "formula": "\\lim_{n\\to+\\infty} P(|M_n-\\mu|\\geq \\alpha) = 0"}
+      ]
+    },
+    {
       "title": "Exp & Ln",
       "chapter": "exp-ln",
       "items": [

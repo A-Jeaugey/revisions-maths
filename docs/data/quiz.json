@@ -96,6 +96,64 @@
       "explain": "Événement contraire : « aucun succès » = $0{,}8^5$. Donc « au moins un » = $1-0{,}8^5$."
     },
     {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ et $Y$ sont **dépendantes**, $E(X)=2$, $E(Y)=5$. Que vaut $E(X+Y)$ ?",
+      "choices": [
+        "Impossible à dire sans la loi du couple",
+        "$7$",
+        "$10$",
+        "Indéfini car $X, Y$ ne sont pas indépendantes"
+      ],
+      "answer": 1,
+      "explain": "La linéarité de l'espérance est **toujours vraie**, indépendance ou pas : $E(X+Y) = E(X)+E(Y) = 2+5 = 7$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ a $V(X)=4$. Que vaut $V(3X-1)$ ?",
+      "choices": ["$11$", "$12$", "$36$", "$35$"],
+      "answer": 2,
+      "explain": "$V(aX+b) = a^2 V(X)$ : la constante disparaît, le coefficient passe au carré. $V(3X-1) = 3^2 \\times 4 = 36$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X_1 \\sim \\mathcal{B}(20\\,;\\,0{,}3)$ et $X_2 \\sim \\mathcal{B}(50\\,;\\,0{,}3)$ indépendantes. Loi de $X_1 + X_2$ ?",
+      "choices": [
+        "$\\mathcal{B}(70\\,;\\,0{,}6)$",
+        "$\\mathcal{B}(70\\,;\\,0{,}3)$",
+        "$\\mathcal{B}(70\\,;\\,0{,}09)$",
+        "Pas une loi binomiale"
+      ],
+      "answer": 1,
+      "explain": "Stabilité de la binomiale : même $p$ et indépendantes ⇒ $\\mathcal{B}(m+n, p) = \\mathcal{B}(70\\,;\\,0{,}3)$. Le paramètre $p$ ne change pas."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "Échantillon de taille $n=100$ d'une VA $X$ avec $V(X)=9$. Que vaut $\\sigma(M_{100})$ ?",
+      "choices": ["$0{,}09$", "$0{,}3$", "$0{,}9$", "$3$"],
+      "answer": 1,
+      "explain": "$V(M_n) = V(X)/n = 9/100 = 0{,}09$, donc $\\sigma(M_{100}) = \\sqrt{0{,}09} = 0{,}3$. (Ou directement $\\sigma(X)/\\sqrt{n} = 3/10$.)"
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ avec $E(X)=10$, $V(X)=4$. Majorant donné par Bienaymé-Tchebychev pour $P(|X-10| \\geq 5)$ ?",
+      "choices": ["$0{,}04$", "$0{,}16$", "$0{,}4$", "$0{,}8$"],
+      "answer": 1,
+      "explain": "B-T : $P(|X-E(X)| \\geq \\alpha) \\leq V(X)/\\alpha^2 = 4/25 = 0{,}16$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "Inéquation $\\dfrac{V(X)}{N \\times r^2} \\leq 0{,}05$ donne $N \\geq 6765{,}4$. Plus petit $N$ entier ?",
+      "choices": ["$6765$", "$6766$", "$6770$", "$6800$"],
+      "answer": 1,
+      "explain": "Il faut $N \\geq 6765{,}4$, donc le plus petit entier qui convient est $N = 6766$ (entier supérieur, jamais l'arrondi)."
+    },
+    {
       "chapter": "exp-ln",
       "type": "qcm",
       "q": "Résoudre $e^{3x+1} < e^{x-2}$.",

@@ -82,7 +82,7 @@ export async function renderHome({ container }) {
       <div class="section-head">
         <div>
           <span class="section-num">01 / Chapitres</span>
-          <h2 class="section-title">Les 7 zones à blinder</h2>
+          <h2 class="section-title">Les 8 zones à blinder</h2>
         </div>
         <p class="subtitle" style="max-width:38ch">
           Chaque fiche reprend tout le cours, les pièges classiques, des exemples chiffrés

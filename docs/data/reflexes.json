@@ -48,6 +48,23 @@
       ]
     },
     {
+      "chapter": "sommes-va-bienayme",
+      "title": "Sommes de VA & Bienaymé — Réflexes",
+      "cards": [
+        {"trigger": "Calculer $E(X+Y)$ ou $E(aX+bY)$", "action": "Linéarité de $E$ — TOUJOURS vraie, pas besoin d'indépendance"},
+        {"trigger": "Calculer $V(X+Y)$", "action": "$V(X)+V(Y)$ **uniquement si $X$ et $Y$ indépendantes** (à justifier)"},
+        {"trigger": "$V(aX)$, $\\sigma(aX)$", "action": "$V(aX) = a^2 V(X)$ et $\\sigma(aX) = |a|\\sigma(X)$"},
+        {"trigger": "$X_1 \\sim \\mathcal{B}(m,p)$, $X_2 \\sim \\mathcal{B}(n,p)$ indépendantes", "action": "$X_1 + X_2 \\sim \\mathcal{B}(m+n, p)$ (stabilité)"},
+        {"trigger": "Échantillon $(X_1, …, X_n)$, somme $S_n$", "action": "$E(S_n) = nE(X)$, $V(S_n) = nV(X)$, $\\sigma(S_n) = \\sqrt{n}\\,\\sigma(X)$"},
+        {"trigger": "Échantillon, moyenne $M_n$", "action": "$E(M_n) = E(X)$, $V(M_n) = V(X)/n$, $\\sigma(M_n) = \\sigma(X)/\\sqrt{n}$"},
+        {"trigger": "« Majorer $P(|X - E(X)| \\geq \\alpha)$ »", "action": "Bienaymé-Tchebychev : $\\leq V(X)/\\alpha^2$"},
+        {"trigger": "« Majorer $P(|M_n - \\mu| \\geq \\alpha)$ » ou « pour quelle taille $n$… »", "action": "Inégalité de concentration : $\\leq V(X)/(n\\alpha^2)$"},
+        {"trigger": "Minorer $P(a < X < b)$ avec B-T", "action": "Centre $c=(a+b)/2$, rayon $r=(b-a)/2$, vérifier $c=E(X)$ → $\\geq 1 - V(X)/r^2$"},
+        {"trigger": "Plus petit entier $N$ tel que $P(\\dots) \\geq 0{,}95$", "action": "Résoudre l'inéquation, prendre l'**entier supérieur** (pas l'arrondi)"},
+        {"trigger": "« Quand $n \\to +\\infty$ » avec $M_n$", "action": "Loi faible des grands nombres : $P(|M_n - \\mu| \\geq \\alpha) \\to 0$"}
+      ]
+    },
+    {
       "chapter": "exp-ln",
       "title": "Exp & Ln — Réflexes",
       "cards": [
