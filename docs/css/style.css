@@ -434,12 +434,6 @@ h1, h2, h3, h4 {
   font-size: clamp(56px, 13vw, 200px);
   line-height: 0.92;
   letter-spacing: -0.04em;
-  /* Italic Fraunces glyphs (.it) have terminal swashes that extend past
-     their advance width; combined with body { overflow-x: hidden } and
-     the negative letter-spacing, the rightmost ink on each wrapped line
-     gets clipped. Reserve a sliver of inline-end room so the overhang
-     stays inside the box. */
-  padding-inline-end: 0.08em;
 }
 
 .display .it {
@@ -449,11 +443,16 @@ h1, h2, h3, h4 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* Extend the painted region (and the box that gets clipped to text)
-     past the last glyph's advance position so the italic terminal of
-     the final letter still receives the gradient. */
+  /* Italic Fraunces glyphs have terminal swashes that extend past their
+     advance width. With -webkit-background-clip:text the gradient is
+     painted across the inline box and clipped to the text shape — so the
+     ink that overflows past the inline box gets no fill and appears cut.
+     box-decoration-break: clone applies the padding to every line
+     fragment, extending the painted region on each wrapped line so the
+     full italic terminal still receives the gradient. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   padding-inline-end: 0.12em;
-  margin-inline-end: -0.12em;
 }
 
 .subtitle {
