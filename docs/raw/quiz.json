@@ -1,0 +1,262 @@
+{
+  "questions": [
+    {
+      "chapter": "suites",
+      "type": "qcm",
+      "q": "Pour montrer que $(U_n)$ converge vers $L$ avec $U_{n+1}=f(U_n)$, quelles sont les 3 conditions du théorème du point fixe ?",
+      "choices": [
+        "Convergence prouvée + récurrence + continuité de $f$ en $L$",
+        "Monotonie + bornée + dérivable",
+        "Croissance + majorée + $f$ croissante",
+        "$f$ continue + $L$ unique + $U_0$ donné"
+      ],
+      "answer": 0,
+      "explain": "Il faut TOUJOURS citer : 1) la suite converge vers $L$ (souvent via TCM), 2) la relation $u_{n+1}=f(u_n)$, 3) $f$ continue en $L$. Alors $L$ vérifie $f(L)=L$."
+    },
+    {
+      "chapter": "suites",
+      "type": "qcm",
+      "q": "Soit $U_{n+1}=0{,}5 U_n + 2$ avec $U_0=3$. Quelle est $\\lim U_n$ ?",
+      "choices": ["0", "$+\\infty$", "4", "$\\ln 4$"],
+      "answer": 2,
+      "explain": "Point fixe : $C = b/(1-a) = 2/0{,}5 = 4$. Comme $|a|=0{,}5<1$, $V_n=U_n-C$ → 0, donc $U_n$ → 4."
+    },
+    {
+      "chapter": "suites",
+      "type": "qcm",
+      "q": "Combien de termes dans la somme $U_3 + U_4 + \\dots + U_{17}$ ?",
+      "choices": ["14", "15", "17", "20"],
+      "answer": 1,
+      "explain": "Nombre de termes = dernier indice − premier indice + 1 = 17−3+1 = 15."
+    },
+    {
+      "chapter": "suites",
+      "type": "qcm",
+      "q": "$\\lim_{n\\to+\\infty}\\dfrac{n^3 + 2n}{e^n} = ?$",
+      "choices": ["$+\\infty$", "0", "1", "Indéfinie"],
+      "answer": 1,
+      "explain": "Croissances comparées : $e^n$ écrase $n^k$. Donc la limite est 0."
+    },
+    {
+      "chapter": "geometrie-espace",
+      "type": "qcm",
+      "q": "Pour montrer (D)⊥(P), quelle est la méthode la plus rapide ?",
+      "choices": [
+        "Montrer que $\\vec{u}_D$ est colinéaire à $\\vec{n}_P$",
+        "Calculer la distance",
+        "Montrer (D)//(P)",
+        "Trouver l'intersection"
+      ],
+      "answer": 0,
+      "explain": "Si vecteur directeur de (D) colinéaire au vecteur normal de (P), alors (D)⊥(P) — preuve directe."
+    },
+    {
+      "chapter": "geometrie-espace",
+      "type": "qcm",
+      "q": "A(1,2,−1) et B(3,0,2). Quelle est la distance $AB$ ?",
+      "choices": ["$\\sqrt{13}$", "$\\sqrt{17}$", "$\\sqrt{20}$", "5"],
+      "answer": 1,
+      "explain": "$AB = \\sqrt{(3-1)^2+(0-2)^2+(2-(-1))^2} = \\sqrt{4+4+9} = \\sqrt{17}$"
+    },
+    {
+      "chapter": "geometrie-espace",
+      "type": "qcm",
+      "q": "Le plan (P) : $2x+y-z+5=0$ a pour vecteur normal :",
+      "choices": ["$(1,1,-1)$", "$(2,1,-1)$", "$(2,1,1)$", "$(5,0,0)$"],
+      "answer": 1,
+      "explain": "Les coefficients de $x,y,z$ donnent directement le vecteur normal : $\\vec{n}=(2,1,-1)$."
+    },
+    {
+      "chapter": "probas-binomiale",
+      "type": "qcm",
+      "q": "On tire **simultanément** 3 cartes parmi 32. Quel outil utiliser ?",
+      "choices": ["$32^3$", "$A_{32}^3$", "$\\binom{32}{3}$", "$3!$"],
+      "answer": 2,
+      "explain": "« Simultanément » → ordre ne compte pas, pas de répétition → combinaison $\\binom{32}{3}$."
+    },
+    {
+      "chapter": "probas-binomiale",
+      "type": "qcm",
+      "q": "$X\\sim\\mathcal{B}(20, 0{,}3)$. Que vaut $E(X)$ et $V(X)$ ?",
+      "choices": [
+        "$E(X)=6$, $V(X)=4{,}2$",
+        "$E(X)=20$, $V(X)=6$",
+        "$E(X)=0{,}3$, $V(X)=0{,}3$",
+        "$E(X)=6$, $V(X)=6$"
+      ],
+      "answer": 0,
+      "explain": "Binomiale : $E(X)=np=20\\times 0{,}3=6$, $V(X)=np(1-p)=6\\times 0{,}7=4{,}2$."
+    },
+    {
+      "chapter": "probas-binomiale",
+      "type": "qcm",
+      "q": "Probabilité d'« au moins un succès » en 5 essais (p=0{,}2) ?",
+      "choices": ["$0{,}8^5$", "$1 - 0{,}8^5$", "$5\\times 0{,}2$", "$0{,}2^5$"],
+      "answer": 1,
+      "explain": "Événement contraire : « aucun succès » = $0{,}8^5$. Donc « au moins un » = $1-0{,}8^5$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ et $Y$ sont **dépendantes**, $E(X)=2$, $E(Y)=5$. Que vaut $E(X+Y)$ ?",
+      "choices": [
+        "Impossible à dire sans la loi du couple",
+        "$7$",
+        "$10$",
+        "Indéfini car $X, Y$ ne sont pas indépendantes"
+      ],
+      "answer": 1,
+      "explain": "La linéarité de l'espérance est **toujours vraie**, indépendance ou pas : $E(X+Y) = E(X)+E(Y) = 2+5 = 7$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ a $V(X)=4$. Que vaut $V(3X-1)$ ?",
+      "choices": ["$11$", "$12$", "$36$", "$35$"],
+      "answer": 2,
+      "explain": "$V(aX+b) = a^2 V(X)$ : la constante disparaît, le coefficient passe au carré. $V(3X-1) = 3^2 \\times 4 = 36$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X_1 \\sim \\mathcal{B}(20\\,;\\,0{,}3)$ et $X_2 \\sim \\mathcal{B}(50\\,;\\,0{,}3)$ indépendantes. Loi de $X_1 + X_2$ ?",
+      "choices": [
+        "$\\mathcal{B}(70\\,;\\,0{,}6)$",
+        "$\\mathcal{B}(70\\,;\\,0{,}3)$",
+        "$\\mathcal{B}(70\\,;\\,0{,}09)$",
+        "Pas une loi binomiale"
+      ],
+      "answer": 1,
+      "explain": "Stabilité de la binomiale : même $p$ et indépendantes ⇒ $\\mathcal{B}(m+n, p) = \\mathcal{B}(70\\,;\\,0{,}3)$. Le paramètre $p$ ne change pas."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "Échantillon de taille $n=100$ d'une VA $X$ avec $V(X)=9$. Que vaut $\\sigma(M_{100})$ ?",
+      "choices": ["$0{,}09$", "$0{,}3$", "$0{,}9$", "$3$"],
+      "answer": 1,
+      "explain": "$V(M_n) = V(X)/n = 9/100 = 0{,}09$, donc $\\sigma(M_{100}) = \\sqrt{0{,}09} = 0{,}3$. (Ou directement $\\sigma(X)/\\sqrt{n} = 3/10$.)"
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "$X$ avec $E(X)=10$, $V(X)=4$. Majorant donné par Bienaymé-Tchebychev pour $P(|X-10| \\geq 5)$ ?",
+      "choices": ["$0{,}04$", "$0{,}16$", "$0{,}4$", "$0{,}8$"],
+      "answer": 1,
+      "explain": "B-T : $P(|X-E(X)| \\geq \\alpha) \\leq V(X)/\\alpha^2 = 4/25 = 0{,}16$."
+    },
+    {
+      "chapter": "sommes-va-bienayme",
+      "type": "qcm",
+      "q": "Inéquation $\\dfrac{V(X)}{N \\times r^2} \\leq 0{,}05$ donne $N \\geq 6765{,}4$. Plus petit $N$ entier ?",
+      "choices": ["$6765$", "$6766$", "$6770$", "$6800$"],
+      "answer": 1,
+      "explain": "Il faut $N \\geq 6765{,}4$, donc le plus petit entier qui convient est $N = 6766$ (entier supérieur, jamais l'arrondi)."
+    },
+    {
+      "chapter": "exp-ln",
+      "type": "qcm",
+      "q": "Résoudre $e^{3x+1} < e^{x-2}$.",
+      "choices": [
+        "$x < -3/2$",
+        "$x > -3/2$",
+        "$x < 1/2$",
+        "Pas de solution"
+      ],
+      "answer": 0,
+      "explain": "exp strictement croissante : $3x+1 < x-2 \\Leftrightarrow 2x < -3 \\Leftrightarrow x < -3/2$."
+    },
+    {
+      "chapter": "exp-ln",
+      "type": "qcm",
+      "q": "Dérivée de $f(x) = \\ln(x^2+1)$ ?",
+      "choices": [
+        "$\\frac{1}{x^2+1}$",
+        "$\\frac{2x}{x^2+1}$",
+        "$2x \\ln(x^2+1)$",
+        "$\\frac{1}{2x}$"
+      ],
+      "answer": 1,
+      "explain": "$(\\ln u)' = u'/u$ avec $u = x^2+1$, $u'=2x$."
+    },
+    {
+      "chapter": "exp-ln",
+      "type": "qcm",
+      "q": "Plus petit $n$ tel que $0{,}85^n < 0{,}6$ ?",
+      "choices": ["$n=2$", "$n=3$", "$n=4$", "$n=5$"],
+      "answer": 2,
+      "explain": "$n > \\ln(0{,}6)/\\ln(0{,}85) \\approx 3{,}14$. Plus petit entier : $n=4$."
+    },
+    {
+      "chapter": "limites-continuite",
+      "type": "qcm",
+      "q": "$f$ continue strictement croissante sur $[a,b]$ avec $f(a)<k<f(b)$. Combien de solutions à $f(x)=k$ ?",
+      "choices": ["0", "Une unique", "Deux", "Une infinité"],
+      "answer": 1,
+      "explain": "Théorème de la bijection (TVI + monotonie) : il existe une unique solution dans $[a,b]$."
+    },
+    {
+      "chapter": "limites-continuite",
+      "type": "qcm",
+      "q": "$f(x) = x^3 - 3x$. Point d'inflexion ?",
+      "choices": ["$x=0$", "$x=1$", "$x=-1$", "Aucun"],
+      "answer": 0,
+      "explain": "$f''(x)=6x$ s'annule en 0 et change de signe → inflexion en $x=0$."
+    },
+    {
+      "chapter": "primitives-edo",
+      "type": "qcm",
+      "q": "Solution générale de $y' = 3y$ ?",
+      "choices": [
+        "$y = Ce^{3x}$",
+        "$y = Cx^3$",
+        "$y = 3x + C$",
+        "$y = Ce^{x/3}$"
+      ],
+      "answer": 0,
+      "explain": "$y'=ay \\Rightarrow y = Ce^{ax}$ avec $a=3$."
+    },
+    {
+      "chapter": "primitives-edo",
+      "type": "qcm",
+      "q": "Une primitive de $f(x) = 2x \\cdot e^{x^2}$ ?",
+      "choices": [
+        "$e^{x^2} + C$",
+        "$x^2 e^{x^2} + C$",
+        "$2 e^{x^2} + C$",
+        "$\\ln(x^2) + C$"
+      ],
+      "answer": 0,
+      "explain": "Forme $u'e^u$ avec $u=x^2$, $u'=2x$. Primitive : $e^u + C = e^{x^2} + C$."
+    },
+    {
+      "chapter": "integration",
+      "type": "qcm",
+      "q": "$\\int_0^1 e^x\\,dx = ?$",
+      "choices": ["$e$", "$e - 1$", "$1$", "$e^2$"],
+      "answer": 1,
+      "explain": "Primitive de $e^x$ : $e^x$. $[e^x]_0^1 = e^1 - e^0 = e-1$."
+    },
+    {
+      "chapter": "integration",
+      "type": "qcm",
+      "q": "Valeur moyenne de $f(x)=2x$ sur $[0,3]$ ?",
+      "choices": ["$3$", "$6$", "$9$", "$1{,}5$"],
+      "answer": 0,
+      "explain": "$\\bar f = \\frac{1}{3-0}\\int_0^3 2x\\,dx = \\frac{1}{3}[x^2]_0^3 = \\frac{9}{3}=3$."
+    },
+    {
+      "chapter": "integration",
+      "type": "qcm",
+      "q": "Pour $\\int_0^1 x e^x\\,dx$, quelle technique ?",
+      "choices": [
+        "Primitive directe",
+        "IPP avec $u'=e^x$, $v=x$",
+        "Changement de variable",
+        "Croissances comparées"
+      ],
+      "answer": 1,
+      "explain": "Produit polynôme×exp → IPP. Choix usuel : $u'=e^x$ (s'intègre bien), $v=x$ (se dérive en 1)."
+    }
+  ]
+}

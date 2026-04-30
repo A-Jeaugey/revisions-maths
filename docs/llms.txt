@@ -1,0 +1,39 @@
+# RÉV.maths — Révisions Bac Spé Maths Terminale
+
+> Révisions Bac Spé Maths Terminale — fiches complètes, synthèses, réflexes, formulaire, quiz et annales 2024-2025.
+
+Site interactif : https://arthurjeaugey.com/revisions-maths/
+Index des ressources brutes : https://arthurjeaugey.com/revisions-maths/raw/
+
+## Fiches complètes
+
+- [Suites numériques — Récurrence · Limites · Point fixe · TCM](https://arthurjeaugey.com/revisions-maths/raw/suites.md)
+- [Géométrie dans l'espace — Vecteurs · Droites · Plans · Projetés](https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.md)
+- [Probabilités & Binomiale — Conditionnelles · Bayes · Loi binomiale](https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.md)
+- [Sommes de VA & Bienaymé-Tchebychev — Échantillons · Concentration · LGN](https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.md)
+- [Exponentielle & Logarithme — Fonctions réciproques · Croissances comparées](https://arthurjeaugey.com/revisions-maths/raw/exp-ln.md)
+- [Limites · Continuité · Convexité — Étude de fonctions · TVI · Composée](https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.md)
+- [Primitives & Équations différentielles — y' = ay + b · y' = ay + φ](https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.md)
+- [Intégration — Aires · Chasles · IPP · Valeur moyenne](https://arthurjeaugey.com/revisions-maths/raw/integration.md)
+
+## Synthèses
+
+- [Suites numériques — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/suites.md)
+- [Géométrie dans l'espace — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/geometrie-espace.md)
+- [Probabilités & Binomiale — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.md)
+- [Sommes de VA & Bienaymé-Tchebychev — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.md)
+- [Exponentielle & Logarithme — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.md)
+- [Limites · Continuité · Convexité — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.md)
+- [Primitives & Équations différentielles — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.md)
+- [Intégration — synthèse](https://arthurjeaugey.com/revisions-maths/raw/synth/integration.md)
+
+## Catalogue
+
+- [Catalogue des questions-types Bac](https://arthurjeaugey.com/revisions-maths/raw/catalogue.md)
+
+## Données
+
+- [meta.json — métadonnées chapitres et annales](https://arthurjeaugey.com/revisions-maths/raw/meta.json)
+- [reflexes.json — cartes réflexes](https://arthurjeaugey.com/revisions-maths/raw/reflexes.json)
+- [formulary.json — formulaire complet](https://arthurjeaugey.com/revisions-maths/raw/formulary.json)
+- [quiz.json — banque de quiz](https://arthurjeaugey.com/revisions-maths/raw/quiz.json)

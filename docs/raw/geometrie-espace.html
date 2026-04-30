@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Géométrie dans l&#39;espace — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Géométrie dans l&#39;espace. Vecteurs · Droites · Plans · Projetés.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Géométrie dans l&#39;espace — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Géométrie dans l&#39;espace. Vecteurs · Droites · Plans · Projetés.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Géométrie dans l&#39;espace — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Géométrie dans l&#39;espace. Vecteurs · Droites · Plans · Projetés.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Géométrie dans l'espace — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Géométrie dans l'espace. Vecteurs · Droites · Plans · Projetés.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/geometrie-espace">https://arthurjeaugey.com/revisions-maths/#/fiche/geometrie-espace</a>.</div>
+<article><h1>📐 Fiche de Combat — Géométrie dans l&#39;espace</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Structurée selon la check-list pédagogique standard + compléments pour blinder le 20.</p>
+</blockquote>
+<hr>
+<h2>🎯 La check-list (à mémoriser)</h2>
+<p>Les <strong>8 types de questions</strong> classiques, dans l&#39;ordre où elles tombent presque toujours dans un exercice de géo dans l&#39;espace :</p>
+<ol>
+<li><strong><a href="#s-i-les-fondations-points-vecteurs">(ABC) forme un plan</a></strong></li>
+<li><strong><a href="#s-i-les-fondations-points-vecteurs">Calculer longueurs, coordonnées d&#39;un milieu</a></strong></li>
+<li><strong><a href="#s-ii-equations-de-droites-et-de-plans">Représentation paramétrique de droite $(A, \vec{u})$</a></strong></li>
+<li><strong><a href="#s-ii-equations-de-droites-et-de-plans">Équation cartésienne de plan $(A, \vec{n})$</a></strong></li>
+<li><strong><a href="#s-iii-positions-relatives-orthogonalite-la-zone-a-blinder">Montrer que $(D)$ orthogonale à $(P)$, positions $(D)/(P)$ et $(P)/(P')$</a></strong></li>
+<li><strong><a href="#s-iv-intersections-projete-orthogonal-le-boss-final">Intersection $(D) \cap (P)$</a></strong></li>
+<li><strong><a href="#s-iv-intersections-projete-orthogonal-le-boss-final">Projeté orthogonal d&#39;un point sur un plan</a></strong> (2 variantes : « Montrer que H est… » ou « Déterminer les coordonnées de H »)</li>
+<li><strong><a href="#s-v-aires-et-volumes-les-points-faciles-de-fin-d-exo">Aires, volumes</a></strong></li>
+</ol>
+<p>⚡ <strong>Réflexe stratégique :</strong> quand tu vois un exercice de géo dans l&#39;espace, scanne l&#39;énoncé dans cet ordre. La question 7 (projeté) demande presque toujours d&#39;utiliser les questions 3, 4 et 6 d&#39;abord.</p>
+<hr>
+<h2>I. Les fondations (Points &amp; Vecteurs)</h2>
+<h3>1. Distance entre deux points</h3>
+<p>$$AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$$</p>
+<p><strong>Exemple chiffré :</strong> A(1, 2, -1), B(3, 0, 2).
+<code>AB = √[(3-1)² + (0-2)² + (2-(-1))²] = √[4 + 4 + 9] = √17</code></p>
+<p>⚠️ <strong>Piège classique :</strong> signe des soustractions. Quand <code>xA = -1</code>, <code>xB - xA = xB - (-1) = xB + 1</code>. Beaucoup d&#39;élèves oublient.</p>
+<h3>2. Coordonnées du milieu de [AB]</h3>
+<p>$$M\left(\frac{x_A + x_B}{2}\,;\,\frac{y_A + y_B}{2}\,;\,\frac{z_A + z_B}{2}\right)$$</p>
+<h3>3. Montrer que (ABC) forme un plan</h3>
+<p><strong>Méthode imparable :</strong></p>
+<ol>
+<li>Calculer <code>vec(AB)</code> et <code>vec(AC)</code>.</li>
+<li>Montrer qu&#39;ils ne sont <strong>pas colinéaires</strong> (coordonnées non proportionnelles).</li>
+<li>Conclure : &quot;Donc A, B et C ne sont pas alignés et définissent un plan unique (ABC).&quot;</li>
+</ol>
+<p><strong>Comment montrer la non-colinéarité concrètement :</strong>
+Si <code>vec(AB) = (a, b, c)</code> et <code>vec(AC) = (a&#39;, b&#39;, c&#39;)</code>, ils sont colinéaires ssi <code>a/a&#39; = b/b&#39; = c/c&#39;</code> (à condition que les dénominateurs soient non nuls).</p>
+<ul>
+<li>En pratique : on cherche <strong>un seul</strong> rapport qui ne match pas les autres → c&#39;est suffisant pour conclure à la non-colinéarité.</li>
+</ul>
+<p><strong>Exemple chiffré :</strong> A(1,0,0), B(2,1,0), C(1,1,1).</p>
+<ul>
+<li><code>vec(AB) = (1, 1, 0)</code>, <code>vec(AC) = (0, 1, 1)</code>.</li>
+<li>Si colinéaires, il existe k tel que <code>vec(AB) = k·vec(AC)</code>. Or la 1ère coordonnée donne <code>1 = k·0 = 0</code> ❌. Donc non colinéaires → A, B, C définissent un plan.</li>
+</ul>
+<h3>4. Vecteurs coplanaires &amp; bases (compléments du cours)</h3>
+<p><strong>Vecteurs coplanaires :</strong> Trois vecteurs <code>vec(u)</code>, <code>vec(v)</code>, <code>vec(w)</code> sont coplanaires s&#39;il existe des réels <code>a</code> et <code>b</code> tels que :
+$$\vec{w} = a\vec{u} + b\vec{v}$$
+C&#39;est-à-dire que <code>vec(w)</code> est combinaison linéaire de <code>vec(u)</code> et <code>vec(v)</code>.</p>
+<p><strong>Base de l&#39;espace :</strong> Trois vecteurs forment une base de l&#39;espace <strong>SSI ils ne sont PAS coplanaires</strong> (il faut 3 directions indépendantes en dimension 3).</p>
+<p>⚠️ <strong>Red flag :</strong> Si tu montres que 3 vecteurs sont coplanaires, ils ne forment <strong>pas</strong> une base. À toi de bien lire la question.</p>
+<hr>
+<h2>II. Équations de droites et de plans</h2>
+<h3>1. Représentation paramétrique d&#39;une droite (A, $\vec{u}$)</h3>
+<p>Une droite est définie par <strong>un point A</strong> et <strong>un vecteur directeur</strong> <code>vec(u)(a, b, c)</code>.</p>
+<p><strong>La méthode :</strong> un point M(x, y, z) appartient à (D) ssi <code>vec(AM) = t·vec(u)</code> pour un certain <code>t ∈ ℝ</code>. D&#39;où le système :</p>
+<p>$$\begin{cases} x = x_A + at \\ y = y_A + bt \\ z = z_A + ct \end{cases} \quad (t \in \mathbb{R})$$</p>
+<p><strong>Exemple chiffré :</strong> Droite passant par A(1, 2, -1) et de vecteur directeur <code>vec(u) = (3, -1, 2)</code>.</p>
+<pre><code>x = 1 + 3t
+y = 2 - t
+z = -1 + 2t        avec t ∈ ℝ
+</code></pre>
+<p>⚠️ <strong>À ne pas oublier :</strong> mentionner explicitement <code>t ∈ ℝ</code> dans la rédaction. C&#39;est un point qui se perd souvent.</p>
+<h3>2. Équation cartésienne d&#39;un plan (A, $\vec{n}$)</h3>
+<p>Un plan est défini par <strong>un point A</strong> et <strong>un vecteur normal</strong> <code>vec(n)(a, b, c)</code> (orthogonal au plan).</p>
+<p><strong>Méthode en 3 étapes :</strong></p>
+<ol>
+<li>Écrire l&#39;équation sous la forme <code>ax + by + cz + d = 0</code> (les coefficients a, b, c sont les coordonnées du normal).</li>
+<li>Injecter les coordonnées de A pour trouver <code>d</code>.</li>
+<li>Conclure.</li>
+</ol>
+<p><strong>Exemple chiffré :</strong> <code>vec(n) = (2, 1, -1)</code>, A(1, 1, 1).</p>
+<ul>
+<li>Équation de la forme <code>2x + y - z + d = 0</code>.</li>
+<li>Avec A : <code>2(1) + 1 - 1 + d = 0</code> → <code>d = -2</code>.</li>
+<li>Équation : <strong><code>2x + y - z - 2 = 0</code></strong>.</li>
+</ul>
+<h3>3. Si l&#39;énoncé donne 3 points A, B, C au lieu d&#39;un normal</h3>
+<p>Il faut trouver <code>vec(n)</code> soi-même. Méthode :</p>
+<ol>
+<li>Calculer <code>vec(AB)</code> et <code>vec(AC)</code>.</li>
+<li>Chercher <code>vec(n) = (a, b, c)</code> tel que :<ul>
+<li><code>vec(n) · vec(AB) = 0</code></li>
+<li><code>vec(n) · vec(AC) = 0</code></li>
+</ul>
+</li>
+<li>On obtient un système de 2 équations à 3 inconnues → on fixe arbitrairement une coordonnée (ex. c = 1) et on résout.</li>
+</ol>
+<p><strong>Exemple chiffré :</strong> A(1,0,0), B(0,1,0), C(0,0,1).</p>
+<ul>
+<li><code>vec(AB) = (-1, 1, 0)</code>, <code>vec(AC) = (-1, 0, 1)</code>.</li>
+<li>On cherche <code>vec(n) = (a, b, c)</code> avec <code>-a + b = 0</code> et <code>-a + c = 0</code>.</li>
+<li>Donc <code>b = a</code> et <code>c = a</code>. En fixant <code>a = 1</code> : <code>vec(n) = (1, 1, 1)</code>.</li>
+<li>Équation : <code>x + y + z + d = 0</code> avec A → <code>1 + d = 0</code> → <code>d = -1</code>. Soit <strong><code>x + y + z - 1 = 0</code></strong>.</li>
+</ul>
+<hr>
+<h2>III. Positions relatives &amp; orthogonalité (la zone à blinder)</h2>
+<h3>1. Montrer que (D) est orthogonale au plan (P)</h3>
+<p><strong>Définition :</strong> Une droite est orthogonale à un plan ssi elle est orthogonale à TOUTES les droites du plan.</p>
+<p><strong>Méthode 1 (la plus rapide) :</strong> Montrer que le vecteur directeur <code>vec(u)</code> de (D) est <strong>colinéaire</strong> au vecteur normal <code>vec(n)</code> de (P).</p>
+<ul>
+<li>Concrètement : <code>vec(u) = k·vec(n)</code> pour un certain <code>k</code>.</li>
+</ul>
+<p><strong>Méthode 2 (si pas de normal donné) :</strong> Montrer que <code>vec(u)</code> est orthogonal à <strong>deux vecteurs non colinéaires</strong> du plan (par produit scalaire nul).</p>
+<ul>
+<li>⚠️ Il faut <strong>deux</strong> vecteurs, pas un seul. Un seul ne suffit pas (la droite pourrait être dans le plan).</li>
+</ul>
+<p><strong>Exemple chiffré (méthode 1) :</strong> Droite (D) de vecteur directeur <code>vec(u) = (4, 2, -2)</code> et plan (P) : <code>2x + y - z + 5 = 0</code>.</p>
+<ul>
+<li>Normal du plan : <code>vec(n) = (2, 1, -1)</code>.</li>
+<li><code>vec(u) = 2 · vec(n)</code> → colinéaires → (D) ⊥ (P) ✅</li>
+</ul>
+<h3>2. Positions de deux plans (P) et (P&#39;)</h3>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Caractérisation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Parallèles (confondus ou strictement)</strong></td>
+<td><code>vec(n)</code> et <code>vec(n&#39;)</code> colinéaires</td>
+</tr>
+<tr>
+<td><strong>Sécants</strong></td>
+<td><code>vec(n)</code> et <code>vec(n&#39;)</code> non colinéaires → ils se coupent selon une <strong>droite</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Pour distinguer parallèles confondus / strictement :</strong></p>
+<ul>
+<li>Si normaux colinéaires ET un point de (P) appartient à (P&#39;) → <strong>confondus</strong>.</li>
+<li>Si normaux colinéaires ET aucun point commun → <strong>strictement parallèles</strong>.</li>
+</ul>
+<p><strong>Trouver l&#39;intersection de deux plans sécants :</strong>
+On résout le système des 2 équations cartésiennes. On obtient une droite (sous forme paramétrique en posant l&#39;une des variables = t).</p>
+<p><strong>Exemple chiffré :</strong> (P) : <code>x + y - z = 0</code> et (P&#39;) : <code>2x - y + z = 3</code>.</p>
+<ul>
+<li>Système : on additionne les deux équations → <code>3x = 3</code> → <code>x = 1</code>.</li>
+<li>En posant <code>z = t</code> (paramètre), la 1ère équation donne <code>y = z - x = t - 1</code>.</li>
+<li>Représentation paramétrique : <code>x = 1</code>, <code>y = -1 + t</code>, <code>z = t</code>.</li>
+</ul>
+<h3>3. Positions de (D) et (P)</h3>
+<p>Soit <code>vec(u)</code> le vecteur directeur de (D) et <code>vec(n)</code> le vecteur normal de (P).</p>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Caractérisation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>(D) parallèle à (P)</strong> (incluse ou stricte)</td>
+<td><code>vec(u) · vec(n) = 0</code></td>
+</tr>
+<tr>
+<td><strong>(D) sécante à (P)</strong></td>
+<td><code>vec(u) · vec(n) ≠ 0</code> → un unique point d&#39;intersection</td>
+</tr>
+<tr>
+<td><strong>(D) orthogonale à (P)</strong></td>
+<td><code>vec(u)</code> colinéaire à <code>vec(n)</code> (cas particulier de sécante)</td>
+</tr>
+</tbody></table>
+<p><strong>Pour distinguer parallèle incluse / stricte :</strong></p>
+<ul>
+<li>Si <code>vec(u) · vec(n) = 0</code> ET un point de (D) appartient à (P) → <strong>incluse</strong>.</li>
+<li>Si <code>vec(u) · vec(n) = 0</code> ET un point de (D) n&#39;appartient pas à (P) → <strong>strictement parallèle</strong>.</li>
+</ul>
+<h3>4. Positions de deux droites (D₁) et (D₂) — les 4 cas (souvent oubliés)</h3>
+<p>🎯 <strong>Le piège classique :</strong> beaucoup d&#39;élèves ne pensent qu&#39;à 3 cas. Il y en a <strong>4</strong> dans l&#39;espace.</p>
+<ol>
+<li><strong>Parallèles confondues :</strong> vecteurs directeurs colinéaires ET un point de (D₁) appartient à (D₂).</li>
+<li><strong>Parallèles strictement distinctes :</strong> vecteurs directeurs colinéaires MAIS aucun point commun.</li>
+<li><strong>Sécantes :</strong> vecteurs directeurs <strong>non colinéaires</strong> ET un point d&#39;intersection unique.</li>
+<li><strong>Non coplanaires :</strong> vecteurs directeurs <strong>non colinéaires</strong> ET <strong>aucun</strong> point d&#39;intersection.</li>
+</ol>
+<p>⚠️ <strong>Le cas &quot;non coplanaires&quot; n&#39;existe pas en 2D</strong>. Dans l&#39;espace, deux droites peuvent ne pas être parallèles ET ne jamais se croiser (comme deux routes sur un échangeur autoroutier).</p>
+<p><strong>Méthode pour trancher entre sécantes et non coplanaires :</strong> quand les vecteurs directeurs sont non colinéaires, on résout le système d&#39;intersection. S&#39;il a une solution unique → sécantes. S&#39;il n&#39;en a pas → non coplanaires.</p>
+<h3>5. Théorème du toit (bonus pour briller)</h3>
+<p><strong>Énoncé :</strong> Soient (P₁) et (P₂) deux plans qui se coupent selon une droite (Δ). Si (P₁) contient une droite (d₁) et (P₂) contient une droite (d₂) telles que <strong>(d₁) // (d₂)</strong>, alors la droite d&#39;intersection (Δ) est <strong>parallèle</strong> à (d₁) et (d₂).</p>
+<p><strong>À quoi ça sert :</strong> trouver la <strong>direction</strong> de l&#39;intersection de deux plans sans calcul, juste par identification d&#39;un parallélisme.</p>
+<hr>
+<h2>IV. Intersections &amp; Projeté orthogonal (le boss final)</h2>
+<h3>1. Intersection (D) ∩ (P)</h3>
+<p><strong>Méthode en 4 étapes :</strong></p>
+<ol>
+<li>Prendre le système paramétrique de (D) : <code>x = x_A + at</code>, <code>y = y_A + bt</code>, <code>z = z_A + ct</code>.</li>
+<li><strong>Injecter</strong> ces expressions dans l&#39;équation cartésienne de (P) : <code>a&#39;(x_A + at) + b&#39;(y_A + bt) + c&#39;(z_A + ct) + d = 0</code>.</li>
+<li>Résoudre l&#39;équation pour trouver <code>t = t₀</code> (une valeur unique si (D) sécante à (P)).</li>
+<li>Réinjecter <code>t₀</code> dans le système paramétrique pour obtenir les coordonnées du point d&#39;intersection I.</li>
+</ol>
+<p><strong>Exemple chiffré :</strong> (D) : <code>x = 1 + 2t</code>, <code>y = -t</code>, <code>z = 3 + t</code>. (P) : <code>x - y + 2z - 5 = 0</code>.</p>
+<ul>
+<li>Injection : <code>(1 + 2t) - (-t) + 2(3 + t) - 5 = 0</code> → <code>1 + 2t + t + 6 + 2t - 5 = 0</code> → <code>5t + 2 = 0</code> → <code>t = -2/5</code>.</li>
+<li>Coords : <code>x = 1 + 2(-2/5) = 1/5</code>, <code>y = 2/5</code>, <code>z = 3 - 2/5 = 13/5</code>.</li>
+<li>Point d&#39;intersection : I(1/5, 2/5, 13/5).</li>
+</ul>
+<p>⚠️ <strong>Piège fréquent :</strong> ne te laisse pas paniquer par les fractions. Au bac, des <code>t</code> immondes type <code>-2/5</code> ou <code>17/43</code> sont fréquents. Si ça tombe juste, c&#39;est bien. Si ça tombe pas juste, c&#39;est aussi bien.</p>
+<h3>2. Projeté orthogonal H d&#39;un point M sur un plan (P)</h3>
+<p>🎯 <strong>Il existe DEUX VARIANTES distinctes</strong> dans les énoncés (« Montrer que H est… » vs « Déterminer les coordonnées de H »). À toi de reconnaître laquelle on te demande.</p>
+<h4>Variante A : &quot;Déterminer les coordonnées de H&quot; (méthode active)</h4>
+<p><strong>Méthode en 4 étapes :</strong></p>
+<ol>
+<li>Écrire la <strong>représentation paramétrique</strong> de la droite (Δ) passant par M et de vecteur directeur <code>vec(n)</code> (le normal du plan).</li>
+<li>Injecter dans l&#39;équation de (P) → obtenir une équation en t.</li>
+<li>Résoudre pour <code>t = t₀</code>.</li>
+<li>Remplacer <code>t₀</code> dans le système de (Δ) → coordonnées de H.</li>
+</ol>
+<p><strong>Exemple chiffré complet :</strong> M(1, 2, 3), (P) : <code>2x - y + z - 5 = 0</code>.</p>
+<ul>
+<li>Normal du plan : <code>vec(n) = (2, -1, 1)</code>.</li>
+<li>Droite (Δ) passant par M de vecteur directeur <code>vec(n)</code> :<pre><code>x = 1 + 2t
+y = 2 - t
+z = 3 + t
+</code></pre>
+</li>
+<li>Injection dans (P) : <code>2(1 + 2t) - (2 - t) + (3 + t) - 5 = 0</code><ul>
+<li><code>= 2 + 4t - 2 + t + 3 + t - 5 = 0</code></li>
+<li><code>= 6t - 2 = 0</code></li>
+<li><code>t = 1/3</code></li>
+</ul>
+</li>
+<li>Coordonnées de H : <code>x = 1 + 2/3 = 5/3</code>, <code>y = 2 - 1/3 = 5/3</code>, <code>z = 3 + 1/3 = 10/3</code>.</li>
+<li><strong>H(5/3, 5/3, 10/3)</strong>.</li>
+</ul>
+<h4>Variante B : &quot;Montrer que H est le projeté orthogonal de M sur (P)&quot; (méthode de vérification)</h4>
+<p>Beaucoup plus rapide. <strong>Tu dois prouver DEUX choses :</strong></p>
+<ol>
+<li><strong>Appartenance :</strong> vérifier que les coordonnées de H satisfont l&#39;équation de (P), c&#39;est-à-dire <code>H ∈ (P)</code>.</li>
+<li><strong>Orthogonalité :</strong> calculer <code>vec(MH)</code> et vérifier qu&#39;il est <strong>colinéaire</strong> au vecteur normal <code>vec(n)</code> du plan.<ul>
+<li><em>Alternative :</em> vérifier que <code>vec(MH) · vec(u) = 0</code> et <code>vec(MH) · vec(v) = 0</code> pour deux vecteurs non colinéaires du plan. Mais c&#39;est plus long.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Exemple chiffré :</strong> M(1, 2, 3), (P) : <code>2x - y + z - 5 = 0</code>. Montrer que H(5/3, 5/3, 10/3) est le projeté de M sur (P).</p>
+<ul>
+<li><strong>Étape 1 (appartenance) :</strong> <code>2(5/3) - 5/3 + 10/3 - 5 = 10/3 - 5/3 + 10/3 - 15/3 = 0</code> ✅. Donc H ∈ (P).</li>
+<li><strong>Étape 2 (orthogonalité) :</strong> <code>vec(MH) = (5/3 - 1, 5/3 - 2, 10/3 - 3) = (2/3, -1/3, 1/3)</code>. Or <code>vec(n) = (2, -1, 1)</code>. On a <code>vec(MH) = (1/3) · vec(n)</code> → colinéaires ✅.</li>
+<li>Conclusion : H est bien le projeté orthogonal de M sur (P).</li>
+</ul>
+<p>⚠️ <strong>Piège :</strong> dans la variante B, ne te lance PAS dans la méthode active de la variante A. Tu perds du temps. La vérification est faite pour être rapide.</p>
+<h3>3. Distance d&#39;un point M à un plan (P)</h3>
+<p>Une fois que tu as le projeté orthogonal H, <strong>la distance de M à (P)</strong> est tout simplement :
+$$d(M, (P)) = MH$$</p>
+<p>Calculée par la formule de distance classique du §I.1.</p>
+<p><strong>Méthode complète :</strong></p>
+<ol>
+<li>Déterminer H (projeté orthogonal de M sur (P)) → §IV.2 variante A.</li>
+<li>Calculer la longueur MH avec la formule de distance.</li>
+<li>Conclure : <code>d(M, (P)) = MH</code>.</li>
+</ol>
+<hr>
+<h2>V. Aires et Volumes (les points faciles de fin d&#39;exo)</h2>
+<h3>1. Aire d&#39;un triangle</h3>
+<p>$$\mathcal{A} = \frac{\text{Base} \times \text{Hauteur}}{2}$$</p>
+<p>⚠️ <strong>Astuce dans l&#39;espace :</strong> la &quot;hauteur&quot; est la distance d&#39;un sommet à la droite portant le côté opposé. Souvent, on te fait calculer cette hauteur en faisant un projeté orthogonal d&#39;un sommet sur la droite (basé sur la même méthode qu&#39;au §IV.2 mais sur une droite, plus rare).</p>
+<h3>2. Volume d&#39;un tétraèdre</h3>
+<p>$$\mathcal{V} = \frac{1}{3} \times \text{Aire de la base} \times \text{Hauteur}$$</p>
+<p><strong>🎯 Trick stratégique :</strong> dans un tétraèdre ABCD, tu peux choisir n&#39;importe quelle face comme &quot;base&quot;. Si on te demande le volume :</p>
+<ul>
+<li>Choisis la base la plus simple à calculer (souvent un triangle dans un plan de coordonnées simple).</li>
+<li>La hauteur est alors la distance du 4ème sommet au plan de la base = projeté orthogonal du 4ème sommet sur ce plan.</li>
+</ul>
+<p><strong>Exemple type :</strong> Tétraèdre ABCD avec base ABC dans le plan (P).</p>
+<ol>
+<li>Calculer l&#39;aire de ABC (base × hauteur / 2).</li>
+<li>Calculer la distance de D au plan (ABC) → c&#39;est la longueur DH où H est le projeté orthogonal de D sur (ABC).</li>
+<li>Volume = (1/3) × aire(ABC) × DH.</li>
+</ol>
+<p>⚠️ <strong>Auto-check imparable :</strong> un volume est <strong>toujours positif</strong>. Si tu trouves un truc négatif, tu as foiré quelque part (signe dans une soustraction, erreur de coordonnées). <strong>Refais.</strong></p>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Géométrie dans l&#39;espace&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent confirmé sur 6+ sujets</strong> (Métropole 2024 J1/J2, 2025 J1/J2, septembre 2025, Amérique du Nord 2025 J1/J2). La géométrie dans l&#39;espace tombe <strong>dans 100% des sujets</strong>, sous deux formes principales.</p>
+<h3>Forme 1 : Vrai/Faux (4 ou 5 affirmations) — LA PLUS FRÉQUENTE depuis 2024</h3>
+<p>🎯 <strong>Pattern observé sur Métropole 2025 J1 (4 affirmations), Métropole 2025 J2 (4 affirmations), Amérique du Nord 2025 J1 (Vrai/Faux), Amérique du Nord 2025 J2 secours (5 affirmations).</strong></p>
+<p><strong>Structure type</strong> :</p>
+<pre><code>Affirmation 1 : Une représentation paramétrique de la droite (AB) est ...
+Affirmation 2 : Le vecteur n est normal au plan (P) (ou à OAB)
+Affirmation 3 : Les droites (D) et (D&#39;) ne sont pas coplanaires
+Affirmation 4 : La distance du point C au plan (P) est égale à 2√3
+(parfois Affirmation 5)
+</code></pre>
+<p><strong>Type de chaque affirmation</strong> :</p>
+<ul>
+<li><strong>Affirmation paramétrique</strong> : vérifier qu&#39;un point appartient à une droite + que le vecteur directeur est correct (vérification colinéarité).</li>
+<li><strong>Vecteur normal</strong> : vérifier que le vecteur est orthogonal à <strong>2 vecteurs non colinéaires</strong> du plan (deux produits scalaires nuls).</li>
+<li><strong>Coplanaires/non coplanaires</strong> : poser le système d&#39;intersection — si <strong>incompatible</strong>, droites non coplanaires.</li>
+<li><strong>Distance point-plan</strong> : utiliser la formule (si donnée par le prof) OU passer par le projeté orthogonal (cf. fiche).</li>
+<li><strong>Orthogonalité de droites</strong> : produit scalaire des vecteurs directeurs nul.</li>
+</ul>
+<h3>Forme 2 : Exercice construit autour d&#39;un cube/tétraèdre</h3>
+<p>🎯 <strong>Pattern observé sur Métropole 2024 J1 (cube + plan + tétraèdre), Métropole 2025 J2 (deux droites sécantes), Métropole sept 2025 (cube ABCDEFGH).</strong></p>
+<p><strong>Structure type</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Cube ABCDEFGH&lt;br/&gt;+ point M : 𝐁𝐌 = 𝐀𝐁&quot;]
+  E --&gt; Q1[&quot;Q1. Perpendicularité&lt;br/&gt;(FG) ⟂ (FM)&lt;br/&gt;→ produit scalaire&quot;]
+  E --&gt; Q2[&quot;Q2. Coplanarité&lt;br/&gt;A, M, G, H&lt;br/&gt;→ combinaison linéaire&quot;]
+  E --&gt; Q3[&quot;Q3. Coordonnées&lt;br/&gt;vecteurs&quot;]
+  E --&gt; Q4[&quot;Q4. Vecteur normal&lt;br/&gt;(2 prod. scalaires nuls)&quot;]
+  E --&gt; Q5[&quot;Q5. Équation&lt;br/&gt;cartésienne du plan&quot;]
+  E --&gt; Q6[&quot;Q6. Représentation&lt;br/&gt;paramétrique&quot;]
+  E --&gt; Q7[&quot;Q7. Projeté&lt;br/&gt;orthogonal&quot;]
+  E --&gt; Q8[&quot;Q8. Volume / aire&lt;br/&gt;(tétraèdre)&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef done fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class Q1,Q2,Q3,Q4,Q5,Q6 step;
+  class Q7,Q8 done;
+</code></pre>
+<h3>Les 8 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Donner les coordonnées des points/vecteurs&quot;</h4>
+<p><strong>Méthode</strong> : utiliser le repère $(A; \vec{AB}, \vec{AD}, \vec{AE})$ pour un cube. Lire les coordonnées en regardant les déplacements selon chaque axe.</p>
+<p>🎯 <strong>Réflexe</strong> : au cube, tu as toujours un repère orthonormé naturel.</p>
+<h4>Q2 — &quot;Montrer que $\vec{n}$ est normal au plan $(P)$&quot;</h4>
+<p><strong>Méthode</strong> : montrer que $\vec{n}$ est orthogonal à <strong>deux vecteurs non colinéaires</strong> du plan.</p>
+<p><strong>Rédaction</strong> :</p>
+<blockquote>
+<p>Calculons $\vec{n} \cdot \vec{AB}$ et $\vec{n} \cdot \vec{AC}$.
+$\vec{n} \cdot \vec{AB} = ... = 0$ ✓
+$\vec{n} \cdot \vec{AC} = ... = 0$ ✓
+Comme $\vec{AB}$ et $\vec{AC}$ ne sont pas colinéaires (non proportionnels), $\vec{n}$ est normal au plan $(ABC)$.</p>
+</blockquote>
+<p>⚠️ <strong>Toujours justifier la non-colinéarité</strong> des deux vecteurs choisis, sinon point perdu.</p>
+<h4>Q3 — &quot;Donner une équation cartésienne du plan $(P)$&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Trouver un vecteur normal $\vec{n}(a, b, c)$.</li>
+<li>L&#39;équation est de la forme $ax + by + cz + d = 0$.</li>
+<li>Substituer les coordonnées d&#39;un point connu pour trouver $d$.</li>
+</ol>
+<h4>Q4 — &quot;Donner une représentation paramétrique de la droite $(AB)$&quot;</h4>
+<p><strong>Méthode</strong> :
+$$\begin{cases} x = x_A + t \cdot (x_B - x_A) \\ y = y_A + t \cdot (y_B - y_A) \\ z = z_A + t \cdot (z_B - z_A) \end{cases}, \quad t \in \mathbb{R}$$</p>
+<h4>Q5 — &quot;Montrer que les droites $(D)$ et $(D')$ sont sécantes/coplanaires/non coplanaires&quot;</h4>
+<p><strong>Méthode (sécantes)</strong> :</p>
+<ol>
+<li>Vérifier que les vecteurs directeurs ne sont pas colinéaires.</li>
+<li>Résoudre le système d&#39;intersection (en posant $t$ et $s$ comme paramètres).</li>
+<li>Si une solution → sécantes. Si pas de solution avec vecteurs non colinéaires → non coplanaires.</li>
+</ol>
+<h4>Q6 — &quot;Montrer que les points $A, B, C, D$ sont coplanaires&quot;</h4>
+<p><strong>Méthode</strong> : montrer que $\vec{AD}$ est combinaison linéaire de $\vec{AB}$ et $\vec{AC}$ : trouver $\alpha, \beta$ tels que $\vec{AD} = \alpha \vec{AB} + \beta \vec{AC}$.</p>
+<h4>Q7 — &quot;Calculer le projeté orthogonal $H$ de $A$ sur le plan/la droite&quot;</h4>
+<p>🎯 <strong>Méthode &quot;passant par H&quot;</strong> (vue dans ta fiche) :</p>
+<ol>
+<li>$H \in \text{plan}$ : ses coordonnées vérifient l&#39;équation cartésienne.</li>
+<li>$\vec{AH}$ colinéaire au vecteur normal du plan : $\vec{AH} = t \vec{n}$.</li>
+<li>Substituer dans l&#39;équation du plan, résoudre pour $t$.</li>
+<li>En déduire les coordonnées de $H$.</li>
+</ol>
+<h4>Q8 — &quot;Calculer le volume du tétraèdre $ABCD$ ou l&#39;aire d&#39;un triangle&quot;</h4>
+<p><strong>Méthode (volume)</strong> : $V = \dfrac{1}{3} \times B \times h$ avec $B$ = aire de base et $h$ = hauteur (distance d&#39;un sommet au plan opposé).</p>
+<p><strong>Méthode (aire)</strong> : si triangle rectangle (à vérifier via produit scalaire = 0), $\mathcal{A} = \dfrac{1}{2} \times \text{côté}_1 \times \text{côté}_2$.</p>
+<p>⚠️ <strong>Auto-check</strong> : un volume est <strong>toujours positif</strong>.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Type</th>
+<th>Notions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Cube + plan + tétraèdre</td>
+<td>Vecteur normal, équation plan, repré param, volume</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Étude tétraèdre</td>
+<td>Produit scalaire, projeté orthogonal</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Vrai/Faux 4 affirmations</td>
+<td>Repré param, vecteur normal, coplanarité, distance point-plan</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J2</strong></td>
+<td>Cube + 2 droites sécantes</td>
+<td>Sécantes, vecteur normal, équation cartésienne</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025</strong></td>
+<td>Cube ABCDEFGH + projeté</td>
+<td>Coplanaires, vecteur normal, projeté orthogonal, volume</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J1</strong></td>
+<td>Vrai/Faux</td>
+<td>Inclut produit scalaire dans le plan (niveau Première)</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J2 secours</strong></td>
+<td>Vrai/Faux 5 affirmations</td>
+<td>Pattern complet</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 100% de chance d&#39;avoir un exo de géométrie dans l&#39;espace au bac blanc</strong>. Format probable : Vrai/Faux 4 affirmations OU exo construit autour d&#39;un cube avec projeté orthogonal.</p>
+<h3>Stratégie générale Vrai/Faux</h3>
+<p>🎯 <strong>Au Vrai/Faux, chaque affirmation = même barème</strong>. Tu n&#39;as pas le droit de bâcler une question.</p>
+<p><strong>Méthodologie</strong> :</p>
+<ol>
+<li><strong>Lire les 4 affirmations</strong> avant de commencer (pour repérer les notions à mobiliser).</li>
+<li><strong>Travailler chaque affirmation indépendamment</strong> (pas d&#39;enchaînement).</li>
+<li><strong>Si tu doutes</strong> : pose un calcul concret (produit scalaire, système, etc.). Pas de &quot;bah ça a l&#39;air vrai&quot;.</li>
+<li><strong>Justification obligatoire</strong> : un &quot;vrai&quot; ou &quot;faux&quot; sans calcul = 0 point.</li>
+<li><strong>Pour les &quot;fausses&quot;</strong> : il suffit d&#39;<strong>un contre-exemple</strong> ou d&#39;<strong>un calcul qui contredit</strong>.</li>
+</ol>
+<hr>
+<h2>VII. Diagramme de décision (par où commencer un exercice)</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Énoncé.&lt;br/&gt;Première chose à faire ?&quot;]
+  E --&gt; P3[&quot;3 points donnés&quot;]
+  E --&gt; EQ[&quot;Équation cartésienne de plan ?&quot;]
+  E --&gt; INT[&quot;Intersection ?&quot;]
+  E --&gt; PROJ[&quot;« Projeté orthogonal » ?&quot;]
+  E --&gt; D[&quot;Distance point–plan ?&quot;]
+  E --&gt; V[&quot;Volume ?&quot;]
+
+  P3 --&gt; P3a[&quot;« (ABC) forme un plan »&lt;br/&gt;(§I.3)&quot;]
+  EQ --&gt; EQa[&quot;Avec un normal&lt;br/&gt;→ §II.2&quot;]
+  EQ --&gt; EQb[&quot;Avec 3 points&lt;br/&gt;→ §II.3 (normal d&#39;abord)&quot;]
+  INT --&gt; INTa[&quot;(D) ∩ (P) → §IV.1&lt;br/&gt;paramétrer + injecter&quot;]
+  INT --&gt; INTb[&quot;(P) ∩ (P&#39;) → §III.2&lt;br/&gt;résoudre système&quot;]
+  PROJ --&gt; PROJa[&quot;« Déterminer H »&lt;br/&gt;→ §IV.2 variante A&quot;]
+  PROJ --&gt; PROJb[&quot;« Montrer que H est le projeté »&lt;br/&gt;→ §IV.2 variante B&quot;]
+  D --&gt; Da[&quot;Projeté H puis MH&lt;br/&gt;(§IV.3)&quot;]
+  V --&gt; Va[&quot;Tétraèdre :&lt;br/&gt;V = ⅓ × 𝒜_base × h&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class P3,EQ,INT,PROJ,D,V branch;
+  class P3a,EQa,EQb,INTa,INTb,PROJa,PROJb,Da,Va leaf;
+</code></pre>
+<hr>
+<h2>VIII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai bien justifié que (ABC) forme un plan AVANT d&#39;écrire son équation</li>
+<li><input disabled="" type="checkbox"> Dans toute représentation paramétrique, j&#39;ai mis explicitement <code>t ∈ ℝ</code></li>
+<li><input disabled="" type="checkbox"> Pour montrer (D) ⊥ (P), j&#39;ai vérifié la <strong>colinéarité</strong> entre <code>vec(u)</code> et <code>vec(n)</code> (pas juste le produit scalaire)</li>
+<li><input disabled="" type="checkbox"> J&#39;ai distingué parallèle <strong>strictement</strong> vs <strong>confondue/incluse</strong> quand c&#39;était demandé</li>
+<li><input disabled="" type="checkbox"> J&#39;ai bien identifié si le projeté orthogonal était à <strong>déterminer</strong> (méthode active) ou à <strong>vérifier</strong> (méthode rapide)</li>
+<li><input disabled="" type="checkbox"> J&#39;ai pensé aux <strong>4 cas</strong> pour deux droites (pas seulement 3 — non coplanaires existe !)</li>
+<li><input disabled="" type="checkbox"> Mon volume est <strong>positif</strong> (sinon je refais)</li>
+<li><input disabled="" type="checkbox"> J&#39;ai gardé les fractions immondes telles quelles (pas paniqué sur un <code>t = -2/5</code>)</li>
+</ul>
+<hr>
+<h2>IX. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><strong>Fractions partout :</strong> au bac, ils mettent souvent des coords sales pour tester ta méthode, pas ton calcul. Garde les fractions, ne les arrondis pas.</li>
+<li><strong>Choix du paramètre :</strong> quand tu cherches l&#39;intersection de 2 plans, le choix du paramètre (<code>x = t</code> vs <code>z = t</code>) peut changer la simplicité des calculs. Si tu galères, change de paramètre.</li>
+<li><strong>Erreur de signe :</strong> la cause n°1 de pertes de points dans cette partie. Recompte deux fois les soustractions de coordonnées.</li>
+<li><strong>&quot;Projeté orthogonal&quot; mal lu :</strong> lis bien si on dit &quot;déterminer&quot; (faire le calcul complet) ou &quot;montrer que&quot; (juste vérifier 2 conditions). Tu peux gagner 10 minutes là-dessus.</li>
+<li><strong>Volume négatif :</strong> signal d&#39;alarme immédiat. Reprends le calcul.</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html">https://arthurjeaugey.com/revisions-maths/raw/geometrie-espace.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

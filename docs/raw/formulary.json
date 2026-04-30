@@ -1,0 +1,131 @@
+{
+  "sections": [
+    {
+      "title": "Suites",
+      "chapter": "suites",
+      "items": [
+        {"name": "Suite arithmétique", "formula": "U_{n+1} = U_n + r \\iff U_n = U_0 + nr"},
+        {"name": "Suite géométrique", "formula": "U_{n+1} = qU_n \\iff U_n = U_0 \\cdot q^n"},
+        {"name": "Somme entiers", "formula": "1+2+\\dots+n = \\frac{n(n+1)}{2}"},
+        {"name": "Somme des carrés", "formula": "\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}"},
+        {"name": "Somme SA", "formula": "S_n = \\frac{(n_{termes})(U_{prem}+U_{dern})}{2}"},
+        {"name": "Somme SG", "formula": "S_n = U_0 \\cdot \\frac{1-q^{n+1}}{1-q}"},
+        {"name": "Point fixe SAG", "formula": "U_{n+1}=aU_n+b \\Rightarrow C=\\frac{b}{1-a}"},
+        {"name": "Limites $q^n$ ($q>1$)", "formula": "\\lim_{n\\to\\infty} q^n = +\\infty"},
+        {"name": "Limites $q^n$ ($-1<q<1$)", "formula": "\\lim_{n\\to\\infty} q^n = 0"}
+      ]
+    },
+    {
+      "title": "Géométrie dans l'espace",
+      "chapter": "geometrie-espace",
+      "items": [
+        {"name": "Distance AB", "formula": "AB = \\sqrt{(x_B-x_A)^2 + (y_B-y_A)^2 + (z_B-z_A)^2}"},
+        {"name": "Milieu de [AB]", "formula": "M\\left(\\frac{x_A+x_B}{2}, \\frac{y_A+y_B}{2}, \\frac{z_A+z_B}{2}\\right)"},
+        {"name": "Norme d'un vecteur", "formula": "\\|\\vec{u}\\| = \\sqrt{x^2 + y^2 + z^2}"},
+        {"name": "Produit scalaire (coord)", "formula": "\\vec{u}\\cdot\\vec{v} = xx' + yy' + zz'"},
+        {"name": "Produit scalaire (norme)", "formula": "\\vec{u}\\cdot\\vec{v} = \\|\\vec{u}\\|\\|\\vec{v}\\|\\cos(\\theta)"},
+        {"name": "Orthogonalité", "formula": "\\vec{u} \\perp \\vec{v} \\iff \\vec{u}\\cdot\\vec{v} = 0"},
+        {"name": "Représentation paramétrique", "formula": "\\begin{cases} x = x_A + at \\\\ y = y_A + bt \\\\ z = z_A + ct \\end{cases},\\, t\\in\\mathbb{R}"},
+        {"name": "Équation cartésienne plan", "formula": "ax + by + cz + d = 0,\\, \\vec{n}=(a,b,c)"},
+        {"name": "Distance point-plan", "formula": "d(M,P) = \\frac{|ax_M + by_M + cz_M + d|}{\\sqrt{a^2+b^2+c^2}}"}
+      ]
+    },
+    {
+      "title": "Probabilités",
+      "chapter": "probas-binomiale",
+      "items": [
+        {"name": "Combinaison", "formula": "\\binom{n}{k} = \\frac{n!}{k!(n-k)!}"},
+        {"name": "Triangle Pascal", "formula": "\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}"},
+        {"name": "Probabilité conditionnelle", "formula": "P_A(B) = \\frac{P(A\\cap B)}{P(A)}"},
+        {"name": "Probabilités totales", "formula": "P(B) = \\sum_i P(A_i)\\cdot P_{A_i}(B)"},
+        {"name": "Indépendance", "formula": "P(A\\cap B) = P(A)\\cdot P(B)"},
+        {"name": "Loi binomiale $P(X=k)$", "formula": "P(X=k) = \\binom{n}{k}p^k(1-p)^{n-k}"},
+        {"name": "Espérance binomiale", "formula": "E(X) = np"},
+        {"name": "Variance binomiale", "formula": "V(X) = np(1-p)"},
+        {"name": "Écart-type", "formula": "\\sigma(X) = \\sqrt{V(X)}"},
+        {"name": "Bienaymé-Tchebychev", "formula": "P(|X-E(X)|\\geq a) \\leq \\frac{V(X)}{a^2}"},
+        {"name": "Linéarité espérance", "formula": "E(aX+b) = aE(X)+b"},
+        {"name": "Variance somme indép.", "formula": "V(X+Y) = V(X)+V(Y)"}
+      ]
+    },
+    {
+      "title": "Sommes de VA & Bienaymé-Tchebychev",
+      "chapter": "sommes-va-bienayme",
+      "items": [
+        {"name": "Linéarité $E$ (toujours)", "formula": "E(aX+bY) = aE(X)+bE(Y)"},
+        {"name": "Variance d'un produit", "formula": "V(aX+b) = a^2 V(X)"},
+        {"name": "Écart-type d'un produit", "formula": "\\sigma(aX) = |a|\\sigma(X)"},
+        {"name": "Variance somme indépendante", "formula": "V(X+Y) = V(X)+V(Y)\\ (\\text{si } X \\perp\\!\\!\\!\\perp Y)"},
+        {"name": "Stabilité binomiale", "formula": "\\mathcal{B}(m,p) + \\mathcal{B}(n,p) = \\mathcal{B}(m+n,p)\\ (\\text{indép.})"},
+        {"name": "Échantillon — somme", "formula": "E(S_n) = nE(X),\\ V(S_n) = nV(X)"},
+        {"name": "Échantillon — moyenne", "formula": "E(M_n) = E(X),\\ V(M_n) = \\frac{V(X)}{n}"},
+        {"name": "Écart-type moyenne", "formula": "\\sigma(M_n) = \\frac{\\sigma(X)}{\\sqrt{n}}"},
+        {"name": "Bienaymé-Tchebychev", "formula": "P(|X-E(X)| \\geq \\alpha) \\leq \\frac{V(X)}{\\alpha^2}"},
+        {"name": "Inégalité de concentration", "formula": "P(|M_n-\\mu| \\geq \\alpha) \\leq \\frac{V(X)}{n\\alpha^2}"},
+        {"name": "Loi faible des grands nombres", "formula": "\\lim_{n\\to+\\infty} P(|M_n-\\mu|\\geq \\alpha) = 0"}
+      ]
+    },
+    {
+      "title": "Exp & Ln",
+      "chapter": "exp-ln",
+      "items": [
+        {"name": "Exp produit", "formula": "e^{a+b} = e^a \\cdot e^b"},
+        {"name": "Exp inverse", "formula": "e^{-a} = \\frac{1}{e^a}"},
+        {"name": "Exp puissance", "formula": "(e^a)^n = e^{na}"},
+        {"name": "Dérivée $e^{u}$", "formula": "(e^{u(x)})' = u'(x)\\cdot e^{u(x)}"},
+        {"name": "Ln produit", "formula": "\\ln(ab) = \\ln a + \\ln b"},
+        {"name": "Ln quotient", "formula": "\\ln\\!\\left(\\frac{a}{b}\\right) = \\ln a - \\ln b"},
+        {"name": "Ln puissance", "formula": "\\ln(a^n) = n\\ln a"},
+        {"name": "Dérivée $\\ln u$", "formula": "(\\ln u(x))' = \\frac{u'(x)}{u(x)}"},
+        {"name": "Réciprocité", "formula": "\\ln(e^x) = x,\\quad e^{\\ln x} = x"},
+        {"name": "Croissance comparée 1", "formula": "\\lim_{x\\to+\\infty} \\frac{e^x}{x^n} = +\\infty"},
+        {"name": "Croissance comparée 2", "formula": "\\lim_{x\\to+\\infty} \\frac{\\ln x}{x^n} = 0"},
+        {"name": "Croissance comparée 3", "formula": "\\lim_{x\\to 0^+} x^n \\ln x = 0"}
+      ]
+    },
+    {
+      "title": "Limites & Convexité",
+      "chapter": "limites-continuite",
+      "items": [
+        {"name": "Composée dérivée", "formula": "(g\\circ f)'(x) = f'(x)\\cdot g'(f(x))"},
+        {"name": "Convexe", "formula": "f''(x) \\geq 0 \\text{ sur } I"},
+        {"name": "Concave", "formula": "f''(x) \\leq 0 \\text{ sur } I"},
+        {"name": "Inflexion", "formula": "f''(a)=0 \\text{ ET change de signe en } a"},
+        {"name": "Inégalité convexité", "formula": "f \\text{ convexe} \\Rightarrow f \\geq \\text{tangentes}"},
+        {"name": "Théorème gendarmes", "formula": "v_n \\leq u_n \\leq w_n,\\, \\lim v_n = \\lim w_n = L \\Rightarrow \\lim u_n = L"},
+        {"name": "Comparaison +∞", "formula": "u_n \\geq v_n,\\, \\lim v_n = +\\infty \\Rightarrow \\lim u_n = +\\infty"},
+        {"name": "TVI bijection", "formula": "f \\text{ continue + strictement monotone sur } [a,b]"}
+      ]
+    },
+    {
+      "title": "Primitives & EDO",
+      "chapter": "primitives-edo",
+      "items": [
+        {"name": "Primitive de $x^n$", "formula": "\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C\\quad (n\\neq -1)"},
+        {"name": "Primitive de $1/x$", "formula": "\\int \\frac{1}{x}\\,dx = \\ln|x| + C"},
+        {"name": "Primitive de $e^x$", "formula": "\\int e^x\\,dx = e^x + C"},
+        {"name": "Primitive de $u'e^u$", "formula": "\\int u'(x) e^{u(x)}\\,dx = e^{u(x)} + C"},
+        {"name": "Primitive de $u'/u$", "formula": "\\int \\frac{u'(x)}{u(x)}\\,dx = \\ln|u(x)| + C"},
+        {"name": "Primitive de $u'u^n$", "formula": "\\int u'(x) u(x)^n\\,dx = \\frac{u(x)^{n+1}}{n+1} + C"},
+        {"name": "EDO $y'=ay$", "formula": "y(x) = Ce^{ax}"},
+        {"name": "EDO $y'=ay+b$", "formula": "y(x) = Ce^{ax} - \\frac{b}{a}"},
+        {"name": "EDO $y'=ay+\\varphi$", "formula": "y = y_p + Ce^{ax}\\, (y_p \\text{ particulière})"}
+      ]
+    },
+    {
+      "title": "Intégration",
+      "chapter": "integration",
+      "items": [
+        {"name": "Intégrale primitive", "formula": "\\int_a^b f(t)\\,dt = F(b) - F(a) = [F(t)]_a^b"},
+        {"name": "Bornes égales", "formula": "\\int_a^a f(t)\\,dt = 0"},
+        {"name": "Inversion", "formula": "\\int_b^a f(t)\\,dt = -\\int_a^b f(t)\\,dt"},
+        {"name": "Linéarité", "formula": "\\int_a^b (\\alpha f + \\beta g) = \\alpha\\!\\int_a^b\\! f + \\beta\\!\\int_a^b\\! g"},
+        {"name": "Chasles", "formula": "\\int_a^b f = \\int_a^c f + \\int_c^b f"},
+        {"name": "Positivité", "formula": "f \\geq 0 \\text{ et } a \\leq b \\Rightarrow \\int_a^b f \\geq 0"},
+        {"name": "Aire entre courbes", "formula": "\\mathcal{A} = \\int_a^b [g(x) - f(x)]\\,dx"},
+        {"name": "Valeur moyenne", "formula": "\\bar f = \\frac{1}{b-a}\\int_a^b f(t)\\,dt"},
+        {"name": "IPP", "formula": "\\int_a^b u'(t)v(t)\\,dt = [u(t)v(t)]_a^b - \\int_a^b u(t)v'(t)\\,dt"}
+      ]
+    }
+  ]
+}

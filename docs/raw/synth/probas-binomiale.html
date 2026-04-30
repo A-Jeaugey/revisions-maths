@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probabilités &amp; Binomiale — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Probabilités &amp; Binomiale.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Probabilités &amp; Binomiale — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Probabilités &amp; Binomiale.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Probabilités &amp; Binomiale — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Probabilités &amp; Binomiale.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Probabilités & Binomiale — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Probabilités & Binomiale.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/probas-binomiale">https://arthurjeaugey.com/revisions-maths/#/fiche/probas-binomiale</a>.</div>
+<article><h1>🎲 Probabilités &amp; Binomiale — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Dénombrement, conditionnelles, binomiale, sommes de VA, Bienaymé-Tchebychev.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Combien de codes / mains / comités »</td>
+<td>Dénombrement (tableau ordre/répétition)</td>
+</tr>
+<tr>
+<td>Tirer <strong>simultanément</strong> k parmi n</td>
+<td>Combinaison <code>C(n,k)</code></td>
+</tr>
+<tr>
+<td>« Sachant que… »</td>
+<td>Proba conditionnelle <code>P_A(B)</code></td>
+</tr>
+<tr>
+<td>« Au moins un », « aucun »</td>
+<td>Événement contraire <code>P(Ā) = 1 − P(A)</code></td>
+</tr>
+<tr>
+<td>« n fois indépendamment »</td>
+<td>Loi binomiale <code>B(n,p)</code></td>
+</tr>
+<tr>
+<td>« Plus petit k tel que P(X≤k) ≥ … »</td>
+<td>Tableau cumulé</td>
+</tr>
+<tr>
+<td>Encadrer P(|X−E(X)| ≥ a)</td>
+<td>Bienaymé-Tchebychev</td>
+</tr>
+<tr>
+<td>« n grand, moyenne empirique → … »</td>
+<td>Loi des grands nombres</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Dénombrement — les 4 cas</strong></p>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Ordre?</th>
+<th>Répétition?</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p-uplet</td>
+<td>OUI</td>
+<td>OUI</td>
+<td><code>n^p</code></td>
+</tr>
+<tr>
+<td>Arrangement A(n,k)</td>
+<td>OUI</td>
+<td>NON</td>
+<td><code>n!/(n−k)!</code></td>
+</tr>
+<tr>
+<td>Permutation</td>
+<td>OUI</td>
+<td>NON, on prend tout</td>
+<td><code>n!</code></td>
+</tr>
+<tr>
+<td>Combinaison C(n,k)</td>
+<td>NON</td>
+<td>NON</td>
+<td><code>n!/(k!(n−k)!)</code></td>
+</tr>
+</tbody></table>
+<p><strong>Test du swapping</strong> : inverser 2 éléments — si ça change le résultat → arrangement, sinon → combinaison.</p>
+<p><strong>Probabilités conditionnelles</strong></p>
+<ul>
+<li>Définition : <code>P_A(B) = P(A∩B) / P(A)</code> (avec P(A) &gt; 0)</li>
+<li>Formule des probabilités totales : <code>P(B) = Σ P(A_i) · P_{A_i}(B)</code> sur partition (A_i)</li>
+<li>Formule de Bayes : <code>P_B(A) = P(A) · P_A(B) / P(B)</code></li>
+<li>Indépendance : <code>P(A∩B) = P(A)·P(B)</code> ⇔ <code>P_A(B) = P(B)</code></li>
+</ul>
+<p><strong>Loi binomiale <code>X ~ B(n, p)</code></strong></p>
+<ul>
+<li><code>P(X = k) = C(n,k) · p^k · (1−p)^{n−k}</code> pour <code>k ∈ {0,…,n}</code></li>
+<li><code>E(X) = np</code></li>
+<li><code>V(X) = np(1−p)</code></li>
+<li><code>σ(X) = √(np(1−p))</code></li>
+</ul>
+<p><strong>Sommes de variables aléatoires</strong></p>
+<ul>
+<li><code>E(X+Y) = E(X) + E(Y)</code> toujours</li>
+<li><code>V(X+Y) = V(X) + V(Y)</code> <strong>si X et Y indépendantes</strong></li>
+<li><code>E(aX + b) = aE(X) + b</code></li>
+<li><code>V(aX + b) = a²V(X)</code></li>
+</ul>
+<p><strong>Bienaymé-Tchebychev</strong></p>
+<blockquote>
+<p>Pour tout <code>a &gt; 0</code> : <code>P(|X − E(X)| ≥ a) ≤ V(X)/a²</code></p>
+</blockquote>
+<p>⇒ permet de borner la proba d&#39;écart à la moyenne sans connaître la loi.</p>
+<p><strong>Loi des grands nombres (LGN)</strong></p>
+<ul>
+<li><code>M_n = (X_1 + … + X_n)/n</code> (moyenne empirique de n VA iid)</li>
+<li><code>P(|M_n − μ| ≥ ε) → 0</code> quand n → +∞</li>
+<li>Estimation : <code>P(|M_n − μ| ≥ ε) ≤ V(X_1)/(nε²)</code></li>
+</ul>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Combinaison</td>
+<td><code>C(n,k) = n!/(k!(n−k)!)</code></td>
+</tr>
+<tr>
+<td>Symétrie</td>
+<td><code>C(n,k) = C(n, n−k)</code></td>
+</tr>
+<tr>
+<td>Pascal</td>
+<td><code>C(n,k) = C(n−1, k−1) + C(n−1, k)</code></td>
+</tr>
+<tr>
+<td>Binomiale moyenne</td>
+<td><code>E(X) = np</code></td>
+</tr>
+<tr>
+<td>Binomiale variance</td>
+<td><code>V(X) = np(1−p)</code></td>
+</tr>
+<tr>
+<td>Bienaymé-Tchebychev</td>
+<td><code>P(|X−E(X)| ≥ a) ≤ V(X)/a²</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>Confondre arrangement (ordre) et combinaison (sans ordre) : faire le <strong>test du swap</strong></li>
+<li>Oublier de vérifier l&#39;<strong>indépendance</strong> avant <code>V(X+Y) = V(X)+V(Y)</code></li>
+<li>« Au moins un » : passer par le contraire (« aucun »)</li>
+<li>Mal lire l&#39;énoncé : « tirage avec remise » = p-uplet, « sans remise simultané » = combinaison</li>
+<li>Confondre <code>P_A(B)</code> (sachant A) et <code>P_B(A)</code> (sachant B) → utiliser Bayes</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai bien identifié l&#39;outil de dénombrement (test du swapping)</li>
+<li><input disabled="" type="checkbox"> Pour la binomiale : j&#39;ai donné les <strong>3 paramètres</strong> (n, p, X)</li>
+<li><input disabled="" type="checkbox"> J&#39;ai cité l&#39;indépendance avant d&#39;utiliser <code>V(X+Y)</code></li>
+<li><input disabled="" type="checkbox"> Pour Bienaymé : énoncé complet (<code>a &gt; 0</code>, <code>V(X)</code>, sens de l&#39;inégalité)</li>
+<li><input disabled="" type="checkbox"> Probas conditionnelles : arbre pondéré clair, somme = 1 à chaque embranchement</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html">https://arthurjeaugey.com/revisions-maths/raw/synth/probas-binomiale.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

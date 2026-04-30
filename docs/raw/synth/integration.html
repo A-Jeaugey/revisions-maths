@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intégration — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Intégration.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intégration — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Intégration.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intégration — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Intégration.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Intégration — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Intégration.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/integration">https://arthurjeaugey.com/revisions-maths/#/fiche/integration</a>.</div>
+<article><h1>∫ Intégration — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Intégrales, propriétés, aires, valeur moyenne, IPP.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Calculer <code>∫_a^b f(t) dt</code> »</td>
+<td>Trouver une primitive F, calculer <code>F(b) − F(a)</code></td>
+</tr>
+<tr>
+<td>« Aire sous la courbe » (f ≥ 0)</td>
+<td><code>∫_a^b f(t) dt</code> en u.a.</td>
+</tr>
+<tr>
+<td>« Aire entre <code>C_f</code> et <code>C_g</code> »</td>
+<td><code>∫_a^b [g(x) − f(x)] dx</code> avec f ≤ g</td>
+</tr>
+<tr>
+<td>Décomposer avec point intermédiaire <code>c</code></td>
+<td><strong>Relation de Chasles</strong></td>
+</tr>
+<tr>
+<td>« Valeur moyenne sur [a,b] »</td>
+<td><code>(1/(b−a)) · ∫_a^b f(t) dt</code></td>
+</tr>
+<tr>
+<td>Produit (<code>x·e^x</code>, <code>x·ln x</code>, <code>x·sin x</code>)</td>
+<td><strong>Intégration par parties (IPP)</strong></td>
+</tr>
+<tr>
+<td>« Montrer que <code>∫ ≥ 0</code> »</td>
+<td>Positivité / croissance de l&#39;intégrale</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Définition (f continue ≥ 0 sur [a,b])</strong></p>
+<ul>
+<li><code>∫_a^b f(t) dt</code> = aire entre l&#39;axe Ox, <code>C_f</code>, et les droites <code>x=a</code> et <code>x=b</code>, en <strong>unités d&#39;aire</strong>.</li>
+<li>Variable muette : <code>dt = dx = du</code>.</li>
+</ul>
+<p><strong>Théorème fondamental</strong></p>
+<blockquote>
+<p>Si f continue sur [a,b], alors <code>F(x) = ∫_a^x f(t) dt</code> est dérivable et <code>F&#39;(x) = f(x)</code>.</p>
+</blockquote>
+<p><strong>Calcul d&#39;une intégrale</strong>
+$$\int_a^b f(t)\,dt = F(b) - F(a) = [F(t)]_a^b$$</p>
+<p>avec F <strong>primitive quelconque</strong> de f.</p>
+<p><strong>Propriétés</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linéarité</td>
+<td><code>∫(αf + βg) = α∫f + β∫g</code></td>
+</tr>
+<tr>
+<td>Chasles</td>
+<td><code>∫_a^b = ∫_a^c + ∫_c^b</code></td>
+</tr>
+<tr>
+<td>Inversion</td>
+<td><code>∫_a^b f = −∫_b^a f</code></td>
+</tr>
+<tr>
+<td>Positivité</td>
+<td>si <code>f ≥ 0</code> sur [a,b] alors <code>∫_a^b f ≥ 0</code></td>
+</tr>
+<tr>
+<td>Croissance</td>
+<td>si <code>f ≤ g</code> sur [a,b] alors <code>∫_a^b f ≤ ∫_a^b g</code></td>
+</tr>
+</tbody></table>
+<p><strong>Aire entre deux courbes</strong></p>
+<ul>
+<li>Sur <code>[a,b]</code> avec <code>f ≤ g</code> :
+$$\mathcal{A} = \int_a^b [g(x) - f(x)]\,dx$$</li>
+<li>⚠️ Toujours <strong>vérifier qui est au-dessus</strong> (étudier le signe de <code>g−f</code>).</li>
+<li>Si signe variable : découper avec Chasles.</li>
+</ul>
+<p><strong>Valeur moyenne</strong>
+$$\mu = \frac{1}{b-a}\int_a^b f(t)\,dt$$</p>
+<p><strong>Intégration par parties (IPP)</strong>
+$$\int_a^b u'(t)\,v(t)\,dt = [u(t)\,v(t)]_a^b - \int_a^b u(t)\,v'(t)\,dt$$</p>
+<p><strong>Quand utiliser l&#39;IPP ?</strong> : produit <code>polynôme × exp/log/trig</code>.</p>
+<ul>
+<li><code>∫ x·e^x dx</code> → poser <code>v = x</code> (à dériver), <code>u&#39; = e^x</code> (à intégrer)</li>
+<li><code>∫ x·ln(x) dx</code> → poser <code>v = ln(x)</code>, <code>u&#39; = x</code></li>
+<li><code>∫ ln(x) dx</code> (astuce) → poser <code>v = ln(x)</code>, <code>u&#39; = 1</code></li>
+</ul>
+<p>🎯 <strong>Règle pour choisir</strong> : <code>v</code> = ce qui se simplifie en dérivant ; <code>u&#39;</code> = ce qui s&#39;intègre facilement.</p>
+<p><strong>Intégrale d&#39;une fonction négative</strong></p>
+<ul>
+<li>Si <code>f ≤ 0</code> : <code>∫_a^b f ≤ 0</code> et <code>aire = −∫_a^b f</code></li>
+<li>Si f change de signe : <code>aire = ∫_a^b |f|</code> (découper selon le signe)</li>
+</ul>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Calcul</td>
+<td><code>∫_a^b f = [F]_a^b = F(b) − F(a)</code></td>
+</tr>
+<tr>
+<td>Linéarité</td>
+<td><code>∫(αf + βg) = α∫f + β∫g</code></td>
+</tr>
+<tr>
+<td>Chasles</td>
+<td><code>∫_a^c + ∫_c^b = ∫_a^b</code></td>
+</tr>
+<tr>
+<td>Aire entre courbes</td>
+<td><code>∫(g − f) dx</code>, f ≤ g</td>
+</tr>
+<tr>
+<td>Valeur moyenne</td>
+<td><code>(1/(b−a)) ∫_a^b f</code></td>
+</tr>
+<tr>
+<td>IPP</td>
+<td><code>∫u&#39;v = [uv] − ∫uv&#39;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>Calculer <code>∫_a^b f</code> quand <code>a &gt; b</code> sans inverser : signe faux</li>
+<li>Aire entre courbes : oublier de vérifier qui est au-dessus → résultat <strong>négatif</strong></li>
+<li>IPP : mauvaise affectation de <code>u&#39;</code> et <code>v</code>. Règle : <code>v</code> se simplifie en dérivant</li>
+<li>Oublier que la valeur moyenne se divise par <code>b − a</code></li>
+<li>Pour une fonction de signe variable : <code>∫f</code> ≠ aire — utiliser <code>|f|</code></li>
+<li>Confondre primitive et intégrale (l&#39;une dépend de x, l&#39;autre est un nombre)</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai indiqué l&#39;unité d&#39;aire (u.a.) le cas échéant</li>
+<li><input disabled="" type="checkbox"> Pour aire entre courbes : signe de <code>g − f</code> étudié</li>
+<li><input disabled="" type="checkbox"> IPP : choix de <code>u&#39;</code> et <code>v</code> justifié, <code>[uv]_a^b</code> calculé proprement</li>
+<li><input disabled="" type="checkbox"> Valeur moyenne : division par <code>b − a</code> n&#39;oubliée</li>
+<li><input disabled="" type="checkbox"> Si f de signe variable : Chasles + valeur absolue pour calculer une aire</li>
+<li><input disabled="" type="checkbox"> Sens des bornes (a &lt; b) ou inversion explicitée</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html">https://arthurjeaugey.com/revisions-maths/raw/synth/integration.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

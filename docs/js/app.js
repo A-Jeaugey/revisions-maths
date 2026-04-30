@@ -66,6 +66,13 @@ async function bootstrap() {
     window.addEventListener('routechange', updateActiveNav);
     updateActiveNav();
 
+    // Keep document title and Open Graph tags in sync with the current route,
+    // so link previews (Slack, Messenger, iMessage, Twitter, etc.) show the
+    // chapter actually being viewed instead of the generic site title.
+    window.addEventListener('hashchange', updateMetaForRoute);
+    window.addEventListener('routechange', updateMetaForRoute);
+    updateMetaForRoute();
+
     // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.querySelector('.nav-links');
@@ -102,6 +109,58 @@ function waitForKatex() {
     // Don't block forever
     setTimeout(() => { clearInterval(i); resolve(); }, 4000);
   });
+}
+
+const DEFAULT_TITLE = 'RÉV · Bac Maths Spé';
+const DEFAULT_DESC  = 'Révisions Bac Maths spé Terminale — fiches, réflexes, formulaire, quiz, annales 2024-2025.';
+const SITE_BASE     = 'https://arthurjeaugey.com/revisions-maths';
+
+function setMeta(selector, attr, value) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute(attr, value);
+}
+
+function updateMetaForRoute() {
+  const hash = location.hash.slice(1) || '/';
+  const meta = Store.get('meta');
+  let title = DEFAULT_TITLE;
+  let desc  = DEFAULT_DESC;
+  const url = `${SITE_BASE}/#${hash}`;
+
+  const ficheMatch = hash.match(/^\/fiche\/([^/]+)$/);
+  if (ficheMatch && meta) {
+    const ch = meta.chapters.find(c => c.slug === ficheMatch[1]);
+    if (ch) {
+      title = `${ch.title} — Fiche · RÉV.maths`;
+      desc  = `${ch.title} · ${ch.subtitle}. Fiche de révision Bac Spé Maths Terminale.`;
+    }
+  } else if (hash === '/fiches') {
+    title = 'Fiches — RÉV.maths';
+    desc  = 'Toutes les fiches de révision Bac Spé Maths : 8 chapitres complets, exemples chiffrés, anti-sèche.';
+  } else if (hash.startsWith('/reflexes')) {
+    title = 'Réflexes — RÉV.maths';
+    desc  = 'Cartes réflexes : déclencheurs et réponses pour le Bac Spé Maths.';
+  } else if (hash.startsWith('/formulaire')) {
+    title = 'Formulaire — RÉV.maths';
+    desc  = 'Toutes les formules du programme de Bac Spé Maths Terminale.';
+  } else if (hash.startsWith('/quiz')) {
+    title = 'Quiz — RÉV.maths';
+    desc  = 'Test rapide chronométré sur le programme de Bac Spé Maths.';
+  } else if (hash === '/catalogue') {
+    title = 'Catalogue des questions-types — RÉV.maths';
+    desc  = 'Catalogue annoté des questions-types récurrentes en Bac Spé Maths.';
+  } else if (hash === '/annales') {
+    title = 'Annales 2024-2025 — RÉV.maths';
+    desc  = 'Sujets et corrigés du Bac Spé Maths Terminale, sessions 2024 et 2025.';
+  }
+
+  document.title = title;
+  setMeta('meta[name="description"]', 'content', desc);
+  setMeta('meta[property="og:title"]', 'content', title);
+  setMeta('meta[property="og:description"]', 'content', desc);
+  setMeta('meta[property="og:url"]', 'content', url);
+  setMeta('meta[name="twitter:title"]', 'content', title);
+  setMeta('meta[name="twitter:description"]', 'content', desc);
 }
 
 function updateActiveNav() {

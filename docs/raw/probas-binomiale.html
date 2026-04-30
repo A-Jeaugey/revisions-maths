@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probabilités &amp; Binomiale — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Probabilités &amp; Binomiale. Conditionnelles · Bayes · Loi binomiale.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Probabilités &amp; Binomiale — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Probabilités &amp; Binomiale. Conditionnelles · Bayes · Loi binomiale.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Probabilités &amp; Binomiale — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Probabilités &amp; Binomiale. Conditionnelles · Bayes · Loi binomiale.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Probabilités & Binomiale — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Probabilités & Binomiale. Conditionnelles · Bayes · Loi binomiale.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/probas-binomiale">https://arthurjeaugey.com/revisions-maths/#/fiche/probas-binomiale</a>.</div>
+<article><h1>🎲 Fiche de Combat — Dénombrement, Probabilités &amp; Loi Binomiale</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Trois chapitres en un, dans l&#39;ordre logique : compter → probabilités simples → modèle répété (binomiale).</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« De combien de façons », « combien de codes/comités/mains »</td>
+<td><strong>Dénombrement</strong> : tableau ordre/répétition (§I)</td>
+</tr>
+<tr>
+<td>« Tirer <strong>simultanément</strong> k éléments parmi n »</td>
+<td><strong>Combinaison</strong> $\binom{n}{k}$ direct</td>
+</tr>
+<tr>
+<td>« Sachant que… »</td>
+<td><strong>Proba conditionnelle</strong> $P_A(B)$ (§II)</td>
+</tr>
+<tr>
+<td>« Au moins un… », « aucun… »</td>
+<td>Souvent <strong>événement contraire</strong> : $P(\bar A) = 1 - P(A)$</td>
+</tr>
+<tr>
+<td>« On répète n fois de manière indépendante »</td>
+<td><strong>Loi binomiale</strong> $\mathcal{B}(n,p)$ (§III)</td>
+</tr>
+<tr>
+<td>« Au seuil de 95 %, 99 %… »</td>
+<td>Intervalle de fluctuation (§IV)</td>
+</tr>
+<tr>
+<td>« Est-elle sûre à 99 % d&#39;avoir au moins… »</td>
+<td>Calcul direct $P(X \geq k)$ vs seuil (§IV.1)</td>
+</tr>
+<tr>
+<td>« Plus petit/grand entier k tel que P(X≤k)≥… »</td>
+<td>Tableau de valeurs cumulées (§IV.2)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Dénombrement : compter sans lister</h2>
+<h3>1. L&#39;algorithme mental (les 2 questions à se poser)</h3>
+<p>Avant <strong>toute</strong> formule, pose-toi ces deux questions dans cet ordre :</p>
+<ol>
+<li><strong>L&#39;ordre compte-t-il ?</strong> (est-ce que (Alice, Bob) est différent de (Bob, Alice) ?)</li>
+<li><strong>Y a-t-il répétition ?</strong> (est-ce qu&#39;on peut prendre 2 fois le même élément ?)</li>
+</ol>
+<p>Selon les réponses, tu tombes dans une case du tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Ordre ?</th>
+<th>Répétition ?</th>
+<th>Formule</th>
+<th>Exemple type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>p-uplet</strong></td>
+<td>OUI</td>
+<td>OUI</td>
+<td>$n^p$</td>
+<td>Code de cadenas (4 chiffres parmi 10) → $10^4$</td>
+</tr>
+<tr>
+<td><strong>Arrangement</strong> $A_n^k$</td>
+<td>OUI</td>
+<td>NON</td>
+<td>$\dfrac{n!}{(n-k)!}$</td>
+<td>Podium de course (3 médaillés parmi 10)</td>
+</tr>
+<tr>
+<td><strong>Permutation</strong></td>
+<td>OUI</td>
+<td>NON, on prend tout</td>
+<td>$n!$</td>
+<td>Ranger 5 livres différents sur une étagère</td>
+</tr>
+<tr>
+<td><strong>Combinaison</strong> $\binom{n}{k}$</td>
+<td>NON</td>
+<td>NON</td>
+<td>$\dfrac{n!}{k!(n-k)!}$</td>
+<td>Tirer une main de 5 cartes ; former un comité</td>
+</tr>
+</tbody></table>
+<h3>2. Mnémotechnique pour le choix de l&#39;outil</h3>
+<p><strong>Le test du &quot;swapping&quot;</strong> : prends deux éléments dans ton résultat et inverse-les.</p>
+<ul>
+<li>Si ça change le résultat (podium, code) → <strong>Arrangement</strong> $A_n^k$ (ordre compte).</li>
+<li>Si ça ne change rien (équipe de foot, main de cartes) → <strong>Combinaison</strong> $\binom{n}{k}$.</li>
+</ul>
+<p><strong>Mots-clés à repérer pour la combinaison</strong> :</p>
+<ul>
+<li>&quot;<strong>Simultanément</strong>&quot; → 99 % du temps, c&#39;est $\binom{n}{k}$.</li>
+<li>&quot;Lot&quot;, &quot;groupe&quot;, &quot;équipe&quot;, &quot;comité&quot;, &quot;poignée&quot;.</li>
+<li>&quot;Sans ordre précis&quot;.</li>
+</ul>
+<h3>3. Propriétés des combinaisons (à connaître par cœur)</h3>
+<p><strong>Symétrie :</strong> $\binom{n}{k} = \binom{n}{n-k}$
+<em>(choisir qui vient = choisir qui reste sur la touche)</em></p>
+<p><strong>Cas particuliers :</strong></p>
+<ul>
+<li>$\binom{n}{0} = \binom{n}{n} = 1$</li>
+<li>$\binom{n}{1} = \binom{n}{n-1} = n$</li>
+</ul>
+<p><strong>Relation de Pascal :</strong> $\binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n}{k}$
+<em>(c&#39;est ce qui permet de construire le triangle de Pascal)</em></p>
+<h3>4. Exemples chiffrés des 4 outils</h3>
+<p><strong>p-uplet :</strong> Combien de codes de 4 chiffres (de 0 à 9) ?
+→ $10^4 = 10\,000$.</p>
+<p><strong>Arrangement :</strong> Podium de 3 médaillés parmi 8 athlètes ?
+→ $A_8^3 = \dfrac{8!}{5!} = 8 \times 7 \times 6 = 336$.</p>
+<p><strong>Permutation :</strong> Ranger 5 livres distincts ?
+→ $5! = 120$.</p>
+<p><strong>Combinaison :</strong> Choisir 2 délégués parmi 30 élèves (l&#39;ordre ne compte pas) ?
+→ $\binom{30}{2} = \dfrac{30 \times 29}{2} = 435$.</p>
+<h3>5. Le piège type bac : &quot;tirage simultané vs successif&quot;</h3>
+<p>⚠️ <strong>Lire HYPER attentivement</strong> :</p>
+<ul>
+<li>&quot;Tirage <strong>simultané</strong> de k boules&quot; → ordre ne compte pas → <strong>combinaison</strong>.</li>
+<li>&quot;Tirage <strong>successif sans remise</strong> de k boules&quot; → ordre compte → <strong>arrangement</strong>.</li>
+<li>&quot;Tirage <strong>successif avec remise</strong> de k boules&quot; → ordre compte + répétition → <strong>p-uplet</strong> ($n^k$).</li>
+</ul>
+<hr>
+<h2>II. Probabilités : arbres et conditions</h2>
+<h3>1. Définitions de base</h3>
+<p><strong>Probabilité conditionnelle</strong> : probabilité que B se réalise <strong>sachant que</strong> A est déjà réalisé.</p>
+<p>$$P_A(B) = \dfrac{P(A \cap B)}{P(A)} \quad \text{(avec } P(A) \neq 0\text{)}$$</p>
+<p><strong>Formule de l&#39;intersection</strong> (l&#39;inverse de la précédente) :</p>
+<p>$$P(A \cap B) = P(A) \times P_A(B)$$</p>
+<p>C&#39;est cette formule qu&#39;on utilise sur un <strong>arbre pondéré</strong> : on multiplie les probas le long d&#39;un chemin.</p>
+<h3>2. Arbre pondéré (les règles)</h3>
+<p><strong>Règles d&#39;or :</strong></p>
+<ol>
+<li>La somme des probas qui partent d&#39;un même nœud vaut <strong>toujours 1</strong>.</li>
+<li>Pour calculer $P(A \cap B)$ : on suit le chemin et on <strong>multiplie</strong> les probas des branches.</li>
+<li>Pour calculer $P(B)$ : on <strong>somme</strong> tous les chemins qui finissent par B (c&#39;est la formule des probas totales).</li>
+</ol>
+<p><strong>Exemple type d&#39;arbre :</strong></p>
+<pre><code class="language-mermaid">flowchart LR
+  R(( ))
+  R -- &quot;P(A)&quot; --&gt; A((A))
+  R -- &quot;P(Ā)&quot; --&gt; NA((Ā))
+  A -- &quot;P_A(B)&quot; --&gt; AB[&quot;B&lt;br/&gt;P(A∩B) = P(A)·P_A(B)&quot;]
+  A -- &quot;P_A(B̄)&quot; --&gt; ANB[&quot;B̄&lt;br/&gt;P(A∩B̄) = P(A)·P_A(B̄)&quot;]
+  NA -- &quot;P_Ā(B)&quot; --&gt; NAB[&quot;B&lt;br/&gt;P(Ā∩B) = P(Ā)·P_Ā(B)&quot;]
+  NA -- &quot;P_Ā(B̄)&quot; --&gt; NANB[&quot;B̄&lt;br/&gt;P(Ā∩B̄) = P(Ā)·P_Ā(B̄)&quot;]
+
+  classDef root fill:#1a1a24,stroke:#a1a1aa,color:#f5f5f7;
+  classDef event fill:#0e0e16,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#00d9ff,color:#00d9ff;
+  class R root;
+  class A,NA event;
+  class AB,ANB,NAB,NANB leaf;
+</code></pre>
+<h3>3. Formule des probabilités totales</h3>
+<p>Si A₁, A₂, …, Aₙ forment un <strong>système complet d&#39;événements</strong> (= partition de l&#39;univers : ils sont incompatibles deux à deux et leur union vaut Ω), alors pour tout événement B :</p>
+<p>$$P(B) = P(A_1 \cap B) + P(A_2 \cap B) + \dots + P(A_n \cap B)$$</p>
+<p>ou de façon équivalente :</p>
+<p>$$P(B) = P(A_1) \times P_{A_1}(B) + P(A_2) \times P_{A_2}(B) + \dots$$</p>
+<p><strong>Cas le plus fréquent au bac (système {A, Ā}) :</strong>
+$$P(B) = P(A \cap B) + P(\bar A \cap B) = P(A) P_A(B) + P(\bar A) P_{\bar A}(B)$$</p>
+<h3>4. La probabilité conditionnelle &quot;à l&#39;envers&quot; (cas type bac)</h3>
+<p>🎯 C&#39;est LA question classique du bac : on a un arbre qui commence par A, mais on te demande $P_B(A)$ (B est à l&#39;arrivée, A au départ — il faut &quot;remonter le temps&quot;).</p>
+<p><strong>Énoncé prototypique :</strong> &quot;Sachant que le test est positif, quelle est la proba que le patient soit malade ?&quot; (alors que l&#39;arbre commence par malade/non malade).</p>
+<p><strong>Procédure en 3 étapes :</strong></p>
+<p><strong>Étape 1 — Calculer $P(A \cap B)$</strong> : suis le chemin A puis B sur l&#39;arbre, multiplie les probas.</p>
+<p><strong>Étape 2 — Calculer $P(B)$</strong> : somme tous les chemins qui finissent par B (formule des probas totales).</p>
+<p><strong>Étape 3 — Appliquer la définition</strong> :
+$$P_B(A) = \dfrac{P(A \cap B)}{P(B)}$$</p>
+<p><strong>Exemple chiffré (test médical) :</strong></p>
+<ul>
+<li>Une maladie touche 2 % de la population : $P(M) = 0{,}02$.</li>
+<li>Le test est positif chez 95 % des malades : $P_M(T) = 0{,}95$.</li>
+<li>Le test est positif chez 3 % des non-malades (faux positifs) : $P_{\bar M}(T) = 0{,}03$.</li>
+</ul>
+<p>Question : sachant que le test est positif, quelle est la proba d&#39;être malade ? → calculer $P_T(M)$.</p>
+<ol>
+<li>$P(M \cap T) = P(M) \times P_M(T) = 0{,}02 \times 0{,}95 = 0{,}019$.</li>
+<li>$P(T) = P(M) P_M(T) + P(\bar M) P_{\bar M}(T) = 0{,}019 + 0{,}98 \times 0{,}03 = 0{,}019 + 0{,}0294 = 0{,}0484$.</li>
+<li>$P_T(M) = \dfrac{0{,}019}{0{,}0484} \approx 0{,}392$.</li>
+</ol>
+<p><strong>Interprétation contre-intuitive :</strong> même avec un test positif, il n&#39;y a que 39 % de chances d&#39;être réellement malade. C&#39;est ça le piège bac : on attend souvent qu&#39;on commente le résultat.</p>
+<h3>5. Indépendance</h3>
+<p>Deux événements A et B sont <strong>indépendants</strong> ssi :</p>
+<p>$$P(A \cap B) = P(A) \times P(B)$$</p>
+<p>De façon équivalente : $P_A(B) = P(B)$ (savoir que A est réalisé ne change pas la proba de B).</p>
+<p>⚠️ <strong>Piège classique :</strong> ne JAMAIS confondre <strong>incompatibles</strong> ($A \cap B = \emptyset$, donc $P(A \cap B) = 0$) et <strong>indépendants</strong> ($P(A \cap B) = P(A) P(B)$). Ce sont <strong>deux notions complètement différentes</strong>.</p>
+<h3>6. Variable aléatoire (rappels rapides)</h3>
+<p>Une variable aléatoire X associe une valeur numérique (un gain, un score) à chaque issue.</p>
+<p><strong>Espérance</strong> (moyenne théorique sur un grand nombre de répétitions) :
+$$E(X) = \sum_{i} p_i \times x_i$$</p>
+<p><strong>Variance</strong> (mesure de la dispersion) :
+$$V(X) = \sum_{i} p_i \times (x_i - E(X))^2 = E(X^2) - [E(X)]^2$$</p>
+<p><strong>Écart-type</strong> :
+$$\sigma(X) = \sqrt{V(X)}$$</p>
+<p><strong>Interprétation :</strong> plus σ est grand, plus les valeurs de X sont étalées autour de la moyenne E(X).</p>
+<hr>
+<h2>III. La Loi Binomiale $\mathcal{B}(n, p)$</h2>
+<h3>1. Justification &quot;juridique&quot; (point n°1 de ton PDF, à connaître MOT POUR MOT)</h3>
+<p>🎯 <strong>Si on te demande &quot;Justifier que X suit une loi binomiale&quot;, tu DOIS écrire ces 3 points (sinon tu perds 0,5 à 1 point direct) :</strong></p>
+<blockquote>
+<ol>
+<li><strong>On répète n fois</strong> une épreuve de Bernoulli (deux issues : Succès et Échec).</li>
+<li>Les épreuves sont <strong>identiques</strong> (même proba de succès) et <strong>indépendantes</strong> (le résultat d&#39;une épreuve n&#39;influence pas les suivantes — souvent justifié par &quot;tirage avec remise&quot;).</li>
+<li><strong>X est la variable aléatoire qui compte le nombre de succès</strong> sur les n répétitions.</li>
+</ol>
+<p>Donc X suit la loi binomiale $\mathcal{B}(n, p)$ avec n = … et p = …</p>
+</blockquote>
+<h3>2. Formule centrale</h3>
+<p>$$P(X = k) = \binom{n}{k} \times p^k \times (1-p)^{n-k}$$</p>
+<p><strong>Décomposition de la formule (à comprendre, pas juste à réciter) :</strong></p>
+<ul>
+<li>$\binom{n}{k}$ : nombre de façons de placer les k succès parmi les n épreuves (l&#39;ordre des succès est indifférent).</li>
+<li>$p^k$ : probabilité d&#39;avoir k succès.</li>
+<li>$(1-p)^{n-k}$ : probabilité que les n−k autres soient des échecs.</li>
+</ul>
+<h3>3. Paramètres de la loi</h3>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Espérance</td>
+<td>$E(X) = np$</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td>$V(X) = np(1-p)$</td>
+</tr>
+<tr>
+<td>Écart-type</td>
+<td>$\sigma(X) = \sqrt{np(1-p)}$</td>
+</tr>
+</tbody></table>
+<p><strong>Interprétation graphique :</strong></p>
+<ul>
+<li>E(X) correspond à la <strong>barre la plus haute</strong> sur l&#39;histogramme de la distribution (à $\pm 1$ près).</li>
+<li>σ donne la &quot;largeur&quot; du pic : plus σ est grand, plus l&#39;histogramme est étalé.</li>
+</ul>
+<h3>4. Gérer les inégalités (la calculette donne $P(X \leq k)$)</h3>
+<p>🎯 <strong>Sur Numworks (et la plupart des calculatrices), la fonction de base donne $P(X \leq k)$ (binomcdf). Tu dois savoir tout ramener à ça :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ce que tu cherches</th>
+<th>Comment le calculer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$P(X \leq k)$</td>
+<td>Direct (binomcdf)</td>
+</tr>
+<tr>
+<td>$P(X = k)$</td>
+<td>binompdf, ou $P(X \leq k) - P(X \leq k-1)$</td>
+</tr>
+<tr>
+<td>$P(X < k)$</td>
+<td>$P(X \leq k-1)$ <em>(car X est entier !)</em></td>
+</tr>
+<tr>
+<td>$P(X > k)$</td>
+<td>$1 - P(X \leq k)$</td>
+</tr>
+<tr>
+<td>$P(X \geq k)$</td>
+<td>$1 - P(X \leq k-1)$</td>
+</tr>
+<tr>
+<td>$P(a \leq X \leq b)$</td>
+<td>$P(X \leq b) - P(X \leq a-1)$</td>
+</tr>
+</tbody></table>
+<p>⚠️ <strong>Le piège n°1 :</strong> la transition &lt; / ≤ utilise le fait que <strong>X est à valeurs entières</strong>. Donc $X < k \iff X \leq k-1$. Si tu oublies le &quot;−1&quot;, tu perds toujours 0,5 point.</p>
+<p><strong>Exemple chiffré :</strong> $X \sim \mathcal{B}(20\,;\,0{,}3)$. Calculer $P(X \geq 8)$.
+→ $P(X \geq 8) = 1 - P(X \leq 7) = 1 - \text{binomcdf}(20\,;\,0{,}3\,;\,7) \approx 1 - 0{,}772 = 0{,}228$.</p>
+<hr>
+<h2>IV. Questions techniques type bac</h2>
+<h3>1. &quot;Est-elle sûre au seuil de 99 % d&#39;avoir au moins k succès ?&quot;</h3>
+<p><strong>Énoncé type (de ton PDF) :</strong> &quot;Le nombre d&#39;élèves dans la classe d&#39;Alice suit la loi $\mathcal{B}(36\,;\,0{,}92)$. Est-elle sûre au seuil de 99 % d&#39;avoir au moins 29 élèves ?&quot;</p>
+<p><strong>Méthode (3 étapes) :</strong></p>
+<ol>
+<li>Identifier la proba à calculer : &quot;au moins 29&quot; → $P(X \geq 29)$.</li>
+<li>La transformer pour la calculatrice : $P(X \geq 29) = 1 - P(X \leq 28)$.</li>
+<li>Comparer au seuil et conclure.</li>
+</ol>
+<p><strong>Rédaction type :</strong></p>
+<blockquote>
+<p>$P(X \geq 29) = 1 - P(X \leq 28) \approx 0{,}993$.
+Comme $0{,}993 > 0{,}99$, <strong>oui</strong>, Alice est sûre au seuil de 99 % d&#39;avoir au moins 29 élèves.</p>
+</blockquote>
+<h3>2. &quot;Plus petit entier k tel que $P(X \leq k) \geq$ …&quot;</h3>
+<p>🎯 <strong>C&#39;est la question d&#39;inversion classique. Méthode officielle = tableau de valeurs cumulées.</strong></p>
+<p><strong>Rédaction type (à reproduire systématiquement) :</strong></p>
+<p>Pour trouver le plus petit entier $k$ tel que $P(X \leq k) \geq 0{,}95$ :</p>
+<blockquote>
+<p>À l&#39;aide de la calculatrice, on dresse un tableau des valeurs de $P(X \leq k)$ :</p>
+<table>
+<thead>
+<tr>
+<th>$k$</th>
+<th>…</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$P(X \leq k)$</td>
+<td>…</td>
+<td>0,887</td>
+<td>0,940</td>
+<td>0,963</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<p>On observe que $P(X \leq 15) = 0{,}940 < 0{,}95$ et $P(X \leq 16) = 0{,}963 \geq 0{,}95$.
+Donc le plus petit entier $k$ tel que $P(X \leq k) \geq 0{,}95$ est $k = 16$.</p>
+</blockquote>
+<p>⚠️ <strong>Crucial :</strong> tu DOIS montrer <strong>la ligne avant</strong> ET <strong>la ligne après</strong> le seuil. Si tu donnes juste la valeur trouvée, tu n&#39;as pas prouvé que c&#39;est bien la <strong>plus petite</strong> qui dépasse le seuil → perte de point.</p>
+<h3>3. Astuce Numworks pour les tableaux</h3>
+<p>Au lieu de chercher dans le menu Graphique/Tableau (lent), passe directement par : <strong>menu Probabilités → Binomiale → entre n et p</strong>. Tu as accès aux valeurs $P(X = k)$ et $P(X \leq k)$ pour tous les k. Tu n&#39;as plus qu&#39;à recopier les 2 lignes (avant/après le seuil) sur ta copie.</p>
+<h3>4. Intervalle de fluctuation centré au seuil $1 - \alpha$ (le boss final)</h3>
+<p><strong>Objectif :</strong> trouver un intervalle $[a\,;\,b]$ tel que $P(a \leq X \leq b) \geq 1 - \alpha$.</p>
+<p><strong>Définitions de a et b (formellement) :</strong></p>
+<ul>
+<li>$a$ = le <strong>plus petit</strong> entier tel que $P(X \leq a) > \dfrac{\alpha}{2}$.</li>
+<li>$b$ = le <strong>plus petit</strong> entier tel que $P(X \leq b) \geq 1 - \dfrac{\alpha}{2}$.</li>
+</ul>
+<p>⚠️ <strong>Attention aux symboles d&#39;inégalité :</strong></p>
+<ul>
+<li>Pour <strong>a</strong> : strict (&gt;) sur $\alpha/2$.</li>
+<li>Pour <strong>b</strong> : large (≥) sur $1 - \alpha/2$.</li>
+<li>C&#39;est une bizarrerie de la définition officielle, ne pas l&#39;oublier.</li>
+</ul>
+<p><strong>Rédaction type :</strong></p>
+<p>Soit $X \sim \mathcal{B}(98\,;\,0{,}77)$, $\alpha = 0{,}01$. Déterminer un intervalle de fluctuation centré au seuil 99 %.</p>
+<blockquote>
+<p>On cherche le plus petit entier $a$ tel que $P(X \leq a) > 0{,}005$ :</p>
+<table>
+<thead>
+<tr>
+<th>$k$</th>
+<th>…</th>
+<th>65</th>
+<th>66</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$P(X \leq k)$</td>
+<td>…</td>
+<td>0,004</td>
+<td>0,007</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<p>Donc $a = 66$.</p>
+<p>On cherche le plus petit entier $b$ tel que $P(X \leq b) \geq 0{,}995$ :</p>
+<table>
+<thead>
+<tr>
+<th>$k$</th>
+<th>…</th>
+<th>86</th>
+<th>87</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$P(X \leq k)$</td>
+<td>…</td>
+<td>0,994</td>
+<td>0,997</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<p>Donc $b = 87$.</p>
+<p>L&#39;intervalle de fluctuation centré au seuil 99 % est $[66\,;\,87]$.</p>
+</blockquote>
+<p><strong>Si on demande des fréquences</strong> (et non des nombres), on divise par n : $I = \left[\dfrac{a}{n}\,;\,\dfrac{b}{n}\right]$.</p>
+<h3>5. Vérification d&#39;un intervalle donné (variante)</h3>
+<p><strong>Énoncé type :</strong> &quot;Vérifier que l&#39;intervalle [15 ; 38] est un intervalle de fluctuation au seuil 95 % de $X \sim \mathcal{B}(\dots)$.&quot;</p>
+<p><strong>Méthode (à NE PAS confondre avec la méthode active) :</strong></p>
+<ol>
+<li>Calculer $P(X \leq 14)$ — c&#39;est la queue gauche (avant 15). Vérifier qu&#39;elle est ≤ $\alpha/2 = 0{,}025$.</li>
+<li>Calculer $P(X > 38) = 1 - P(X \leq 38)$ — c&#39;est la queue droite (après 38). Vérifier qu&#39;elle est ≤ $\alpha/2 = 0{,}025$.</li>
+<li>Si les deux queues sont sous le seuil, l&#39;intervalle est valide.</li>
+</ol>
+<p>⚠️ <strong>Piège :</strong> ne pas se planter dans le passage &quot;intervalle [15 ; 38]&quot; → &quot;queue gauche = $P(X \leq 14)$&quot; (et pas $P(X < 15)$ qui revient au même mais demande de bien gérer les inégalités). Idem à droite.</p>
+<h3>6. Trouver p sur un diagramme en barres (rare mais peut tomber)</h3>
+<p><strong>Si on te donne un histogramme et qu&#39;on te demande de retrouver p</strong> :</p>
+<ol>
+<li>Identifier la barre la plus haute → c&#39;est l&#39;espérance E(X) (à $\pm 1$ près).</li>
+<li>Résoudre $E(X) = np$ → $p = E(X) / n$.</li>
+</ol>
+<p><strong>Reconnaître σ graphiquement :</strong> σ correspond à la &quot;demi-largeur&quot; du pic principal de l&#39;histogramme. Un σ petit = pic étroit ; σ grand = pic étalé.</p>
+<hr>
+<h2>V. Stratégie globale : quel outil pour quelle question ?</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Énoncé. Que demande-t-on ?&quot;]
+  E --&gt; D[&quot;« Combien de façons /&lt;br/&gt;codes / mains » ?&quot;]
+  E --&gt; C[&quot;« Quelle proba … » + arbre /&lt;br/&gt;« sachant que » ?&quot;]
+  E --&gt; B[&quot;« On répète n fois&lt;br/&gt;indépendamment » ?&quot;]
+  E --&gt; F[&quot;« Au seuil de 95 % » /&lt;br/&gt;intervalle de fluctuation ?&quot;]
+
+  D --&gt; D1[&quot;DÉNOMBREMENT (§I)&quot;]
+  D1 --&gt; D1a[&quot;Ordre + répétition → nᵖ&quot;]
+  D1 --&gt; D1b[&quot;Ordre, sans répét. → Aⁿₖ&quot;]
+  D1 --&gt; D1c[&quot;Sans ordre → C(n, k)&quot;]
+
+  C --&gt; C1[&quot;PROBAS CONDITIONNELLES (§II)&quot;]
+  C1 --&gt; C1a[&quot;Direct : chemin × probas&quot;]
+  C1 --&gt; C1b[&quot;Probas totales :&lt;br/&gt;somme des chemins&quot;]
+  C1 --&gt; C1c[&quot;À l&#39;envers P_B(A) :&lt;br/&gt;intersection / total / ratio&quot;]
+
+  B --&gt; B1[&quot;LOI BINOMIALE (§III)&quot;]
+  B1 --&gt; B1a[&quot;Justifier les 3 points&quot;]
+  B1 --&gt; B1b[&quot;P(X = k), P(X ≤ k)&lt;br/&gt;→ calculatrice&quot;]
+  B1 --&gt; B1c[&quot;E(X) = np&lt;br/&gt;σ = √(np(1−p))&quot;]
+
+  F --&gt; F1[&quot;INTERVALLE DE FLUCTUATION (§IV)&quot;]
+  F1 --&gt; F1a[&quot;Active : trouver a et b&quot;]
+  F1 --&gt; F1b[&quot;Vérif : queues ≤ α/2&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class D,C,B,F,D1,C1,B1,F1 branch;
+  class D1a,D1b,D1c,C1a,C1b,C1c,B1a,B1b,B1c,F1a,F1b leaf;
+</code></pre>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Probas + Binomiale&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent ULTRA stable confirmé sur 8+ sujets</strong> (Métropole 2024 J1/J2, 2025 J1/J2, septembre 2025, Amérique du Nord 2025 J1/J2, Asie 2025). <strong>L&#39;exercice 1 de probabilités est devenu un standard depuis 2024</strong>.</p>
+<h3>Le schéma classique de l&#39;EXO 1 (depuis 2024)</h3>
+<p>🎯 <strong>Pattern observé sur quasi TOUS les sujets</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Énoncé : situation concrète&lt;br/&gt;(groupes sanguins, satisfaction…)&quot;]
+
+  E --&gt; PA[&quot;Partie A&lt;br/&gt;Probas conditionnelles&quot;]
+  PA --&gt; PA1[&quot;Q1. Probabilité simple&lt;br/&gt;(lecture d&#39;arbre)&quot;]
+  PA --&gt; PA2[&quot;Q2. Proba totale :&lt;br/&gt;P(B) = somme des chemins&quot;]
+  PA --&gt; PA3[&quot;Q3. Conditionnelle inverse&lt;br/&gt;(Bayes-like)&quot;]
+  PA --&gt; PA4[&quot;Q4. Indépendance&lt;br/&gt;P(A∩B) = P(A)·P(B) ?&quot;]
+
+  E --&gt; PB[&quot;Partie B&lt;br/&gt;Loi binomiale&quot;]
+  PB --&gt; PB5[&quot;Q5. JUSTIFIER X ~ ℬ(n, p)&lt;br/&gt;(3 points)&quot;]
+  PB --&gt; PB6[&quot;Q6. P(X = k), P(X ≤ k),&lt;br/&gt;P(X ≥ k) → calculatrice&quot;]
+  PB --&gt; PB7[&quot;Q7. E(X) et interprétation&quot;]
+  PB --&gt; PB8[&quot;Q8. (parfois) plus petit n&lt;br/&gt;tel que P(X ≥ 1) ≥ 0,95&quot;]
+
+  E --&gt; PC[&quot;Partie C (depuis 2024)&lt;br/&gt;Somme VA + B-T&quot;]
+  PC --&gt; PC1[&quot;Linéarité de E&quot;]
+  PC --&gt; PC2[&quot;Variance / écart-type&lt;br/&gt;d&#39;une somme&quot;]
+  PC --&gt; PC3[&quot;Inégalité de B-T&lt;br/&gt;(majoration de proba)&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef part fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef step fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class PA,PB,PC part;
+  class PA1,PA2,PA3,PA4,PB5,PB6,PB7,PB8,PC1,PC2,PC3 step;
+</code></pre>
+<h3>Les 8 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Calculer une probabilité simple via arbre&quot;</h4>
+<p><strong>Méthode</strong> : lecture directe de l&#39;arbre. $P(A \cap B) = P(A) \times P_A(B)$ (chemin d&#39;une branche).</p>
+<h4>Q2 — &quot;Calculer $P(B)$ via les probabilités totales&quot;</h4>
+<p><strong>Méthode</strong> : $P(B) = P(A \cap B) + P(\bar{A} \cap B) = P(A) P_A(B) + P(\bar{A}) P_{\bar{A}}(B)$.</p>
+<p>🎯 <strong>Réflexe</strong> : à chaque &quot;Calculer la probabilité de l&#39;événement final $B$&quot; → probas totales.</p>
+<h4>Q3 — &quot;Calculer $P_B(A)$ (probabilité conditionnelle inverse)&quot;</h4>
+<p><strong>Méthode</strong> :
+$$P_B(A) = \dfrac{P(A \cap B)}{P(B)}$$</p>
+<p>🎯 <strong>Reconnaître</strong> : si l&#39;arbre est construit avec $A$ en haut puis $B$, demander $P_B(A)$ = inverser.</p>
+<h4>Q4 — &quot;Justifier que $X$ suit la loi binomiale $\mathcal{B}(n, p)$&quot;</h4>
+<p>🎯 <strong>MÉTHODE OBLIGATOIRE — RÉCITER LES 3 POINTS</strong> :</p>
+<p><strong>Rédaction-type</strong> :</p>
+<blockquote>
+<p>On répète $n$ fois la même expérience de Bernoulli :</p>
+<ol>
+<li><strong>L&#39;expérience a 2 issues</strong> : succès ($S$) avec probabilité $p$, et échec ($\bar{S}$) avec probabilité $1-p$.</li>
+<li><strong>Les $n$ épreuves sont identiques et indépendantes</strong> (justifier l&#39;indépendance : tirages avec remise, populations grandes, etc.).</li>
+<li><strong>$X$ compte le nombre de succès</strong>.</li>
+</ol>
+<p>Donc $X$ suit la loi binomiale $\mathcal{B}(n, p)$.</p>
+</blockquote>
+<p>⚠️ <strong>NE JAMAIS sauter cette justification</strong>. C&#39;est 1 point garanti.</p>
+<h4>Q5 — &quot;Calculer $P(X = k)$, $P(X \leq k)$, $P(X \geq k)$&quot;</h4>
+<p><strong>Calcul direct</strong> ou <strong>calculatrice</strong> :</p>
+<ul>
+<li>$P(X = k)$ : <code>binomFdp(n, p, k)</code> ou formule.</li>
+<li>$P(X \leq k)$ : <code>binomFRép(n, p, k)</code>.</li>
+<li>$P(X \geq k) = 1 - P(X \leq k-1)$.</li>
+</ul>
+<p>⚠️ <strong>Conversion entier</strong> : pour $X$ entier, $P(X < k) = P(X \leq k-1)$ et $P(X > k) = P(X \geq k+1)$.</p>
+<h4>Q6 — &quot;Calculer l&#39;espérance $E(X)$ et l&#39;interpréter&quot;</h4>
+<p><strong>Formule directe</strong> : $E(X) = np$.</p>
+<p><strong>Interprétation</strong> :</p>
+<blockquote>
+<p>Sur un grand nombre de répétitions de cette expérience, on s&#39;attend en moyenne à $np$ succès.</p>
+</blockquote>
+<h4>Q7 — &quot;Trouver le plus petit $n$ tel que $P(X \geq 1) \geq 0{,}95$&quot;</h4>
+<p>🎯 <strong>Méthode</strong> : transformation puis résolution d&#39;équation.</p>
+<p><strong>Rédaction-type</strong> :</p>
+<blockquote>
+<p>$P(X \geq 1) = 1 - P(X = 0) = 1 - (1-p)^n$.</p>
+<p>$P(X \geq 1) \geq 0{,}95 \iff 1 - (1-p)^n \geq 0{,}95 \iff (1-p)^n \leq 0{,}05$.</p>
+<p>Comme $0 < 1 - p < 1$, $\ln$ est croissante mais on multiplie par un négatif :
+$n \ln(1-p) \leq \ln(0{,}05) \iff n \geq \dfrac{\ln(0{,}05)}{\ln(1-p)}$ (inversion par négatif).</p>
+<p>Application numérique : $n \geq ...$ donc $n = ...$.</p>
+</blockquote>
+<h4>Q8 — &quot;Bascule vers somme VA + Bienaymé-Tchebychev&quot;</h4>
+<p>🎯 <strong>Pattern depuis 2024</strong> : la dernière partie introduit une nouvelle variable $Y_n = X_1 + ... + X_n$ ou $M_n = \dfrac{S_n}{n}$, et demande d&#39;appliquer B-T.</p>
+<p>→ Voir <strong>fiche sommes VA + B-T</strong> §VI pour le pattern complet.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Contexte</th>
+<th>Notions principales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Satisfaction client TV</td>
+<td>Arbre + binomiale + somme VA + B-T</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Examen école</td>
+<td>Arbre + binomiale (classique)</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Groupes sanguins (A, B, AB, O)</td>
+<td>Arbre + binomiale + B-T (groupe O = 0,38)</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J2</strong></td>
+<td>Centre multisports week-end</td>
+<td>Arbre + binomiale + somme VA</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025</strong></td>
+<td>(probas dans un autre exo)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J1</strong></td>
+<td>Pattern complet</td>
+<td>Arbre + binomiale + somme VA + B-T</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J2 secours</strong></td>
+<td>Standards d&#39;avant 2024</td>
+<td>Arbre + binomiale (sans B-T)</td>
+</tr>
+<tr>
+<td><strong>Asie 2025</strong></td>
+<td>(loi binomiale + B-T)</td>
+<td>Arbre + binomiale + B-T</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 100% de chance d&#39;avoir un exo de probabilités au bac blanc</strong>. Format probable : exo 1 avec arbre → binomiale → somme VA + B-T. <strong>Si ton bac blanc inclut B-T</strong>, le pattern complet est dans la fiche sommes_va.</p>
+<h3>Astuces générales sur les probas au bac</h3>
+<ol>
+<li><strong>Toujours faire l&#39;arbre au brouillon</strong> — même si l&#39;énoncé n&#39;en demande pas.</li>
+<li><strong>Justifier l&#39;indépendance ou la non-indépendance</strong> dès qu&#39;il y a tirages multiples (avec/sans remise).</li>
+<li><strong>Citer les 3 points pour la binomiale</strong> — c&#39;est obligatoire pour 1 point.</li>
+<li><strong>Pour &quot;au moins un&quot;</strong> : passer par l&#39;événement contraire ($P(\geq 1) = 1 - P(= 0)$).</li>
+<li><strong>Pour les inégalités strictes/larges</strong> : convertir en inégalités sur entiers.</li>
+<li><strong>Vérifier la cohérence</strong> : une probabilité est entre 0 et 1, une espérance peut être négative ou positive.</li>
+<li><strong>Calculatrice à mode examen activé</strong> : utiliser <code>binomFdp</code> et <code>binomFRép</code> pour gagner du temps.</li>
+</ol>
+<hr>
+<h2>VII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Pour le <strong>dénombrement</strong> : j&#39;ai bien posé les 2 questions (ordre ? répétition ?) avant de choisir l&#39;outil.</li>
+<li><input disabled="" type="checkbox"> Pour la <strong>binomiale</strong>, j&#39;ai bien justifié les <strong>3 points</strong> (n épreuves, identiques + indépendantes, X compte les succès).</li>
+<li><input disabled="" type="checkbox"> Pour les <strong>inégalités</strong> sur X : j&#39;ai pensé à la conversion &quot;X est entier&quot; (ex. $X < k \iff X \leq k-1$).</li>
+<li><input disabled="" type="checkbox"> J&#39;ai NE PAS confondu <strong>indépendants</strong> ($P(A \cap B) = P(A) P(B)$) et <strong>incompatibles</strong> ($A \cap B = \emptyset$).</li>
+<li><input disabled="" type="checkbox"> Pour les <strong>probas totales</strong>, j&#39;ai bien sommé TOUS les chemins qui finissent par l&#39;événement.</li>
+<li><input disabled="" type="checkbox"> Pour le <strong>plus petit/grand entier k</strong>, j&#39;ai donné <strong>la ligne avant ET la ligne après</strong> dans mon tableau.</li>
+<li><input disabled="" type="checkbox"> Pour l&#39;<strong>intervalle de fluctuation</strong> : j&#39;ai utilisé &gt; pour a et ≥ pour b (les bonnes inégalités).</li>
+<li><input disabled="" type="checkbox"> J&#39;ai <strong>interprété</strong> les résultats demandés (pas juste donné un nombre).</li>
+</ul>
+<hr>
+<h2>VIII. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>&quot;Au moins un&quot; / &quot;aucun&quot;</strong> : passer par l&#39;événement contraire.</p>
+<ul>
+<li>&quot;Au moins un succès&quot; sur n épreuves : $P(X \geq 1) = 1 - P(X = 0)$.</li>
+<li>C&#39;est presque toujours plus rapide que de calculer la somme des cas.</li>
+</ul>
+</li>
+<li><p><strong>Tirage simultané / successif</strong> : LIRE en entier avant de choisir entre combinaison et arrangement. Un mot-clé peut tout changer.</p>
+</li>
+<li><p><strong>Inégalité stricte vs large dans l&#39;intervalle de fluctuation</strong> : &gt; pour a, ≥ pour b. C&#39;est asymétrique. Ne pas l&#39;oublier.</p>
+</li>
+<li><p><strong>Calculatrice qui donne 0</strong> : si tu obtiens $P(X = k) = 0$ et que tu n&#39;as visiblement pas un événement impossible, c&#39;est probablement un dépassement (k trop grand ou n trop grand). Vérifie aussi tes paramètres.</p>
+</li>
+<li><p><strong>Question piège &quot;espérance&quot; mal interprétée</strong> : E(X) n&#39;est PAS le résultat le plus probable. C&#39;est la moyenne <strong>sur un grand nombre de répétitions</strong>. Bien le formuler.</p>
+</li>
+<li><p><strong>Faux indépendance</strong> : si on tire 2 cartes successivement sans remise, les tirages NE SONT PAS indépendants (la 2ème dépend de la 1ère). Si avec remise, oui. Le mot &quot;remise&quot; est crucial.</p>
+</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html">https://arthurjeaugey.com/revisions-maths/raw/probas-binomiale.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

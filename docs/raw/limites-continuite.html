@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limites · Continuité · Convexité — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Limites · Continuité · Convexité. Étude de fonctions · TVI · Composée.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Limites · Continuité · Convexité — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Limites · Continuité · Convexité. Étude de fonctions · TVI · Composée.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Limites · Continuité · Convexité — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Limites · Continuité · Convexité. Étude de fonctions · TVI · Composée.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Limites · Continuité · Convexité — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Limites · Continuité · Convexité. Étude de fonctions · TVI · Composée.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/limites-continuite">https://arthurjeaugey.com/revisions-maths/#/fiche/limites-continuite</a>.</div>
+<article><h1>📊 Fiche de Combat — Limites, Continuité, Convexité, Composée</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Quatre chapitres en un parce qu&#39;ils s&#39;enchaînent dans tous les exos d&#39;étude de fonction.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Calculer $\lim f(x)$ » avec FI</td>
+<td>Méthode &quot;lever la FI&quot; : factoriser par le terme dominant (§I.4)</td>
+</tr>
+<tr>
+<td>FI avec exp</td>
+<td>Croissances comparées (§I.5), factoriser par $e^x$</td>
+</tr>
+<tr>
+<td>FI avec racine carrée</td>
+<td>Forme conjuguée (§I.4)</td>
+</tr>
+<tr>
+<td>« Montrer que $f(x) = k$ admet une unique solution »</td>
+<td>TVI + monotonie = théorème de la <strong>bijection</strong> (§II.3)</td>
+</tr>
+<tr>
+<td>« Donner une valeur approchée à 10⁻ⁿ près »</td>
+<td>Méthode de balayage à la calculatrice (§II.4)</td>
+</tr>
+<tr>
+<td>« Étudier la convexité de $f$ »</td>
+<td>Calculer $f''$ et étudier son signe (§III)</td>
+</tr>
+<tr>
+<td>« Point d&#39;inflexion »</td>
+<td>$f''$ s&#39;annule en changeant de signe (§III.3)</td>
+</tr>
+<tr>
+<td>Suite $u_{n+1} = f(u_n)$ converge vers $L$</td>
+<td>Théorème du point fixe → <strong>TOUJOURS citer la continuité de $f$ en $L$</strong> (cf. fiche suites)</td>
+</tr>
+<tr>
+<td>Dériver $f(x) = u(x)^n$, $\sqrt{u(x)}$, $e^{u(x)}$, etc.</td>
+<td>Formule de la composée (§IV.3)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Limites</h2>
+<h3>1. Définitions essentielles (à comprendre, pas à apprendre formellement)</h3>
+<p><strong>Limite infinie en $+\infty$ :</strong> $\lim_{x \to +\infty} f(x) = +\infty$ signifie que f(x) devient aussi grand qu&#39;on veut quand x devient suffisamment grand.</p>
+<p><strong>Limite finie en $+\infty$ (asymptote horizontale) :</strong> $\lim_{x \to +\infty} f(x) = L$ signifie que la droite $y = L$ est asymptote horizontale à $\mathcal{C}_f$ en $+\infty$.</p>
+<p><strong>Limite infinie en un point a (asymptote verticale) :</strong> $\lim_{x \to a} f(x) = \pm\infty$ signifie que la droite $x = a$ est asymptote verticale à $\mathcal{C}_f$.</p>
+<p><strong>Limite à droite / à gauche</strong> : on note $\lim_{\substack{x \to a \\ x > a}} f(x)$ ou $\lim_{x \to a^+} f(x)$ pour la limite à droite, idem à gauche. Quand les deux limites diffèrent, on précise toujours de quel côté.</p>
+<p>⚠️ <strong>Réflexe rédaction :</strong> quand on étudie une limite en un point qui annule un dénominateur, <strong>toujours étudier les deux côtés</strong> (gauche et droite). Le signe peut changer.</p>
+<h3>2. Limites des fonctions usuelles (à connaître par cœur)</h3>
+<p><strong>Puissances :</strong></p>
+<ul>
+<li>$\lim_{x \to +\infty} x^n = +\infty$ pour tout $n \geq 1$</li>
+<li>$\lim_{x \to -\infty} x^n = +\infty$ si $n$ pair, $-\infty$ si $n$ impair</li>
+<li>$\lim_{x \to \pm\infty} \dfrac{1}{x^n} = 0$</li>
+<li>$\lim_{x \to 0^+} \dfrac{1}{x^n} = +\infty$</li>
+<li>$\lim_{x \to 0^-} \dfrac{1}{x^n} = +\infty$ si $n$ pair, $-\infty$ si $n$ impair</li>
+</ul>
+<p><strong>Racine :</strong></p>
+<ul>
+<li>$\lim_{x \to +\infty} \sqrt{x} = +\infty$</li>
+<li>$\lim_{x \to 0^+} \dfrac{1}{\sqrt{x}} = +\infty$</li>
+</ul>
+<p><strong>Exponentielle :</strong></p>
+<ul>
+<li>$\lim_{x \to +\infty} e^x = +\infty$ ; $\lim_{x \to -\infty} e^x = 0$</li>
+<li>$\lim_{x \to +\infty} e^{-x} = 0$ ; $\lim_{x \to -\infty} e^{-x} = +\infty$</li>
+</ul>
+<p><strong>Logarithme :</strong> (voir fiche exp/ln)</p>
+<ul>
+<li>$\lim_{x \to +\infty} \ln x = +\infty$ ; $\lim_{x \to 0^+} \ln x = -\infty$</li>
+</ul>
+<h3>3. Limites et opérations (les FI à connaître)</h3>
+<p><strong>Les 4 formes indéterminées (FI) :</strong>
+$$+\infty - \infty \quad ; \quad 0 \times \infty \quad ; \quad \dfrac{\infty}{\infty} \quad ; \quad \dfrac{0}{0}$$</p>
+<p><strong>Cas non FI (où on conclut directement) :</strong></p>
+<p><em>Somme :</em></p>
+<ul>
+<li>$L + L' = L + L'$ (cas trivial)</li>
+<li>$L + (\pm\infty) = \pm\infty$</li>
+<li>$(+\infty) + (+\infty) = +\infty$</li>
+<li>$(-\infty) + (-\infty) = -\infty$</li>
+<li>$(+\infty) + (-\infty) = $ <strong>FI</strong></li>
+</ul>
+<p><em>Produit :</em></p>
+<ul>
+<li>$L \times L'$ trivial</li>
+<li>$L \times (\pm\infty)$ : signe selon $L$, attention si $L = 0$ → <strong>FI</strong></li>
+<li>$(\pm\infty) \times (\pm\infty)$ : règle des signes</li>
+</ul>
+<p><em>Quotient :</em></p>
+<ul>
+<li>$L / L'$ trivial si $L' \neq 0$</li>
+<li>$L / (\pm\infty) = 0$</li>
+<li>$(\pm\infty) / L = \pm\infty$ selon le signe de $L$</li>
+<li>$L / 0$ : selon le signe de $0^+$ ou $0^-$</li>
+<li>$\dfrac{\infty}{\infty}$ et $\dfrac{0}{0}$ : <strong>FI</strong></li>
+</ul>
+<p>⚠️ <strong>Piège classique :</strong> $\dfrac{L}{0}$ n&#39;est PAS une FI, mais nécessite l&#39;étude du signe de $0^+$ vs $0^-$. Toujours préciser.</p>
+<h3>4. Méthode pour lever une FI (LA méthode officielle)</h3>
+<p><strong>Règle générale :</strong> transformer l&#39;expression pour faire disparaître l&#39;indétermination.</p>
+<p><strong>Cas 1 : FI sous forme de somme</strong> → la transformer en produit en factorisant par le terme prépondérant (la plus haute puissance de x pour un polynôme, $e^x$ dans une expression avec exp).</p>
+<p><strong>Exemple :</strong> $\lim_{x \to -\infty} (4x^3 + 9x^2 - 54x + 60)$ est une FI de la forme $-\infty + \infty$.</p>
+<p>On factorise par $x^3$ :
+$$x^3\left(4 + \dfrac{9}{x} - \dfrac{54}{x^2} + \dfrac{60}{x^3}\right)$$</p>
+<p>Quand $x \to -\infty$ : la parenthèse tend vers 4, et $x^3 \to -\infty$. Donc la limite vaut $-\infty$.</p>
+<p><strong>Cas 2 : FI sous forme de produit</strong> → la transformer en somme en développant.</p>
+<p><strong>Cas 3 : FI sous forme de quotient $\dfrac{\infty}{\infty}$</strong> → factoriser numérateur et dénominateur par leur terme dominant, puis simplifier.</p>
+<p><strong>Exemple :</strong> $\lim_{x \to +\infty} \dfrac{3x^2 + 5}{x^2 - 7x}$
+$$= \lim \dfrac{x^2(3 + 5/x^2)}{x^2(1 - 7/x)} = \dfrac{3}{1} = 3$$</p>
+<p><strong>Cas 4 : FI avec racine carrée</strong> → utiliser la <strong>forme conjuguée</strong>.</p>
+<p><strong>Exemple :</strong> $\lim_{x \to +\infty} (\sqrt{x^2 + 1} - x)$ est une FI de la forme $+\infty - \infty$.</p>
+<p>On multiplie par la quantité conjuguée :
+$$\sqrt{x^2+1} - x = \dfrac{(\sqrt{x^2+1} - x)(\sqrt{x^2+1} + x)}{\sqrt{x^2+1} + x} = \dfrac{1}{\sqrt{x^2+1} + x}$$</p>
+<p>Quand $x \to +\infty$, le dénominateur tend vers $+\infty$, donc la limite vaut $0$.</p>
+<h3>5. Croissances comparées</h3>
+<p><strong>Théorème :</strong>
+$$\lim_{x \to +\infty} \dfrac{e^x}{x^n} = +\infty \quad \text{et} \quad \lim_{x \to -\infty} x^n e^x = 0 \quad (\text{pour tout } n)$$</p>
+<p>🎯 <strong>Conseil :</strong> <strong>NE PAS</strong> mettre &quot;par croissances comparées&quot; quand c&#39;est inutile — par exemple, on peut éviter de l&#39;utiliser si on factorise simplement par $x^n$ ou $e^x$. <strong>C.C. à invoquer uniquement quand il y a une exp, et que c&#39;est strictement nécessaire pour conclure.</strong></p>
+<p><strong>Application typique :</strong> $\lim_{x \to +\infty} (x^3 - e^x)$ est une FI de la forme $-\infty + \infty$ (si on lit $-e^x = -\infty$).</p>
+<p>Factoriser par $e^x$ :
+$$x^3 - e^x = e^x\left(\dfrac{x^3}{e^x} - 1\right)$$</p>
+<p>Par croissances comparées, $\lim \dfrac{x^3}{e^x} = 0$, donc la parenthèse tend vers $-1$. Et $e^x \to +\infty$. Donc la limite vaut $-\infty$.</p>
+<h3>6. Théorèmes d&#39;inégalités (comparaison + encadrement)</h3>
+<p><strong>Théorème 1 (passage à la limite dans une inégalité) :</strong>
+Si $\forall x \in I,\, f(x) \leq g(x)$ et que les deux limites existent en $a$, alors $\lim_a f \leq \lim_a g$.</p>
+<p><strong>Théorème 2 (comparaison vers $+\infty$) :</strong>
+Si $f(x) \leq g(x)$ et $\lim f = +\infty$, alors $\lim g = +\infty$.</p>
+<p><strong>Théorème 3 (comparaison vers $-\infty$) :</strong>
+Si $f(x) \leq g(x)$ et $\lim g = -\infty$, alors $\lim f = -\infty$.</p>
+<p><strong>Théorème 4 (gendarmes / encadrement) :</strong>
+Si $h(x) \leq f(x) \leq g(x)$ et $\lim h = \lim g = L$, alors $\lim f = L$.</p>
+<p><strong>Mnémonique :</strong> &quot;Inégalité(s) + Limite(s) → nouvelle limite&quot;. Quand tu repères cette structure dans un énoncé, tu sais qu&#39;il faut un théorème de comparaison.</p>
+<p>⚠️ <strong>Rédaction obligatoire :</strong> toujours préciser <strong>les deux hypothèses</strong> (l&#39;inégalité ET la limite) avant d&#39;invoquer le théorème.</p>
+<p><strong>Inégalités courantes pour démarrer une comparaison :</strong></p>
+<ul>
+<li>$-1 \leq \sin(x) \leq 1$ et $-1 \leq \cos(x) \leq 1$</li>
+<li>$x^2 \geq 0$ ; $|x| \geq 0$ ; $e^x > 0$ ; $\sqrt{x} \geq 0$</li>
+<li>$e^x \geq x + 1$ pour tout $x$</li>
+</ul>
+<h3>7. Composition de limites</h3>
+<p><strong>Théorème :</strong> si $\lim_{x \to a} f(x) = b$ et $\lim_{X \to b} g(X) = c$, alors $\lim_{x \to a} g(f(x)) = c$.</p>
+<p><strong>Exemple :</strong> $\lim_{x \to +\infty} \sqrt{25 + \dfrac{1}{x^2}}$.</p>
+<p>On décompose : $x \mapsto 25 + \dfrac{1}{x^2} \mapsto \sqrt{\cdot}$.</p>
+<ul>
+<li>$\lim_{x \to +\infty} \left(25 + \dfrac{1}{x^2}\right) = 25$</li>
+<li>$\lim_{X \to 25} \sqrt{X} = 5$</li>
+</ul>
+<p>Donc par composition, $\lim_{x \to +\infty} \sqrt{25 + \dfrac{1}{x^2}} = 5$.</p>
+<h3>8. Méthode officielle &quot;déterminer une limite&quot;</h3>
+<p><strong>Deux cas possibles :</strong></p>
+<p><strong>Cas 1 — Pas de FI :</strong> appliquer les règles simples de calcul (somme, différence, produit, quotient), les croissances comparées, ou les théorèmes de comparaison/encadrement. <strong>Calcul direct.</strong></p>
+<p><strong>Cas 2 — FI :</strong> transformer l&#39;expression pour la lever.</p>
+<ul>
+<li>Forme de <strong>somme</strong> → la mettre sous forme de <strong>produit</strong> (factoriser par le terme prépondérant)</li>
+<li>Forme de <strong>produit</strong> → la mettre sous forme de <strong>somme</strong> (développer)</li>
+<li>Forme de <strong>quotient</strong> → factoriser num. et dénom. pour simplifier</li>
+<li>Présence de <strong>racines carrées</strong> → forme conjuguée</li>
+</ul>
+<p><strong>Ne pas oublier</strong> : indiquer la présence d&#39;asymptotes et donner leur(s) équation(s) quand c&#39;est demandé.</p>
+<hr>
+<h2>II. Continuité</h2>
+<h3>1. Définition</h3>
+<p><strong>Définition formelle :</strong> $f$ est <strong>continue en $a$</strong> ssi $\lim_{x \to a} f(x) = f(a)$.</p>
+<p>$f$ est <strong>continue sur un intervalle $I$</strong> ssi elle est continue en tout point de $I$.</p>
+<p><strong>Définition graphique (interprétation à connaître) :</strong> une fonction est continue sur un intervalle quand on peut tracer sa courbe sans lever le crayon.</p>
+<p>⚠️ <strong>Rédaction :</strong> quand on parle de continuité, <strong>toujours préciser sur quel intervalle</strong>. C&#39;est une propriété locale.</p>
+<h3>2. Continuité des fonctions usuelles</h3>
+<p><strong>À retenir comme acquis sans démonstration :</strong></p>
+<blockquote>
+<p>Les fonctions usuelles (polynômes, racines, exp, ln, sin, cos, fonctions construites à partir de ces dernières par somme, produit, quotient, composition) sont continues sur tout intervalle de leur domaine de définition.</p>
+</blockquote>
+<p>C&#39;est un <strong>résultat à invoquer directement</strong> quand on a besoin de la continuité dans un exo (ex. pour appliquer le TVI).</p>
+<h3>3. Continuité ⇒ dérivabilité ? La réciproque est fausse !</h3>
+<p><strong>Propriété :</strong> si $f$ est dérivable en $a$, alors $f$ est continue en $a$.</p>
+<p>⚠️ <strong>Attention</strong> : la <strong>réciproque est fausse</strong>. Une fonction peut être continue sans être dérivable.</p>
+<p><strong>Les 2 contre-exemples à connaître :</strong></p>
+<p><strong>Contre-exemple 1 : $|x|$ en 0</strong></p>
+<ul>
+<li>Continue en 0 : $\lim_{x \to 0} |x| = 0 = |0|$ ✅</li>
+<li>Pas dérivable en 0 :<ul>
+<li>$\lim_{x \to 0^-} \dfrac{|x| - 0}{x - 0} = \lim \dfrac{-x}{x} = -1$</li>
+<li>$\lim_{x \to 0^+} \dfrac{|x| - 0}{x - 0} = \lim \dfrac{x}{x} = 1$</li>
+<li>Les deux limites diffèrent → pas dérivable en 0 (point anguleux).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Contre-exemple 2 : $\sqrt{x}$ en 0</strong></p>
+<ul>
+<li>Continue en 0</li>
+<li>Pas dérivable en 0 : tangente verticale (la dérivée tend vers $+\infty$).</li>
+</ul>
+<h3>4. Fonction partie entière (exemple à connaître)</h3>
+<p><strong>Définition :</strong> $E(x) = n$ avec $n$ entier tel que $n \leq x < n+1$.</p>
+<p><strong>Exemples :</strong> $E(2{,}56) = 2$ ; $E(\pi) = 3$ ; $E(-5{,}6) = -6$.</p>
+<p>⚠️ <strong>Piège pour les négatifs :</strong> $E(-5{,}6) = -6$ et pas $-5$ (toujours l&#39;entier inférieur ou égal).</p>
+<p><strong>Propriété graphique :</strong> la fonction partie entière présente une <strong>infinité de points de discontinuité</strong> sur son domaine de définition (sauts à chaque entier).</p>
+<h3>5. Théorème des Valeurs Intermédiaires (TVI)</h3>
+<p><strong>Énoncé :</strong> soit $f$ une fonction <strong>continue</strong> sur un intervalle $I$, $a$ et $b$ deux réels de $I$. Pour tout réel $k$ compris entre $f(a)$ et $f(b)$, il existe <strong>au moins un réel $c$</strong> entre $a$ et $b$ tel que $f(c) = k$.</p>
+<p>⚠️ Ce théorème seul nous dit qu&#39;il existe <strong>« au moins » une solution</strong>. Il ne donne pas l&#39;unicité. Pour l&#39;unicité, on utilise le théorème de la bijection.</p>
+<h3>6. Théorème de la bijection (TVI + monotonie)</h3>
+<p>🎯 <strong>C&#39;est LE théorème central qui tombe sur tous les bacs.</strong></p>
+<p><strong>Énoncé :</strong> soit $f$ <strong>continue</strong> et <strong>strictement monotone</strong> sur $[a\,;\,b]$. Pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l&#39;équation $f(x) = k$ admet une <strong>unique solution</strong> sur $[a\,;\,b]$.</p>
+<p><strong>Cas particulier (très fréquent) :</strong> si $f$ est continue, strictement monotone, et $f(a)$ et $f(b)$ de <strong>signes contraires</strong>, alors $f(x) = 0$ admet une unique solution.</p>
+<p><strong>Généralisations :</strong></p>
+<ul>
+<li>L&#39;intervalle peut être $]a\,;\,b]$, $[a\,;\,b[$ ou $]a\,;\,b[$.</li>
+<li>Si la borne est $\pm\infty$, on remplace $f(a)$ ou $f(b)$ par les limites correspondantes.</li>
+</ul>
+<h3>7. Rédaction TYPE pour le théorème de la bijection (à recopier mentalement)</h3>
+<p>🎯 <strong>Les 3 hypothèses à TOUJOURS citer dans la rédaction :</strong></p>
+<blockquote>
+<ol>
+<li>$f$ est <strong>continue</strong> sur $[a\,;\,b]$ (ou l&#39;intervalle considéré).</li>
+<li>$f$ est <strong>strictement monotone</strong> sur cet intervalle (croissante OU décroissante, à préciser).</li>
+<li>$k$ est <strong>compris</strong> entre $f(a)$ et $f(b)$ (ou les limites correspondantes).</li>
+</ol>
+<p>D&#39;après le théorème de la bijection, l&#39;équation $f(x) = k$ admet une <strong>unique solution</strong> sur cet intervalle.</p>
+</blockquote>
+<p>⚠️ Si tu oublies UNE des 3 hypothèses, tu perds le point. Toutes les 3 doivent apparaître clairement.</p>
+<h3>8. Méthode de balayage à la calculatrice</h3>
+<p><strong>But :</strong> donner une valeur approchée de la solution à $10^{-n}$ près.</p>
+<p><strong>Méthode :</strong></p>
+<ol>
+<li>Sur la calculatrice, créer un tableau de valeurs de $f$.</li>
+<li><strong>Premier balayage</strong> (pas de 1) : trouver l&#39;intervalle de longueur 1 contenant la solution (ex. entre $-6$ et $-5$).</li>
+<li><strong>Deuxième balayage</strong> (pas de 0,1) : affiner sur cet intervalle (ex. entre $-5{,}3$ et $-5{,}2$).</li>
+<li><strong>Continuer</strong> jusqu&#39;à la précision demandée ($10^{-2}$, $10^{-3}$, $10^{-4}$).</li>
+<li>Conclure par un encadrement.</li>
+</ol>
+<p><strong>Rédaction type :</strong> &quot;À l&#39;aide de la calculatrice, on obtient $-5{,}3186 \leq \alpha \leq -5{,}3185$, donc une valeur approchée à $10^{-4}$ près est $\alpha \approx -5{,}3186$.&quot;</p>
+<h3>9. Exercice type complet (à l&#39;arsenal)</h3>
+<p><strong>Énoncé classique :</strong> soit $f(x) = 4x^3 + 9x^2 - 54x + 60$.</p>
+<ol>
+<li>Variations de $f$ (tableau).</li>
+<li>Montrer que $f(x) = 0$ admet une unique solution.</li>
+<li>Donner une valeur approchée à $10^{-4}$ près.</li>
+<li>En déduire le signe de $f$.</li>
+</ol>
+<p><strong>Méthode (squelette) :</strong></p>
+<p><strong>Q1 — Variations :</strong></p>
+<ul>
+<li>Calculer $f'(x) = 12x^2 + 18x - 54$</li>
+<li>Résoudre $f'(x) = 0$ : $\Delta = 18^2 - 4 \times 12 \times (-54) = 2916$, racines $-3$ et $\dfrac{3}{2}$</li>
+<li>Tableau de signes de $f'$ : positive sur $]-\infty\,;\,-3]$, négative sur $[-3\,;\,3/2]$, positive sur $[3/2\,;\,+\infty[$</li>
+<li>Calculs : $f(-3) = 195$ et $f(3/2) = 51/4 = 12{,}75$</li>
+<li>Limites : $\lim_{-\infty} f = -\infty$ (factoriser par $x^3$), $\lim_{+\infty} f = +\infty$</li>
+</ul>
+<pre><code class="language-signe">x: -∞ | -3 | 3/2 | +∞
+f&#39;(x): + | 0 | - | 0 | +
+f(x): ↗ | 195 | ↘ | 12,75 | ↗
+</code></pre>
+<p><strong>Q2 — Unique solution :</strong></p>
+<ul>
+<li>Sur $[-3\,;\,+\infty[$ : minimum de $f$ vaut $12{,}75 > 0$, donc $f(x) = 0$ n&#39;a pas de solution sur cet intervalle.</li>
+<li>Sur $]-\infty\,;\,-3]$ : $f$ est <strong>continue</strong> (polynôme), <strong>strictement croissante</strong>, et $0$ est compris entre $\lim_{-\infty} f = -\infty$ et $f(-3) = 195$. Par le théorème de la bijection, $f(x) = 0$ admet une <strong>unique solution</strong> $\alpha$ sur cet intervalle.</li>
+</ul>
+<p><strong>Q3 — Valeur approchée :</strong> par balayage, $\alpha \approx -5{,}3186$ à $10^{-4}$ près.</p>
+<p><strong>Q4 — Signe :</strong> d&#39;après les variations et la position de $\alpha$ :</p>
+<ul>
+<li>$f < 0$ sur $]-\infty\,;\,\alpha[$</li>
+<li>$f > 0$ sur $]\alpha\,;\,+\infty[$ (car $f$ vaut 195 à $-3$, et reste $> 12{,}75$ partout après)</li>
+</ul>
+<p>🎯 <strong>C&#39;est l&#39;exo type bac sur le TVI/bijection. Mémorise ce squelette.</strong></p>
+<hr>
+<h2>III. Convexité</h2>
+<h3>1. Définitions (à comprendre visuellement)</h3>
+<p><strong>Définition graphique :</strong></p>
+<ul>
+<li>$f$ <strong>convexe</strong> sur $I$ : la courbe est <strong>en dessous</strong> de chacune de ses cordes (et au-dessus de ses tangentes). Ça &quot;sourit&quot; 😊.</li>
+<li>$f$ <strong>concave</strong> sur $I$ : la courbe est <strong>au-dessus</strong> de chacune de ses cordes (et en dessous de ses tangentes). Ça &quot;fait la gueule&quot; 🙁.</li>
+</ul>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Convexe (eˣ) vs concave (ln x) — passe la souris pour comparer&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;exp(x) - 1&quot;, &quot;color&quot;: &quot;#ff3366&quot; },
+    { &quot;fn&quot;: &quot;log(x + 1)&quot;, &quot;color&quot;: &quot;#00d9ff&quot;, &quot;range&quot;: [-0.99, 4] }
+  ],
+  &quot;xDomain&quot;: [-1, 4],
+  &quot;yDomain&quot;: [-3, 5],
+  &quot;height&quot;: 320
+}
+</code></pre>
+<h3>2. Caractérisations (les outils pratiques)</h3>
+<p><strong>Avec la dérivée première :</strong></p>
+<ul>
+<li>$f$ convexe sur $I$ ⟺ $f'$ <strong>croissante</strong> sur $I$</li>
+<li>$f$ concave sur $I$ ⟺ $f'$ <strong>décroissante</strong> sur $I$</li>
+</ul>
+<p><strong>Avec la dérivée seconde (LA caractérisation à utiliser au bac) :</strong></p>
+<ul>
+<li>$f$ convexe sur $I$ ⟺ $f''(x) \geq 0$ pour tout $x \in I$</li>
+<li>$f$ concave sur $I$ ⟺ $f''(x) \leq 0$ pour tout $x \in I$</li>
+</ul>
+<p>🎯 <strong>Méthode bac :</strong> pour étudier la convexité de $f$, on calcule $f''$ et on étudie son signe.</p>
+<h3>3. Point d&#39;inflexion</h3>
+<p><strong>Définition :</strong> un point d&#39;inflexion est un point où la courbe <strong>traverse sa tangente</strong>, c&#39;est-à-dire où la convexité <strong>change</strong>.</p>
+<p><strong>Caractérisation :</strong> si $f''$ s&#39;annule en changeant de signe en $x = a$, alors le point $(a\,;\,f(a))$ est un point d&#39;inflexion.</p>
+<p>⚠️ <strong>Crucial :</strong> $f''(a) = 0$ ne suffit PAS à dire qu&#39;il y a un point d&#39;inflexion. Il faut un <strong>changement de signe</strong> de $f''$ en $a$. (Contre-exemple : $f(x) = x^4$ a $f''(0) = 0$ mais pas de point d&#39;inflexion en 0 puisque $f''(x) = 12x^2 \geq 0$ partout.)</p>
+<h3>4. Convexité des fonctions de référence</h3>
+<table>
+<thead>
+<tr>
+<th>Fonction</th>
+<th>Convexité</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x \mapsto x^2$</td>
+<td>Convexe sur $\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$x \mapsto |x|$</td>
+<td>Convexe sur $\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$x \mapsto e^x$</td>
+<td>Convexe sur $\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$x \mapsto x^3$</td>
+<td>Concave sur $]-\infty\,;\,0]$, convexe sur $[0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$x \mapsto \sqrt{x}$</td>
+<td>Concave sur $[0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$x \mapsto \ln x$</td>
+<td>Concave sur $]0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$x \mapsto \dfrac{1}{x}$</td>
+<td>Concave sur $]-\infty\,;\,0[$, convexe sur $]0\,;\,+\infty[$</td>
+</tr>
+</tbody></table>
+<p>⚠️ Une fonction peut avoir la <strong>même convexité</strong> sur deux intervalles $[a\,;\,b]$ et $[b\,;\,c]$ <strong>sans avoir la même convexité sur $[a\,;\,c]$</strong>. La convexité est définie sur un intervalle.</p>
+<h3>5. Inégalités de convexité (vues dans ton cours)</h3>
+<p><strong>Si $f$ est convexe sur $I$ :</strong>
+$$f\left(\dfrac{a+b}{2}\right) \leq \dfrac{f(a) + f(b)}{2}$$</p>
+<p><strong>Si $f$ est concave sur $I$ :</strong>
+$$f\left(\dfrac{a+b}{2}\right) \geq \dfrac{f(a) + f(b)}{2}$$</p>
+<p><strong>Interprétation :</strong> la valeur de $f$ au milieu est inférieure (ou supérieure) à la moyenne des valeurs de $f$ aux extrémités.</p>
+<p><strong>Exemples d&#39;application :</strong></p>
+<ul>
+<li>$f(x) = \sqrt{x}$ concave sur $[0\,;\,+\infty[$ : $\sqrt{\dfrac{a+b}{2}} \geq \dfrac{\sqrt{a} + \sqrt{b}}{2}$</li>
+<li>$f(x) = x^2$ convexe sur $\mathbb{R}$ : $\left(\dfrac{a+b}{2}\right)^2 \leq \dfrac{a^2 + b^2}{2}$</li>
+</ul>
+<h3>6. Exercice type sur la convexité</h3>
+<p><strong>Énoncé classique :</strong> soit $f(x) = x^4 - 5x^3 - 9x^2 + 7x - 4$. Étudier la convexité de $f$.</p>
+<p><strong>Méthode :</strong></p>
+<ol>
+<li>Calculer $f'(x) = 4x^3 - 15x^2 - 18x + 7$</li>
+<li>Calculer $f''(x) = 12x^2 - 30x - 18 = 6(2x^2 - 5x - 3)$</li>
+<li>Résoudre $f''(x) = 0$ : $\Delta = 25 + 24 = 49$, racines $x_1 = -\dfrac{1}{2}$ et $x_2 = 3$</li>
+<li>Tableau de signes de $f''$ : positive sur $]-\infty\,;\,-1/2]$, négative sur $[-1/2\,;\,3]$, positive sur $[3\,;\,+\infty[$</li>
+<li>Conclusion :<ul>
+<li>$f$ <strong>convexe</strong> sur $]-\infty\,;\,-1/2]$ et sur $[3\,;\,+\infty[$</li>
+<li>$f$ <strong>concave</strong> sur $[-1/2\,;\,3]$</li>
+<li>$f$ admet <strong>deux points d&#39;inflexion</strong> : $\left(-\dfrac{1}{2}\,;\,f(-1/2)\right) = \left(-\dfrac{1}{2}\,;\,-\dfrac{145}{16}\right)$ et $(3\,;\,f(3)) = (3\,;\,-118)$</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>IV. Composée de fonctions</h2>
+<h3>1. Définition</h3>
+<p>Soit $u$ et $v$ deux fonctions telles que $u$ est définie sur $I$ à valeurs dans $J$, et $v$ est définie sur $J$. La fonction <strong>composée</strong> $v \circ u$ (lue &quot;v rond u&quot;) est définie par :</p>
+<p>$$(v \circ u)(x) = v(u(x))$$</p>
+<p><strong>Exemple :</strong> $u(x) = 2x - 3$ et $v(x) = \sqrt{x}$.</p>
+<ul>
+<li>$(v \circ u)(x) = v(u(x)) = \sqrt{2x - 3}$, définie sur $\left[\dfrac{3}{2}\,;\,+\infty[\right.$ (il faut $u(x) \geq 0$).</li>
+<li>$(u \circ v)(x) = u(v(x)) = 2\sqrt{x} - 3$, définie sur $[0\,;\,+\infty[$.</li>
+</ul>
+<p>⚠️ $u \circ v \neq v \circ u$ en général. <strong>L&#39;ordre compte.</strong></p>
+<p><strong>Associativité :</strong> $w \circ (v \circ u) = (w \circ v) \circ u$.</p>
+<h3>2. Monotonie d&#39;une composée (résultat utile)</h3>
+<p><strong>Règles (les retenir comme la règle des signes) :</strong></p>
+<ul>
+<li>$u$ et $v$ de <strong>même monotonie</strong> → $v \circ u$ est <strong>croissante</strong>.</li>
+<li>$u$ et $v$ de <strong>monotonies contraires</strong> → $v \circ u$ est <strong>décroissante</strong>.</li>
+</ul>
+<p><strong>Mnémotechnique :</strong> &quot;même direction × même direction = positif&quot;, &quot;directions opposées = négatif&quot; (comme le signe d&#39;un produit).</p>
+<h3>3. Dérivée d&#39;une composée (LE théorème central)</h3>
+<p><strong>Théorème :</strong> soit $u$ et $v$ deux fonctions dérivables vérifiant les conditions de définition. Alors $v \circ u$ est dérivable et :</p>
+<p>$$\boxed{(v \circ u)'(x) = v'(u(x)) \times u'(x)}$$</p>
+<p><strong>Cas particulier (déjà vu en première) :</strong> si $f(x) = v(ax + b)$, alors $f'(x) = a \times v'(ax + b)$.</p>
+<h3>4. Formules de dérivation classiques (à connaître par cœur)</h3>
+<p>🎯 <strong>Les formules que tu DOIS connaître pour le bac :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Forme</th>
+<th>Dérivée</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$(u^2)'$</td>
+<td>$2u \cdot u'$</td>
+</tr>
+<tr>
+<td>$(u^n)'$</td>
+<td>$n \cdot u^{n-1} \cdot u'$</td>
+</tr>
+<tr>
+<td>$\left(\dfrac{1}{u}\right)'$</td>
+<td>$-\dfrac{u'}{u^2}$</td>
+</tr>
+<tr>
+<td>$(\sqrt{u})'$</td>
+<td>$\dfrac{u'}{2\sqrt{u}}$</td>
+</tr>
+<tr>
+<td>$(e^u)'$</td>
+<td>$u' \cdot e^u$</td>
+</tr>
+<tr>
+<td>$(\ln u)'$</td>
+<td>$\dfrac{u'}{u}$ (avec $u > 0$)</td>
+</tr>
+<tr>
+<td>$(\sin u)'$</td>
+<td>$u' \cdot \cos u$</td>
+</tr>
+<tr>
+<td>$(\cos u)'$</td>
+<td>$-u' \cdot \sin u$</td>
+</tr>
+</tbody></table>
+<h3>5. Exemples chiffrés</h3>
+<p><strong>Exemple 1 :</strong> $f(x) = (x^2 + x)^5$</p>
+<ul>
+<li>On pose $u(x) = x^2 + x$, donc $u'(x) = 2x + 1$</li>
+<li>$f = u^5$ donc $f' = 5 u^4 \cdot u' = 5(x^2 + x)^4 \cdot (2x + 1)$</li>
+</ul>
+<p><strong>Exemple 2 :</strong> $f(x) = e^{3x - 2}$</p>
+<ul>
+<li>$u(x) = 3x - 2$, $u'(x) = 3$</li>
+<li>$f' = u' \cdot e^u = 3 e^{3x - 2}$</li>
+</ul>
+<p><strong>Exemple 3 :</strong> $f(x) = \sqrt{x^2 + 1}$</p>
+<ul>
+<li>$u(x) = x^2 + 1 > 0$, $u'(x) = 2x$</li>
+<li>$f' = \dfrac{u'}{2\sqrt{u}} = \dfrac{2x}{2\sqrt{x^2 + 1}} = \dfrac{x}{\sqrt{x^2 + 1}}$</li>
+</ul>
+<h3>6. Méthode pour étudier une fonction composée</h3>
+<p><strong>Étapes systématiques :</strong></p>
+<ol>
+<li><strong>Domaine de définition $D_f$</strong> : vérifier la correspondance des intervalles ($u$ doit être à valeurs dans le domaine de $v$). Attention aux <strong>valeurs interdites</strong> (quotient, racine, ln).</li>
+<li><strong>Dérivée</strong> : appliquer la formule $(v \circ u)' = v'(u) \times u'$.</li>
+<li><strong>Limites</strong> : calculer <strong>étape par étape</strong> en respectant l&#39;ordre de composition.</li>
+<li><strong>Variations</strong> : signe de $(v \circ u)'$.</li>
+</ol>
+<h3>7. Conseil de méthode</h3>
+<blockquote>
+<p>Pour décomposer une fonction et calculer une image, bien distinguer les étapes en écrivant le schéma de décomposition. Passer de la notation avec le « $\circ$ » à la notation avec parenthèses pas à pas.</p>
+</blockquote>
+<hr>
+<h2>V. Diagramme de décision</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Énoncé. Quel chapitre&lt;br/&gt;est mobilisé ?&quot;]
+  E --&gt; L[&quot;Calculer une limite ?&quot;]
+  E --&gt; B[&quot;Unique solution f(x) = k ?&quot;]
+  E --&gt; A[&quot;Valeur approchée à 10⁻ⁿ ?&quot;]
+  E --&gt; C[&quot;Convexité de f ?&quot;]
+  E --&gt; S[&quot;Suite u_{n+1} = f(u_n)&lt;br/&gt;converge vers L ?&quot;]
+  E --&gt; D[&quot;Dériver une composée ?&quot;]
+
+  L --&gt; L1[&quot;Pas de FI → calcul direct&quot;]
+  L --&gt; L2[&quot;FI → factoriser&lt;br/&gt;par le terme dominant&quot;]
+  L2 --&gt; L2a[&quot;Polynôme : plus haute&lt;br/&gt;puissance de x&quot;]
+  L2 --&gt; L2b[&quot;Avec exp : eˣ&lt;br/&gt;(croissances comparées)&quot;]
+  L2 --&gt; L2c[&quot;Avec racine :&lt;br/&gt;forme conjuguée&quot;]
+
+  B --&gt; B1[&quot;Théorème de la bijection&lt;br/&gt;3 hypothèses :&lt;br/&gt;continue, monotone,&lt;br/&gt;k ∈ [f(a), f(b)]&quot;]
+  A --&gt; A1[&quot;Méthode de balayage&lt;br/&gt;à la calculatrice&quot;]
+  C --&gt; C1[&quot;Calculer f&#39;&#39;,&lt;br/&gt;étudier son signe&quot;]
+  C1 --&gt; C2[&quot;Point d&#39;inflexion :&lt;br/&gt;f&#39;&#39; s&#39;annule en&lt;br/&gt;changeant de signe&quot;]
+
+  S --&gt; S1[&quot;Point fixe (cf. fiche suites)&lt;br/&gt;3 conditions :&lt;br/&gt;convergence, récurrence,&lt;br/&gt;CONTINUITÉ DE f EN L&quot;]
+  D --&gt; D1[&quot;Identifier u et v&lt;br/&gt;(v∘u)&#39; = v&#39;(u) × u&#39;&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class L,B,A,C,S,D,L2 branch;
+  class L1,L2a,L2b,L2c,B1,A1,C1,C2,S1,D1 leaf;
+</code></pre>
+<hr>
+<h2>VI. Anatomie d&#39;un exo &quot;étude de fonction&quot; au bac (sessions 2024-2025)</h2>
+<p>🎯 <strong>Données issues de l&#39;analyse des sujets bac récents (Métropole 2024 J1/J2, Métropole 2025 J1/J2, Centres étrangers 2024, Sujet 0 2024).</strong> Voici <strong>exactement</strong> ce qui tombe et <strong>dans quel ordre</strong>.</p>
+<h3>Structure type d&#39;un sujet d&#39;analyse au bac</h3>
+<p>Un exo &quot;étude de fonction&quot; au bac est <strong>toujours</strong> structuré en parties :</p>
+<ul>
+<li><strong>Partie A</strong> : étude graphique (lectures graphiques) OU étude d&#39;une fonction auxiliaire $g$</li>
+<li><strong>Partie B</strong> : étude analytique de la fonction principale $f$ (en utilisant les résultats de A)</li>
+<li><strong>Partie C</strong> (optionnelle) : calcul d&#39;aire avec une intégrale</li>
+</ul>
+<p>🎯 <strong>Le piège n°1</strong> : ne PAS lire l&#39;énoncé en entier avant de commencer. Souvent, la partie A donne des outils utilisés en partie B → si tu rates le lien, tu galères.</p>
+<h3>Les 12 questions-types qui reviennent à TOUS les bacs</h3>
+<p>Voici les questions classées par fréquence dans les sujets 2024-2025, avec la méthode associée :</p>
+<h4>Q1 — &quot;Lecture graphique&quot; (très fréquent en partie A)</h4>
+<p><strong>Sous-questions classiques :</strong></p>
+<ul>
+<li>&quot;Lire $f(a)$, $f(b)$&quot; → lecture directe des ordonnées</li>
+<li>&quot;Lire $f'(a)$&quot; → coefficient directeur de la tangente au point d&#39;abscisse $a$</li>
+<li>&quot;Donner l&#39;équation de la tangente $T_A$&quot; → utiliser $y = f'(a)(x-a) + f(a)$ avec lecture graphique</li>
+<li>&quot;Donner les intervalles où $f$ est convexe / concave&quot; → repérer où la courbe est sous/au-dessus de ses tangentes</li>
+<li>&quot;Le point $A$ est-il un point d&#39;inflexion ?&quot; → vérifier le changement de convexité graphiquement</li>
+</ul>
+<p><strong>Méthode rédaction</strong> : justifier chaque réponse par un raisonnement graphique court (&quot;la tangente passe par $A(1\,;\,2)$ et $C(3\,;\,0)$, donc son coefficient directeur est $\dfrac{0-2}{3-1} = -1$, d&#39;où $f'(1) = -1$&quot;).</p>
+<h4>Q2 — &quot;Calculer la limite de $f$ en $a$&quot; (sortie d&#39;asymptote)</h4>
+<p><strong>Sous-questions classiques :</strong></p>
+<ul>
+<li>$\lim_{x \to +\infty} f(x)$ et $\lim_{x \to -\infty} f(x)$ (limites aux bornes)</li>
+<li>$\lim_{x \to 0^+} f(x)$ ou en un point d&#39;annulation du dénominateur</li>
+<li>&quot;Interpréter graphiquement le résultat&quot; → asymptote horizontale ou verticale</li>
+</ul>
+<p><strong>Méthode</strong> : identifier la FI éventuelle, factoriser par le terme dominant ou utiliser les croissances comparées.</p>
+<p>🎯 <strong>Astuce bac</strong> : quand on demande &quot;interpréter graphiquement&quot;, il faut <strong>systématiquement</strong> parler d&#39;asymptote (horizontale si limite finie en $\pm\infty$, verticale si limite infinie en un réel).</p>
+<h4>Q3 — &quot;Montrer que $f'(x) = \dots$&quot; (forme factorisée à obtenir)</h4>
+<p>C&#39;est la question piège classique : on te donne déjà la forme factorisée à atteindre, tu dois <strong>prouver</strong> qu&#39;on l&#39;obtient bien.</p>
+<p><strong>Méthode</strong> : dériver normalement, puis factoriser pour obtenir l&#39;expression demandée. Si tu n&#39;arrives pas à la factorisation, <strong>vérifie ton calcul de dérivée</strong> — c&#39;est probablement une erreur de signe ou un produit oublié.</p>
+<p><strong>Exemple typique (Métropole 2024 J1)</strong> : &quot;Montrer que $f'(x) = \dfrac{2x+1}{2x}$ pour $f(x) = x - 2 + \dfrac{1}{2}\ln(x)$.&quot;</p>
+<h4>Q4 — &quot;Étudier le sens de variation de $f$&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Étudier le signe de $f'(x)$.</li>
+<li>Pour les expressions avec exp : factoriser par $e^u$ (toujours $> 0$), le signe ne dépend que du reste.</li>
+<li>Pour les expressions avec ln : penser au domaine.</li>
+<li>Construire le <strong>tableau de variations</strong> complet avec les valeurs aux bornes.</li>
+</ol>
+<h4>Q5 — &quot;Étudier la convexité de $f$&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Calculer $f''$ (souvent admis dérivable 2 fois dans l&#39;énoncé).</li>
+<li>Étudier le signe de $f''$.</li>
+<li>Conclure : convexe où $f'' \geq 0$, concave où $f'' \leq 0$.</li>
+<li>Donner les <strong>points d&#39;inflexion</strong> (où $f''$ change de signe).</li>
+</ol>
+<p>🎯 <strong>Tombe systématiquement</strong> dans les sujets 2024-2025. Métropole 2024 J1, Métropole 2025 J1, etc.</p>
+<h4>Q6 — &quot;Montrer que $f(x) = k$ admet une unique solution $\alpha$ sur $I$&quot;</h4>
+<p>C&#39;est LA question avec le théorème de la bijection.</p>
+<p><strong>Méthode (les 3 hypothèses obligatoires)</strong> :</p>
+<blockquote>
+<ol>
+<li>$f$ est <strong>continue</strong> sur $I$ (justifier : &quot;$f$ est composée de fonctions continues, donc continue sur $I$&quot;).</li>
+<li>$f$ est <strong>strictement monotone</strong> sur $I$ (utiliser le tableau de variations).</li>
+<li>$k$ est <strong>compris entre</strong> $f(\text{borne gauche})$ et $f(\text{borne droite})$ (calculer ou utiliser les limites).</li>
+</ol>
+<p>D&#39;après le théorème de la bijection, $f(x) = k$ admet une <strong>unique solution</strong> $\alpha$ sur $I$.</p>
+</blockquote>
+<h4>Q7 — &quot;Donner une valeur approchée de $\alpha$ à $10^{-n}$ près&quot;</h4>
+<p><strong>Méthode de balayage à la calculatrice</strong> :</p>
+<ul>
+<li>Tableau de valeurs de $f$ avec un pas de 1, puis 0,1, puis 0,01, etc.</li>
+<li>Encadrer $\alpha$ entre deux valeurs successives.</li>
+</ul>
+<p><strong>Rédaction type</strong> : &quot;À l&#39;aide de la calculatrice : $f(0{,}43) < 0 < f(0{,}44)$, donc $\alpha \approx 0{,}43$ à $10^{-2}$ près.&quot;</p>
+<h4>Q8 — &quot;En déduire le signe de $f$ sur $I$&quot;</h4>
+<p><strong>Méthode</strong> : utiliser les variations + la (les) racine(s) trouvée(s) en Q6.</p>
+<ul>
+<li>$f$ croissante avec $f(\alpha) = 0$ → $f < 0$ avant $\alpha$, $f > 0$ après.</li>
+<li>$f$ décroissante avec $f(\alpha) = 0$ → $f > 0$ avant $\alpha$, $f < 0$ après.</li>
+</ul>
+<p>Construire un <strong>tableau de signes</strong> propre.</p>
+<h4>Q9 — &quot;Étude d&#39;une fonction auxiliaire $g$&quot; (partie A typique)</h4>
+<p><strong>Pattern récurrent</strong> : la partie A demande l&#39;étude d&#39;une fonction $g$ &quot;auxiliaire&quot;. Plus tard en partie B, on découvre que $f'(x)$ contient $g(x)$ ou $g$ apparaît dans les calculs.</p>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Étudier les variations de $g$ (calcul de $g'$, signe, tableau).</li>
+<li>Montrer que $g(x) = 0$ admet une unique solution $\alpha$ (théorème de la bijection).</li>
+<li>Donner une valeur approchée de $\alpha$.</li>
+<li><strong>En déduire le signe de $g$</strong> sur l&#39;intervalle de définition.</li>
+</ol>
+<p><strong>Comment faire le lien avec la partie B</strong> : en B, quand on dérive $f$, on tombe sur $f'(x) = (\text{qqc strictement positif}) \times g(x)$. Le signe de $f'$ a alors le même signe que $g$, déjà étudié en A.</p>
+<p>🎯 <strong>Pattern bac type</strong> : c&#39;est exactement le schéma du sujet de Métropole 2024 J2 (avec $f(x) = x^2 + 2x - 1 + \ln(x+2)$).</p>
+<h4>Q10 — &quot;Étudier la position relative de $\mathcal{C}_f$ et $T_B$&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Calculer $h(x) = f(x) - (\text{équation de la tangente})$.</li>
+<li>Étudier le signe de $h$.</li>
+<li>Conclure : $\mathcal{C}_f$ au-dessus de $T_B$ là où $h > 0$, en dessous là où $h < 0$.</li>
+</ol>
+<p>🎯 <strong>Astuce bac</strong> : si $f$ est convexe sur $I$, alors $\mathcal{C}_f$ est <strong>au-dessus</strong> de toutes ses tangentes sur $I$. Si concave, en dessous. <strong>Conclure direct</strong> sans calcul (Métropole 2025 J1).</p>
+<h4>Q11 — &quot;Suite récurrente $u_{n+1} = f(u_n)$&quot;</h4>
+<p><strong>Pattern bac très fréquent</strong> (présent dans Centres étrangers 2024, Métropole 2025 J1, Métropole 2025 sept) :</p>
+<p><strong>Sous-questions classiques</strong> :</p>
+<ul>
+<li>(a) Calculer $u_1$, $u_2$ → calcul direct.</li>
+<li>(b) Démontrer par récurrence que $a \leq u_n \leq u_{n+1} \leq b$ → encadrement + monotonie.</li>
+<li>(c) En déduire que $(u_n)$ converge → théorème de convergence monotone (croissante majorée OU décroissante minorée).</li>
+<li>(d) Trouver la limite $L$ → théorème du point fixe : résoudre $f(x) = x$.</li>
+</ul>
+<p>🎯 <strong>À NE PAS OUBLIER en (d)</strong> : citer la <strong>continuité</strong> de $f$ en $L$ avant d&#39;appliquer $f(L) = L$. Sinon <strong>−0,5 à −1 point</strong>.</p>
+<h4>Q12 — &quot;Calculer une aire&quot; (partie C optionnelle)</h4>
+<p><strong>Pattern</strong> : on demande de calculer l&#39;aire d&#39;un domaine entre $\mathcal{C}_f$ et l&#39;axe des abscisses, ou entre deux courbes.</p>
+<p><strong>Méthode</strong> :</p>
+<ul>
+<li>Si $f \geq 0$ sur $[a\,;\,b]$ : aire = $\int_a^b f(x)\,dx$.</li>
+<li>Sinon : aire = $\int_a^b |f(x)|\,dx$, mais on découpe selon le signe de $f$.</li>
+<li>Pour deux courbes $\mathcal{C}_f$ et $\mathcal{C}_g$ avec $f \geq g$ : aire = $\int_a^b (f(x) - g(x))\,dx$.</li>
+</ul>
+<p>⚠️ Si tu n&#39;as pas encore vu les <strong>intégrales</strong> ou si elles ne sont pas au programme du bac blanc, cette question peut être ignorée.</p>
+<h3>Résumé : enchaînement type d&#39;un exo bac</h3>
+<pre><code class="language-mermaid">flowchart TD
+  PA[&quot;Partie A&lt;br/&gt;Étude graphique OU&lt;br/&gt;fonction auxiliaire g&quot;]
+  PA --&gt; PA1[&quot;Q1. Lectures graphiques&lt;br/&gt;f(a), f&#39;(a), tangente,&lt;br/&gt;convexité&quot;]
+  PA --&gt; PA9[&quot;Q9. Étude de g&lt;br/&gt;+ signe de g&quot;]
+
+  PB[&quot;Partie B&lt;br/&gt;Étude analytique de f&quot;]
+  PB --&gt; PB2[&quot;Q2. Limites + asymptote&quot;]
+  PB --&gt; PB3[&quot;Q3. f&#39; (forme factorisée)&quot;]
+  PB --&gt; PB4[&quot;Q4. Variations + tableau&quot;]
+  PB --&gt; PB5[&quot;Q5. Convexité (f&#39;&#39;)&lt;br/&gt;+ points d&#39;inflexion&quot;]
+  PB --&gt; PB6[&quot;Q6. Bijection :&lt;br/&gt;f(x) = k unique&quot;]
+  PB --&gt; PB7[&quot;Q7. Valeur approchée&lt;br/&gt;(balayage)&quot;]
+  PB --&gt; PB8[&quot;Q8. Signe de f&quot;]
+  PB --&gt; PB10[&quot;Q10. Position relative&lt;br/&gt;𝒞_f et tangente&quot;]
+
+  PBC[&quot;Partie B-bis / C&lt;br/&gt;Suite u_{n+1} = f(u_n)&quot;]
+  PBC --&gt; PBC1[&quot;Q11a. Premiers termes&quot;]
+  PBC --&gt; PBC2[&quot;Q11b. Récurrence :&lt;br/&gt;encadrement + monotonie&quot;]
+  PBC --&gt; PBC3[&quot;Q11c. TCM&lt;br/&gt;(convergence)&quot;]
+  PBC --&gt; PBC4[&quot;Q11d. Point fixe&lt;br/&gt;(continuité de f)&quot;]
+
+  PC[&quot;Partie C (optionnelle)&lt;br/&gt;Aire / intégrale&quot;]
+  PC --&gt; PC1[&quot;Q12. Aire 𝒞_f / axe&lt;br/&gt;ou entre deux courbes&quot;]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB,PBC,PC part;
+  class PA1,PA9,PB2,PB3,PB4,PB7,PB8,PBC1,PBC2,PC1 leaf;
+  class PB5,PB6,PB10,PBC3,PBC4 step;
+</code></pre>
+<h3>Sujets analysés (pour ta culture)</h3>
+<ul>
+<li><strong>Métropole 2024 J1</strong> (19 juin) : étude de $f(x) = x - 2 + \dfrac{1}{2}\ln x$ — toutes les Q1-Q8.</li>
+<li><strong>Métropole 2024 J2</strong> (20 juin) : fonction auxiliaire + $f(x) = x^2 + 2x - 1 + \ln(x+2)$.</li>
+<li><strong>Métropole 2025 J1</strong> (17 juin) : lectures graphiques + $f$ avec ln, convexité, position relative + IPP.</li>
+<li><strong>Centres étrangers 2024</strong> : étude $f(x) = x - \ln(x^2 + 1)$ + suite récurrente $u_{n+1} = f(u_n)$.</li>
+<li><strong>Sujet 0 2024</strong> : famille de fonctions $f_k(x) = (k+x)e^{-x}$.</li>
+</ul>
+<p>🎯 <strong>Le pattern est ULTRA stable depuis 2024</strong>. Tu as 90% de chances d&#39;avoir un exo qui suit ce schéma.</p>
+<hr>
+<h2>VII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Pour toute limite, j&#39;ai vérifié si c&#39;est une FI <strong>avant</strong> d&#39;appliquer une formule.</li>
+<li><input disabled="" type="checkbox"> Pour les FI, j&#39;ai correctement factorisé par le <strong>terme prépondérant</strong>.</li>
+<li><input disabled="" type="checkbox"> Je n&#39;ai pas invoqué les croissances comparées <strong>inutilement</strong> (seulement quand il y a une exp et que c&#39;est nécessaire).</li>
+<li><input disabled="" type="checkbox"> Pour appliquer le <strong>TVI ou le théorème de la bijection</strong>, j&#39;ai cité <strong>les 3 hypothèses</strong> (continuité, monotonie, k entre les valeurs).</li>
+<li><input disabled="" type="checkbox"> J&#39;ai bien préfixé &quot;<strong>continue</strong>&quot; + &quot;<strong>strictement monotone</strong>&quot; — pas juste &quot;monotone&quot;.</li>
+<li><input disabled="" type="checkbox"> Pour la <strong>convexité</strong>, j&#39;ai calculé $f''$ et étudié <strong>son signe</strong> sur l&#39;intervalle.</li>
+<li><input disabled="" type="checkbox"> Pour un <strong>point d&#39;inflexion</strong>, j&#39;ai vérifié que $f''$ <strong>change de signe</strong> (et pas juste qu&#39;elle s&#39;annule).</li>
+<li><input disabled="" type="checkbox"> Pour une <strong>dérivée de composée</strong>, j&#39;ai bien identifié $u$ et $v$ avant de dériver.</li>
+<li><input disabled="" type="checkbox"> Pour la <strong>continuité</strong>, j&#39;ai précisé sur quel intervalle.</li>
+<li><input disabled="" type="checkbox"> Pour le <strong>point fixe</strong> d&#39;une suite, j&#39;ai cité la <strong>continuité</strong> de $f$ en $L$ (sinon $-1$ à $-2$ points).</li>
+</ul>
+<hr>
+<h2>VIII. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>Continuité du point fixe oubliée</strong> : si tu écris &quot;donc $f(L) = L$&quot; sans avoir mentionné que $f$ est continue, tu perds direct des points. C&#39;est l&#39;oubli n°1 sur les exos de suites.</p>
+</li>
+<li><p><strong>TVI vs bijection</strong> : le TVI seul donne &quot;au moins une solution&quot;. Pour l&#39;unicité, il FAUT préciser <strong>strictement monotone</strong> en plus. Beaucoup d&#39;élèves écrivent &quot;TVI&quot; au lieu de &quot;théorème de la bijection&quot;.</p>
+</li>
+<li><p><strong>Croissances comparées invoquées à tort</strong> : si tu peux factoriser proprement, n&#39;invoque pas C.C. C.C. = uniquement quand exp est unique et que c&#39;est nécessaire.</p>
+</li>
+<li><p><strong>Convexité confondue avec monotonie</strong> : convexe ≠ croissante. Une fonction peut être convexe et décroissante (ex. $1/x$ sur $]0\,;\,+\infty[$).</p>
+</li>
+<li><p><strong>Point d&#39;inflexion mal détecté</strong> : $f''(a) = 0$ NE SUFFIT PAS. Vérifier le <strong>changement de signe</strong>.</p>
+</li>
+<li><p><strong>Limite d&#39;un produit FI</strong> : $0 \times \infty$ est une FI. NE JAMAIS écrire &quot;$0 \times \infty = 0$&quot;. Toujours lever l&#39;indétermination.</p>
+</li>
+<li><p><strong>Limite à droite/à gauche oubliée</strong> : si on étudie $\lim$ en un point qui annule un dénominateur, <strong>toujours étudier les deux côtés</strong>. Le signe peut changer.</p>
+</li>
+<li><p><strong>Dérivée de composée bâclée</strong> : oublier le facteur $u'$ dans $(e^u)' = u' \cdot e^u$ est la perte de point n°1. Toujours <strong>identifier $u$ explicitement</strong> d&#39;abord.</p>
+</li>
+<li><p><strong>Lim ln x / x = 0 oubliée</strong> : c&#39;est une croissance comparée à connaître par cœur. Si tu écris &quot;$\ln x / x \to \infty$&quot;, c&#39;est une catastrophe.</p>
+</li>
+<li><p><strong>$x \ln x$ en $0^+$</strong> : c&#39;est $0$ (croissance comparée), pas $-\infty$. En plein stress, ne pas confondre avec $\ln x$ seul qui tend vers $-\infty$.</p>
+</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html">https://arthurjeaugey.com/revisions-maths/raw/limites-continuite.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

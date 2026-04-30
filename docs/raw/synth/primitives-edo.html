@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primitives &amp; Équations différentielles — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Primitives &amp; Équations différentielles.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Primitives &amp; Équations différentielles — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Primitives &amp; Équations différentielles.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Primitives &amp; Équations différentielles — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Primitives &amp; Équations différentielles.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Primitives & Équations différentielles — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Primitives & Équations différentielles.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/primitives-edo">https://arthurjeaugey.com/revisions-maths/#/fiche/primitives-edo</a>.</div>
+<article><h1>📐 Primitives &amp; Équations Différentielles — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Lecture inverse de la dérivation + EDO du 1er ordre.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Déterminer une primitive »</td>
+<td>Lecture inverse du tableau (§I)</td>
+</tr>
+<tr>
+<td>« Vérifier que F est une primitive de f »</td>
+<td>Calculer F&#39; et vérifier <code>F&#39;(x) = f(x)</code></td>
+</tr>
+<tr>
+<td><code>u&#39;(x)·e^{u(x)}</code></td>
+<td>Primitive : <code>e^{u(x)}</code></td>
+</tr>
+<tr>
+<td><code>u&#39;(x)·u(x)^n</code></td>
+<td>Primitive : <code>u(x)^{n+1}/(n+1)</code></td>
+</tr>
+<tr>
+<td><code>u&#39;(x)/u(x)</code></td>
+<td>Primitive : <code>ln|u(x)|</code></td>
+</tr>
+<tr>
+<td>« Résoudre <code>y&#39; = ay</code> »</td>
+<td><code>y = C·e^{ax}</code></td>
+</tr>
+<tr>
+<td>« Résoudre <code>y&#39; = ay + b</code> »</td>
+<td><code>y = C·e^{ax} − b/a</code></td>
+</tr>
+<tr>
+<td>« Résoudre <code>y&#39; = ay + φ(x)</code> »</td>
+<td>Trouver une solution particulière P, puis <code>f − P</code> vérifie <code>y&#39; = ay</code></td>
+</tr>
+<tr>
+<td>Condition <code>f(x_0) = y_0</code></td>
+<td>Substituer pour trouver C</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Primitive — définition</strong></p>
+<blockquote>
+<p>F est primitive de f sur I ⇔ F dérivable et <code>F&#39;(x) = f(x)</code> sur I.</p>
+</blockquote>
+<ul>
+<li>Toute fonction continue admet des primitives</li>
+<li>Deux primitives diffèrent d&#39;une <strong>constante</strong></li>
+<li>⇒ infinité de primitives, mais <strong>une seule</strong> vérifiant <code>F(x_0) = y_0</code></li>
+</ul>
+<p><strong>Tableau des primitives usuelles</strong></p>
+<table>
+<thead>
+<tr>
+<th>f(x)</th>
+<th>Primitive F(x)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>x^n</code> (n≠−1)</td>
+<td><code>x^{n+1}/(n+1)</code></td>
+</tr>
+<tr>
+<td><code>1/x</code> (x&gt;0)</td>
+<td><code>ln(x)</code></td>
+</tr>
+<tr>
+<td><code>e^x</code></td>
+<td><code>e^x</code></td>
+</tr>
+<tr>
+<td><code>e^{ax+b}</code></td>
+<td><code>(1/a)·e^{ax+b}</code></td>
+</tr>
+<tr>
+<td><code>cos(x)</code></td>
+<td><code>sin(x)</code></td>
+</tr>
+<tr>
+<td><code>sin(x)</code></td>
+<td><code>−cos(x)</code></td>
+</tr>
+<tr>
+<td><code>1/√x</code> (x&gt;0)</td>
+<td><code>2√x</code></td>
+</tr>
+</tbody></table>
+<p><strong>Formes remarquables (à reconnaître)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Forme</th>
+<th>Primitive</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>u&#39;·u^n</code></td>
+<td><code>u^{n+1}/(n+1)</code></td>
+</tr>
+<tr>
+<td><code>u&#39;·e^u</code></td>
+<td><code>e^u</code></td>
+</tr>
+<tr>
+<td><code>u&#39;/u</code> (u&gt;0)</td>
+<td><code>ln(u)</code></td>
+</tr>
+<tr>
+<td><code>u&#39;/(2√u)</code></td>
+<td><code>√u</code></td>
+</tr>
+<tr>
+<td><code>u&#39;/u²</code></td>
+<td><code>−1/u</code></td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Astuce</strong> : si tu vois la dérivée d&#39;une « brique » devant la « brique », c&#39;est une forme remarquable.</p>
+<p><strong>Équation différentielle linéaire — 3 cas</strong></p>
+<p><strong>Cas 1 : <code>y&#39; = ay</code></strong>
+$$y(x) = C \cdot e^{ax}, \quad C \in \mathbb{R}$$</p>
+<p><strong>Cas 2 : <code>y&#39; = ay + b</code></strong></p>
+<ul>
+<li>Solution particulière constante : <code>y_p = −b/a</code></li>
+<li>Solution générale : <code>y(x) = C·e^{ax} − b/a</code></li>
+</ul>
+<p><strong>Cas 3 : <code>y&#39; = ay + φ(x)</code> (avec φ donnée)</strong></p>
+<ol>
+<li>Trouver une solution particulière <code>y_p</code> (souvent suggérée par l&#39;énoncé)</li>
+<li>La solution générale : <code>y(x) = y_p(x) + C·e^{ax}</code></li>
+<li>(Vérifiable : <code>y − y_p</code> vérifie <code>(y−y_p)&#39; = a(y−y_p)</code>)</li>
+</ol>
+<p><strong>Trouver C avec une condition initiale <code>f(x_0) = y_0</code></strong></p>
+<ul>
+<li>Substituer dans la solution générale, résoudre en C</li>
+<li>Solution unique vérifiant cette condition</li>
+</ul>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Solutions de <code>y&#39; = ay</code></td>
+<td><code>y = C·e^{ax}</code></td>
+</tr>
+<tr>
+<td>Solutions de <code>y&#39; = ay + b</code></td>
+<td><code>y = C·e^{ax} − b/a</code></td>
+</tr>
+<tr>
+<td>Primitive de <code>1/(ax+b)</code></td>
+<td><code>(1/a)·ln|ax+b|</code></td>
+</tr>
+<tr>
+<td>Primitive de <code>(ax+b)^n</code></td>
+<td><code>(ax+b)^{n+1}/(a(n+1))</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>« Résoudre » = trouver <strong>toutes</strong> les solutions (avec la constante), pas une seule</li>
+<li>Oublier la constante <code>C</code> dans la solution générale</li>
+<li><code>1/x</code> a pour primitive <code>ln(x)</code> <strong>uniquement si x &gt; 0</strong> — sinon <code>ln|x|</code></li>
+<li><code>y&#39; = ay + b</code> : la solution particulière est <code>−b/a</code> (le <strong>signe moins</strong>)</li>
+<li>Mélanger primitive et dérivée : toujours vérifier en dérivant</li>
+<li>Forme <code>u&#39;·e^u</code> : oublier que la primitive est <code>e^u</code> (pas <code>e^u / u&#39;</code>)</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai bien indiqué « C ∈ ℝ » dans la solution générale</li>
+<li><input disabled="" type="checkbox"> Pour <code>y&#39; = ay + b</code> : j&#39;ai cité la solution particulière constante <code>−b/a</code></li>
+<li><input disabled="" type="checkbox"> Pour vérifier une primitive : j&#39;ai dérivé F et trouvé f</li>
+<li><input disabled="" type="checkbox"> Domaine de validité (ex. ln nécessite <code>u &gt; 0</code>) précisé</li>
+<li><input disabled="" type="checkbox"> Condition initiale : C calculé proprement, solution unique annoncée</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html">https://arthurjeaugey.com/revisions-maths/raw/synth/primitives-edo.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>
