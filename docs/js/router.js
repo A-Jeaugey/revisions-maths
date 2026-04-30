@@ -45,6 +45,15 @@ function resolve() {
       const renderer = match || _notFound;
       await renderer({ container: _container, params, path });
       window.dispatchEvent(new CustomEvent('routechange', { detail: { path, params } }));
+      // GoatCounter : compte manuel par route hash, après que le titre ait été
+      // mis à jour par les listeners de routechange (cf. updateMetaForRoute).
+      if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count({
+          path: window.location.pathname + '#/' + path.replace(/^\/+/, ''),
+          title: document.title,
+          event: false,
+        });
+      }
     } catch (err) {
       console.error('Route render error', err);
       _container.innerHTML = `<div class="container"><div class="empty"><h3>Oups</h3><p>${err.message}</p></div></div>`;

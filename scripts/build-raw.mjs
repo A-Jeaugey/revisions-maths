@@ -158,6 +158,7 @@ function htmlShell({ title, description, canonical, body, jsonLd, banner }) {
 <link rel="stylesheet" href="${KATEX_CSS}" crossorigin="anonymous">
 <style>${PAGE_CSS}</style>
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
+<script data-goatcounter="https://parabellum.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="wrap">
