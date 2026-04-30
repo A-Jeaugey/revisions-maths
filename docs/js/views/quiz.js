@@ -152,8 +152,8 @@ export async function renderQuiz({ container, params }) {
             return `<div style="padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start">
               <span style="color:${a.correct ? 'var(--accent-3)' : 'var(--accent-1)'};font-weight:bold">${a.correct ? '✓' : '✕'}</span>
               <div>
-                <div>${q.q}</div>
-                ${!a.correct ? `<div style="margin-top:6px;font-size:13px;color:var(--accent-3)">→ ${q.choices[q.answer]}</div>` : ''}
+                <div>${mdInline(q.q)}</div>
+                ${!a.correct ? `<div style="margin-top:6px;font-size:13px;color:var(--accent-3)">→ ${mdInline(q.choices[q.answer])}</div>` : ''}
               </div>
             </div>`;
           }).join('')}
