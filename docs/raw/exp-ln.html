@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponentielle &amp; Logarithme — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Exponentielle &amp; Logarithme. Fonctions réciproques · Croissances comparées.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exponentielle &amp; Logarithme — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Exponentielle &amp; Logarithme. Fonctions réciproques · Croissances comparées.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exponentielle &amp; Logarithme — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Exponentielle &amp; Logarithme. Fonctions réciproques · Croissances comparées.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Exponentielle & Logarithme — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Exponentielle & Logarithme. Fonctions réciproques · Croissances comparées.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/exp-ln">https://arthurjeaugey.com/revisions-maths/#/fiche/exp-ln</a>.</div>
+<article><h1>📈 Fiche de Combat — Fonction Exponentielle &amp; Logarithme Népérien</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Les deux fonctions traitées ensemble parce qu&#39;elles sont <strong>réciproques</strong> : tout ce qu&#39;on apprend sur l&#39;une se transpose sur l&#39;autre par symétrie.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Équation $e^A = e^B$</td>
+<td>$A = B$ (exp injective)</td>
+</tr>
+<tr>
+<td>Équation $\ln A = \ln B$ avec A,B&gt;0</td>
+<td>$A = B$ (ln injective)</td>
+</tr>
+<tr>
+<td>Inéquation $e^A < e^B$</td>
+<td>$A < B$ (exp strictement croissante)</td>
+</tr>
+<tr>
+<td>Inéquation $\ln A < \ln B$ avec A,B&gt;0</td>
+<td>$A < B$ (ln strictement croissante)</td>
+</tr>
+<tr>
+<td>$e^x = a$ avec $a > 0$</td>
+<td>$x = \ln a$</td>
+</tr>
+<tr>
+<td>$\ln x = a$ avec $x > 0$</td>
+<td>$x = e^a$</td>
+</tr>
+<tr>
+<td>Forme $e^{u(x)}$ à dériver</td>
+<td>$u'(x) \cdot e^{u(x)}$</td>
+</tr>
+<tr>
+<td>Forme $\ln(u(x))$ à dériver</td>
+<td>$\dfrac{u'(x)}{u(x)}$ (avec u &gt; 0)</td>
+</tr>
+<tr>
+<td>Limite de type $\dfrac{e^x}{x^n}$ ou $x^n e^{-x}$</td>
+<td>Croissances comparées (exp gagne)</td>
+</tr>
+<tr>
+<td>Limite de type $\dfrac{\ln x}{x^n}$ ou $x \ln x$</td>
+<td>Croissances comparées (puissance gagne)</td>
+</tr>
+<tr>
+<td>FI quand on a $\ln$ ou $e$</td>
+<td>Souvent factoriser par le terme dominant</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Fonction exponentielle : définition et propriétés</h2>
+<h3>1. Définition (la base à retenir mot pour mot)</h3>
+<p><strong>Théorème admis :</strong> Il existe une <strong>unique</strong> fonction f définie et dérivable sur ℝ telle que :
+$$f(0) = 1 \quad \text{et} \quad f' = f$$</p>
+<p>Cette fonction est appelée <strong>fonction exponentielle</strong>, notée <code>exp</code>.</p>
+<p><strong>Conséquences immédiates (à savoir réciter) :</strong></p>
+<ul>
+<li>$\exp(x)$ existe pour tout réel x → <strong>domaine = ℝ</strong></li>
+<li>$\exp(0) = 1$</li>
+<li>$(\exp)' = \exp$ (elle est égale à sa dérivée)</li>
+<li>$\exp(x) > 0$ pour tout x ∈ ℝ ⚠️ TOUJOURS POSITIVE</li>
+</ul>
+<p>⚠️ <strong>Piège classique :</strong> ne JAMAIS écrire $e^x = 0$ ou $e^x \leq 0$. C&#39;est faux. L&#39;exponentielle est <strong>strictement positive</strong>, point. Ça simplifie souvent les études de signe (par exemple, dans <code>f&#39;(x) = e^x · g(x)</code>, le signe de f&#39; = signe de g).</p>
+<h3>2. Propriétés algébriques (à connaître par cœur)</h3>
+<p>Pour tous réels a, b et tout entier n :</p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Produit</td>
+<td>$e^{a+b} = e^a \times e^b$</td>
+</tr>
+<tr>
+<td>Inverse</td>
+<td>$e^{-a} = \dfrac{1}{e^a}$</td>
+</tr>
+<tr>
+<td>Quotient</td>
+<td>$e^{a-b} = \dfrac{e^a}{e^b}$</td>
+</tr>
+<tr>
+<td>Puissance</td>
+<td>$(e^a)^n = e^{na}$</td>
+</tr>
+<tr>
+<td>Racine</td>
+<td>$\sqrt{e} = e^{1/2}$, et plus généralement $\sqrt{e^a} = e^{a/2}$</td>
+</tr>
+</tbody></table>
+<p><strong>Le mémo du cours :</strong> &quot;Cette nouvelle notation $e^x$ permet d&#39;appliquer les mêmes règles de calcul qu&#39;avec les puissances.&quot; → Si tu connais tes règles sur $a^n \times a^m$, tu connais déjà tout.</p>
+<h3>3. Le nombre e</h3>
+<p><strong>Définition :</strong> $e = \exp(1)$, appelé <strong>nombre de Néper</strong>.</p>
+<ul>
+<li>$e \approx 2{,}72$</li>
+<li>C&#39;est juste un nombre réel comme π. La notation $e^x$ vient du fait que $\exp(x) = (e)^x$ par cohérence avec les puissances.</li>
+</ul>
+<h3>4. Exemples de calculs (type DS)</h3>
+<p>$$e^3 \times e^4 = e^{3+4} = e^7$$</p>
+<p>$$(e^{1{,}5})^3 = e^{1{,}5 \times 3} = e^{4{,}5}$$</p>
+<p>$$e^{-2} = \dfrac{1}{e^2}$$</p>
+<p>$$\dfrac{(e^7)^4 \times e^3}{e^4} = \dfrac{e^{28} \times e^3}{e^4} = \dfrac{e^{31}}{e^4} = e^{27}$$</p>
+<p>$$(e^x)^2 \times e^{3+x} = e^{2x} \times e^{3+x} = e^{3x+3}$$</p>
+<h3>5. Étude de la fonction (variations + limites)</h3>
+<p><strong>Stricte croissance :</strong> comme $(e^x)' = e^x > 0$, la fonction exponentielle est <strong>strictement croissante sur ℝ</strong>.</p>
+<p><strong>Conséquences (équations et inéquations) :</strong>
+$$e^a = e^b \iff a = b \quad \text{(exp est injective)}$$
+$$e^a < e^b \iff a < b \quad \text{(stricte croissance)}$$</p>
+<p><strong>Exemple d&#39;inéquation (ton cours) :</strong>
+$$e^{3x+1} < e^{x-2} \iff 3x + 1 < x - 2 \iff 2x < -3 \iff x < -\dfrac{3}{2}$$
+Donc $S = \left]-\infty\,;\,-\dfrac{3}{2}\right[$.</p>
+<p><strong>Limites :</strong>
+$$\lim_{x \to +\infty} e^x = +\infty \quad \text{et} \quad \lim_{x \to -\infty} e^x = 0$$</p>
+<p><strong>Tableau de variation :</strong></p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>$-\infty$</th>
+<th></th>
+<th>$+\infty$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$(e^x)' = e^x$</td>
+<td></td>
+<td>+</td>
+<td></td>
+</tr>
+<tr>
+<td>$e^x$</td>
+<td>0</td>
+<td>↗</td>
+<td>$+\infty$</td>
+</tr>
+</tbody></table>
+<h3>6. Dérivée de $e^{u(x)}$ (très important)</h3>
+<p><strong>Formule générale (cas affine de ton cours) :</strong> si $u(x) = ax + b$, alors :
+$$\left(e^{ax+b}\right)' = a \times e^{ax+b}$$</p>
+<p><strong>Cas général (à savoir aussi) :</strong> pour u dérivable,
+$$\left(e^{u(x)}\right)' = u'(x) \times e^{u(x)}$$</p>
+<p><strong>Exemples du cours :</strong></p>
+<ul>
+<li>$f(x) = e^{3x-2}$ → $f'(x) = 3 e^{3x-2}$</li>
+<li>$f(x) = x^2 + e^{-x+2}$ → $f'(x) = 2x - e^{-x+2}$ (le <code>-</code> vient du fait que $u'(x) = -1$)</li>
+<li>$f(x) = 3e^x + 2x^2$ → $f'(x) = 3e^x + 4x$</li>
+</ul>
+<p><strong>Conséquence sur les variations</strong> (cas affine) :</p>
+<ul>
+<li>Si <strong>a &gt; 0</strong> → $f(x) = e^{ax+b}$ est strictement <strong>croissante</strong> sur ℝ</li>
+<li>Si <strong>a &lt; 0</strong> → $f(x) = e^{ax+b}$ est strictement <strong>décroissante</strong> sur ℝ</li>
+</ul>
+<p>(Logique : la dérivée $a \cdot e^{ax+b}$ a le signe de a, puisque $e^{ax+b} > 0$ toujours.)</p>
+<h3>7. Représentation graphique de $e^x$</h3>
+<p><strong>Allure à connaître :</strong> courbe strictement croissante, passant par (0, 1) et (1, e). Tangente horizontale &quot;au moins&quot; en $-\infty$ (asymptote y=0).</p>
+<p><strong>Tangentes remarquables :</strong></p>
+<ul>
+<li><strong>Au point d&#39;abscisse 0</strong> : pente = $e^0 = 1$, donc $y = 1 \cdot (x - 0) + 1 = x + 1$</li>
+<li><strong>Au point d&#39;abscisse 1</strong> : pente = $e^1 = e$, donc $y = e(x - 1) + e = ex$</li>
+</ul>
+<p>⚠️ Ces deux tangentes sont des <strong>classiques bac</strong>. La tangente $y = x+1$ en 0 sert souvent à prouver l&#39;inégalité $e^x \geq x + 1$.</p>
+<hr>
+<h2>II. Fonction logarithme népérien : définition et propriétés</h2>
+<h3>1. Définition (par réciprocité)</h3>
+<p>L&#39;exponentielle est continue et strictement croissante sur ℝ, avec $\lim e^x = 0$ en $-\infty$ et $\lim e^x = +\infty$ en $+\infty$.</p>
+<p>→ Par théorème des valeurs intermédiaires, pour tout $a > 0$, l&#39;équation $e^x = a$ admet une <strong>unique solution</strong>.</p>
+<p><strong>Définition :</strong> la fonction <strong>logarithme népérien</strong>, notée <strong>ln</strong>, est la fonction réciproque de exp, définie sur $]0\,;\,+\infty[$.</p>
+<p>$$\boxed{y = \ln(x) \text{ et } x > 0 \iff e^y = x}$$</p>
+<h3>2. Propriétés fondamentales (les &quot;boucles&quot; à connaître)</h3>
+<p><strong>Pour tout réel x :</strong>
+$$\ln(e^x) = x$$</p>
+<p><strong>Pour tout réel x &gt; 0 :</strong>
+$$e^{\ln(x)} = x$$</p>
+<p>🎯 <strong>Ces deux égalités sont LE truc qui débloque toutes les équations mélangeant exp et ln.</strong> Si tu vois $e^{\ln(\dots)}$ ou $\ln(e^{\dots})$, tu peux simplifier direct.</p>
+<h3>3. Valeurs particulières</h3>
+<ul>
+<li>$\ln 1 = 0$ (car $e^0 = 1$)</li>
+<li>$\ln e = 1$ (car $e^1 = e$)</li>
+</ul>
+<p><strong>Tableau de valeurs (à mémoriser) :</strong></p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>$e^{-1}$</th>
+<th>1</th>
+<th>2</th>
+<th>e</th>
+<th>$e^3$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\ln x$</td>
+<td>-1</td>
+<td>0</td>
+<td>$\ln 2$</td>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h3>4. Résolution des équations type bac</h3>
+<p><strong>Pour tout réel a :</strong>
+$$\ln(x) = a \iff x = e^a \quad \text{(solution unique)}$$</p>
+<p><strong>Pour tout réel a &gt; 0 :</strong>
+$$e^x = a \iff x = \ln(a) \quad \text{(solution unique)}$$</p>
+<p><strong>Exemples :</strong></p>
+<ul>
+<li>$\ln x = 3$ → $x = e^3$</li>
+<li>$e^x = 5$ → $x = \ln 5$</li>
+<li>$\ln x = -2$ → $x = e^{-2} = 1/e^2$</li>
+</ul>
+<h3>5. Symétrie graphique</h3>
+<p><strong>Propriété :</strong> dans un repère orthonormé, les courbes de exp et ln sont <strong>symétriques par rapport à la droite y = x</strong>.</p>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Symétrie exp / ln par rapport à y = x&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;exp(x)&quot;, &quot;color&quot;: &quot;#ff3366&quot; },
+    { &quot;fn&quot;: &quot;log(x)&quot;, &quot;color&quot;: &quot;#00d9ff&quot;, &quot;range&quot;: [0.01, 5] },
+    { &quot;fn&quot;: &quot;x&quot;, &quot;color&quot;: &quot;#a1a1aa&quot; }
+  ],
+  &quot;xDomain&quot;: [-3, 5],
+  &quot;yDomain&quot;: [-3, 5],
+  &quot;points&quot;: [[0, 1], [1, 0], [1, 2.71828], [2.71828, 1]],
+  &quot;height&quot;: 360
+}
+</code></pre>
+<p>→ Conséquence : tout ce que tu sais sur exp se transpose en &quot;miroir&quot; sur ln (limites, croissance, valeurs particulières).</p>
+<h3>6. Propriétés algébriques (le <strong>cœur</strong> des exos)</h3>
+<p>Pour tous réels <strong>strictement positifs</strong> a et b, et tout entier n :</p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Produit</td>
+<td>$\ln(ab) = \ln a + \ln b$</td>
+</tr>
+<tr>
+<td>Quotient</td>
+<td>$\ln\left(\dfrac{a}{b}\right) = \ln a - \ln b$</td>
+</tr>
+<tr>
+<td>Inverse</td>
+<td>$\ln\left(\dfrac{1}{a}\right) = -\ln a$</td>
+</tr>
+<tr>
+<td>Puissance</td>
+<td>$\ln(a^n) = n \ln a$</td>
+</tr>
+<tr>
+<td>Racine</td>
+<td>$\ln(\sqrt{a}) = \dfrac{1}{2} \ln a$</td>
+</tr>
+</tbody></table>
+<p>⚠️ <strong>Piège majeur :</strong> le ln transforme les <strong>produits en sommes</strong> (et inversement). C&#39;est l&#39;inverse de l&#39;exp qui transforme les sommes en produits. Ne pas confondre.</p>
+<p>⚠️ <strong>Le ln n&#39;a PAS de propriété pour ln(a+b) ou ln(a-b).</strong> Aucune simplification possible. Si tu vois $\ln(a + b)$ dans un calcul, tu ne peux PAS le casser.</p>
+<h3>7. Exemples chiffrés (type bac)</h3>
+<p><strong>Exemple 1 :</strong> $\ln 10 = \ln(2 \times 5) = \ln 2 + \ln 5$.</p>
+<p><strong>Exemple 2 :</strong> Pour $x > 1$ : $\ln(x-1) + \ln(x+1) = \ln((x-1)(x+1)) = \ln(x^2 - 1)$.</p>
+<p><strong>Exemple 3 (exprimer en fonction de ln 2 et ln 3) :</strong></p>
+<p>$\ln \dfrac{1}{18}$ :
+$$\ln\dfrac{1}{18} = \ln 1 - \ln 18 = -\ln(2 \times 3^2) = -\ln 2 - 2\ln 3$$</p>
+<p>$\ln 72$ :
+$$\ln 72 = \ln(2^3 \times 3^2) = 3\ln 2 + 2\ln 3$$</p>
+<p>$\ln \dfrac{2 e^3}{3}$ :
+$$\ln \dfrac{2e^3}{3} = \ln(2e^3) - \ln 3 = \ln 2 + \ln e^3 - \ln 3 = \ln 2 + 3 - \ln 3$$</p>
+<p><strong>Exemple 4 (résoudre une inéquation à inconnue en exposant) :</strong></p>
+<p>Résoudre $0{,}85^n < 0{,}6$ :
+$$0{,}85^n < 0{,}6 \iff \ln(0{,}85^n) < \ln(0{,}6) \iff n \ln 0{,}85 < \ln 0{,}6$$</p>
+<p>⚠️ <strong>Piège :</strong> $\ln 0{,}85 < 0$ (car $0{,}85 < 1$). Donc en divisant par $\ln 0{,}85$, on <strong>change le sens de l&#39;inégalité</strong> :
+$$n > \dfrac{\ln 0{,}6}{\ln 0{,}85} \approx 3{,}14$$</p>
+<p>Donc le plus petit entier solution est <strong>n = 4</strong>.</p>
+<p>🎯 <strong>C&#39;est l&#39;usage typique du ln pour les suites :</strong> quand l&#39;inconnue est en exposant, on prend le ln pour la &quot;faire descendre&quot;.</p>
+<h3>8. Étude de la fonction ln</h3>
+<p><strong>Domaine :</strong> $]0\,;\,+\infty[$ (le ln n&#39;existe pas pour x ≤ 0).</p>
+<p><strong>Limites :</strong>
+$$\lim_{x \to 0^+} \ln x = -\infty \quad \text{et} \quad \lim_{x \to +\infty} \ln x = +\infty$$</p>
+<p><strong>Dérivée :</strong> ln est dérivable sur $]0\,;\,+\infty[$ et :
+$$(\ln x)' = \dfrac{1}{x}$$</p>
+<p><strong>Tableau de variation :</strong></p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>0</th>
+<th></th>
+<th>$+\infty$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$(\ln x)' = 1/x$</td>
+<td></td>
+<td>+</td>
+<td></td>
+</tr>
+<tr>
+<td>$\ln x$</td>
+<td>$-\infty$</td>
+<td>↗</td>
+<td>$+\infty$</td>
+</tr>
+</tbody></table>
+<p>→ ln est <strong>strictement croissante</strong> sur $]0\,;\,+\infty[$.</p>
+<p><strong>Conséquences (équations / inéquations) :</strong></p>
+<p>Pour tous réels a, b <strong>strictement positifs</strong> :
+$$\ln a = \ln b \iff a = b$$
+$$\ln a < \ln b \iff a < b$$</p>
+<p><strong>Signe de ln :</strong></p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>0</th>
+<th></th>
+<th>1</th>
+<th></th>
+<th>$+\infty$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\ln x$</td>
+<td></td>
+<td>–</td>
+<td>0</td>
+<td>+</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>À retenir : $\ln x < 0$ pour $0 < x < 1$, et $\ln x > 0$ pour $x > 1$.</p>
+<h3>9. Tangentes remarquables à $y = \ln x$</h3>
+<p><strong>Au point d&#39;abscisse 1 :</strong> pente = $\ln'(1) = 1$, et $\ln 1 = 0$.
+$$y = 1 \cdot (x - 1) + 0 = x - 1$$
+→ Tangente : $\boxed{y = x - 1}$. Donne l&#39;inégalité utile $\ln x \leq x - 1$ pour x &gt; 0.</p>
+<p><strong>Au point d&#39;abscisse e :</strong> pente = $\ln'(e) = 1/e$, et $\ln e = 1$.
+$$y = \dfrac{1}{e}(x - e) + 1 = \dfrac{x}{e} - 1 + 1 = \dfrac{x}{e}$$
+→ Tangente : $\boxed{y = \dfrac{x}{e} = x \cdot e^{-1}}$.</p>
+<h3>10. Dérivée de $\ln(u(x))$ (ultra important pour les exos)</h3>
+<p>Si <strong>u est dérivable et strictement positive</strong> sur un intervalle I, alors $\ln(u)$ est dérivable sur I et :
+$$\boxed{\left(\ln(u(x))\right)' = \dfrac{u'(x)}{u(x)}}$$</p>
+<p>⚠️ <strong>Condition impérative :</strong> $u(x) > 0$ sur I, sinon le ln n&#39;est pas défini.</p>
+<p><strong>Exemples :</strong></p>
+<ul>
+<li>$f(x) = \ln(x^2 + 1)$ → $u = x^2 + 1 > 0$ toujours, $u' = 2x$, donc $f'(x) = \dfrac{2x}{x^2+1}$.</li>
+<li>$f(x) = \ln(3x - 5)$ → définie pour $x > 5/3$, $f'(x) = \dfrac{3}{3x-5}$.</li>
+</ul>
+<hr>
+<h2>III. Croissances comparées (très important pour les limites)</h2>
+<h3>1. Les 4 limites à connaître par cœur</h3>
+<p><strong>Côté exponentielle (l&#39;exp écrase tout) :</strong>
+$$\lim_{x \to +\infty} \dfrac{e^x}{x^n} = +\infty \quad (\text{pour tout } n \in \mathbb{N})$$
+$$\lim_{x \to -\infty} x^n e^x = 0 \quad (\text{ou } \lim_{x \to +\infty} x^n e^{-x} = 0)$$</p>
+<p><strong>Côté logarithme (la puissance écrase le ln) :</strong>
+$$\lim_{x \to +\infty} \dfrac{\ln x}{x^n} = 0 \quad (\text{pour tout } n \in \mathbb{N}^*)$$
+$$\lim_{x \to 0^+} x^n \ln x = 0 \quad (\text{pour tout } n \in \mathbb{N}^*)$$</p>
+<h3>2. La hiérarchie à mémoriser</h3>
+<blockquote>
+<p><strong>En +∞ : exp &gt;&gt; puissances &gt;&gt; ln</strong>
+&quot;L&#39;exponentielle écrase les puissances qui écrasent le logarithme.&quot;</p>
+</blockquote>
+<p>Donc dans un quotient ou un produit en $+\infty$, c&#39;est toujours <strong>l&#39;exp qui gagne</strong> face à une puissance, et la <strong>puissance qui gagne</strong> face au ln.</p>
+<h3>3. Limite remarquable au voisinage de 1</h3>
+<p>$$\lim_{x \to 0} \dfrac{\ln(x+1)}{x} = 1 \quad \text{ou de façon équivalente} \quad \lim_{x \to 1} \dfrac{\ln x}{x - 1} = 1$$</p>
+<p><strong>Interprétation :</strong> c&#39;est la <strong>définition du nombre dérivé de ln en 1</strong> (rappel : $\ln'(1) = 1$).</p>
+<hr>
+<h2>IV. Tableau de synthèse : exp vs ln (par symétrie)</h2>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Exponentielle $e^x$</th>
+<th>Logarithme $\ln x$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Domaine</td>
+<td>$\mathbb{R}$</td>
+<td>$]0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>$]0\,;\,+\infty[$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>Valeur en 0</td>
+<td>$e^0 = 1$</td>
+<td>$\ln 0$ : <strong>non défini</strong> (lim = -∞)</td>
+</tr>
+<tr>
+<td>Valeur en 1</td>
+<td>$e^1 = e$</td>
+<td>$\ln 1 = 0$</td>
+</tr>
+<tr>
+<td>Dérivée</td>
+<td>$(e^x)' = e^x$</td>
+<td>$(\ln x)' = 1/x$</td>
+</tr>
+<tr>
+<td>Variation</td>
+<td>strictement croissante sur ℝ</td>
+<td>strictement croissante sur $]0;+\infty[$</td>
+</tr>
+<tr>
+<td>Signe</td>
+<td>$e^x > 0$ toujours</td>
+<td>négatif sur ]0;1[, positif sur ]1;+∞[</td>
+</tr>
+<tr>
+<td>Limite en $-\infty$ ou $0^+$</td>
+<td>$\lim_{-\infty} e^x = 0$</td>
+<td>$\lim_{0^+} \ln x = -\infty$</td>
+</tr>
+<tr>
+<td>Limite en $+\infty$</td>
+<td>$\lim_{+\infty} e^x = +\infty$</td>
+<td>$\lim_{+\infty} \ln x = +\infty$</td>
+</tr>
+<tr>
+<td>Tangente en 1ère valeur clé</td>
+<td>$y = x + 1$ (en 0)</td>
+<td>$y = x - 1$ (en 1)</td>
+</tr>
+<tr>
+<td>Relation produit</td>
+<td>$e^{a+b} = e^a e^b$</td>
+<td>$\ln(ab) = \ln a + \ln b$</td>
+</tr>
+<tr>
+<td>Croissance comparée</td>
+<td>exp écrase les puissances</td>
+<td>les puissances écrasent ln</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Mnémo :</strong> &quot;Exp transforme les sommes en produits, ln transforme les produits en sommes.&quot; Les deux fonctions sont des &quot;ponts&quot; entre ces opérations.</p>
+<hr>
+<h2>V. Exercices types bac : reconnaître la stratégie</h2>
+<h3>Type 1 : équation/inéquation avec $e$ ou $\ln$</h3>
+<p><strong>Méthode :</strong> appliquer ln (ou exp) des deux côtés, puis utiliser l&#39;injectivité.</p>
+<ul>
+<li>$e^A = e^B \iff A = B$</li>
+<li>$\ln A = \ln B \iff A = B$ (avec A, B &gt; 0)</li>
+</ul>
+<h3>Type 2 : étude d&#39;une fonction $f(x) = e^{u(x)}$ ou $\ln(u(x))$</h3>
+<p><strong>Méthode :</strong></p>
+<ol>
+<li>Domaine de définition (pour ln : il faut $u > 0$).</li>
+<li>Dérivée : $u' \cdot e^{u}$ ou $u'/u$.</li>
+<li>Signe de la dérivée = signe de $u'$ (car $e^u > 0$ et $u > 0$ pour ln).</li>
+<li>Tableau de variations + limites.</li>
+</ol>
+<h3>Type 3 : limite avec FI (forme indéterminée)</h3>
+<p><strong>Méthode :</strong></p>
+<ul>
+<li>Si on a $\dfrac{e^x}{\dots}$ ou $\dfrac{\dots}{\ln x}$ → croissances comparées.</li>
+<li>Si FI de type $\infty - \infty$ avec exp et polynôme → factoriser par l&#39;exp ($e^x$ domine).</li>
+<li>Si FI avec $\ln$ et polynôme → factoriser par la puissance dominante.</li>
+</ul>
+<p><strong>Exemple :</strong> $\lim_{x \to +\infty} (x - \ln x)$.
+$$x - \ln x = x\left(1 - \dfrac{\ln x}{x}\right)$$
+Or $\lim \ln x / x = 0$, donc le facteur entre parenthèses tend vers 1, et $\lim x = +\infty$, donc $\lim (x - \ln x) = +\infty$.</p>
+<h3>Type 4 : suites — passer en log pour résoudre $q^n < c$</h3>
+<p><strong>Méthode :</strong></p>
+<ol>
+<li>Prendre le ln des deux côtés : $n \ln q < \ln c$.</li>
+<li>Diviser par $\ln q$ en faisant ATTENTION au signe (si $0 < q < 1$, alors $\ln q < 0$ → on inverse l&#39;inégalité).</li>
+<li>Conclure avec le plus petit/grand entier.</li>
+</ol>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Exp/Ln&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent confirmé</strong> : exp et ln apparaissent <strong>dans toutes les études de fonctions du bac</strong>. Voir aussi fiche limites/continuité §VI pour la structure générale d&#39;un exo &quot;étude de fonction&quot;.</p>
+<h3>Forme 1 : Étude de fonction avec exp ou ln (LE pattern roi)</h3>
+<p>🎯 <strong>Pattern observé sur</strong> : Métropole 2024 J1, J2, 2025 J1 (étude $f$ avec $\ln$), 2025 J2 (Vrai/Faux avec exp/ln), septembre 2025 (glycémie avec $te^{-0{,}4t}$), Amérique du Nord 2025 J1 (analyse 3 parties).</p>
+<p><strong>Structure type</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  PA[&quot;Partie A&lt;br/&gt;Lecture graphique&quot;]
+  PA --&gt; PA1[&quot;Valeurs particulières&lt;br/&gt;f(0), tangente&quot;]
+  PA --&gt; PA2[&quot;Sens de variation&lt;br/&gt;(conjecture)&quot;]
+  PA --&gt; PA3[&quot;Équation d&#39;une tangente&quot;]
+
+  PB[&quot;Partie B&lt;br/&gt;Étude analytique&quot;]
+  PB --&gt; Q1[&quot;Q1. Limites&lt;br/&gt;(croissances comparées)&quot;]
+  PB --&gt; Q2[&quot;Q2. f&#39;(x)&lt;br/&gt;(dérivée composée)&quot;]
+  PB --&gt; Q3[&quot;Q3. Signe de f&#39;&lt;br/&gt;tableau de variations&quot;]
+  PB --&gt; Q4[&quot;Q4. Convexité&lt;br/&gt;(signe de f&#39;&#39;)&quot;]
+  PB --&gt; Q5[&quot;Q5. Tangentes&lt;br/&gt;remarquables&quot;]
+  PB --&gt; Q6[&quot;Q6. Position relative&lt;br/&gt;𝒞_f vs tangente&quot;]
+  PB --&gt; Q7[&quot;Q7. Intégrale / aire&lt;br/&gt;(cf. fiche intégration)&quot;]
+
+  PC[&quot;Partie C (parfois)&lt;br/&gt;Suite u_{n+1} = f(u_n)&quot;]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB,PC part;
+  class PA1,PA2,PA3,Q5,Q6,Q7 leaf;
+  class Q1,Q2,Q3,Q4 step;
+</code></pre>
+<h3>Forme 2 : Équations et inéquations avec exp/ln</h3>
+<p><strong>Pattern observé</strong> : on demande de résoudre $e^{ax + b} = k$ ou $\ln(ax + b) = k$.</p>
+<h3>Forme 3 : QCM Vrai/Faux avec exp/ln (Métropole 2025 J2)</h3>
+<p>🎯 <strong>Pattern récent</strong> : 4-5 affirmations à justifier, dont au moins une sur exp ou ln.</p>
+<h3>Les 7 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Résoudre l&#39;équation $e^{ax+b} = k$ ou $\ln(ax+b) = k$&quot;</h4>
+<p><strong>Méthode (exp)</strong> :
+$$e^{ax+b} = k \iff ax + b = \ln k \iff x = \dfrac{\ln k - b}{a} \quad (k > 0)$$</p>
+<p><strong>Méthode (ln)</strong> :
+$$\ln(ax+b) = k \iff ax + b = e^k \iff x = \dfrac{e^k - b}{a}$$</p>
+<p>⚠️ <strong>Ne pas oublier le domaine</strong> : pour $\ln$, vérifier $ax + b > 0$.</p>
+<h4>Q2 — &quot;Dériver $e^{u(x)}$ ou $\ln(u(x))$&quot;</h4>
+<p>🎯 <strong>Formules à connaître</strong> :</p>
+<ul>
+<li>$(e^{u(x)})' = u'(x) \cdot e^{u(x)}$</li>
+<li>$(\ln(u(x)))' = \dfrac{u'(x)}{u(x)}$ (avec $u(x) > 0$)</li>
+</ul>
+<p><strong>Exemple bac</strong> : $f(x) = (x^2 + 1) e^{-x}$.
+$f'(x) = 2x \cdot e^{-x} + (x^2 + 1) \cdot (-e^{-x}) = e^{-x}(2x - x^2 - 1) = -e^{-x}(x-1)^2$</p>
+<h4>Q3 — &quot;Calculer une limite avec exp ou ln (croissances comparées)&quot;</h4>
+<p>🎯 <strong>Formules CLÉS à mémoriser</strong> :</p>
+<p><strong>En $+\infty$</strong> :</p>
+<ul>
+<li>$\lim\limits_{x \to +\infty} \dfrac{e^x}{x^n} = +\infty$ ($e^x$ écrase tout polynôme)</li>
+<li>$\lim\limits_{x \to +\infty} \dfrac{\ln x}{x^n} = 0$ ($x^n$ écrase $\ln$)</li>
+<li>$\lim\limits_{x \to +\infty} \dfrac{x^n}{e^x} = 0$</li>
+<li>$\lim\limits_{x \to +\infty} x^n e^{-x} = 0$ (pour $n \geq 0$)</li>
+</ul>
+<p><strong>En $-\infty$</strong> :</p>
+<ul>
+<li>$\lim\limits_{x \to -\infty} x^n e^x = 0$ (pour $n \geq 0$, &quot;$e^{-\infty} = 0$ écrase tout&quot;)</li>
+</ul>
+<p><strong>En $0^+$</strong> :</p>
+<ul>
+<li>$\lim\limits_{x \to 0^+} x \ln x = 0$</li>
+<li>$\lim\limits_{x \to 0^+} x^n \ln x = 0$ (pour $n \geq 1$)</li>
+<li>$\lim\limits_{x \to 0^+} \ln x = -\infty$</li>
+</ul>
+<p><strong>Astuce mnémonique</strong> : &quot;L&#39;exponentielle gagne toujours contre la puissance. La puissance gagne toujours contre le logarithme.&quot;</p>
+<h4>Q4 — &quot;Étudier le sens de variation&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Calculer $f'(x)$.</li>
+<li>Étudier le signe de $f'(x)$ (factoriser !).</li>
+<li>Dresser le tableau de variations.</li>
+<li>Indiquer les valeurs aux extrémités (limites).</li>
+</ol>
+<p>🎯 <strong>Astuce</strong> : pour les fonctions avec $e^x$, on peut souvent factoriser $f'(x) = e^x \cdot Q(x)$ où $Q(x)$ est un polynôme. Comme $e^x > 0$, le signe de $f'$ est celui de $Q$.</p>
+<h4>Q5 — &quot;Tangentes remarquables&quot;</h4>
+<p><strong>Tangentes au point $a$</strong> :
+$$y = f'(a)(x - a) + f(a)$$</p>
+<p><strong>Cas particuliers à connaître</strong> :</p>
+<ul>
+<li>Tangente en $0$ à $e^x$ : $y = x + 1$.</li>
+<li>Tangente en $1$ à $\ln x$ : $y = x - 1$.</li>
+</ul>
+<h4>Q6 — &quot;Étudier la convexité&quot;</h4>
+<p><strong>Méthode</strong> : signe de $f''(x)$.</p>
+<ul>
+<li>$f'' \geq 0$ → $f$ convexe (forme $\smile$).</li>
+<li>$f'' \leq 0$ → $f$ concave (forme $\frown$).</li>
+<li>$f''$ change de signe → <strong>point d&#39;inflexion</strong>.</li>
+</ul>
+<p>🎯 <strong>Astuce exp</strong> : $e^x$ est <strong>convexe sur $\mathbb{R}$</strong> (sa dérivée seconde $e^x > 0$).</p>
+<p>🎯 <strong>Astuce ln</strong> : $\ln$ est <strong>concave sur $]0, +\infty[$</strong> (sa dérivée seconde $-1/x^2 < 0$).</p>
+<h4>Q7 — &quot;Position relative entre $\mathcal{C}_f$ et une tangente / une autre courbe&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Définir $g(x) = f(x) - \text{(autre courbe)}$.</li>
+<li>Étudier le signe de $g(x)$.</li>
+<li>Conclure : si $g \geq 0$, $\mathcal{C}_f$ au-dessus.</li>
+</ol>
+<p>🎯 <strong>Astuce convexité</strong> : si $f$ est convexe, $\mathcal{C}_f$ est <strong>au-dessus</strong> de toutes ses tangentes.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Type</th>
+<th>Exp/Ln</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Étude $f(x) = 5xe^{-x}$</td>
+<td>Exp avec produit, dérivée composée</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Étude $f$ + ED</td>
+<td>Logarithme + exponentielle</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Étude $f$ avec $\ln$ + IPP</td>
+<td>$\ln$, croissances comparées</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J2</strong></td>
+<td>Vrai/Faux + étude fonction</td>
+<td>Exp + ln + convexité</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025</strong></td>
+<td>Glycémie $f(t) = te^{-0{,}4t}$</td>
+<td>Exp + dérivée produit + valeur moyenne</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J1</strong></td>
+<td>Analyse 3 parties</td>
+<td>Exp + ED + intégrale</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 100% de chance d&#39;avoir une fonction avec exp ou ln à ton bac blanc</strong>. C&#39;est LE chapitre central des études de fonctions.</p>
+<h3>Schéma récap — le combo gagnant exp/ln</h3>
+<pre><code class="language-mermaid">flowchart TD
+  S1[&quot;1. Identifier la forme&lt;br/&gt;(eᵘ, u·eᵛ, ln u, x·ln x …)&quot;]
+  S2[&quot;2. Vérifier le domaine&lt;br/&gt;(ln ⇒ u &gt; 0)&quot;]
+  S3[&quot;3. Dériver&lt;br/&gt;(formule composée)&quot;]
+  S4[&quot;4. Factoriser f&#39;(x)&lt;br/&gt;(eˣ ou 1/x apparaît)&quot;]
+  S5[&quot;5. Signe → tableau&lt;br/&gt;de variations&quot;]
+  S6[&quot;6. Limites&lt;br/&gt;croissances comparées&quot;]
+  S7[&quot;7. (parfois) Convexité,&lt;br/&gt;tangentes, position relative&quot;]
+  S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6 --&gt; S7
+
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef done fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class S1,S2,S3 step;
+  class S4,S5 key;
+  class S6,S7 done;
+</code></pre>
+<hr>
+<h2>VII. Diagramme de décision</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;exp ou ln dans l&#39;énoncé.&lt;br/&gt;Que faire ?&quot;]
+  E --&gt; A1[&quot;Équation / inéquation ?&quot;]
+  E --&gt; A2[&quot;Dériver une composée ?&quot;]
+  E --&gt; A3[&quot;Limite avec exp / ln ?&quot;]
+  E --&gt; A4[&quot;Suite, inconnue&lt;br/&gt;en exposant qⁿ &lt; c ?&quot;]
+
+  A1 --&gt; A1a[&quot;eᴬ = eᴮ → A = B&lt;br/&gt;(injectivité)&quot;]
+  A1 --&gt; A1b[&quot;eᴬ &lt; eᴮ → A &lt; B&lt;br/&gt;(croissance)&quot;]
+  A1 --&gt; A1c[&quot;ln A = ln B → A = B&lt;br/&gt;(A, B &gt; 0)&quot;]
+  A1 --&gt; A1d[&quot;eˣ = a → x = ln a&lt;br/&gt;ln x = a → x = eᵃ&quot;]
+
+  A2 --&gt; A2a[&quot;eᵘ⁽ˣ⁾ → u&#39;(x)·eᵘ⁽ˣ⁾&quot;]
+  A2 --&gt; A2b[&quot;ln(u(x)) → u&#39;(x)/u(x)&lt;br/&gt;(vérifier u &gt; 0)&quot;]
+
+  A3 --&gt; A3a[&quot;Forme directe → calcul&quot;]
+  A3 --&gt; A3b[&quot;eˣ/xⁿ, xⁿe⁻ˣ&lt;br/&gt;→ exp gagne&quot;]
+  A3 --&gt; A3c[&quot;ln x / xⁿ, x·ln x&lt;br/&gt;→ puissance gagne&quot;]
+  A3 --&gt; A3d[&quot;FI ∞−∞ → factoriser&lt;br/&gt;par le terme dominant&quot;]
+
+  A4 --&gt; A4a[&quot;Prendre le ln,&lt;br/&gt;attention au signe&lt;br/&gt;de ln(q) si q &lt; 1&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class A1,A2,A3,A4 branch;
+  class A1a,A1b,A1c,A1d,A2a,A2b,A3a,A3b,A3c,A3d,A4a leaf;
+</code></pre>
+<hr>
+<h2>VIII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Pour toute fonction $\ln(u(x))$, j&#39;ai vérifié que $u > 0$ sur l&#39;intervalle d&#39;étude.</li>
+<li><input disabled="" type="checkbox"> Pour les inéquations $e^A < e^B$, j&#39;ai bien utilisé la stricte croissance de exp.</li>
+<li><input disabled="" type="checkbox"> Pour les inéquations $\ln A < \ln B$, j&#39;ai vérifié que A et B sont <strong>strictement positifs</strong> AVANT d&#39;enlever le ln.</li>
+<li><input disabled="" type="checkbox"> Quand j&#39;ai divisé par $\ln q$ avec $0 < q < 1$, j&#39;ai pensé à <strong>inverser</strong> l&#39;inégalité (car $\ln q < 0$).</li>
+<li><input disabled="" type="checkbox"> Pour les croissances comparées, j&#39;ai bien identifié qui domine (exp &gt;&gt; puissance &gt;&gt; ln).</li>
+<li><input disabled="" type="checkbox"> Je n&#39;ai PAS écrit $\ln(a + b) = \ln a + \ln b$ (ça n&#39;existe pas — uniquement pour le produit).</li>
+<li><input disabled="" type="checkbox"> Je n&#39;ai PAS écrit $e^{a+b} = e^a + e^b$ (ça n&#39;existe pas non plus — c&#39;est un produit).</li>
+<li><input disabled="" type="checkbox"> Pour calculer $f'$ avec $e^{u}$ ou $\ln(u)$, j&#39;ai bien dérivé u séparément AVANT.</li>
+</ul>
+<hr>
+<h2>IX. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>Confusion produit/somme :</strong></p>
+<ul>
+<li>$e^{a+b} = e^a \times e^b$ (somme → produit)</li>
+<li>$\ln(ab) = \ln a + \ln b$ (produit → somme)</li>
+<li><strong>Inverser ces deux fait perdre toute crédibilité de copie.</strong></li>
+</ul>
+</li>
+<li><p><strong>Domaine du ln oublié :</strong> quand on étudie $f(x) = \ln(g(x))$, on DOIT chercher où $g(x) > 0$ avant tout. Erreur classique : étudier f sur ℝ alors que le domaine est restreint.</p>
+</li>
+<li><p><strong>Ln d&#39;un nombre négatif :</strong> $\ln(-2)$, ça <strong>n&#39;existe pas</strong>. Si tu obtiens ça dans un calcul, t&#39;as fait une erreur en amont.</p>
+</li>
+<li><p><strong>$\ln 1 = 0$ et pas 1.</strong> Bête mais ça arrive.</p>
+</li>
+<li><p><strong>Dériver $e^{x^2}$ :</strong> beaucoup oublient le facteur 2x. C&#39;est $2x \cdot e^{x^2}$, pas $e^{x^2}$.</p>
+</li>
+<li><p><strong>Inéquation avec ln d&#39;un nombre &lt; 1 :</strong> quand tu divises par $\ln(0{,}85)$ par exemple, <strong>change de sens</strong> parce que $\ln(0{,}85) < 0$.</p>
+</li>
+<li><p><strong>Limite mal calculée par &quot;intuition&quot; :</strong> on n&#39;écrit JAMAIS &quot;$\ln(+\infty) = +\infty$&quot; comme un calcul direct. On dit &quot;comme $u(x) \to +\infty$ et $\lim_{X \to +\infty} \ln X = +\infty$, par composition, $\lim \ln(u(x)) = +\infty$&quot;.</p>
+</li>
+<li><p><strong>Tangente $y = x + 1$ vs $y = x - 1$</strong> : la première est en 0 pour exp, la seconde en 1 pour ln. <strong>C&#39;est symétrique, pas identique.</strong> Si tu confonds, tu donnes la mauvaise tangente.</p>
+</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html">https://arthurjeaugey.com/revisions-maths/raw/exp-ln.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

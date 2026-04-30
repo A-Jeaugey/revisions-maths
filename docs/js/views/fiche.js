@@ -109,6 +109,10 @@ export async function renderFiche({ container, params }) {
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
           Copier le lien
         </button>
+        <button class="side-action" id="shareLink" title="Partager une version lisible sans JavaScript (idéal pour IA, lecteur d'écran, partage email)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+          Lien partageable
+        </button>
         <button class="side-action accent-action" id="printBtn">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Télécharger la fiche PDF
@@ -178,6 +182,12 @@ export async function renderFiche({ container, params }) {
   view.querySelector('#copyLink')?.addEventListener('click', () => {
     navigator.clipboard.writeText(location.href);
     window.RM.toast('Lien copié', 'success');
+  });
+
+  view.querySelector('#shareLink')?.addEventListener('click', () => {
+    const url = `https://arthurjeaugey.com/revisions-maths/raw/${ch.slug}.html`;
+    navigator.clipboard.writeText(url);
+    window.RM.toast('Lien partageable copié (version lisible sans JS)', 'success');
   });
 
   view.querySelector('#printBtn')?.addEventListener('click', () => openDownloadChoice(ch));

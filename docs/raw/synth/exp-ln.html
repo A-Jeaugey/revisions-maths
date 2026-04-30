@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponentielle &amp; Logarithme — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Exponentielle &amp; Logarithme.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exponentielle &amp; Logarithme — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Exponentielle &amp; Logarithme.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exponentielle &amp; Logarithme — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Exponentielle &amp; Logarithme.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Exponentielle & Logarithme — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Exponentielle & Logarithme.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/exp-ln">https://arthurjeaugey.com/revisions-maths/#/fiche/exp-ln</a>.</div>
+<article><h1>📈 Exponentielle &amp; Logarithme — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Deux fonctions réciproques — apprendre l&#39;une, c&#39;est savoir l&#39;autre par symétrie.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>e^A = e^B</code></td>
+<td><code>A = B</code> (exp injective)</td>
+</tr>
+<tr>
+<td><code>ln A = ln B</code> (A,B&gt;0)</td>
+<td><code>A = B</code> (ln injective)</td>
+</tr>
+<tr>
+<td><code>e^A &lt; e^B</code></td>
+<td><code>A &lt; B</code> (exp croissante)</td>
+</tr>
+<tr>
+<td><code>ln A &lt; ln B</code> (A,B&gt;0)</td>
+<td><code>A &lt; B</code> (ln croissante)</td>
+</tr>
+<tr>
+<td><code>e^x = a</code> (a&gt;0)</td>
+<td><code>x = ln a</code></td>
+</tr>
+<tr>
+<td><code>ln x = a</code></td>
+<td><code>x = e^a</code></td>
+</tr>
+<tr>
+<td>Dériver <code>e^{u(x)}</code></td>
+<td><code>u&#39;(x)·e^{u(x)}</code></td>
+</tr>
+<tr>
+<td>Dériver <code>ln(u(x))</code></td>
+<td><code>u&#39;(x)/u(x)</code> (avec u&gt;0)</td>
+</tr>
+<tr>
+<td><code>e^x / x^n</code>, <code>x^n·e^{-x}</code></td>
+<td>Croissances comparées (exp gagne)</td>
+</tr>
+<tr>
+<td><code>ln(x)/x^n</code>, <code>x^n·ln(x)</code></td>
+<td>Croissances comparées (puissance gagne)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Exponentielle — l&#39;essentiel</strong></p>
+<ul>
+<li>Définie sur ℝ, <strong>strictement positive</strong>, <code>(e^x)&#39; = e^x</code></li>
+<li><code>e^0 = 1</code>, <code>e^1 = e ≈ 2,72</code></li>
+<li>⚠️ <strong>Jamais</strong> <code>e^x = 0</code> ou <code>e^x ≤ 0</code>. C&#39;est faux.</li>
+<li><code>lim_{x→+∞} e^x = +∞</code>, <code>lim_{x→−∞} e^x = 0</code></li>
+<li>Tangente en 0 : <code>y = x + 1</code> (donne <code>e^x ≥ x + 1</code>)</li>
+</ul>
+<p><strong>Logarithme — réciproque de exp</strong></p>
+<ul>
+<li>Défini sur <code>]0 ; +∞[</code></li>
+<li><code>ln(e^x) = x</code> pour tout x ; <code>e^{ln x} = x</code> pour x &gt; 0</li>
+<li><code>ln 1 = 0</code>, <code>ln e = 1</code></li>
+<li><code>(ln x)&#39; = 1/x</code></li>
+<li><code>lim_{x→0^+} ln x = −∞</code>, <code>lim_{x→+∞} ln x = +∞</code></li>
+<li>Tangente en 1 : <code>y = x − 1</code> (donne <code>ln x ≤ x − 1</code>)</li>
+</ul>
+<p><strong>Propriétés algébriques (à connaître par cœur)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Exp</th>
+<th>Ln</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>e^{a+b} = e^a · e^b</code></td>
+<td><code>ln(ab) = ln a + ln b</code></td>
+</tr>
+<tr>
+<td><code>e^{a−b} = e^a / e^b</code></td>
+<td><code>ln(a/b) = ln a − ln b</code></td>
+</tr>
+<tr>
+<td><code>e^{−a} = 1/e^a</code></td>
+<td><code>ln(1/a) = −ln a</code></td>
+</tr>
+<tr>
+<td><code>(e^a)^n = e^{na}</code></td>
+<td><code>ln(a^n) = n·ln a</code></td>
+</tr>
+</tbody></table>
+<p>⚠️ <code>ln(a+b)</code> <strong>ne se simplifie pas</strong>. Aucune formule.</p>
+<p><strong>Croissances comparées (la hiérarchie en +∞)</strong></p>
+<blockquote>
+<p><strong>exp &gt;&gt; puissances &gt;&gt; ln</strong></p>
+</blockquote>
+<ul>
+<li><code>lim e^x / x^n = +∞</code> pour tout n</li>
+<li><code>lim x^n · e^{-x} = 0</code> pour tout n</li>
+<li><code>lim ln(x) / x^n = 0</code> pour tout n &gt; 0</li>
+<li><code>lim x^n · ln(x) = 0</code> en 0+ pour tout n &gt; 0</li>
+</ul>
+<p><strong>Inéquations à inconnue en exposant</strong>
+Exemple : <code>0,85^n &lt; 0,6</code></p>
+<ul>
+<li>Prendre <code>ln</code> : <code>n · ln(0,85) &lt; ln(0,6)</code></li>
+<li>⚠️ <code>ln(0,85) &lt; 0</code> ⇒ <strong>changer le sens</strong> : <code>n &gt; ln(0,6)/ln(0,85) ≈ 3,14</code></li>
+<li>⇒ plus petit entier : <strong>n = 4</strong></li>
+</ul>
+<p><strong>Étude de <code>f(x) = e^{u(x)}</code> ou <code>f(x) = ln(u(x))</code></strong></p>
+<ol>
+<li>Domaine (pour ln : il faut <code>u(x) &gt; 0</code>)</li>
+<li>Dérivée : <code>u&#39;·e^u</code> ou <code>u&#39;/u</code></li>
+<li>Signe de f&#39; = signe de u&#39; (car <code>e^u &gt; 0</code> toujours, et <code>u &gt; 0</code> pour ln)</li>
+<li>Tableau de variations + limites</li>
+</ol>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dérivée exp composée</td>
+<td><code>(e^{u})&#39; = u&#39; · e^u</code></td>
+</tr>
+<tr>
+<td>Dérivée ln composée</td>
+<td><code>(ln u)&#39; = u&#39;/u</code></td>
+</tr>
+<tr>
+<td>Limite remarquable ln</td>
+<td><code>lim_{x→0} ln(1+x)/x = 1</code></td>
+</tr>
+<tr>
+<td>Limite remarquable exp</td>
+<td><code>lim_{x→0} (e^x − 1)/x = 1</code></td>
+</tr>
+<tr>
+<td>Inégalité tangente</td>
+<td><code>e^x ≥ x+1</code> ; <code>ln x ≤ x−1</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>Écrire <code>e^x = 0</code> (impossible — exp &gt; 0)</li>
+<li>Oublier que <code>ln</code> exige son argument <strong>strictement positif</strong></li>
+<li>Confondre : <code>ln</code> transforme produit→somme ; <code>exp</code> transforme somme→produit</li>
+<li>Inéquation avec <code>ln(q)</code> quand <code>q &lt; 1</code> : <strong>inverser le sens</strong></li>
+<li>Mal dériver <code>e^{u(x)}</code> : oublier le <code>u&#39;(x)</code> devant</li>
+<li>Croissances comparées invoquées à tort : seulement si on n&#39;arrive <strong>pas</strong> à conclure par factorisation</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai vérifié le domaine avant d&#39;utiliser ln</li>
+<li><input disabled="" type="checkbox"> J&#39;ai justifié l&#39;injectivité (« exp est strictement croissante donc injective »)</li>
+<li><input disabled="" type="checkbox"> Pour les croissances comparées : ne pas les invoquer si une factorisation simple suffit</li>
+<li><input disabled="" type="checkbox"> Tangente en 0 (exp) ou en 1 (ln) : valeur de la pente correctement calculée</li>
+<li><input disabled="" type="checkbox"> Étude complète : domaine, limites, dérivée, signe, tableau, asymptotes</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html">https://arthurjeaugey.com/revisions-maths/raw/synth/exp-ln.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

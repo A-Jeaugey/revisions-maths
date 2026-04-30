@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suites numériques — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Suites numériques.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Suites numériques — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Suites numériques.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Suites numériques — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Suites numériques.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Suites numériques — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Suites numériques.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/suites">https://arthurjeaugey.com/revisions-maths/#/fiche/suites</a>.</div>
+<article><h1>📘 Suites — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Tout ce qui peut tomber, version éclair.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>U_{n+1} = a·U_n + b</code> (b≠0)</td>
+<td>Suite arithmético-géométrique → point fixe + suite auxiliaire</td>
+</tr>
+<tr>
+<td>« Montrer que U_n ≤ … »</td>
+<td>Récurrence (presque toujours)</td>
+</tr>
+<tr>
+<td><code>U_{n+1} = f(U_n)</code> + question sur la limite</td>
+<td>TCM puis théorème du point fixe</td>
+</tr>
+<tr>
+<td><code>(-1)^n</code>, <code>sin(n)</code>, <code>cos(n)</code> dans U_n</td>
+<td>Théorème des gendarmes</td>
+</tr>
+<tr>
+<td><code>U_n &gt; qqch qui → +∞</code></td>
+<td>Comparaison (minoration)</td>
+</tr>
+<tr>
+<td>Pourcentage (+12 %, −3 %)</td>
+<td>Coeff multiplicateur (×1,12 ; ×0,97)</td>
+</tr>
+<tr>
+<td><code>e^n / n^k</code>, <code>n^k·e^{-n}</code></td>
+<td>Croissances comparées</td>
+</tr>
+<tr>
+<td>Forme <strong>explicite</strong> U_n = f(n)</td>
+<td>Calcul direct de limite</td>
+</tr>
+<tr>
+<td>Forme <strong>récurrente</strong> U_{n+1} = f(U_n)</td>
+<td>Passage obligatoire par un théorème</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>SA / SG — reconnaître</strong></p>
+<ul>
+<li>SA : <code>U_{n+1} − U_n = r</code> (constante) ⇒ <code>U_n = U_0 + nr</code></li>
+<li>SG : <code>U_{n+1}/U_n = q</code> (constante) ⇒ <code>U_n = U_0·q^n</code></li>
+<li>⚠️ Toujours montrer indépendance de n, <strong>jamais sur 2 termes</strong>.</li>
+</ul>
+<p><strong>SAG (<code>U_{n+1} = aU_n + b</code>)</strong></p>
+<ol>
+<li>Point fixe : <code>C = b/(1−a)</code></li>
+<li><code>V_n = U_n − C</code> est géométrique de raison <code>a</code></li>
+<li><code>U_n = (U_0 − C)·a^n + C</code></li>
+</ol>
+<p><strong>Récurrence — rédaction obligatoire</strong></p>
+<ul>
+<li><strong>Init</strong> : vérifier P(n_0)</li>
+<li><strong>Hérédité</strong> : « Soit n ≥ n_0. Supposons P(n). Montrons P(n+1) »</li>
+<li><strong>Conclusion</strong> : « Par principe de récurrence, P(n) vraie pour tout n ≥ n_0 »</li>
+</ul>
+<p><strong>TCM (théorème de convergence monotone)</strong></p>
+<blockquote>
+<p>Toute suite croissante et majorée (resp. décroissante et minorée) converge.</p>
+</blockquote>
+<p>⚠️ Donne l&#39;<strong>existence</strong> de la limite, <strong>pas sa valeur</strong>.</p>
+<p><strong>Point fixe — 3 conditions à citer</strong></p>
+<ol>
+<li>(U_n) converge vers L (déjà prouvé par TCM)</li>
+<li>(U_n) définie par <code>U_{n+1} = f(U_n)</code></li>
+<li>f <strong>continue</strong> en L (préciser l&#39;intervalle)</li>
+</ol>
+<p>⇒ L vérifie <code>f(L) = L</code>. Résoudre, choisir L compatible avec l&#39;encadrement.</p>
+<p><strong>Gendarmes</strong></p>
+<ul>
+<li>Si <code>V_n ≤ U_n ≤ W_n</code> et <code>lim V_n = lim W_n = L</code> alors <code>lim U_n = L</code>.</li>
+<li>Réflexe : dès qu&#39;on voit <code>sin(n)</code>, <code>cos(n)</code>, <code>(-1)^n</code>.</li>
+</ul>
+<p><strong>Comparaison</strong></p>
+<ul>
+<li><code>U_n ≥ V_n</code> et <code>lim V_n = +∞</code> ⇒ <code>lim U_n = +∞</code> (le grand pousse vers +∞)</li>
+<li><code>U_n ≤ W_n</code> et <code>lim W_n = −∞</code> ⇒ <code>lim U_n = −∞</code> (le petit tire vers −∞)</li>
+</ul>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Somme entiers</td>
+<td><code>1+2+…+n = n(n+1)/2</code></td>
+</tr>
+<tr>
+<td>Somme SA</td>
+<td><code>(nb termes)·(premier+dernier)/2</code></td>
+</tr>
+<tr>
+<td>Somme SG (q≠1)</td>
+<td><code>U_0·(1−q^{n+1})/(1−q)</code></td>
+</tr>
+<tr>
+<td>Limite <code>q^n</code>, q&gt;1</td>
+<td><code>+∞</code></td>
+</tr>
+<tr>
+<td>Limite <code>q^n</code>, −1&lt;q&lt;1</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Limite <code>q^n</code>, q≤−1</td>
+<td><strong>pas de limite</strong></td>
+</tr>
+<tr>
+<td>Croissances comparées</td>
+<td><code>e^n/n^k → +∞</code>, <code>n^k·e^{-n} → 0</code>, <code>ln(n)/n^k → 0</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>Variations de <strong>f</strong> ≠ variations de <strong>(U_n)</strong> dans une suite récurrente</li>
+<li>Nombre de termes dans <code>U_3 + … + U_17</code> : <strong>15</strong> (pas 14)</li>
+<li>Récurrence sans conclusion finale = 0 point</li>
+<li>Point fixe sans avoir prouvé la convergence d&#39;abord = 0</li>
+<li>Sens des inégalités quand f est décroissante (s&#39;inverse)</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Récurrence en 3 étapes (init / hérédité / conclusion)</li>
+<li><input disabled="" type="checkbox"> Pour le point fixe : convergence + récurrence + <strong>continuité</strong> explicitement citées</li>
+<li><input disabled="" type="checkbox"> Théorèmes (gendarmes, comparaison, TCM) justifiés ligne par ligne</li>
+<li><input disabled="" type="checkbox"> Pourcentages traduits en coefficient multiplicateur</li>
+<li><input disabled="" type="checkbox"> Vérifier que la limite L est dans le domaine de validité</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html">https://arthurjeaugey.com/revisions-maths/raw/synth/suites.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+{
+  "exam": {
+    "name": "Bac blanc — Spécialité Maths",
+    "level": "Terminale Générale",
+    "session": "2026",
+    "duration": "4h",
+    "structure": "4 exercices · 5-6 points chacun"
+  },
+  "chapters": [
+    {
+      "slug": "suites",
+      "title": "Suites numériques",
+      "subtitle": "Récurrence · Limites · Point fixe · TCM",
+      "icon": "Σ",
+      "color": "#ff3366",
+      "color2": "#ff8a00",
+      "file": "fiche_suites.md",
+      "synthFile": "synth_suites.md",
+      "frequency": "🟧 83%",
+      "duration": 35,
+      "tags": ["récurrence", "monotonie", "convergence", "point fixe", "gendarmes"],
+      "keyFormulas": [
+        "U_{n+1} = aU_n + b \\Rightarrow C = \\frac{b}{1-a}",
+        "\\sum_{k=0}^{n} k = \\frac{n(n+1)}{2}",
+        "\\text{SG}: S = U_0\\cdot\\frac{1-q^{n+1}}{1-q}"
+      ]
+    },
+    {
+      "slug": "geometrie-espace",
+      "title": "Géométrie dans l'espace",
+      "subtitle": "Vecteurs · Droites · Plans · Projetés",
+      "icon": "△",
+      "color": "#00d9ff",
+      "color2": "#0066ff",
+      "file": "fiche_geometrie_espace.md",
+      "synthFile": "synth_geometrie_espace.md",
+      "frequency": "🟥 97%",
+      "duration": 40,
+      "tags": ["vecteurs", "produit scalaire", "plan", "droite", "projeté orthogonal"],
+      "keyFormulas": [
+        "\\vec{u}\\cdot\\vec{v} = x x' + y y' + z z'",
+        "AB = \\sqrt{(x_B-x_A)^2 + (y_B-y_A)^2 + (z_B-z_A)^2}",
+        "\\text{Plan}: ax + by + cz + d = 0"
+      ]
+    },
+    {
+      "slug": "probas-binomiale",
+      "title": "Probabilités & Binomiale",
+      "subtitle": "Conditionnelles · Bayes · Loi binomiale",
+      "icon": "ℙ",
+      "color": "#c8ff00",
+      "color2": "#00ff88",
+      "file": "fiche_probas_binomiale.md",
+      "synthFile": "synth_probas_binomiale.md",
+      "frequency": "🟥 100%",
+      "duration": 40,
+      "tags": ["dénombrement", "conditionnelles", "indépendance", "binomiale", "Bayes"],
+      "keyFormulas": [
+        "P_A(B) = \\frac{P(A\\cap B)}{P(A)}",
+        "P(X=k) = \\binom{n}{k}p^k(1-p)^{n-k}",
+        "E(X) = np,\\quad V(X) = np(1-p)"
+      ]
+    },
+    {
+      "slug": "sommes-va-bienayme",
+      "title": "Sommes de VA & Bienaymé-Tchebychev",
+      "subtitle": "Échantillons · Concentration · LGN",
+      "icon": "Σ²",
+      "color": "#7cffcb",
+      "color2": "#00d9ff",
+      "file": "fiche_sommes_va_echantillons_bienayme.md",
+      "synthFile": "synth_sommes_va_echantillons_bienayme.md",
+      "frequency": "🟧 44%",
+      "duration": 35,
+      "tags": ["linéarité", "indépendance", "échantillon", "Bienaymé-Tchebychev", "LGN"],
+      "keyFormulas": [
+        "E(aX+bY) = aE(X)+bE(Y)",
+        "V(M_n) = \\frac{V(X)}{n},\\ E(M_n)=E(X)",
+        "P(|X-E(X)|\\geq \\alpha) \\leq \\frac{V(X)}{\\alpha^2}"
+      ]
+    },
+    {
+      "slug": "exp-ln",
+      "title": "Exponentielle & Logarithme",
+      "subtitle": "Fonctions réciproques · Croissances comparées",
+      "icon": "eˣ",
+      "color": "#ff00ff",
+      "color2": "#9000ff",
+      "file": "fiche_exp_ln.md",
+      "synthFile": "synth_exp_ln.md",
+      "frequency": "🟧 89%",
+      "duration": 35,
+      "tags": ["exp", "ln", "dérivées composées", "croissances comparées"],
+      "keyFormulas": [
+        "(e^{u})' = u' \\cdot e^{u}",
+        "(\\ln u)' = \\frac{u'}{u}",
+        "\\lim_{x\\to+\\infty}\\frac{e^x}{x^n} = +\\infty"
+      ]
+    },
+    {
+      "slug": "limites-continuite",
+      "title": "Limites · Continuité · Convexité",
+      "subtitle": "Étude de fonctions · TVI · Composée",
+      "icon": "lim",
+      "color": "#ffaa00",
+      "color2": "#ff5500",
+      "file": "fiche_limites_continuite_convexite_composee.md",
+      "synthFile": "synth_limites_continuite_convexite_composee.md",
+      "frequency": "🟥 94%",
+      "duration": 45,
+      "tags": ["limites", "FI", "TVI", "convexité", "inflexion"],
+      "keyFormulas": [
+        "(g \\circ f)'(x) = f'(x)\\cdot g'(f(x))",
+        "\\text{Convexe}\\iff f'' \\geq 0",
+        "\\text{TVI bijection}: f \\text{ continue + monotone}"
+      ]
+    },
+    {
+      "slug": "primitives-edo",
+      "title": "Primitives & Équations différentielles",
+      "subtitle": "y' = ay + b · y' = ay + φ",
+      "icon": "∫dy",
+      "color": "#00ffaa",
+      "color2": "#00aaff",
+      "file": "fiche_primitives_equations_differentielles.md",
+      "synthFile": "synth_primitives_equations_differentielles.md",
+      "frequency": "🟧 72%",
+      "duration": 30,
+      "tags": ["primitives", "ED linéaire", "condition initiale"],
+      "keyFormulas": [
+        "y' = ay \\Rightarrow y = Ce^{ax}",
+        "y' = ay + b \\Rightarrow y = Ce^{ax} - \\frac{b}{a}",
+        "\\int u' e^u\\,dx = e^u + C"
+      ]
+    },
+    {
+      "slug": "integration",
+      "title": "Intégration",
+      "subtitle": "Aires · Chasles · IPP · Valeur moyenne",
+      "icon": "∫",
+      "color": "#ff0080",
+      "color2": "#ff4040",
+      "file": "fiche_integration.md",
+      "synthFile": "synth_integration.md",
+      "frequency": "🟨 61%",
+      "duration": 35,
+      "tags": ["intégrale", "aire", "Chasles", "IPP", "moyenne"],
+      "keyFormulas": [
+        "\\int_a^b f(t)\\,dt = F(b) - F(a)",
+        "\\bar{f} = \\frac{1}{b-a}\\int_a^b f(t)\\,dt",
+        "\\int_a^b u'v = [uv]_a^b - \\int_a^b uv'"
+      ]
+    }
+  ],
+  "annales": {
+    "years": [2024, 2025],
+    "sessions2024": [
+      {"name": "Sujet 0 (référence)", "code": "S0-2024", "files": ["Exercices_0_2024_FK_2.pdf", "Corrige_Exercices_0_2024_FH4-2.pdf"]},
+      {"name": "Amérique du Nord J1", "date": "21 mai 2024", "code": "AmN-J1", "files": ["Spe_Amerique_Nord21_05_2024_DV.pdf", "Corrige_spe_Amerique_Nord_J1_2024_DV.pdf"]},
+      {"name": "Amérique du Nord J2", "date": "22 mai 2024", "code": "AmN-J2", "files": ["Spe__Ame_rique_Nord_J2_22_mai_2024.pdf", "Corrige_spe_Amerique_Nord_22_05_2024_DV.pdf"]},
+      {"name": "Centres étrangers J1", "date": "5 juin 2024", "code": "CEtr-J1", "files": ["Etranger_J1_spe_5_06_2024_DV.pdf", "Corrige_Spe_cialite_centre_e_trangers_groupe_1_jour_1_5_juin_24_.pdf"]},
+      {"name": "Centres étrangers J2", "date": "6 juin 2024", "code": "CEtr-J2", "files": ["Etranger_spe_J2_6_06_2024_DV.pdf", "Corrige_Etranger_spe_J2_6_06_2024_FK_VT.pdf"]},
+      {"name": "Suède (J1bis)", "date": "7 juin 2024", "code": "Suede", "files": ["Spe_Suede_7_06_2024_DV.pdf", "Corrige__Spe_Centres_e_trangers_J1bis_07_06_2024.pdf"]},
+      {"name": "Asie J1", "date": "10 juin 2024", "code": "Asie-J1", "files": ["Spe_Asie_J1_10_06_2024_DV.pdf"]},
+      {"name": "Asie J2", "date": "11 juin 2024", "code": "Asie-J2", "files": ["Spe_Asie_11_06_2024_DV.pdf", "Corrige_Spe_Asie_11_06_2024_VT.pdf"]},
+      {"name": "Métropole J1", "date": "19 juin 2024", "code": "Metro-J1", "files": ["Metropole_J1_spe_19_06_2024_VTFK.pdf", "Corrige-spe_J1_Metropole_19_06_2024_DV.pdf"]},
+      {"name": "Métropole J2", "date": "20 juin 2024", "code": "Metro-J2", "files": ["Me_tropole_J2_spe_20_06_2024_VTFK.pdf", "Corrige__Me_tropole_J2_spe_20_06_2024_FK.pdf"]},
+      {"name": "Polynésie J1", "date": "19 juin 2024", "code": "Poly-J1", "files": ["Spe_Polynesie_J1_19_06_2024_DV__2.pdf", "Corrige_spe_PolynesieJ1_19_06_2024_DV_2.pdf"]},
+      {"name": "Polynésie J2", "date": "20 juin 2024", "code": "Poly-J2", "files": ["Spe_Polynesie_J2_20_06_2024_DV.pdf", "Corrige_bis_Polynesie_20_06_2024_DV.pdf"]},
+      {"name": "Métropole Sept J1", "date": "11 sept 2024", "code": "MetroS-J1", "files": ["Spe_J1_Metropole_11_09_2024_DV_2.pdf", "Corrrige_Spe_J1_Metropole_11_09_2024_FH.pdf"]},
+      {"name": "Métropole Sept J2", "date": "12 sept 2024", "code": "MetroS-J2", "files": ["Spe_J2_12_09_2024_Metropole_DV.pdf", "Corrige_spe_J2_12_09_2024_Metro_DV_2.pdf"]},
+      {"name": "Polynésie Sept", "date": "9 sept 2024", "code": "PolyS", "files": ["Spe_Polynesie_9_09_2024_DV.pdf", "Corrige_Spe_Polynesie_9_09_2024_FH.pdf"]},
+      {"name": "Amérique du Sud J1", "date": "21 nov 2024", "code": "AmS-J1", "files": ["SpeJ1_21_11_2024_Ameri_Sud_DV_2.pdf", "Corrige_Am_du_Sud_21_11_2024_DVFHYM.pdf"]},
+      {"name": "Amérique du Sud J2", "date": "22 nov 2024", "code": "AmS-J2", "files": ["SpeJ2_22_11_2024_Am_du_Sud_DV.pdf", "Corrige_SpeJ2_22_11_2024_Am_du_Sud_FHDV.pdf"]}
+    ],
+    "sessions2025": [
+      {"name": "Amérique du Nord J1", "date": "21 mai 2025", "code": "AmN-J1", "files": ["Ame_rique_du_Nord_J1_spe_21_05_2025_FK.pdf", "Corrige_Ame_rique_du_Nord_J1_spe_21_05_2025_FK_VT.pdf"]},
+      {"name": "Amérique du Nord J2", "date": "22 mai 2025", "code": "AmN-J2", "files": ["Amerique_du_Nord_J2_spe_22_05_2025_DV_FK.pdf", "Corrige_Am_du_Nord_J2_2025_DV_2.pdf"]},
+      {"name": "Amérique du Nord J2 secours", "date": "22 mai 2025", "code": "AmN-J2s", "files": ["Amerique_du_Nord_J2_secours_spe_22_05_2025_FK.pdf", "Corrige__Ame_rique_du_Nord_J2_secours_spe_22_05_2025_FK.pdf"]},
+      {"name": "Asie J1", "date": "11 juin 2025", "code": "Asie-J1", "files": ["Asie_spe_J1_11_06_2025_DV.pdf", "Corrige__Asie_J1_11_06_2025_VTFK.pdf"]},
+      {"name": "Asie J2", "date": "12 juin 2025", "code": "Asie-J2", "files": ["Asie_speJ2_12_06_2025_VTFK.pdf", "Corrige_bis_Asie_spe_J2_12_06_2025_BS.pdf"]},
+      {"name": "Centres étrangers J1", "date": "12 juin 2025", "code": "CEtr-J1", "files": ["Etranger_spe_J1_12_06_2025_DV.pdf", "Corrige__centre_etranger_J1_12_06_2025_VT.pdf"]},
+      {"name": "Centres étrangers J2", "date": "13 juin 2025", "code": "CEtr-J2", "files": ["Etranger_spe_J2_13_06_2025_DV.pdf", "Corrige_Etranger_spe_J2_13_06_2025__RRoux.pdf"]},
+      {"name": "Métropole J1", "date": "17 juin 2025", "code": "Metro-J1", "files": ["Metro_J1_17_06_2025_DV.pdf", "Corrige__Me_tropole_spe_J1_17_06_2025_VTFK.pdf"]},
+      {"name": "Métropole J2", "date": "18 juin 2025", "code": "Metro-J2", "files": ["Metropole__spe_J2_18_06_2025_DV_2.pdf", "Corrige_spe_Metropole_18_06_2025_DV.pdf"]},
+      {"name": "Polynésie J1", "date": "17 juin 2025", "code": "Poly-J1", "files": ["Polynesie_spe_J1_17_06_2025_DV_2.pdf", "Corrige__Polynesie_spe_J1_17_06_2025_VTFK_2.pdf"]},
+      {"name": "Polynésie J2", "date": "18 juin 2025", "code": "Poly-J2", "files": ["Polynesie_spe_J2_18_06_2025_DV.pdf", "Corrige_Polynesie_spe_J2_18_06_2025_FK.pdf"]},
+      {"name": "Métropole Sept J1", "date": "sept 2025", "code": "MetroS-J1", "files": ["Metropole_J1_sept_2025_DV_2.pdf", "Corrige__Metropole_J1_sept_2025_FK.pdf"]},
+      {"name": "Métropole Sept J2", "date": "sept 2025", "code": "MetroS-J2", "files": ["Metropole_J2_sept_2025_DV.pdf", "Corrige_Metropole_spe_J2_10_09_2025_AP3.pdf"]},
+      {"name": "Asie Sept J1", "date": "5 sept 2025", "code": "AsieS-J1", "files": ["Asie_spe_J1_05_09_2025_FK.pdf", "Corrige_Asie_spe_J1_05_09_2025_FH.pdf"]},
+      {"name": "Polynésie Sept J1", "date": "2 sept 2025", "code": "PolyS-J1", "files": ["Polynesie_spe_J1_02_09_2025_FK_VT_DV_2.pdf", "Corrige_Polynesie_spe_J1_02_09_2025_FH.pdf"]},
+      {"name": "Amérique du Sud J1", "date": "13 nov 2025", "code": "AmS-J1", "files": ["Ameri_du_Sud_J1__13_11_2025_DV.pdf", "Corrige_Ameri_du_Sud_J1__13_11_2025_FH.pdf"]},
+      {"name": "Amérique du Sud J2", "date": "14 nov 2025", "code": "AmS-J2", "files": ["Ame_du_Sud_J2_14_11_2025_DV.pdf", "Corrige_Am_du_Sud_J2_nov_2025_DV.pdf"]},
+      {"name": "Nouvelle-Calédonie J1", "date": "20 nov 2025", "code": "NCal-J1", "files": ["Caledonie_J1_20_11_2025_DV_2.pdf", "Corrige_EDS_NC_sujet1-20-11_SD_2.pdf"]},
+      {"name": "Nouvelle-Calédonie J2", "date": "21 nov 2025", "code": "NCal-J2", "files": ["Caledonie_J2_21_11_2025_DV.pdf", "Corrige_EDS_NC_sujet2-21-11_2025_SD_2.pdf"]}
+    ]
+  }
+}

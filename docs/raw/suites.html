@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suites numériques — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Suites numériques. Récurrence · Limites · Point fixe · TCM.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/suites.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Suites numériques — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Suites numériques. Récurrence · Limites · Point fixe · TCM.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/suites.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Suites numériques — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Suites numériques. Récurrence · Limites · Point fixe · TCM.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Suites numériques — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Suites numériques. Récurrence · Limites · Point fixe · TCM.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/suites.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/suites.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/suites">https://arthurjeaugey.com/revisions-maths/#/fiche/suites</a>.</div>
+<article><h1>📘 Fiche de Combat — Les Suites Numériques</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Tout ce qui peut tomber, classé par type de question. Méthodes + pièges + exemples chiffrés.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes (à lire avant l&#39;épreuve)</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Un+1 = a·Un + b</code> (avec b ≠ 0)</td>
+<td>Suite arithmético-géométrique → point fixe + suite auxiliaire</td>
+</tr>
+<tr>
+<td>« Montrer que Un ≤ … pour tout n »</td>
+<td>Récurrence (presque toujours)</td>
+</tr>
+<tr>
+<td><code>Un+1 = f(Un)</code> + question sur la limite</td>
+<td>Convergence monotone PUIS théorème du point fixe</td>
+</tr>
+<tr>
+<td><code>(-1)^n</code>, <code>sin(n)</code>, <code>cos(n)</code> dans Un</td>
+<td>Théorème des gendarmes</td>
+</tr>
+<tr>
+<td><code>Un &gt; qqch qui tend vers +∞</code></td>
+<td>Théorème de comparaison (minoration)</td>
+</tr>
+<tr>
+<td>Pourcentage d&#39;évolution (+12 %, -3 %)</td>
+<td>Coefficient multiplicateur (×1,12 ; ×0,97)</td>
+</tr>
+<tr>
+<td><code>e^n / n^k</code> ou <code>n^k · e^(-n)</code></td>
+<td>Croissances comparées</td>
+</tr>
+<tr>
+<td>Forme <strong>explicite</strong> Un = f(n)</td>
+<td>Calcul direct de limite</td>
+</tr>
+<tr>
+<td>Forme <strong>récurrente</strong> Un+1 = f(Un)</td>
+<td>Passage obligatoire par un théorème</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Identification &amp; outils de base</h2>
+<h3>1. Reconnaître une suite arithmétique (SA)</h3>
+<p><strong>Forme :</strong> <code>Un+1 = Un + r</code> ⇔ <code>Un = U0 + n·r</code></p>
+<p><strong>Méthode pour prouver qu&#39;une suite est arithmétique :</strong></p>
+<ul>
+<li>Calculer <code>Un+1 − Un</code> et montrer que ça vaut une constante réelle <code>r</code> <strong>indépendante de n</strong>.</li>
+<li>⚠️ Ne JAMAIS se contenter de calculer <code>U1 − U0</code> et <code>U2 − U1</code>. Ça suggère, ça ne prouve pas.</li>
+</ul>
+<p><strong>Exemple chiffré :</strong>
+Soit <code>Un = 3n + 5</code>. Alors <code>Un+1 − Un = 3(n+1)+5 − (3n+5) = 3</code>. Donc (Un) est SA de raison 3 et premier terme U0 = 5.</p>
+<h3>2. Reconnaître une suite géométrique (SG)</h3>
+<p><strong>Forme :</strong> <code>Un+1 = q·Un</code> ⇔ <code>Un = U0 · q^n</code></p>
+<p><strong>Méthode :</strong> Calculer <code>Un+1 / Un</code> (sous condition <code>Un ≠ 0</code>) et montrer que c&#39;est une constante <code>q</code>.</p>
+<p><strong>Exemple chiffré :</strong>
+Soit <code>Un = 4 · 2^n</code>. Alors <code>Un+1 / Un = (4·2^(n+1)) / (4·2^n) = 2</code>. Donc (Un) est SG de raison 2.</p>
+<h3>3. Sommes — formules à connaître par cœur</h3>
+<table>
+<thead>
+<tr>
+<th>Somme</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>1 + 2 + … + n</code></td>
+<td><code>n(n+1)/2</code></td>
+</tr>
+<tr>
+<td><code>1 + 2 + … + n²</code> <em>(bonus pour réflexes)</em></td>
+<td><code>n(n+1)(2n+1)/6</code></td>
+</tr>
+<tr>
+<td>Somme de termes consécutifs d&#39;une <strong>SA</strong></td>
+<td><code>(nb de termes) × (1er + dernier)/2</code></td>
+</tr>
+<tr>
+<td>Somme de termes consécutifs d&#39;une <strong>SG</strong> (q ≠ 1)</td>
+<td><code>(1er terme) × (1 − q^(nb termes)) / (1 − q)</code></td>
+</tr>
+</tbody></table>
+<p><strong>Piège n°1 :</strong> « Nombre de termes » = <code>(dernier indice − premier indice + 1)</code>. Pour <code>U3 + U4 + … + U17</code>, c&#39;est <strong>15</strong> termes, pas 14.</p>
+<p><strong>Exemple chiffré (SG) :</strong> <code>S = 1 + 2 + 4 + 8 + … + 1024</code>. C&#39;est 11 termes, raison 2, premier terme 1 :
+<code>S = 1 × (1 − 2^11)/(1 − 2) = (1 − 2048)/(−1) = 2047</code>.</p>
+<h3>4. Représentation graphique d&#39;une suite récurrente</h3>
+<p><strong>Cas <code>Un+1 = f(Un)</code> (suite récurrente) :</strong></p>
+<ol>
+<li>Tracer la courbe <code>Cf</code> de f.</li>
+<li>Tracer la droite <code>y = x</code> (la « diagonale »).</li>
+<li>Placer U0 sur l&#39;axe des abscisses.</li>
+<li>Monter verticalement jusqu&#39;à Cf → ordonnée = U1.</li>
+<li>« Rebondir » horizontalement sur <code>y = x</code> pour reporter U1 sur l&#39;axe des abscisses.</li>
+<li>Recommencer. On obtient une figure « en escalier » (si f croissante) ou « en escargot » (si f décroissante autour du point fixe).</li>
+</ol>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Point fixe : f(x) = √(x + 2) coupe y = x en L = 2&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;sqrt(x + 2)&quot;, &quot;color&quot;: &quot;#ff3366&quot; },
+    { &quot;fn&quot;: &quot;x&quot;, &quot;color&quot;: &quot;#a1a1aa&quot; }
+  ],
+  &quot;xDomain&quot;: [-2, 4],
+  &quot;yDomain&quot;: [-1, 4],
+  &quot;points&quot;: [[2, 2]],
+  &quot;height&quot;: 320
+}
+</code></pre>
+<blockquote>
+<p>La courbe rouge ($f(x) = \sqrt{x+2}$) coupe la droite $y = x$ au point fixe $L = 2$. Pour $u_0 \in [0\,;\,2]$, la suite $u_{n+1} = f(u_n)$ converge vers $L = 2$ « en escalier » (f croissante).</p>
+</blockquote>
+<p>⚠️ <strong>Piège classique :</strong> Les variations de <strong>f</strong> ne donnent <strong>PAS</strong> les variations de la suite (Un) dans une suite récurrente. Une fonction f croissante peut générer une suite croissante OU décroissante selon U0.</p>
+<p><strong>Cas <code>Un = f(n)</code> (suite explicite) :</strong> Là OUI, les variations de f sur <code>[0 ; +∞[</code> donnent directement les variations de (Un).</p>
+<hr>
+<h2>II. Suites arithmético-géométriques (SAG)</h2>
+<p><strong>Forme :</strong> <code>Un+1 = a·Un + b</code> avec <code>a ≠ 1</code> et <code>b ≠ 0</code>.</p>
+<h3>Réflexe « pourcentage »</h3>
+<ul>
+<li>Augmentation de <strong>+12 %</strong> → coefficient <code>× 1,12</code></li>
+<li>Diminution de <strong>−3 %</strong> → coefficient <code>× 0,97</code></li>
+<li>« Une ville perd 8 % de sa population puis en gagne 200 » → <code>Un+1 = 0,92·Un + 200</code></li>
+</ul>
+<h3>Algorithme de résolution (méthode « point fixe »)</h3>
+<p><strong>Étape 1 — Trouver le point fixe C</strong>
+Résoudre l&#39;équation <code>x = a·x + b</code> :
+$$C = \dfrac{b}{1 − a}$$</p>
+<p><strong>Étape 2 — Introduire la suite auxiliaire</strong>
+Poser <code>Vn = Un − C</code>.</p>
+<p><strong>Étape 3 — Démontrer que (Vn) est géométrique</strong>
+Calculer <code>Vn+1</code> :</p>
+<pre><code>Vn+1 = Un+1 − C
+     = a·Un + b − C
+     = a·Un + b − (b/(1−a))    [on remplace C]
+     = a·(Un − C)              [factorisation à faire proprement]
+     = a·Vn
+</code></pre>
+<p>Donc (Vn) est géométrique de raison <code>a</code> et de premier terme <code>V0 = U0 − C</code>.</p>
+<p><strong>Étape 4 — Forme explicite de Un</strong></p>
+<ul>
+<li><code>Vn = V0 · a^n</code></li>
+<li><code>Un = Vn + C = V0 · a^n + C</code></li>
+</ul>
+<h3>Exemple chiffré complet</h3>
+<p>Soit <code>U0 = 3</code> et <code>Un+1 = 0,5·Un + 2</code>. Trouver Un en fonction de n.</p>
+<ol>
+<li><strong>Point fixe :</strong> <code>x = 0,5x + 2</code> ⇒ <code>0,5x = 2</code> ⇒ <code>C = 4</code>.</li>
+<li><strong>Auxiliaire :</strong> <code>Vn = Un − 4</code>, donc <code>V0 = 3 − 4 = −1</code>.</li>
+<li><strong>Géométrique :</strong> <code>Vn+1 = Un+1 − 4 = 0,5·Un + 2 − 4 = 0,5·(Un − 4) = 0,5·Vn</code>. ✅</li>
+<li><strong>Explicite :</strong> <code>Vn = −1 × 0,5^n</code> donc <code>Un = 4 − 0,5^n</code>.</li>
+</ol>
+<p><strong>Vérif :</strong> U0 = 4 − 1 = 3 ✅. U1 = 4 − 0,5 = 3,5. Et <code>0,5×3 + 2 = 3,5</code> ✅.</p>
+<p><strong>Limite directe :</strong> comme <code>0 &lt; 0,5 &lt; 1</code>, <code>lim 0,5^n = 0</code>, donc <code>lim Un = 4</code>. (Et 4, c&#39;est le point fixe — pas un hasard, voir §V.6.)</p>
+<hr>
+<h2>III. Variations (monotonie)</h2>
+<h3>Les 4 méthodes (à choisir selon la tête de Un)</h3>
+<p><strong>Méthode 1 — Signe de <code>Un+1 − Un</code> (la méthode universelle)</strong></p>
+<ul>
+<li>Si <code>Un+1 − Un &gt; 0</code> pour tout n → croissante</li>
+<li>Si <code>Un+1 − Un &lt; 0</code> pour tout n → décroissante</li>
+<li>Si <code>Un+1 − Un = 0</code> → constante</li>
+</ul>
+<p><strong>Méthode 2 — Quotient <code>Un+1 / Un</code> comparé à 1</strong> <em>(seulement si tous les Un &gt; 0)</em></p>
+<ul>
+<li>Si <code>Un+1/Un &gt; 1</code> → croissante</li>
+<li>Si <code>Un+1/Un &lt; 1</code> → décroissante</li>
+<li>🎯 <strong>Très efficace</strong> pour les suites avec puissances ou produits (ex : <code>Un = n!/2^n</code>).</li>
+</ul>
+<p><strong>Méthode 3 — Forme explicite <code>Un = f(n)</code></strong>
+Étudier les variations de f sur <code>[0 ; +∞[</code> (dérivée, signe). Les variations de f → variations de Un.</p>
+<p><strong>Méthode 4 — Cas particuliers SA / SG</strong></p>
+<table>
+<thead>
+<tr>
+<th>Suite</th>
+<th>Sens de variation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SA, raison r &gt; 0</td>
+<td>Croissante</td>
+</tr>
+<tr>
+<td>SA, raison r &lt; 0</td>
+<td>Décroissante</td>
+</tr>
+<tr>
+<td>SG <code>Un = q^n</code>, q &gt; 1</td>
+<td>Croissante</td>
+</tr>
+<tr>
+<td>SG <code>Un = q^n</code>, 0 &lt; q &lt; 1</td>
+<td>Décroissante</td>
+</tr>
+<tr>
+<td>SG <code>Un = q^n</code>, q &lt; 0</td>
+<td><strong>Ni l&#39;un ni l&#39;autre</strong> (signes alternés)</td>
+</tr>
+</tbody></table>
+<p><strong>Méthode bonus — Récurrence</strong>
+Si on conjecture <code>Un+1 ≥ Un</code> mais qu&#39;on ne sait pas le prouver directement, on peut prouver par récurrence que <code>P(n) : Un+1 ≥ Un</code>. Très utile quand <code>Un+1 = f(Un)</code> avec f croissante.</p>
+<h3>Exemple chiffré (méthode 2)</h3>
+<p>Soit <code>Un = n / 2^n</code> pour n ≥ 1. Étudier les variations.</p>
+<pre><code>Un+1 / Un = [(n+1)/2^(n+1)] × [2^n / n]
+          = (n+1) / (2n)
+</code></pre>
+<p>Pour n ≥ 2 : <code>(n+1)/(2n) &lt; 1</code> ⇔ <code>n+1 &lt; 2n</code> ⇔ <code>n &gt; 1</code>. ✅
+Donc (Un) est décroissante à partir de n = 2. (Pour n=1 : U1 = 1/2, U2 = 2/4 = 1/2, égaux.)</p>
+<hr>
+<h2>IV. Raisonnement par récurrence</h2>
+<h3>Structure de rédaction IMPÉRATIVE</h3>
+<p>Soit P(n) la propriété : <strong>« [énoncer la propriété en français mathématique]</strong> ».</p>
+<p><strong>1. Initialisation</strong></p>
+<ul>
+<li>On vérifie P(n₀) (souvent n₀ = 0 ou 1).</li>
+<li>Calcul explicite des deux membres → conclusion : « P(n₀) est vraie ».</li>
+</ul>
+<p><strong>2. Hérédité</strong></p>
+<ul>
+<li>« Soit n ≥ n₀ un entier. Supposons que P(n) est vraie (Hypothèse de Récurrence, <strong>HR</strong>). Montrons que P(n+1) est vraie. »</li>
+<li>Calcul / raisonnement.</li>
+<li>Conclusion : « Donc P(n+1) est vraie. La propriété est héréditaire. »</li>
+</ul>
+<p><strong>3. Conclusion</strong></p>
+<ul>
+<li>« D&#39;après le principe de récurrence, P(n) est vraie pour tout entier n ≥ n₀. »</li>
+</ul>
+<p>⚠️ <strong>Les 3 erreurs à éviter (correcteurs friands) :</strong></p>
+<ul>
+<li>Oublier l&#39;initialisation (« on suppose qu&#39;au rang 0 c&#39;est évident »).</li>
+<li>Confondre HR (<code>P(n) vraie</code>) et conclusion (<code>P(n+1) vraie</code>).</li>
+<li>Écrire la conclusion sans mentionner « principe de récurrence ».</li>
+</ul>
+<h3>Les 3 cas classiques d&#39;hérédité</h3>
+<h4>Cas 1 : Démontrer une <strong>égalité</strong> (formule explicite)</h4>
+<p>On part de la définition par récurrence donnée par l&#39;énoncé, et on injecte l&#39;HR.</p>
+<p><strong>Exemple :</strong> <code>U0 = 2</code>, <code>Un+1 = 2Un + 1</code>. Montrer que <code>Un = 3·2^n − 1</code>.</p>
+<ul>
+<li>Init : <code>3·2^0 − 1 = 3 − 1 = 2 = U0</code> ✅</li>
+<li>Hérédité : suppose <code>Un = 3·2^n − 1</code>. Alors :<pre><code>Un+1 = 2Un + 1 = 2(3·2^n − 1) + 1 = 3·2^(n+1) − 2 + 1 = 3·2^(n+1) − 1 ✅
+</code></pre>
+</li>
+</ul>
+<h4>Cas 2 : Démontrer une <strong>inégalité</strong> (encadrement, majoration, minoration)</h4>
+<p>On part de l&#39;HR (l&#39;inégalité au rang n), et on applique des opérations successives à chaque membre pour faire apparaître Un+1.</p>
+<p><strong>Exemple :</strong> <code>U0 = 0</code>, <code>Un+1 = √(Un + 2)</code>. Montrer que <code>0 ≤ Un ≤ 2</code> pour tout n.</p>
+<ul>
+<li>Init : <code>0 ≤ 0 ≤ 2</code> ✅</li>
+<li>Hérédité : suppose <code>0 ≤ Un ≤ 2</code>. On veut <code>0 ≤ Un+1 ≤ 2</code>.<pre><code>0 ≤ Un ≤ 2
+⇒ 2 ≤ Un + 2 ≤ 4         (on ajoute 2)
+⇒ √2 ≤ √(Un + 2) ≤ 2     (racine carrée croissante sur ℝ⁺)
+⇒ √2 ≤ Un+1 ≤ 2
+</code></pre>
+Et comme <code>√2 &gt; 0</code>, on a bien <code>0 ≤ Un+1 ≤ 2</code> ✅</li>
+</ul>
+<h4>Cas 3 : Suite récurrente <code>Un+1 = f(Un)</code> avec f monotone</h4>
+<p>On applique f à l&#39;HR. <strong>Attention au sens</strong> :</p>
+<ul>
+<li>f <strong>croissante</strong> : <code>a ≤ Un ≤ b</code> ⇒ <code>f(a) ≤ f(Un) ≤ f(b)</code> (sens conservé)</li>
+<li>f <strong>décroissante</strong> : <code>a ≤ Un ≤ b</code> ⇒ <code>f(b) ≤ f(Un) ≤ f(a)</code> (sens inversé)</li>
+</ul>
+<hr>
+<h2>V. Limites et théorèmes de convergence</h2>
+<h3>1. Limites usuelles à savoir par cœur</h3>
+<table>
+<thead>
+<tr>
+<th>Suite</th>
+<th>Condition</th>
+<th>Limite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>q^n</code></td>
+<td>q &gt; 1</td>
+<td>+∞</td>
+</tr>
+<tr>
+<td><code>q^n</code></td>
+<td>q = 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>q^n</code></td>
+<td>−1 &lt; q &lt; 1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>q^n</code></td>
+<td>q ≤ −1</td>
+<td><strong>Pas de limite</strong> (oscille)</td>
+</tr>
+<tr>
+<td><code>1/n</code>, <code>1/n²</code>, <code>1/√n</code></td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>n</code>, <code>n²</code>, <code>√n</code></td>
+<td>—</td>
+<td>+∞</td>
+</tr>
+</tbody></table>
+<h3>2. Stratégie de calcul — LA règle d&#39;or</h3>
+<blockquote>
+<p><strong>Forme explicite → calcul direct.</strong>
+<strong>Forme récurrente → théorèmes (gendarmes / comparaison / convergence monotone + point fixe).</strong></p>
+</blockquote>
+<h3>3. Formes indéterminées (FI) — à connaître pour ne pas te faire avoir</h3>
+<p>Les <strong>4 FI classiques</strong> :</p>
+<ul>
+<li><code>+∞ − ∞</code></li>
+<li><code>0 × ∞</code></li>
+<li><code>∞ / ∞</code></li>
+<li><code>0 / 0</code></li>
+</ul>
+<p><strong>NON-FI</strong> (cas où tu peux conclure directement) :</p>
+<ul>
+<li><code>+∞ + ∞ = +∞</code></li>
+<li><code>(+∞) × (nombre fini &gt; 0) = +∞</code></li>
+<li><code>(nombre fini) / (±∞) = 0</code></li>
+<li><code>(nombre fini ≠ 0) / 0⁺ = ±∞</code> (selon le signe)</li>
+</ul>
+<p><strong>Exemple FI résolue (∞/∞) :</strong>
+<code>lim (3n² + 5) / (n² − 7n)</code> → on factorise par n² au num et au dénom :
+<code>= lim n²(3 + 5/n²) / [n²(1 − 7/n)] = (3 + 0)/(1 − 0) = 3</code></p>
+<h3>4. Théorème des gendarmes (encadrement)</h3>
+<p><strong>Quand l&#39;utiliser :</strong> dès que tu vois <code>sin(n)</code>, <code>cos(n)</code>, <code>(-1)^n</code>, ou tout terme borné qu&#39;on ne sait pas calculer directement.</p>
+<p><strong>Énoncé :</strong> Si pour tout n ≥ n₀ on a <code>Vn ≤ Un ≤ Wn</code> et <code>lim Vn = lim Wn = L</code>, alors <code>lim Un = L</code>.</p>
+<p><strong>Rédaction type (à reproduire MOT POUR MOT) :</strong></p>
+<blockquote>
+<p>Pour tout n ≥ 1, on a <code>−1 ≤ sin(n) ≤ 1</code>, donc <code>(n−1)/n² ≤ Un ≤ (n+1)/n²</code>.
+Or <code>lim (n−1)/n² = 0</code> et <code>lim (n+1)/n² = 0</code>.
+D&#39;après le théorème des gendarmes, <code>lim Un = 0</code>.</p>
+</blockquote>
+<h3>5. Théorèmes de comparaison (minoration / majoration)</h3>
+<p>🎯 <strong>Erreur classique : on confond les deux. Clarifions une fois pour toutes :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Si tu sais que…</th>
+<th>Et que…</th>
+<th>Alors…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Un ≥ Vn</code> (Un est <strong>plus grand</strong>)</td>
+<td><code>lim Vn = +∞</code></td>
+<td><code>lim Un = +∞</code> <em>(Un est encore plus grand, donc tiré vers le haut)</em></td>
+</tr>
+<tr>
+<td><code>Un ≤ Wn</code> (Un est <strong>plus petit</strong>)</td>
+<td><code>lim Wn = −∞</code></td>
+<td><code>lim Un = −∞</code> <em>(Un est encore plus petit, tiré vers le bas)</em></td>
+</tr>
+</tbody></table>
+<p><strong>Mnémonique imparable :</strong></p>
+<blockquote>
+<p><strong>« Le grand pousse vers +∞, le petit tire vers −∞. »</strong>
+Si tu minores Un par un truc qui explose vers +∞ → Un explose aussi.
+Si tu majores Un par un truc qui s&#39;effondre vers −∞ → Un s&#39;effondre aussi.</p>
+</blockquote>
+<p>⚠️ <strong>Ce que ça ne dit PAS :</strong></p>
+<ul>
+<li>Si <code>Un ≥ Vn</code> et <code>lim Vn = −∞</code> → on ne peut <strong>rien conclure</strong> sur Un.</li>
+<li>Si <code>Un ≤ Wn</code> et <code>lim Wn = +∞</code> → on ne peut <strong>rien conclure</strong> sur Un.</li>
+</ul>
+<p><strong>Exemple chiffré (minoration) :</strong> Soit <code>Un = n + sin(n)</code>. Trouver <code>lim Un</code>.</p>
+<ul>
+<li>On sait que <code>sin(n) ≥ −1</code> pour tout n.</li>
+<li>Donc <code>Un ≥ n − 1</code>.</li>
+<li>Or <code>lim (n − 1) = +∞</code>.</li>
+<li>D&#39;après le théorème de comparaison (minoration), <code>lim Un = +∞</code>. ✅</li>
+</ul>
+<h3>6. Théorème de convergence monotone (TCM)</h3>
+<p><strong>Énoncés :</strong></p>
+<ul>
+<li>Toute suite <strong>croissante et majorée</strong> converge.</li>
+<li>Toute suite <strong>décroissante et minorée</strong> converge.</li>
+</ul>
+<p>⚠️ <strong>Attention</strong> : ce théorème prouve l&#39;<strong>existence</strong> d&#39;une limite finie, <strong>mais ne donne pas sa valeur</strong>. Pour la valeur, il faut le théorème du point fixe (§V.7) ou un calcul direct.</p>
+<p><strong>Cas courants :</strong></p>
+<ul>
+<li>(Un) croissante non majorée → <code>lim Un = +∞</code></li>
+<li>(Un) décroissante non minorée → <code>lim Un = −∞</code></li>
+</ul>
+<h3>7. Théorème du point fixe (le boss final)</h3>
+<p><strong>Cadre d&#39;utilisation :</strong> suite récurrente <code>Un+1 = f(Un)</code>, on veut <strong>la valeur</strong> de la limite.</p>
+<p><strong>Les 3 conditions OBLIGATOIRES à citer dans la rédaction :</strong></p>
+<ol>
+<li>✅ La suite (Un) <strong>converge</strong> (vers une limite finie L). → souvent prouvé juste avant par le TCM.</li>
+<li>✅ La suite est définie par <code>Un+1 = f(Un)</code>.</li>
+<li>✅ La fonction f est <strong>continue</strong> sur un intervalle contenant L. <em>(Souvent : f continue sur ℝ ou sur l&#39;intervalle où vivent les Un.)</em></li>
+</ol>
+<p><strong>Conclusion :</strong> Alors L est solution de l&#39;équation <code>f(x) = x</code>.</p>
+<p><strong>Rédaction type (à recopier mentalement le jour J) :</strong></p>
+<blockquote>
+<ol>
+<li>(Préalable) On a montré que (Un) est croissante et majorée par 2. D&#39;après le TCM, (Un) converge vers une limite finie L.</li>
+<li>(Un) est définie par <code>Un+1 = f(Un)</code> avec <code>f(x) = √(x + 2)</code>.</li>
+<li>La fonction f est continue sur <code>[−2 ; +∞[</code>, intervalle qui contient L.</li>
+<li>D&#39;après le théorème du point fixe, L vérifie <code>f(L) = L</code>, soit <code>√(L + 2) = L</code>.</li>
+<li>On résout : <code>L² = L + 2</code> (avec L ≥ 0), donc <code>L² − L − 2 = 0</code>, donc <code>L = 2</code> ou <code>L = −1</code>. Comme L ≥ 0, <strong>L = 2</strong>.</li>
+</ol>
+</blockquote>
+<p>⚠️ <strong>Erreur classique à NE PAS faire :</strong> appliquer le point fixe sans avoir prouvé la convergence d&#39;abord. Si la suite diverge, l&#39;équation <code>f(x) = x</code> peut très bien avoir des solutions, mais elles ne sont pas la limite de Un.</p>
+<h3>8. Croissances comparées (cas particulier)</h3>
+<p><strong>Au bac, on n&#39;a le droit d&#39;utiliser les croissances comparées QUE pour <code>eˣ</code> vs puissances de x (ou de n).</strong></p>
+<table>
+<thead>
+<tr>
+<th>Forme</th>
+<th>Limite</th>
+<th>Mémo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>lim e^n / n^k</code></td>
+<td>+∞ (pour tout k)</td>
+<td>l&#39;exponentielle écrase tout</td>
+</tr>
+<tr>
+<td><code>lim n^k · e^(-n)</code></td>
+<td>0 (pour tout k)</td>
+<td>idem en version « 1/exp »</td>
+</tr>
+<tr>
+<td><code>lim ln(n) / n^k</code></td>
+<td>0 (pour tout k &gt; 0)</td>
+<td>ln est encore plus lent</td>
+</tr>
+</tbody></table>
+<p><strong>Exemple :</strong> <code>lim (n³ + 2n) / e^n</code> → numérateur dominé par <code>n³</code>, dénom par <code>e^n</code>. Croissances comparées : <code>lim n³ / e^n = 0</code>, et <code>lim 2n/e^n = 0</code>. Donc <code>lim = 0</code>.</p>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Suites&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent confirmé sur 6+ sujets analysés</strong> (Métropole 2024 J1/J2, 2025 J1/J2, septembre 2024/2025, Amérique du Nord 2025 J1/J2). Les suites apparaissent dans <strong>TOUS</strong> les sujets, sous 3 formes principales.</p>
+<h3>Forme 1 : Suite récurrente définie par $u_{n+1} = f(u_n)$ (LE PATTERN ROI)</h3>
+<p>🎯 <strong>Pattern observé sur</strong> : Métropole 2024 J2 (chlore piscine), Métropole 2025 J1 (posidonie), Métropole sept 2025 J1 (glycémie discrète), Amérique du Nord 2025 J2 secours.</p>
+<p><strong>Structure type</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  PA[&quot;Partie A&lt;br/&gt;Modèle discret (suite)&quot;]
+  PA --&gt; Q1[&quot;Q1. Calculer u₁, u₂&lt;br/&gt;(compréhension)&quot;]
+  PA --&gt; Q2[&quot;Q2. Récurrence :&lt;br/&gt;encadrement m ≤ u_n ≤ M&quot;]
+  PA --&gt; Q3[&quot;Q3. Monotonie&lt;br/&gt;signe(u_{n+1} − u_n)&quot;]
+  PA --&gt; Q4[&quot;Q4. TCM&lt;br/&gt;« (u_n) converge »&quot;]
+  PA --&gt; Q5[&quot;Q5. Point fixe&lt;br/&gt;f(L) = L&quot;]
+  PA --&gt; Q6[&quot;Q6. (parfois)&lt;br/&gt;Algo Python seuil&quot;]
+  PB[&quot;Partie B (parfois)&lt;br/&gt;Modèle continu (ED, fonction)&quot;]
+  PA -.-&gt; PB
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB part;
+  class Q1,Q2,Q3,Q6 step;
+  class Q4,Q5 key;
+</code></pre>
+<h3>Forme 2 : QCM Vrai/Faux sur les suites</h3>
+<p>🎯 <strong>Pattern observé sur Métropole sept 2024 J1</strong>.</p>
+<p><strong>Structure type</strong> : 5 affirmations indépendantes à dire vraies/fausses avec justification.</p>
+<p><strong>Affirmations classiques</strong> :</p>
+<ul>
+<li>&quot;La suite $(w_n)$ définie par $w_n = u_n - L$ est géométrique.&quot; → calculer $w_{n+1}/w_n$ et vérifier que c&#39;est une constante.</li>
+<li>&quot;La suite $(u_n)$ converge.&quot; → identifier si bornée + monotone, ou utiliser gendarmes.</li>
+<li>&quot;Pour tout $n$, $v_n = ...$&quot; → récurrence ou calcul direct.</li>
+<li>&quot;$\lim u_n = ...$&quot; → calcul de limite avec croissances comparées ou gendarmes.</li>
+</ul>
+<h3>Forme 3 : Suite auxiliaire géométrique (LA technique du sauveteur)</h3>
+<p>🎯 <strong>Pattern bac classique</strong> : on a une suite $u_{n+1} = au_n + b$ (arithmético-géométrique) et l&#39;énoncé pose $v_n = u_n - \ell$ avec $\ell$ point fixe.</p>
+<p><strong>Structure type</strong> :</p>
+<ol>
+<li>Q1. &quot;Montrer que $(v_n)$ est géométrique&quot; → calcul direct.</li>
+<li>Q2. &quot;En déduire l&#39;expression de $v_n$ en fonction de $n$&quot;.</li>
+<li>Q3. &quot;En déduire l&#39;expression de $u_n$&quot;.</li>
+<li>Q4. &quot;Déterminer la limite de $u_n$&quot;.</li>
+<li>Q5. (parfois) Calculer une somme $\sum u_k$.</li>
+</ol>
+<h3>Les 6 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Montrer par récurrence que pour tout $n$, $P(n)$&quot;</h4>
+<p>🎯 <strong>C&#39;est LA question fondamentale</strong>. Pattern : encadrement, monotonie, ou formule explicite.</p>
+<p><strong>Méthode (rédaction type)</strong> :</p>
+<blockquote>
+<p>Soit $P(n)$ la propriété &quot;$0 \leq u_n \leq 5$&quot;.</p>
+<p><strong>Initialisation</strong> : $u_0 = 1$, donc $0 \leq u_0 \leq 5$. $P(0)$ est vraie.</p>
+<p><strong>Hérédité</strong> : supposons $P(n)$ vraie pour un certain $n$, soit $0 \leq u_n \leq 5$. Montrons $P(n+1)$ : $0 \leq u_{n+1} \leq 5$.</p>
+<p>[calcul utilisant l&#39;expression de $u_{n+1}$ et l&#39;hypothèse de récurrence]</p>
+<p>Donc $P(n+1)$ est vraie.</p>
+<p><strong>Conclusion</strong> : par récurrence, pour tout $n \in \mathbb{N}$, $P(n)$ est vraie.</p>
+</blockquote>
+<p>⚠️ <strong>Ne JAMAIS oublier les 3 étapes</strong> : initialisation, hérédité, conclusion. Le correcteur les attend mot pour mot.</p>
+<h4>Q2 — &quot;Étudier la monotonie de $(u_n)$&quot;</h4>
+<p><strong>Méthodes au choix</strong> :</p>
+<ul>
+<li>Calculer $u_{n+1} - u_n$ et étudier le signe.</li>
+<li>Si $u_n > 0$, calculer $u_{n+1}/u_n$ et comparer à 1.</li>
+<li>Récurrence : &quot;$P(n) : u_n \leq u_{n+1}$&quot;.</li>
+</ul>
+<h4>Q3 — &quot;Montrer que $(u_n)$ converge&quot;</h4>
+<p>🎯 <strong>Réponse standard</strong> : appliquer le <strong>théorème de convergence monotone (TCM)</strong>.</p>
+<p><strong>Rédaction</strong> :</p>
+<blockquote>
+<p>$(u_n)$ est croissante (Q précédente) et majorée par 5 (Q précédente). D&#39;après le théorème de convergence monotone, $(u_n)$ est convergente.</p>
+</blockquote>
+<h4>Q4 — &quot;Déterminer la limite $L$ de $(u_n)$&quot;</h4>
+<p>🎯 <strong>Méthode point fixe</strong> (3 conditions à citer) :</p>
+<ol>
+<li>$(u_n)$ converge vers $L$ (déjà montré).</li>
+<li>La relation $u_{n+1} = f(u_n)$ donne par passage à la limite (avec <strong>continuité</strong> de $f$) : $L = f(L)$.</li>
+<li>Résoudre $f(L) = L$ et choisir la solution compatible avec l&#39;encadrement.</li>
+</ol>
+<p>⚠️ <strong>Toujours vérifier que $L$ est dans le domaine</strong> où la majoration/minoration s&#39;applique.</p>
+<h4>Q5 — &quot;Suite auxiliaire $(v_n)$ avec $v_n = u_n - \ell$ : montrer qu&#39;elle est géométrique&quot;</h4>
+<p><strong>Méthode</strong> : calculer $v_{n+1}$ en fonction de $v_n$.
+$$v_{n+1} = u_{n+1} - \ell = au_n + b - \ell$$
+On choisit $\ell$ tel que $a\ell + b = \ell$ (point fixe), alors $v_{n+1} = a(u_n - \ell) = av_n$.
+Donc $(v_n)$ est géométrique de raison $a$.</p>
+<h4>Q6 — &quot;Algorithme Python pour seuil&quot;</h4>
+<p><strong>Pattern</strong> : compléter un script qui retourne le plus petit $n$ tel que $u_n > S$ (ou $|u_n - L| < \varepsilon$).</p>
+<pre><code class="language-python">def seuil(S):
+    u = u_0  # valeur initiale
+    n = 0
+    while u &lt;= S:  # condition à compléter
+        u = ...  # relation de récurrence
+        n = n + 1
+    return n
+</code></pre>
+<h3>Variante : récurrence pour démontrer $u_n \leq v_n \leq w_n$ (encadrement à 3 niveaux)</h3>
+<p>🎯 <strong>Vu sur Métropole 2024 J1</strong> : démontrer un encadrement de 3 suites.</p>
+<p><strong>Méthode</strong> : récurrence avec propriété &quot;$u_n \leq u_{n+1} \leq v_{n+1} \leq w_{n+1} \leq w_n$&quot; — ce qui est plus fort qu&#39;un simple encadrement.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Contexte</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Vrai/Faux + suite imbriquée</td>
+<td>Encadrement à 3 niveaux par récurrence</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Chlore piscine</td>
+<td>$u_{n+1} = au_n + b$ + suite auxiliaire géométrique</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Posidonie</td>
+<td>$u_{n+1} = -0{,}02 u_n^2 + 1{,}3 u_n$ (récurrence non linéaire)</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2024 J1</strong></td>
+<td>QCM</td>
+<td>5 affirmations vrai/faux dont géométrique, gendarmes, formule explicite</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025 J1</strong></td>
+<td>Glycémie</td>
+<td>Suite récurrente $u_{n+1} = f(u_n)$ classique</td>
+</tr>
+<tr>
+<td><strong>AmN 2025 J2 secours</strong></td>
+<td>Suites définies par récurrence</td>
+<td>Pattern classique récurrence + monotonie + TCM</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 100% de chance d&#39;avoir une suite à ton bac blanc</strong>. Pattern le plus probable : récurrence type 3 ($u_{n+1} = f(u_n)$) avec encadrement, monotonie, TCM, point fixe.</p>
+<h3>Schéma récap — le combo gagnant pour les suites récurrentes</h3>
+<pre><code class="language-mermaid">flowchart TD
+  S1[&quot;1. u_{n+1} = f(u_n)&lt;br/&gt;avec u₀ donné&quot;]
+  S2[&quot;2. Récurrence :&lt;br/&gt;montrer 0 ≤ u_n ≤ M&lt;br/&gt;(encadrement)&quot;]
+  S3[&quot;3. Monotonie :&lt;br/&gt;signe de u_{n+1} − u_n&lt;br/&gt;(souvent factorisé)&quot;]
+  S4[&quot;4. TCM :&lt;br/&gt;monotone + bornée&lt;br/&gt;⇒ converge vers L&quot;]
+  S5[&quot;5. Point fixe :&lt;br/&gt;résoudre f(L) = L&lt;br/&gt;(continuité de f)&quot;]
+  S6[&quot;6. Choisir L compatible&lt;br/&gt;avec l&#39;encadrement&quot;]
+  S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6
+
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef key fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef done fill:#1a2200,stroke:#c8ff00,stroke-width:2px,color:#c8ff00;
+  class S1,S2,S3 step;
+  class S4,S5 key;
+  class S6 done;
+</code></pre>
+<hr>
+<h2>VII. Anti-sèche : reconnaître la stratégie au premier coup d&#39;œil</h2>
+<h3>Diagramme de décision</h3>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;ÉNONCÉ : « Trouver lim u_n »&quot;]
+  E --&gt; A1[&quot;Forme explicite&lt;br/&gt;u_n = f(n) ?&quot;]
+  E --&gt; A2[&quot;Forme récurrente&lt;br/&gt;u_{n+1} = f(u_n) ?&quot;]
+  E --&gt; A3[&quot;Présence de&lt;br/&gt;sin / cos / (−1)ⁿ ?&quot;]
+
+  A1 --&gt; R1[&quot;Calcul direct&lt;br/&gt;(factoriser,&lt;br/&gt;croissances comparées)&quot;]
+
+  A2 --&gt; Q[&quot;Question préalable ?&lt;br/&gt;« montrer croissante / bornée »&quot;]
+  Q --&gt;|Oui| TCM[&quot;Signal TCM + point fixe&lt;br/&gt;1. Monotonie&lt;br/&gt;2. Majoration/minoration&lt;br/&gt;3. TCM&lt;br/&gt;4. Point fixe f(x) = x&quot;]
+  Q --&gt;|Non| R2[&quot;Chercher si u_n est&lt;br/&gt;SA, SG ou SAG&quot;]
+
+  A3 --&gt; R3[&quot;Théorème des gendarmes&lt;br/&gt;(encadrement)&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class A1,A2,A3,Q branch;
+  class R1,R2,R3,TCM leaf;
+</code></pre>
+<hr>
+<h2>VIII. Check-list finale avant de rendre la copie</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai bien justifié <strong>chaque</strong> application de théorème (gendarmes, comparaison, point fixe…)</li>
+<li><input disabled="" type="checkbox"> Pour le <strong>point fixe</strong>, j&#39;ai cité les <strong>3 conditions</strong> (convergence, récurrence, continuité)</li>
+<li><input disabled="" type="checkbox"> Pour la <strong>récurrence</strong>, j&#39;ai bien fait : init + hérédité + conclusion (les 3 étapes)</li>
+<li><input disabled="" type="checkbox"> Je n&#39;ai pas confondu <strong>« variations de f »</strong> et <strong>« variations de (Un) »</strong> dans une suite récurrente</li>
+<li><input disabled="" type="checkbox"> Je n&#39;ai pas dit qu&#39;une suite était SA/SG juste sur deux termes</li>
+<li><input disabled="" type="checkbox"> J&#39;ai vérifié le <strong>sens des inégalités</strong> quand f est décroissante</li>
+<li><input disabled="" type="checkbox"> Pour les <strong>pourcentages</strong>, j&#39;ai bien traduit en coefficient multiplicateur</li>
+<li><input disabled="" type="checkbox"> J&#39;ai compté correctement le <strong>nombre de termes</strong> dans une somme</li>
+</ul>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/suites.html">https://arthurjeaugey.com/revisions-maths/raw/suites.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

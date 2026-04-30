@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sommes de VA &amp; Bienaymé-Tchebychev — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Sommes de VA &amp; Bienaymé-Tchebychev. Échantillons · Concentration · LGN.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sommes de VA &amp; Bienaymé-Tchebychev — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Sommes de VA &amp; Bienaymé-Tchebychev. Échantillons · Concentration · LGN.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sommes de VA &amp; Bienaymé-Tchebychev — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Sommes de VA &amp; Bienaymé-Tchebychev. Échantillons · Concentration · LGN.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sommes de VA & Bienaymé-Tchebychev — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Sommes de VA & Bienaymé-Tchebychev. Échantillons · Concentration · LGN.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/sommes-va-bienayme">https://arthurjeaugey.com/revisions-maths/#/fiche/sommes-va-bienayme</a>.</div>
+<article><h1>🎲 Fiche de Combat — Sommes de VA, Échantillons, Bienaymé-Tchebychev, LGN</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Suite directe de la fiche probas/binomiale. Couvre tout ce qui s&#39;enchaîne après : combinaisons linéaires de VA, échantillons, inégalité de B-T, loi faible des grands nombres.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« $X_1 \sim \mathcal{B}(m,p)$ et $X_2 \sim \mathcal{B}(n,p)$ indépendantes »</td>
+<td>$X_1 + X_2 \sim \mathcal{B}(m+n, p)$ direct (§II.3)</td>
+</tr>
+<tr>
+<td>« Calculer $E(X+Y)$ »</td>
+<td>Linéarité : $E(X+Y) = E(X) + E(Y)$ — TOUJOURS vrai (§III.1)</td>
+</tr>
+<tr>
+<td>« Calculer $V(X+Y)$ »</td>
+<td>$V(X+Y) = V(X) + V(Y)$ — UNIQUEMENT si X et Y indépendantes (§III.3)</td>
+</tr>
+<tr>
+<td>« Échantillon de taille $n$ », « somme $S_n$ », « moyenne $M_n$ »</td>
+<td>Formules §IV : $E(S_n) = nE(X)$, $V(M_n) = V(X)/n$</td>
+</tr>
+<tr>
+<td>« Majorer $P(\|X - E(X)\| \geq \alpha)$ » ou « probabilité d&#39;un écart à l&#39;espérance »</td>
+<td><strong>Bienaymé-Tchebychev</strong> (§V.1)</td>
+</tr>
+<tr>
+<td>« Majorer $P(\|M_n - \mu\| \geq \alpha)$ » ou « pour quelle taille $n$ d&#39;échantillon... »</td>
+<td><strong>Inégalité de concentration</strong> (§V.2)</td>
+</tr>
+<tr>
+<td>« Quand $n \to +\infty$ » avec $M_n$</td>
+<td>Loi faible des grands nombres (§V.3)</td>
+</tr>
+<tr>
+<td>« Loi binomiale », $E(X)$ ou $V(X)$</td>
+<td>$E = np$, $V = np(1-p)$, $\sigma = \sqrt{np(1-p)}$ (§II.4)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Loi de couple et indépendance</h2>
+<h3>1. Définition de la loi du couple $(X, Y)$</h3>
+<p>Pour deux variables aléatoires $X$ et $Y$, la <strong>loi du couple</strong> $(X\,;\,Y)$ est définie pour tous nombres réels $k$ et $l$ par :
+$$P(X = k\,;\,Y = l) = P(\{X = k\} \cap \{Y = l\})$$</p>
+<h3>2. Indépendance de deux variables aléatoires</h3>
+<p><strong>Définition :</strong> $X$ et $Y$ sont <strong>indépendantes</strong> si pour tous réels $k$ et $l$, les événements $\{X = k\}$ et $\{Y = l\}$ sont indépendants.</p>
+<p><strong>Propriété (à utiliser systématiquement) :</strong> si $X$ et $Y$ sont indépendantes, alors :
+$$P(X = k\,;\,Y = l) = P(X = k) \times P(Y = l)$$</p>
+<p>🎯 <strong>Réflexe bac :</strong> quand on lit &quot;lancers indépendants&quot;, &quot;tirages avec remise&quot;, &quot;expériences identiques et indépendantes&quot;, on a directement le droit d&#39;utiliser cette propriété.</p>
+<h3>3. Loi de la somme $Z = X + Y$</h3>
+<p>Si $X(\Omega) = \{x_1\,;\,\dots\,;\,x_n\}$ et $Y(\Omega) = \{y_1\,;\,\dots\,;\,y_m\}$, alors $Z = X + Y$ a pour loi :
+$$P(Z = s) = P(X + Y = s) = \sum_{k + l = s} P(X = k\,;\,Y = l)$$</p>
+<p>Cette somme porte sur tous les couples $(k, l)$ tels que $k + l = s$.</p>
+<p>⚠️ Si $X$ prend $m$ valeurs et $Y$ prend $n$ valeurs, alors $X + Y$ prend <strong>au plus</strong> $m \times n$ valeurs (souvent moins, car des sommes peuvent coïncider).</p>
+<h3>4. Exemple chiffré (le classique des deux dés colorés)</h3>
+<p><strong>Énoncé :</strong> un dé à 6 faces (3 blanches valant 1 point, 3 noires valant 2 points) et un dé à 4 faces (1 rouge valant 3 points, 3 bleues valant 4 points), lancés simultanément.</p>
+<ul>
+<li>$S$ = points du dé à 6 faces : $S(\Omega) = \{1\,;\,2\}$, $P(S=1) = P(S=2) = \dfrac{1}{2}$</li>
+<li>$Q$ = points du dé à 4 faces : $Q(\Omega) = \{3\,;\,4\}$, $P(Q=3) = \dfrac{1}{4}$, $P(Q=4) = \dfrac{3}{4}$</li>
+</ul>
+<p>On pose $Z = S + Q$. Alors $Z(\Omega) = \{4\,;\,5\,;\,6\}$ et :</p>
+<table>
+<thead>
+<tr>
+<th>$z_i$</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$P(Z = z_i)$</td>
+<td>$\dfrac{1}{8}$</td>
+<td>$\dfrac{1}{2}$</td>
+<td>$\dfrac{3}{8}$</td>
+</tr>
+</tbody></table>
+<p><strong>Détail des calculs :</strong></p>
+<ul>
+<li>$P(Z = 4) = P(S=1\,;\,Q=3) = \dfrac{1}{2} \times \dfrac{1}{4} = \dfrac{1}{8}$</li>
+<li>$P(Z = 5) = P(S=1\,;\,Q=4) + P(S=2\,;\,Q=3) = \dfrac{1}{2} \times \dfrac{3}{4} + \dfrac{1}{2} \times \dfrac{1}{4} = \dfrac{4}{8} = \dfrac{1}{2}$</li>
+<li>$P(Z = 6) = P(S=2\,;\,Q=4) = \dfrac{1}{2} \times \dfrac{3}{4} = \dfrac{3}{8}$</li>
+</ul>
+<hr>
+<h2>II. Application à la loi binomiale</h2>
+<h3>1. Définition d&#39;un échantillon</h3>
+<p>Un <strong>échantillon de taille $n$</strong> d&#39;une loi de probabilité est une liste $(X_1, X_2, \dots, X_n)$ de $n$ variables aléatoires <strong>indépendantes</strong> suivant <strong>la même loi</strong>.</p>
+<h3>2. Lien Bernoulli ↔ Binomiale</h3>
+<p>🎯 <strong>Théorème central</strong> : si $(B_1, B_2, \dots, B_n)$ est un échantillon de taille $n \geq 2$ de la loi de Bernoulli de paramètre $p \in [0\,;\,1]$, alors :
+$$\sum_{k=1}^{n} B_k = B_1 + B_2 + \dots + B_n \sim \mathcal{B}(n, p)$$</p>
+<p><strong>Réciproquement</strong> : si $X \sim \mathcal{B}(n, p)$, alors $X$ peut s&#39;écrire comme somme d&#39;un échantillon de taille $n$ de la loi de Bernoulli de paramètre $p$.</p>
+<p><strong>Interprétation :</strong> &quot;compter le nombre de succès dans $n$ épreuves de Bernoulli indépendantes et identiques&quot;, c&#39;est exactement la définition de la binomiale.</p>
+<h3>3. Stabilité de la loi binomiale par addition</h3>
+<p>🎯 <strong>Propriété ULTRA fréquente au bac</strong> : si $X_1 \sim \mathcal{B}(m, p)$ et $X_2 \sim \mathcal{B}(n, p)$ sont <strong>indépendantes</strong> et de <strong>même paramètre $p$</strong>, alors :
+$$X_1 + X_2 \sim \mathcal{B}(m + n, p)$$</p>
+<p>⚠️ <strong>Conditions impératives</strong> :</p>
+<ol>
+<li>$X_1$ et $X_2$ doivent être <strong>indépendantes</strong>.</li>
+<li>Elles doivent avoir le <strong>même paramètre $p$</strong> (sinon ce n&#39;est plus une binomiale).</li>
+</ol>
+<p><strong>Exemple type :</strong> deux usines produisent des DEL avec un taux de défaut de $0{,}021$. $X \sim \mathcal{B}(300\,;\,0{,}021)$ et $Y \sim \mathcal{B}(500\,;\,0{,}021)$ indépendantes. Alors $X + Y \sim \mathcal{B}(800\,;\,0{,}021)$.</p>
+<h3>4. Espérance, variance, écart-type de la binomiale</h3>
+<p><strong>À connaître par cœur</strong> : si $X \sim \mathcal{B}(n, p)$ :
+$$E(X) = np \qquad V(X) = np(1-p) \qquad \sigma(X) = \sqrt{np(1-p)}$$</p>
+<hr>
+<h2>III. Espérance et variance d&#39;une combinaison linéaire</h2>
+<h3>1. Linéarité de l&#39;espérance (TOUJOURS vraie)</h3>
+<p>🎯 <strong>À retenir absolument</strong> : la linéarité de l&#39;espérance ne nécessite <strong>aucune hypothèse d&#39;indépendance</strong>.</p>
+<p><strong>Propriétés :</strong> pour toutes variables aléatoires $X$ et $Y$, et pour tout réel $b$ :
+$$E(X + Y) = E(X) + E(Y)$$
+$$E(X + b) = E(X) + b$$</p>
+<p><strong>Pour $a$ et $b$ réels :</strong>
+$$E(aX + b) = a \cdot E(X) + b$$</p>
+<p><strong>Plus généralement :</strong>
+$$E(aX + bY) = a \cdot E(X) + b \cdot E(Y)$$</p>
+<p>🎯 <strong>Force de cette propriété :</strong> on peut calculer $E(X+Y)$ <strong>sans avoir à déterminer la loi de $X+Y$</strong>. Énorme gain de temps au bac.</p>
+<h3>2. Exemple d&#39;application</h3>
+<p>Reprenons l&#39;exemple des deux dés colorés ($Z = S + Q$).</p>
+<ul>
+<li>$E(S) = 1 \times \dfrac{1}{2} + 2 \times \dfrac{1}{2} = 1{,}5$</li>
+<li>$E(Q) = 3 \times \dfrac{1}{4} + 4 \times \dfrac{3}{4} = 3{,}75$</li>
+<li>$E(Z) = E(S+Q) = E(S) + E(Q) = 1{,}5 + 3{,}75 = 5{,}25$</li>
+</ul>
+<p><strong>Vérification par la loi de $Z$ :</strong> $E(Z) = 4 \times \dfrac{1}{8} + 5 \times \dfrac{1}{2} + 6 \times \dfrac{3}{8} = 5{,}25$ ✅</p>
+<h3>3. Variance d&#39;une somme — UNIQUEMENT si indépendantes</h3>
+<p>⚠️ <strong>Attention, ce n&#39;est PAS toujours vrai</strong> : la variance ne s&#39;additionne que pour des variables <strong>indépendantes</strong>.</p>
+<p><strong>Propriété :</strong> si $X$ et $Y$ sont <strong>indépendantes</strong> :
+$$V(X + Y) = V(X) + V(Y)$$</p>
+<p>⚠️ Si $X$ et $Y$ ne sont pas indépendantes, cette formule <strong>ne s&#39;applique pas</strong> et on doit calculer $V(X+Y)$ via la loi de $X+Y$.</p>
+<h3>4. Variance d&#39;un produit par un réel</h3>
+<p><strong>Propriété :</strong> pour tout réel $a$ :
+$$V(aX) = a^2 \cdot V(X) \qquad \sigma(aX) = |a| \cdot \sigma(X)$$</p>
+<p>⚠️ <strong>Piège classique</strong> : la variance est multipliée par $a^2$ (et pas par $a$). Idem $\sigma$ est multiplié par $|a|$ (avec valeur absolue).</p>
+<p><strong>Conséquence :</strong> $V(X + b) = V(X)$ (ajouter une constante ne change pas la dispersion).</p>
+<h3>5. Exemple d&#39;application</h3>
+<p>Reprenons les deux dés colorés.</p>
+<ul>
+<li>$V(S) = (1 - 1{,}5)^2 \times \dfrac{1}{2} + (2 - 1{,}5)^2 \times \dfrac{1}{2} = 0{,}25$</li>
+<li>$V(Q) = (3 - 3{,}75)^2 \times \dfrac{1}{4} + (4 - 3{,}75)^2 \times \dfrac{3}{4} = 0{,}1875$</li>
+</ul>
+<p>Comme $S$ et $Q$ sont indépendantes (deux dés lancés simultanément, sans interaction) :
+$$V(Z) = V(S+Q) = V(S) + V(Q) = 0{,}25 + 0{,}1875 = 0{,}4375$$</p>
+<hr>
+<h2>IV. Échantillon : variable somme $S_n$ et variable moyenne $M_n$</h2>
+<h3>1. Définitions</h3>
+<p>Soit $X$ une v.a. et $(X_1, X_2, \dots, X_n)$ un échantillon de taille $n$ de la loi de $X$.</p>
+<p><strong>Variable somme :</strong>
+$$S_n = X_1 + X_2 + \dots + X_n$$</p>
+<p><strong>Variable moyenne :</strong>
+$$M_n = \dfrac{S_n}{n} = \dfrac{X_1 + X_2 + \dots + X_n}{n}$$</p>
+<h3>2. Espérance, variance, écart-type de $S_n$</h3>
+<p>🎯 <strong>Formules à connaître par cœur :</strong></p>
+<p>$$E(S_n) = n \cdot E(X) \qquad V(S_n) = n \cdot V(X) \qquad \sigma(S_n) = \sqrt{n} \cdot \sigma(X)$$</p>
+<p><strong>Démarrage de la démo (intuition) :</strong> $E(S_n) = E(X_1) + \dots + E(X_n) = n \cdot E(X)$ par linéarité. Pour la variance, comme les $X_i$ sont indépendants : $V(S_n) = V(X_1) + \dots + V(X_n) = n \cdot V(X)$.</p>
+<h3>3. Espérance, variance, écart-type de $M_n$</h3>
+<p>🎯 <strong>Formules à connaître par cœur :</strong></p>
+<p>$$E(M_n) = E(X) \qquad V(M_n) = \dfrac{V(X)}{n} \qquad \sigma(M_n) = \dfrac{\sigma(X)}{\sqrt{n}}$$</p>
+<p><strong>Interprétation :</strong> la moyenne empirique d&#39;un échantillon a la <strong>même espérance</strong> que la variable initiale. Mais sa variance est <strong>divisée par $n$</strong>.</p>
+<p>🎯 <strong>Conséquence cruciale (à connaître pour le bac)</strong> : plus la taille $n$ de l&#39;échantillon est grande, plus la variance de $M_n$ est petite. Autrement dit, <strong>plus l&#39;échantillon est grand, plus la moyenne empirique est proche de l&#39;espérance théorique</strong>. C&#39;est la fluctuation d&#39;échantillonnage qui diminue.</p>
+<h3>4. Exemple type bac</h3>
+<p><strong>Énoncé :</strong> soit $X$ une v.a. d&#39;espérance $E(X) = 50$ et de variance $V(X) = 9$. On considère un échantillon de taille $n = 100$. Calculer $E(M_{100})$, $V(M_{100})$ et $\sigma(M_{100})$.</p>
+<p><strong>Solution :</strong></p>
+<ul>
+<li>$E(M_{100}) = E(X) = 50$</li>
+<li>$V(M_{100}) = \dfrac{V(X)}{100} = \dfrac{9}{100} = 0{,}09$</li>
+<li>$\sigma(M_{100}) = \dfrac{\sigma(X)}{\sqrt{100}} = \dfrac{3}{10} = 0{,}3$</li>
+</ul>
+<hr>
+<h2>V. Inégalité de Bienaymé-Tchebychev et Loi des Grands Nombres</h2>
+<h3>1. Inégalité de Bienaymé-Tchebychev (B-T)</h3>
+<p>🎯 <strong>Énoncé à connaître par cœur</strong> : soit $X$ une v.a. d&#39;espérance $E(X)$ et de variance $V(X)$. Pour tout réel $\alpha > 0$ :</p>
+<p>$$\boxed{P\left(|X - E(X)| \geq \alpha\right) \leq \dfrac{V(X)}{\alpha^2}}$$</p>
+<p><strong>Interprétation :</strong> la probabilité que $X$ s&#39;écarte de son espérance d&#39;au moins $\alpha$ est majorée par $V(X)/\alpha^2$. Plus la variance est petite, plus $X$ est concentrée autour de son espérance.</p>
+<p>🎯 <strong>Réflexe bac :</strong> dès qu&#39;on voit &quot;majorer la probabilité que...&quot; avec un écart à l&#39;espérance, c&#39;est <strong>B-T</strong>.</p>
+<h3>2. Inégalité de concentration (B-T appliquée à $M_n$)</h3>
+<p>🎯 <strong>Application de B-T à la moyenne empirique</strong> : soit $M_n$ une v.a. moyenne d&#39;un échantillon de taille $n$ d&#39;une v.a. $X$ d&#39;espérance $\mu$ et de variance $V$. Pour tout réel $\alpha > 0$ :</p>
+<p>$$\boxed{P\left(|M_n - \mu| \geq \alpha\right) \leq \dfrac{V}{n \alpha^2}}$$</p>
+<p><strong>D&#39;où ça vient ?</strong> On applique B-T à $M_n$, en sachant que $E(M_n) = \mu$ et $V(M_n) = V/n$.</p>
+<p>🎯 <strong>Réflexe bac :</strong> dès qu&#39;on voit &quot;majorer la probabilité que la moyenne s&#39;écarte de...&quot; OU &quot;pour quelle taille $n$ d&#39;échantillon a-t-on $P(\dots) \leq 0{,}05$ ?&quot;, c&#39;est l&#39;<strong>inégalité de concentration</strong>.</p>
+<h3>3. Loi faible des grands nombres</h3>
+<p>🎯 <strong>Théorème :</strong> soit $M_n$ une v.a. moyenne d&#39;un échantillon de taille $n$ d&#39;une v.a. $X$ d&#39;espérance $\mu$ et de variance $V$. Pour tout réel $\alpha > 0$ :</p>
+<p>$$\lim_{n \to +\infty} P\left(|M_n - \mu| \geq \alpha\right) = 0$$</p>
+<p><strong>Interprétation :</strong> quand on fait beaucoup d&#39;expériences, la moyenne empirique $M_n$ tend (en probabilité) vers l&#39;espérance théorique $\mu$.</p>
+<p><strong>Justification (sans rentrer dans la démo) :</strong> par l&#39;inégalité de concentration, $0 \leq P(|M_n - \mu| \geq \alpha) \leq \dfrac{V}{n\alpha^2}$. Comme $\dfrac{V}{n\alpha^2} \to 0$ quand $n \to +\infty$, par le théorème des gendarmes, $P(|M_n - \mu| \geq \alpha) \to 0$.</p>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Probas + B-T&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern ULTRA stable depuis 2024.</strong> D&#39;après l&#39;analyse de <strong>6 sujets récents</strong> (Métropole 2024 J1, J2, J1 secours, 2025 J1, J2, Amérique du Nord 2025 J1), l&#39;<strong>exercice 1</strong> de probabilités est <strong>toujours</strong> structuré de la même manière. Tu peux quasiment prédire les questions à l&#39;avance.</p>
+<h3>Pattern de structure (vrai pour TOUS les sujets 2024-2025)</h3>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;EXERCICE 1 — Probabilités&lt;br/&gt;(5-6 points, ~1h)&quot;]
+
+  E --&gt; PA[&quot;Partie A&lt;br/&gt;Probas conditionnelles&quot;]
+  PA --&gt; PA1[&quot;Arbre pondéré&lt;br/&gt;(construire / compléter)&quot;]
+  PA --&gt; PA2[&quot;Proba totale&lt;br/&gt;P(B) = somme des chemins&quot;]
+  PA --&gt; PA3[&quot;Conditionnelle inverse&lt;br/&gt;P_B(A) (Bayes-like)&quot;]
+
+  E --&gt; PB[&quot;Partie B&lt;br/&gt;Loi binomiale&quot;]
+  PB --&gt; PB1[&quot;Justifier X ~ ℬ(n, p)&lt;br/&gt;(3 conditions)&quot;]
+  PB --&gt; PB2[&quot;P(X = k), P(X ≤ k),&lt;br/&gt;P(X ≥ k) → calculatrice&quot;]
+  PB --&gt; PB3[&quot;E(X) = np&lt;br/&gt;+ interprétation&quot;]
+  PB --&gt; PB4[&quot;(parfois) plus petit n&lt;br/&gt;tel que P(X ≥ 1) ≥ 0,99&quot;]
+
+  E --&gt; PC[&quot;Partie C&lt;br/&gt;Somme de VA / Échantillon / B-T&quot;]
+  PC --&gt; PC1[&quot;E(S) ou E(M) par&lt;br/&gt;linéarité&quot;]
+  PC --&gt; PC2[&quot;V(S) ou V(M)&lt;br/&gt;(justifier l&#39;indépendance)&quot;]
+  PC --&gt; PC3[&quot;Inégalité de B-T&lt;br/&gt;(majoration de proba)&quot;]
+  PC --&gt; PC4[&quot;Conclusion :&lt;br/&gt;P(a &lt; M &lt; b) ≥ … (minoration)&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef part fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef step fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class PA,PB,PC part;
+  class PA1,PA2,PA3,PB1,PB2,PB3,PB4,PC1,PC2,PC3,PC4 step;
+</code></pre>
+<h3>Les 10 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Compléter l&#39;arbre pondéré&quot;</h4>
+<p><strong>Méthode</strong> : reporter les probabilités données, calculer celles manquantes par soustraction (les branches partant d&#39;un même nœud somment à 1).</p>
+<h4>Q2 — &quot;Calculer $P(A)$&quot; (probabilité totale)</h4>
+<p><strong>Énoncé type</strong> : &quot;Calculer la probabilité qu&#39;un client soit satisfait.&quot;</p>
+<p><strong>Méthode</strong> : formule des probabilités totales avec partition $(B, \bar{B})$ :
+$$P(A) = P(A \cap B) + P(A \cap \bar{B}) = P(B) \times P_B(A) + P(\bar{B}) \times P_{\bar{B}}(A)$$</p>
+<h4>Q3 — &quot;Sachant que $A$, calculer $P_A(B)$&quot; (Bayes / conditionnelle &quot;à l&#39;envers&quot;)</h4>
+<p><strong>Énoncé type</strong> : &quot;Sachant qu&#39;un client est satisfait, quelle est la probabilité qu&#39;il ait acheté en ligne ?&quot;</p>
+<p><strong>Méthode</strong> : $P_A(B) = \dfrac{P(A \cap B)}{P(A)}$. Le numérateur est lu sur l&#39;arbre, le dénominateur vient de Q2.</p>
+<h4>Q4 — &quot;Justifier que $X$ suit une loi binomiale&quot;</h4>
+<p>🎯 <strong>Question piège récurrente.</strong> Les correcteurs attendent <strong>3 points précis</strong>.</p>
+<p><strong>Rédaction TYPE à mémoriser :</strong></p>
+<blockquote>
+<ol>
+<li>On répète <strong>$n$ fois</strong> la même expérience de Bernoulli (issue : succès / échec).</li>
+<li>Les $n$ expériences sont <strong>indépendantes</strong> (souvent : &quot;tirages avec remise&quot; ou &quot;n est suffisamment petit pour assimiler à un tirage avec remise&quot;).</li>
+<li>La variable $X$ compte le <strong>nombre de succès</strong>.</li>
+</ol>
+<p>Donc $X$ suit la loi binomiale de paramètres $n = \dots$ et $p = \dots$.</p>
+</blockquote>
+<p>⚠️ <strong>Si tu oublies UN des 3 points, c&#39;est −1 point assuré.</strong> Les profs le vérifient systématiquement.</p>
+<h4>Q5 — &quot;Calculer $P(X = k)$, $P(X \geq k)$&quot;</h4>
+<p><strong>Méthode</strong> :</p>
+<ul>
+<li>$P(X = k)$ : à la calculatrice, <code>binomFdp(n, p, k)</code> ou via formule $\binom{n}{k}p^k(1-p)^{n-k}$.</li>
+<li>$P(X \geq k) = 1 - P(X \leq k-1)$ : passer par l&#39;événement contraire.</li>
+<li>$P(X \leq k)$ : <code>binomFRép(n, p, k)</code> à la calculatrice.</li>
+</ul>
+<p>⚠️ <strong>Piège classique</strong> : $P(X \geq k) \neq 1 - P(X \leq k)$. Bien gérer le strict / large.</p>
+<h4>Q6 — &quot;Calculer $E(S_n) = E(X_1 + \dots + X_n)$&quot;</h4>
+<p>🎯 <strong>Pattern bac (Métropole 2024 J2)</strong> : &quot;Soit $S = N_1 + N_2 + \dots + N_{10}$ où chaque $N_i \sim \mathcal{B}(20\,;\,0{,}615)$. Calculer $E(S)$.&quot;</p>
+<p><strong>Rédaction type</strong> :</p>
+<blockquote>
+<p>Par <strong>linéarité de l&#39;espérance</strong> :
+$$E(S) = E(N_1) + E(N_2) + \dots + E(N_{10})$$</p>
+<p>Comme les $N_i$ suivent toutes la même loi $\mathcal{B}(20\,;\,0{,}615)$, elles ont toutes la même espérance :
+$$E(N_i) = np = 20 \times 0{,}615 = 12{,}3$$</p>
+<p>Donc $E(S) = 10 \times 12{,}3 = 123$.</p>
+</blockquote>
+<p>🎯 <strong>Astuce</strong> : la linéarité ne nécessite PAS l&#39;indépendance. À mentionner explicitement comme justification.</p>
+<h4>Q7 — &quot;Calculer $V(S_n)$&quot;</h4>
+<p><strong>Rédaction type</strong> :</p>
+<blockquote>
+<p>Comme les variables $N_1, \dots, N_{10}$ sont <strong>indépendantes</strong> et de même variance :
+$$V(S) = V(N_1) + V(N_2) + \dots + V(N_{10}) = 10 \times V(N_i)$$</p>
+<p>Or $V(N_i) = np(1-p) = 20 \times 0{,}615 \times 0{,}385 = 4{,}7355$.</p>
+<p>Donc $V(S) = 10 \times 4{,}7355 = 47{,}355$.</p>
+</blockquote>
+<p>⚠️ <strong>Réflexe rédaction</strong> : préciser systématiquement &quot;<strong>comme les variables sont indépendantes</strong>&quot; avant d&#39;écrire la somme des variances.</p>
+<h4>Q8 — &quot;Calculer $E(M_n)$ et $V(M_n)$&quot;</h4>
+<p><strong>Rappel</strong> : $M_n = \dfrac{S_n}{n}$.</p>
+<p><strong>Rédaction type</strong> :</p>
+<blockquote>
+<p>$E(M_n) = E\left(\dfrac{S_n}{n}\right) = \dfrac{1}{n} E(S_n) = \dfrac{1}{n} \times n \cdot E(X) = E(X)$</p>
+<p>$V(M_n) = V\left(\dfrac{S_n}{n}\right) = \dfrac{1}{n^2} V(S_n) = \dfrac{1}{n^2} \times n \cdot V(X) = \dfrac{V(X)}{n}$</p>
+</blockquote>
+<p>⚠️ <strong>Piège classique</strong> : pour $V(M_n)$, le facteur est $1/n^2$ et pas $1/n$ (on a $V(aX) = a^2 V(X)$).</p>
+<h4>Q9 — &quot;Appliquer l&#39;inégalité de Bienaymé-Tchebychev pour minorer $P(a < M < b)$&quot;</h4>
+<p>🎯 <strong>C&#39;est la question phare</strong>. Vue dans Métropole 2024 J2, 2025 J1, 2025 J2, AmN 2025 J1.</p>
+<p><strong>Énoncé type bac</strong> : &quot;Justifier que $P(60 < T < 140) \geq 0{,}77$&quot; (Métropole 2025 J2) ou &quot;Montrer que $P(10{,}3 < M < 14{,}3) \geq 0{,}80$&quot; (Métropole 2024 J2).</p>
+<p><strong>Méthode (5 étapes systématiques)</strong> :</p>
+<p><strong>Étape 1 : reformuler l&#39;événement avec une valeur absolue.</strong>
+Identifier le <strong>centre</strong> $c$ et le <strong>rayon</strong> $r$ de l&#39;intervalle :
+$$\{a < X < b\} = \{|X - c| < r\}$$</p>
+<p>où $c = \dfrac{a + b}{2}$ (centre) et $r = \dfrac{b - a}{2}$ (rayon).</p>
+<p>⚠️ <strong>Vérifier</strong> : $c$ doit être égal à $E(X)$ pour que B-T s&#39;applique.</p>
+<p><strong>Étape 2 : passer à l&#39;événement contraire.</strong>
+$$P(a < X < b) = 1 - P(|X - c| \geq r)$$</p>
+<p><strong>Étape 3 : appliquer B-T.</strong>
+$$P(|X - E(X)| \geq r) \leq \dfrac{V(X)}{r^2}$$</p>
+<p><strong>Étape 4 : combiner.</strong>
+$$P(a < X < b) \geq 1 - \dfrac{V(X)}{r^2}$$</p>
+<p><strong>Étape 5 : calculer numériquement et conclure.</strong></p>
+<p><strong>Exemple complet (Métropole 2025 J2 — temps d&#39;attente)</strong> :</p>
+<p>Soit $T$ avec $E(T) = 100$ et $V(T) = 356$. Montrer que $P(60 < T < 140) \geq 0{,}77$.</p>
+<p>$$P(60 < T < 140) = P(-40 < T - 100 < 40) = P(|T - 100| < 40)$$
+$$= 1 - P(|T - 100| \geq 40)$$</p>
+<p>Par B-T : $P(|T - 100| \geq 40) \leq \dfrac{356}{40^2} = \dfrac{356}{1600} \approx 0{,}2225$.</p>
+<p>Donc $P(60 < T < 140) \geq 1 - 0{,}2225 = 0{,}7775 \geq 0{,}77$. ✅</p>
+<h4>Q10 — &quot;Trouver la plus petite valeur de $N$&quot; (avec inégalité de concentration)</h4>
+<p>🎯 <strong>LA question piège du Métropole 2025 J1 (groupes sanguins).</strong> Réponse attendue : $N = 6766$.</p>
+<p><strong>Énoncé type</strong> : trouver la plus petite valeur de $N$ telle que $P(a < M_N < b) \geq 0{,}95$.</p>
+<p><strong>Méthode (squelette complet)</strong> :</p>
+<p><strong>Étape 1 : identifier $c$ et $r$.</strong>
+Le centre de l&#39;intervalle $(a, b)$ est $c = E(M_N) = E(X) = \mu$. Le rayon est $r = (b - a)/2$.</p>
+<p><strong>Étape 2 : reformuler.</strong>
+$$P(a < M_N < b) = 1 - P(|M_N - \mu| \geq r)$$</p>
+<p><strong>Étape 3 : appliquer l&#39;inégalité de concentration.</strong>
+$$P(|M_N - \mu| \geq r) \leq \dfrac{V(X)}{N \times r^2}$$</p>
+<p><strong>Étape 4 : minoration.</strong>
+$$P(a < M_N < b) \geq 1 - \dfrac{V(X)}{N r^2}$$</p>
+<p><strong>Étape 5 : résoudre l&#39;inéquation $1 - \dfrac{V(X)}{N r^2} \geq 0{,}95$.</strong></p>
+<p>$$\dfrac{V(X)}{N r^2} \leq 0{,}05 \iff N \geq \dfrac{V(X)}{0{,}05 \times r^2}$$</p>
+<p><strong>Étape 6 : prendre l&#39;entier supérieur.</strong></p>
+<p>Si on trouve par exemple $N \geq 6765{,}4$, alors la plus petite valeur de $N$ est <strong>$N = 6766$</strong> (pas 6765, ne pas arrondir).</p>
+<p><strong>Rédaction de conclusion</strong> :</p>
+<blockquote>
+<p>&quot;L&#39;inégalité est donc vraie pour tout entier $N \geq 6766$. La plus petite valeur de $N$ pour laquelle l&#39;inégalité de Bienaymé-Tchebychev permet d&#39;affirmer que $P(a < M_N < b) \geq 0{,}95$ est <strong>$N = 6766$</strong>.&quot;</p>
+</blockquote>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Contexte</th>
+<th>Question phare B-T</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Étudiants — examen</td>
+<td>$P(10{,}3 < M < 14{,}3) \geq 0{,}88$</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Étudiants — réussite/échec</td>
+<td>Idem (pattern jumeau)</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J1 secours</strong></td>
+<td>Station-service — temps d&#39;attente</td>
+<td>$P(14 < S < 22) \geq 0{,}81$</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Groupes sanguins — donneurs universels</td>
+<td><strong>Plus petit $N$ pour $P(7 < M_N < 7{,}28) \geq 0{,}95$ → $N = 6766$</strong></td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J2</strong></td>
+<td>Centre multisports</td>
+<td>$P(60 < T < 140) \geq 0{,}77$</td>
+</tr>
+<tr>
+<td><strong>Amérique du Nord 2025 J1</strong></td>
+<td>(pattern identique)</td>
+<td>Application B-T</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 95% de chances d&#39;avoir un exo qui suit ce pattern à ton bac blanc.</strong> Maîtriser ces 10 questions = 5-6 points sécurisés.</p>
+<h3>Variante : &quot;résoudre une inéquation pour trouver la taille minimale&quot; (avant B-T)</h3>
+<p>Pattern observé Métropole 2024 J1 secours : avant les questions B-T, il y a parfois une question de type &quot;trouver la plus petite valeur de $n$ telle que $P(Y \geq 1) \geq 0{,}99$&quot;.</p>
+<p><strong>Méthode</strong> (utilise la binomiale, pas B-T) :
+$$P(Y \geq 1) \geq 0{,}99 \iff 1 - P(Y = 0) \geq 0{,}99 \iff P(Y = 0) \leq 0{,}01$$</p>
+<p>Si $Y \sim \mathcal{B}(n, p)$ : $P(Y = 0) = (1-p)^n$, donc :
+$$(1-p)^n \leq 0{,}01 \iff n \ln(1-p) \leq \ln(0{,}01) \iff n \geq \dfrac{\ln(0{,}01)}{\ln(1-p)}$$</p>
+<p>(L&#39;inégalité change de sens car $\ln(1-p) < 0$.)</p>
+<p>Prendre l&#39;<strong>entier supérieur</strong>.</p>
+<hr>
+<h2>VII. Diagramme de décision</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Tu lis l&#39;énoncé.&lt;br/&gt;Quel outil est mobilisé ?&quot;]
+
+  E --&gt; Q1[&quot;X, Y indépendantes,&lt;br/&gt;X ~ ℬ(m,p), Y ~ ℬ(n,p) ?&quot;]
+  Q1 --&gt; A1[&quot;X + Y ~ ℬ(m+n, p)&lt;br/&gt;(direct)&quot;]
+
+  E --&gt; Q2[&quot;Calculer E(X+Y) ou E(aX+b) ?&quot;]
+  Q2 --&gt; A2[&quot;Linéarité de E&lt;br/&gt;(toujours vraie)&quot;]
+
+  E --&gt; Q3[&quot;Calculer V(X+Y) ?&quot;]
+  Q3 --&gt; A3a[&quot;X, Y indépendantes →&lt;br/&gt;V(X)+V(Y)&quot;]
+  Q3 --&gt; A3b[&quot;X, Y dépendantes →&lt;br/&gt;passer par la loi de X+Y&quot;]
+
+  E --&gt; Q4[&quot;Calculer V(aX), σ(aX) ?&quot;]
+  Q4 --&gt; A4[&quot;V(aX) = a²V(X)&lt;br/&gt;σ(aX) = |a|σ(X)&quot;]
+
+  E --&gt; Q5[&quot;Échantillon de taille n,&lt;br/&gt;S_n ou M_n ?&quot;]
+  Q5 --&gt; A5[&quot;E(S_n)=nE(X), V(S_n)=nV(X)&lt;br/&gt;E(M_n)=E(X), V(M_n)=V(X)/n&quot;]
+
+  E --&gt; Q6[&quot;Majorer P(|X − E(X)| ≥ α) ?&quot;]
+  Q6 --&gt; A6[&quot;Bienaymé-Tchebychev&lt;br/&gt;≤ V(X)/α²&quot;]
+
+  E --&gt; Q7[&quot;Majorer P(|M_n − μ| ≥ α) /&lt;br/&gt;trouver la taille minimale n ?&quot;]
+  Q7 --&gt; A7[&quot;Inégalité de concentration&lt;br/&gt;≤ V(X)/(nα²)&quot;]
+
+  E --&gt; Q8[&quot;lim_{n→+∞} P(|M_n − μ| ≥ α) ?&quot;]
+  Q8 --&gt; A8[&quot;Loi faible des grands nombres&lt;br/&gt;limite = 0&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8 branch;
+  class A1,A2,A3a,A3b,A4,A5,A6,A7,A8 leaf;
+</code></pre>
+<hr>
+<h2>VIII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Avant d&#39;écrire $V(X+Y) = V(X)+V(Y)$, j&#39;ai vérifié et <strong>mentionné explicitement</strong> que $X$ et $Y$ sont <strong>indépendantes</strong>.</li>
+<li><input disabled="" type="checkbox"> J&#39;ai bien écrit $V(aX) = a^2 V(X)$ (carré, pas linéaire) et $\sigma(aX) = |a|\sigma(X)$ (valeur absolue).</li>
+<li><input disabled="" type="checkbox"> Pour la stabilité de la binomiale, j&#39;ai vérifié les <strong>2 conditions</strong> : indépendance ET même paramètre $p$.</li>
+<li><input disabled="" type="checkbox"> Pour appliquer Bernoulli ⟹ Binomiale, j&#39;ai cité les 3 conditions : épreuves de Bernoulli, <strong>indépendantes</strong>, <strong>identiques</strong>.</li>
+<li><input disabled="" type="checkbox"> Pour l&#39;inégalité de B-T, j&#39;ai bien identifié l&#39;écart $\alpha$ (rayon de l&#39;intervalle, pas la borne).</li>
+<li><input disabled="" type="checkbox"> Pour &quot;trouver la plus petite valeur de $N$&quot;, j&#39;ai pris l&#39;<strong>entier supérieur</strong> (pas l&#39;arrondi).</li>
+<li><input disabled="" type="checkbox"> J&#39;ai distingué B-T (sur $X$) et inégalité de concentration (sur $M_n$, avec un $n$ au dénominateur).</li>
+<li><input disabled="" type="checkbox"> Pour la moyenne $M_n$, j&#39;ai bien $V(M_n) = V(X)/n$ (pas $V(X)/n^2$ — piège classique).</li>
+</ul>
+<hr>
+<h2>IX. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>Variance d&#39;une somme sans indépendance</strong> : écrire $V(X+Y) = V(X) + V(Y)$ sans justifier l&#39;indépendance, c&#39;est −1 point assuré. <strong>Toujours justifier</strong>.</p>
+</li>
+<li><p><strong>$V(aX) = aV(X)$ au lieu de $a^2 V(X)$</strong> : erreur n°1 sur les calculs de variance. La variance est en &quot;carrés&quot;, elle se multiplie par $a^2$.</p>
+</li>
+<li><p><strong>$\sigma(aX) = a\sigma(X)$ au lieu de $|a|\sigma(X)$</strong> : oubli de la valeur absolue. Si $a < 0$, ça change le résultat.</p>
+</li>
+<li><p><strong>Confondre $V(M_n) = V(X)/n$ et $V(S_n) = nV(X)$</strong> : la somme grandit avec $n$, la moyenne se concentre avec $n$. Ne pas inverser.</p>
+</li>
+<li><p><strong>Stabilité binomiale avec paramètres différents</strong> : $X \sim \mathcal{B}(m, p_1)$ et $Y \sim \mathcal{B}(n, p_2)$ avec $p_1 \neq p_2$ → $X+Y$ N&#39;EST PAS une binomiale. Le paramètre $p$ doit être identique.</p>
+</li>
+<li><p><strong>Reformulation de l&#39;événement dans B-T</strong> : oublier que $\{a < X < b\}$ équivaut à $\{|X - c| < r\}$ où $c$ est le centre et $r$ le rayon. Sans cette reformulation, B-T ne s&#39;applique pas directement.</p>
+</li>
+<li><p><strong>Inégalité dans le mauvais sens</strong> : B-T donne un <strong>majorant</strong> de $P(|X - E(X)| \geq \alpha)$. Donc un <strong>minorant</strong> de $P(|X - E(X)| < \alpha)$. Ne pas inverser.</p>
+</li>
+<li><p><strong>Plus petite valeur de $N$</strong> : prendre l&#39;entier supérieur, pas l&#39;arrondi. Si $N \geq 6765{,}4$, la plus petite valeur est $6766$ (et pas $6765$).</p>
+</li>
+<li><p><strong>$E(X+Y) = E(X) + E(Y)$ avec X et Y dépendantes</strong> : c&#39;est OK, la linéarité de l&#39;espérance est <strong>toujours vraie</strong>. Ne pas confondre avec la variance qui exige l&#39;indépendance.</p>
+</li>
+<li><p><strong>Bernoulli ⟹ Binomiale</strong> : oublier de citer les 3 conditions (épreuves de Bernoulli, indépendantes, identiques). C&#39;est l&#39;oubli classique en début de copie.</p>
+</li>
+</ol>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html">https://arthurjeaugey.com/revisions-maths/raw/sommes-va-bienayme.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

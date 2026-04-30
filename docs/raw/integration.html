@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intégration — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Intégration. Aires · Chasles · IPP · Valeur moyenne.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/integration.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intégration — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Intégration. Aires · Chasles · IPP · Valeur moyenne.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/integration.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intégration — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Intégration. Aires · Chasles · IPP · Valeur moyenne.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Intégration — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Intégration. Aires · Chasles · IPP · Valeur moyenne.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/integration.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/integration.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/integration">https://arthurjeaugey.com/revisions-maths/#/fiche/integration</a>.</div>
+<article><h1>∫ Fiche de Combat — Intégration</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Suite directe de la fiche primitives : intégrales, propriétés, aire entre courbes, valeur moyenne, IPP.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Calculer $\int_a^b f(t)\,dt$ »</td>
+<td>Trouver une primitive $F$, calculer $F(b) - F(a)$ (§I.2)</td>
+</tr>
+<tr>
+<td>« Aire sous la courbe » (fonction positive)</td>
+<td>$\int_a^b f(t)\,dt$ en u.a. (§I.1)</td>
+</tr>
+<tr>
+<td>« Aire entre $\mathcal{C}_f$ et $\mathcal{C}_g$ »</td>
+<td>$\int_a^b [g(x) - f(x)]\,dx$ avec $f \leq g$ (§III.4)</td>
+</tr>
+<tr>
+<td>« Décomposer $\int_a^b$ avec un point intermédiaire $c$ »</td>
+<td><strong>Relation de Chasles</strong> (§II.2)</td>
+</tr>
+<tr>
+<td>« Valeur moyenne de $f$ sur $[a\,;\,b]$ »</td>
+<td>$\dfrac{1}{b-a}\int_a^b f(t)\,dt$ (§III.5)</td>
+</tr>
+<tr>
+<td>Intégrale avec un produit ($x \cdot e^x$, $x \cdot \ln x$, etc.)</td>
+<td><strong>Intégration par parties</strong> (§IV)</td>
+</tr>
+<tr>
+<td>« Montrer que $\int \geq 0$ » ou « comparer deux intégrales »</td>
+<td>Positivité / croissance de l&#39;intégrale (§III.3)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Définition et théorème fondamental</h2>
+<h3>1. Définition (cas d&#39;une fonction continue positive)</h3>
+<p><strong>Cadre</strong> : soit $f$ une fonction continue et <strong>positive</strong> sur $[a\,;\,b]$ avec $a \leq b$.</p>
+<p><strong>Définition</strong> : l&#39;<strong>intégrale de $a$ à $b$ de $f$</strong>, notée $\displaystyle\int_a^b f(t)\,dt$, est l&#39;<strong>aire</strong> du domaine compris entre :</p>
+<ul>
+<li>l&#39;axe des abscisses,</li>
+<li>la courbe de $f$,</li>
+<li>les droites verticales $x = a$ et $x = b$,</li>
+</ul>
+<p>exprimée en <strong>unités d&#39;aire</strong> (u.a.).</p>
+<p><strong>Notations équivalentes</strong> (la variable $t$ est dite &quot;muette&quot;) :
+$$\int_a^b f(t)\,dt = \int_a^b f(x)\,dx = \int_a^b f(u)\,du$$</p>
+<p>🎯 <strong>Conséquence visuelle</strong> : pour une fonction positive, l&#39;intégrale donne l&#39;aire géométrique. Quand $f$ peut être négative, l&#39;aire géométrique vaut $\int_a^b |f(t)|\,dt$ (à découper selon le signe de $f$).</p>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Aire sous la courbe : ∫₀³ (-x² + 4x + 1) dx&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;-x^2 + 4*x + 1&quot;, &quot;color&quot;: &quot;#00d9ff&quot;, &quot;range&quot;: [0, 3], &quot;closed&quot;: true }
+  ],
+  &quot;xDomain&quot;: [-0.5, 4.5],
+  &quot;yDomain&quot;: [-1, 6],
+  &quot;annotations&quot;: [
+    { &quot;x&quot;: 0, &quot;text&quot;: &quot;a = 0&quot; },
+    { &quot;x&quot;: 3, &quot;text&quot;: &quot;b = 3&quot; }
+  ],
+  &quot;height&quot;: 320
+}
+</code></pre>
+<blockquote>
+<p><strong>Glisse la souris sur la courbe</strong> : tu lis $f(x)$ en chaque point. Le domaine bleu sous la courbe est l&#39;aire qu&#39;on calcule.</p>
+</blockquote>
+<h3>2. Théorème fondamental (LE théorème central)</h3>
+<p>🎯 <strong>À CONNAÎTRE</strong> : soit $f$ une fonction continue positive sur $[a\,;\,b]$. La fonction $F$ définie sur $[a\,;\,b]$ par :
+$$F(x) = \int_a^x f(t)\,dt$$</p>
+<p>est dérivable sur $[a\,;\,b]$, et $F'(x) = f(x)$ pour tout $x \in [a\,;\,b]$.</p>
+<p><strong>Autrement dit</strong> : $F$ est <strong>la primitive de $f$ qui s&#39;annule en $a$</strong> ($F(a) = 0$).</p>
+<h3>3. Calcul de l&#39;intégrale via une primitive (LA formule à utiliser)</h3>
+<p>🎯 <strong>FORMULE CENTRALE</strong> : pour calculer une intégrale, on cherche une primitive et on utilise :</p>
+<p>$$\boxed{\int_a^b f(t)\,dt = \left[F(t)\right]_a^b = F(b) - F(a)}$$</p>
+<p>où $F$ est <strong>n&#39;importe quelle</strong> primitive de $f$ sur un intervalle contenant $[a\,;\,b]$.</p>
+<p>⚠️ <strong>Pourquoi &quot;n&#39;importe quelle&quot;</strong> : deux primitives diffèrent d&#39;une constante, donc $F(b) - F(a)$ est indépendant du choix.</p>
+<h3>4. Exemples chiffrés</h3>
+<p><strong>Exemple 1</strong> : $\displaystyle\int_0^6 (2t + 1)\,dt$.
+Primitive de $f(t) = 2t + 1$ : $F(t) = t^2 + t$.
+$$\int_0^6 (2t+1)\,dt = [t^2 + t]_0^6 = (36 + 6) - 0 = 42$$</p>
+<p><strong>Exemple 2</strong> : $\displaystyle\int_{-1}^2 (x^2 + 4x + 7)\,dx$.
+Primitive : $G(x) = \dfrac{1}{3}x^3 + 2x^2 + 7x$.
+$$\int_{-1}^2 (x^2 + 4x + 7)\,dx = G(2) - G(-1) = \left(\dfrac{8}{3} + 8 + 14\right) - \left(-\dfrac{1}{3} + 2 - 7\right) = 30$$</p>
+<hr>
+<h2>II. Intégrale d&#39;une fonction continue (cas général)</h2>
+<h3>1. Généralisation</h3>
+<p><strong>Propriété</strong> : toute fonction <strong>continue</strong> sur un intervalle $I$ admet des primitives.</p>
+<p><strong>Définition étendue</strong> : pour une fonction $f$ continue de <strong>signe quelconque</strong> sur $I$ contenant $a$ et $b$ :
+$$\int_a^b f(t)\,dt = F(b) - F(a)$$</p>
+<p>⚠️ <strong>Important</strong> :</p>
+<ul>
+<li>$f$ peut être positive, négative, ou de signe variable.</li>
+<li>$a$ et $b$ peuvent être dans n&#39;importe quel ordre ($a > b$ autorisé).</li>
+</ul>
+<p><strong>Exemples</strong> :</p>
+<ul>
+<li>$\displaystyle\int_5^2 (1 - t^2)\,dt = \left[t - \dfrac{1}{3}t^3\right]_5^2 = (2 - \dfrac{8}{3}) - (5 - \dfrac{125}{3}) = 36$</li>
+<li>$\displaystyle\int_1^2 (1 - t)\,dt = \left[t - \dfrac{1}{2}t^2\right]_1^2 = -\dfrac{1}{2}$ (négatif car $1 - t < 0$ sur $[1\,;\,2]$)</li>
+</ul>
+<h3>2. Propriétés algébriques (à connaître par cœur)</h3>
+<p>🎯 <strong>Soit $f$ continue sur $I$, $a, b, c$ trois réels de $I$</strong> :</p>
+<p><strong>Intégrale nulle</strong> :
+$$\int_a^a f(t)\,dt = 0$$</p>
+<p><strong>Inversion des bornes</strong> :
+$$\int_a^b f(t)\,dt = -\int_b^a f(t)\,dt$$</p>
+<p><strong>Relation de Chasles</strong> (la plus utilisée) :
+$$\boxed{\int_a^b f(t)\,dt = \int_a^c f(t)\,dt + \int_c^b f(t)\,dt}$$</p>
+<p>🎯 <strong>Interprétation Chasles</strong> : si $a < c < b$ et $f \geq 0$, c&#39;est l&#39;additivité des aires. Mais Chasles fonctionne aussi pour $c$ extérieur à $[a\,;\,b]$.</p>
+<h3>3. Linéarité de l&#39;intégrale</h3>
+<p>🎯 <strong>Propriété centrale</strong> : soit $f, g$ continues sur $I$, $\alpha$ un réel :</p>
+<p>$$\int_a^b [f(t) + g(t)]\,dt = \int_a^b f(t)\,dt + \int_a^b g(t)\,dt$$</p>
+<p>$$\int_a^b \alpha f(t)\,dt = \alpha \int_a^b f(t)\,dt$$</p>
+<p><strong>Combiné</strong> :
+$$\int_a^b [\alpha f(t) + \beta g(t)]\,dt = \alpha \int_a^b f(t)\,dt + \beta \int_a^b g(t)\,dt$$</p>
+<p><strong>Exemple</strong> : $\displaystyle\int_0^1 (2e^x + x)\,dx = 2\int_0^1 e^x\,dx + \int_0^1 x\,dx = 2[e^x]_0^1 + \left[\dfrac{1}{2}x^2\right]_0^1 = 2(e - 1) + \dfrac{1}{2} = 2e - \dfrac{3}{2}$.</p>
+<hr>
+<h2>III. Inégalités, aire entre courbes, valeur moyenne</h2>
+<h3>1. Positivité de l&#39;intégrale</h3>
+<p><strong>Théorème</strong> : soit $f, g$ continues sur $[a\,;\,b]$ avec $a \leq b$.</p>
+<p><strong>Positivité</strong> : si $f \geq 0$ sur $[a\,;\,b]$, alors $\displaystyle\int_a^b f(t)\,dt \geq 0$.</p>
+<p><strong>Négativité</strong> : si $f \leq 0$ sur $[a\,;\,b]$, alors $\displaystyle\int_a^b f(t)\,dt \leq 0$.</p>
+<p><strong>Croissance</strong> : si $f \leq g$ sur $[a\,;\,b]$, alors $\displaystyle\int_a^b f(t)\,dt \leq \int_a^b g(t)\,dt$.</p>
+<p>🎯 <strong>Réflexe bac</strong> : pour montrer $\int \geq 0$ ou comparer deux intégrales, repérer le signe ou la position relative des fonctions.</p>
+<p>⚠️ <strong>Attention à l&#39;ordre des bornes</strong> : ces propriétés exigent $a \leq b$.</p>
+<h3>2. Aire entre deux courbes</h3>
+<p>🎯 <strong>THÉORÈME CENTRAL</strong> : soit $f$ et $g$ continues sur $[a\,;\,b]$ avec $f \leq g$ sur $[a\,;\,b]$. L&#39;aire du domaine compris entre les courbes $\mathcal{C}_f$ et $\mathcal{C}_g$ entre $x = a$ et $x = b$ est :</p>
+<p>$$\boxed{\mathcal{A} = \int_a^b [g(x) - f(x)]\,dx}$$</p>
+<p>⚠️ <strong>Identifier la courbe la plus haute</strong> : c&#39;est $g$ qui est au-dessus, $f$ en dessous. Si l&#39;inégalité s&#39;inverse à un point, <strong>découper avec Chasles</strong>.</p>
+<p>🎯 <strong>Réflexe bac</strong> : &quot;courbe du haut moins courbe du bas&quot;. Toujours.</p>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Aire entre deux courbes : g(x) = -x² + 4 et f(x) = x²/2&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;-x^2 + 4&quot;, &quot;color&quot;: &quot;#ff3366&quot; },
+    { &quot;fn&quot;: &quot;x^2/2&quot;, &quot;color&quot;: &quot;#00d9ff&quot; }
+  ],
+  &quot;xDomain&quot;: [-2.5, 2.5],
+  &quot;yDomain&quot;: [-1, 5],
+  &quot;height&quot;: 340
+}
+</code></pre>
+<blockquote>
+<p>Les deux courbes se croisent quand $-x^2 + 4 = \dfrac{x^2}{2}$, soit $x = \pm\sqrt{8/3}$. L&#39;aire entre les deux vaut $\displaystyle\int_{-\sqrt{8/3}}^{\sqrt{8/3}} \left[(-x^2 + 4) - \dfrac{x^2}{2}\right] dx$.</p>
+</blockquote>
+<h3>3. Valeur moyenne d&#39;une fonction</h3>
+<p><strong>Définition</strong> : la <strong>valeur moyenne</strong> de $f$ sur $[a\,;\,b]$ (avec $a \leq b$) est :
+$$\mu = \dfrac{1}{b-a} \int_a^b f(t)\,dt$$</p>
+<p><strong>Théorème de la moyenne</strong> : il existe un réel $c \in [a\,;\,b]$ tel que $f(c) = \mu$, c&#39;est-à-dire :
+$$\int_a^b f(t)\,dt = (b - a) \times f(c)$$</p>
+<p><strong>Interprétation graphique</strong> (pour $f$ positive) : l&#39;aire sous la courbe entre $a$ et $b$ est égale à l&#39;aire d&#39;un rectangle de largeur $(b-a)$ et de hauteur $\mu = f(c)$.</p>
+<p>🎯 <strong>Réflexe bac</strong> : si l&#39;énoncé parle de &quot;valeur moyenne&quot; sans plus de précision, c&#39;est cette définition.</p>
+<hr>
+<h2>IV. Intégration par parties (IPP)</h2>
+<h3>1. Théorème</h3>
+<p>🎯 <strong>FORMULE À CONNAÎTRE PAR CŒUR</strong> :</p>
+<p>Soit $u$ et $v$ deux fonctions dérivables sur $[a\,;\,b]$, avec $u'$ et $v'$ continues. Alors :</p>
+<p>$$\boxed{\int_a^b u'(t) \cdot v(t)\,dt = \big[u(t) \cdot v(t)\big]_a^b - \int_a^b u(t) \cdot v'(t)\,dt}$$</p>
+<p><strong>Notation abrégée</strong> :
+$$\int_a^b u'v\,dt = [uv]_a^b - \int_a^b uv'\,dt$$</p>
+<h3>2. Quand utiliser l&#39;IPP ?</h3>
+<p>🎯 <strong>Indicateur</strong> : quand on a un <strong>produit</strong> dans l&#39;intégrale, dont aucune primitive directe ne saute aux yeux. Exemples typiques :</p>
+<ul>
+<li>$\int x \cdot e^x\,dx$ → poser $u' = e^x$, $v = x$</li>
+<li>$\int x \cdot \ln x\,dx$ → poser $u' = x$, $v = \ln x$</li>
+<li>$\int x^2 \cdot e^x\,dx$ → poser $u' = e^x$, $v = x^2$</li>
+<li>$\int (\ln x)\,dx$ → poser $u' = 1$, $v = \ln x$</li>
+</ul>
+<h3>3. Choix de $u'$ et $v$ : la règle d&#39;or</h3>
+<p>🎯 <strong>Critère</strong> : on choisit $u'$ et $v$ tels que :</p>
+<ul>
+<li><strong>$u'$ a une primitive simple</strong> ($u$ doit être facile à calculer).</li>
+<li><strong>$v'$ est plus simple que $v$</strong> (en dérivant, on simplifie).</li>
+</ul>
+<p><strong>La nouvelle intégrale $\int uv'\,dt$ doit être plus simple que la précédente.</strong></p>
+<p>⚠️ <strong>Si on se trompe de choix</strong> : on tombe sur une intégrale plus compliquée. Inverser $u'$ et $v$ et réessayer.</p>
+<h3>4. Exemple détaillé</h3>
+<p><strong>Énoncé</strong> : calculer $\displaystyle\int_0^1 x e^x\,dx$.</p>
+<p><strong>Choix</strong> :</p>
+<ul>
+<li>$u'(x) = e^x \Rightarrow u(x) = e^x$</li>
+<li>$v(x) = x \Rightarrow v'(x) = 1$</li>
+</ul>
+<p><strong>Application IPP</strong> :
+$$\int_0^1 x e^x\,dx = [x e^x]_0^1 - \int_0^1 e^x \cdot 1\,dx$$
+$$= (1 \cdot e^1 - 0) - [e^x]_0^1 = e - (e - 1) = 1$$</p>
+<h3>5. Exemple type bac (Métropole 2025 J1) : $\int_1^e x \ln x\,dx$</h3>
+<p><strong>Énoncé</strong> : montrer que $\displaystyle\int_1^e x \ln x\,dx = \dfrac{e^2 + 1}{4}$.</p>
+<p><strong>Choix</strong> :</p>
+<ul>
+<li>$u'(x) = x \Rightarrow u(x) = \dfrac{1}{2}x^2$</li>
+<li>$v(x) = \ln x \Rightarrow v'(x) = \dfrac{1}{x}$</li>
+</ul>
+<p><strong>Application IPP</strong> :
+$$\int_1^e x \ln x\,dx = \left[\dfrac{1}{2}x^2 \ln x\right]_1^e - \int_1^e \dfrac{1}{2}x^2 \cdot \dfrac{1}{x}\,dx$$
+$$= \left(\dfrac{1}{2}e^2 \cdot 1 - 0\right) - \dfrac{1}{2}\int_1^e x\,dx$$
+$$= \dfrac{e^2}{2} - \dfrac{1}{2}\left[\dfrac{1}{2}x^2\right]_1^e = \dfrac{e^2}{2} - \dfrac{1}{4}(e^2 - 1) = \dfrac{2e^2 - e^2 + 1}{4} = \dfrac{e^2 + 1}{4}$$</p>
+<p>✅ Réponse vérifiée.</p>
+<hr>
+<h2>V. Diagramme de décision</h2>
+<pre><code class="language-mermaid">flowchart TD
+  Q[Tu lis l&#39;énoncé.&lt;br/&gt;Quel type de problème ?]
+  Q --&gt; A1[&quot;« Calculer ∫ₐᵇ f(t) dt »&quot;]
+  Q --&gt; A2[&quot;« Aire sous courbe »&lt;br/&gt;(f ≥ 0)&quot;]
+  Q --&gt; A3[&quot;« Aire entre 𝒞_f et 𝒞_g »&quot;]
+  Q --&gt; A4[&quot;« Décomposer en plusieurs ∫ »&quot;]
+  Q --&gt; A5[&quot;« Valeur moyenne »&quot;]
+  Q --&gt; A6[&quot;« Comparer / montrer ≥ 0 »&quot;]
+  Q --&gt; A7[&quot;« Produit dans ∫ »&lt;br/&gt;(x·eˣ, x·ln x …)&quot;]
+
+  A1 --&gt; A1a[&quot;Primitive immédiate&lt;br/&gt;→ F(b) − F(a)&quot;]
+  A1 --&gt; A1b[&quot;Somme → linéarité&quot;]
+  A1 --&gt; A1c[&quot;Forme remarquable&lt;br/&gt;(cf. fiche primitives)&quot;]
+  A1 --&gt; A1d[&quot;Produit → IPP&quot;]
+
+  A2 --&gt; A2a[&quot;∫ₐᵇ f(t) dt&lt;br/&gt;directement&quot;]
+
+  A3 --&gt; A3a[&quot;1. Identifier g au-dessus&quot;]
+  A3a --&gt; A3b[&quot;2. ∫ₐᵇ [g(x) − f(x)] dx&quot;]
+  A3b --&gt; A3c[&quot;Si ordre s&#39;inverse&lt;br/&gt;→ découper Chasles&quot;]
+
+  A4 --&gt; A4a[&quot;Chasles&lt;br/&gt;∫ₐᵇ = ∫ₐᶜ + ∫ᶜᵇ&quot;]
+
+  A5 --&gt; A5a[&quot;μ = 1/(b−a) · ∫ₐᵇ f(t) dt&quot;]
+
+  A6 --&gt; A6a[&quot;Positivité /&lt;br/&gt;croissance de l&#39;intégrale&quot;]
+
+  A7 --&gt; A7a[&quot;IPP : u&#39; simple&lt;br/&gt;à primitiver,&lt;br/&gt;v&#39; simple en dérivant&quot;]
+
+  classDef question fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef option fill:#0e0e16,stroke:#00d9ff,stroke-width:1px,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class Q question;
+  class A1,A2,A3,A4,A5,A6,A7 option;
+  class A1a,A1b,A1c,A1d,A2a,A3a,A3b,A3c,A4a,A5a,A6a,A7a leaf;
+</code></pre>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Intégration&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent confirmé</strong> : sur les sujets 2024-2025, l&#39;intégration apparaît <strong>dans presque tous les sujets d&#39;analyse</strong>, soit en partie C d&#39;un problème d&#39;analyse, soit dans un calcul d&#39;aire ou de valeur moyenne.</p>
+<h3>Forme 1 : &quot;Calcul d&#39;aire avec IPP&quot; en fin d&#39;étude de fonction</h3>
+<p><strong>Pattern observé sur Métropole 2025 J1, Amérique du Nord 2025 J2, Métropole 2024 (sujets multiples).</strong></p>
+<p><strong>Structure type</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  P[Énoncé&lt;br/&gt;type bac] --&gt; A[&quot;Partie A&lt;br/&gt;Lectures graphiques&lt;br/&gt;(tangente, convexité)&quot;]
+  P --&gt; B[&quot;Partie B&lt;br/&gt;Étude analytique de f&lt;br/&gt;(limites, variations, convexité)&quot;]
+  P --&gt; C[&quot;Partie C&lt;br/&gt;Calcul d&#39;aire avec intégrales&quot;]
+  C --&gt; Q1[&quot;Q1. Justifier l&#39;équation&lt;br/&gt;d&#39;une tangente T_B&quot;]
+  C --&gt; Q2[&quot;Q2. IPP :&lt;br/&gt;« Montrer que ∫… = … »&quot;]
+  C --&gt; Q3[&quot;Q3. Calculer l&#39;aire 𝒜&lt;br/&gt;entre 𝒞_f et T_B&quot;]
+  Q3 --&gt; R[&quot;Conclusion :&lt;br/&gt;valeur exacte en u.a.&quot;]
+
+  classDef title fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef part fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef step fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  classDef result fill:#1a2200,stroke:#c8ff00,stroke-width:2px,color:#c8ff00;
+  class P title;
+  class A,B,C part;
+  class Q1,Q2,Q3 step;
+  class R result;
+</code></pre>
+<h3>Forme 2 : &quot;Valeur moyenne&quot; (Métropole sept 2025 J1)</h3>
+<p><strong>Pattern observé</strong> : après une étude de fonction modélisant une grandeur physique (glycémie, concentration de produit, etc.), on demande la <strong>valeur moyenne</strong> sur un intervalle.</p>
+<h3>Forme 3 : &quot;Calcul direct d&#39;intégrale&quot; (questions intermédiaires)</h3>
+<p><strong>Pattern fréquent</strong> : on donne une primitive ou une fonction, on demande $\int_a^b$ direct.</p>
+<h3>Les 7 questions-types sur l&#39;intégration</h3>
+<h4>Q1 — &quot;Calculer $\int_a^b f(t)\,dt$&quot; avec primitive immédiate</h4>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li>Identifier $f$ et trouver une primitive $F$.</li>
+<li>Calculer $F(b) - F(a)$.</li>
+</ol>
+<p><strong>Exemple bac type</strong> : $\int_0^6 (2t + 1)\,dt = [t^2 + t]_0^6 = 42$.</p>
+<h4>Q2 — &quot;À l&#39;aide d&#39;une intégration par parties, montrer que...&quot;</h4>
+<p>🎯 <strong>Pattern bac classique</strong> (Métropole 2025 J1).</p>
+<p><strong>Énoncé type</strong> : &quot;À l&#39;aide d&#39;une intégration par parties, montrer que $\int_1^e x \ln x\,dx = \dfrac{e^2 + 1}{4}$.&quot;</p>
+<p><strong>Méthode (rédaction type)</strong> :</p>
+<blockquote>
+<p>On pose $u'(x) = x$ et $v(x) = \ln x$.
+Alors $u(x) = \dfrac{1}{2}x^2$ et $v'(x) = \dfrac{1}{x}$.</p>
+<p>Par IPP :
+$$\int_1^e x \ln x\,dx = \left[\dfrac{1}{2}x^2 \ln x\right]_1^e - \int_1^e \dfrac{1}{2}x^2 \cdot \dfrac{1}{x}\,dx$$</p>
+<p>$= \left(\dfrac{e^2}{2} \cdot 1 - \dfrac{1}{2} \cdot 0\right) - \dfrac{1}{2} \int_1^e x\,dx$</p>
+<p>$= \dfrac{e^2}{2} - \dfrac{1}{2}\left[\dfrac{x^2}{2}\right]_1^e = \dfrac{e^2}{2} - \dfrac{e^2 - 1}{4} = \dfrac{2e^2 - e^2 + 1}{4} = \dfrac{e^2 + 1}{4}$ ✓</p>
+</blockquote>
+<p>⚠️ <strong>Toujours bien noter $u'$, $u$, $v$, $v'$ avant d&#39;appliquer la formule.</strong> Les correcteurs vérifient.</p>
+<h4>Q3 — &quot;Calculer l&#39;aire $\mathcal{A}$ du domaine délimité par $\mathcal{C}_f$, une tangente $T$ et $x = a$, $x = b$&quot;</h4>
+<p>🎯 <strong>LA question la plus fréquente</strong> au bac sur les intégrales.</p>
+<p><strong>Méthode (squelette)</strong> :</p>
+<ol>
+<li><strong>Identifier la position relative</strong> : $\mathcal{C}_f$ au-dessus ou en dessous de $T$ ? (Souvent vu en partie B via la convexité.)</li>
+<li><strong>Écrire l&#39;aire</strong> :<ul>
+<li>Si $\mathcal{C}_f$ au-dessus : $\mathcal{A} = \int_a^b [f(x) - (\text{équation de } T)]\,dx$</li>
+<li>Sinon, l&#39;inverse.</li>
+</ul>
+</li>
+<li><strong>Calculer</strong> en utilisant la linéarité et les intégrales déjà calculées (souvent l&#39;IPP de Q2).</li>
+<li><strong>Conclure</strong> avec une valeur exacte en u.a.</li>
+</ol>
+<p><strong>Exemple bac (Métropole 2025 J1)</strong> :</p>
+<p>Soit $T_B : y = 2x - e$. La courbe $\mathcal{C}_f$ est au-dessus de $T_B$ sur $[1\,;\,e]$ (convexité).</p>
+<p>$$\mathcal{A} = \int_1^e [f(x) - (2x - e)]\,dx$$</p>
+<p>On décompose par linéarité, puis on utilise les intégrales calculées dans les questions précédentes (souvent $\int_1^e x \ln x\,dx$ et $\int_1^e x(\ln x)^2\,dx$ admis ou calculés).</p>
+<h4>Q4 — &quot;Calculer la valeur moyenne de $f$ sur $[a\,;\,b]$&quot;</h4>
+<p>🎯 <strong>Pattern observé Métropole sept 2025 J1</strong> (glycémie).</p>
+<p><strong>Énoncé type</strong> : &quot;Calculer la glycémie moyenne lors des 6 heures qui suivent le repas.&quot;</p>
+<p><strong>Méthode</strong> :</p>
+<ol>
+<li><strong>Définition</strong> : $\mu = \dfrac{1}{b-a} \int_a^b f(t)\,dt$.</li>
+<li><strong>Calculer l&#39;intégrale</strong> (souvent via IPP, comme dans Métropole sept 2025 J1 où l&#39;IPP donnait $\int_0^6 f(t)\,dt = -23{,}75 e^{-2{,}4} + 8{,}75$).</li>
+<li><strong>Diviser par $(b-a)$</strong> pour obtenir la valeur moyenne.</li>
+</ol>
+<p><strong>Astuce (Métropole sept 2025 J1, question astucieuse)</strong> : &quot;En remarquant que $f$ est solution de $(E)$, expliquer comment on aurait pu obtenir ce résultat autrement.&quot; → Si $f' = af + g$, alors $\int_a^b f' = \int_a^b (af + g)$, soit $f(b) - f(a) = a \int_a^b f + \int_a^b g$. On en déduit $\int_a^b f$ sans IPP.</p>
+<h4>Q5 — &quot;Aire entre deux courbes $\mathcal{C}_f$ et $\mathcal{C}_g$&quot;</h4>
+<p><strong>Méthode</strong> : $\mathcal{A} = \int_a^b |f(x) - g(x)|\,dx$, en découpant si l&#39;inégalité s&#39;inverse.</p>
+<h4>Q6 — &quot;Utiliser la relation de Chasles&quot;</h4>
+<p><strong>Pattern</strong> : décomposer $\int_a^b$ en $\int_a^c + \int_c^b$ pour gérer un changement de signe ou une fonction définie par morceaux.</p>
+<h4>Q7 — &quot;Linéarité de l&#39;intégrale&quot;</h4>
+<p><strong>Pattern</strong> : on demande $\int_a^b (\alpha f + \beta g)\,dx$ avec $\int_a^b f$ et $\int_a^b g$ calculées avant.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Contexte</th>
+<th>Type d&#39;intégration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>Étude fonction + tétraèdre</td>
+<td>Calcul direct d&#39;intégrale</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Piscine chlore</td>
+<td>ED + intégrale</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Étude $f$ avec ln et tangente</td>
+<td><strong>IPP</strong> + aire avec linéarité</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025 J1</strong></td>
+<td>Glycémie</td>
+<td><strong>Valeur moyenne</strong> + IPP</td>
+</tr>
+<tr>
+<td><strong>Amérique du Nord 2025 J1</strong></td>
+<td>Manège freinage</td>
+<td>ED + IPP en partie C</td>
+</tr>
+<tr>
+<td><strong>Amérique du Nord 2025 J2 (secours)</strong></td>
+<td>Convexité + analyse</td>
+<td><strong>IPP</strong> centrale</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 90% de chances d&#39;avoir un calcul d&#39;intégrale et 60% de chances d&#39;avoir une IPP</strong> à ton bac blanc.</p>
+<h3>Astuces générales pour gérer les intégrales au bac</h3>
+<ol>
+<li><strong>Toujours calculer en valeur exacte</strong> (pas en décimal arrondi) sauf demande explicite.</li>
+<li><strong>Vérifier la primitive en dérivant</strong> en brouillon avant de finaliser.</li>
+<li><strong>Utiliser les résultats admis</strong> : si l&#39;énoncé dit &quot;on admet que $\int = \dots$&quot;, utiliser directement sans recalculer.</li>
+<li><strong>Décomposer par linéarité</strong> dès qu&#39;il y a une somme dans l&#39;intégrale.</li>
+<li><strong>Pour l&#39;IPP</strong> : choisir $u'$ et $v$ tels que la nouvelle intégrale soit <strong>plus simple</strong>. Si la nouvelle est plus compliquée, <strong>inverser</strong> les rôles.</li>
+<li><strong>Pour l&#39;aire</strong> : ne jamais oublier de mettre la <strong>courbe du haut moins la courbe du bas</strong> (sinon résultat négatif = erreur).</li>
+</ol>
+<hr>
+<h2>VII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Pour calculer une intégrale, j&#39;ai bien trouvé une <strong>primitive</strong> (vérifier en dérivant).</li>
+<li><input disabled="" type="checkbox"> Pour Chasles, j&#39;ai bien décomposé en deux intégrales avec un point intermédiaire.</li>
+<li><input disabled="" type="checkbox"> Pour la linéarité, j&#39;ai correctement séparé les termes.</li>
+<li><input disabled="" type="checkbox"> Pour l&#39;aire entre deux courbes, j&#39;ai identifié la <strong>courbe du haut</strong> et la <strong>courbe du bas</strong>.</li>
+<li><input disabled="" type="checkbox"> Pour la valeur moyenne, j&#39;ai bien divisé par $(b-a)$.</li>
+<li><input disabled="" type="checkbox"> Pour l&#39;IPP, j&#39;ai choisi $u'$ et $v$ de telle sorte que la nouvelle intégrale soit <strong>plus simple</strong>.</li>
+<li><input disabled="" type="checkbox"> Pour l&#39;IPP, j&#39;ai bien noté $u(x)$, $u'(x)$, $v(x)$, $v'(x)$ avant d&#39;appliquer la formule.</li>
+<li><input disabled="" type="checkbox"> J&#39;ai vérifié les <strong>bornes</strong> (ordre $a < b$ pour les inégalités).</li>
+<li><input disabled="" type="checkbox"> Pour les fonctions de signe variable, j&#39;ai pensé à découper avec Chasles si nécessaire.</li>
+</ul>
+<hr>
+<h2>VIII. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>Erreur d&#39;intégration par parties</strong> : oublier le crochet $[uv]_a^b$ ou se tromper de signe. La formule est $[uv]_a^b - \int uv'$ (avec un MOINS).</p>
+</li>
+<li><p><strong>Aire négative</strong> : une aire est toujours <strong>positive</strong>. Si $\int_a^b (g - f) < 0$, c&#39;est que tu as inversé : la courbe du bas est en fait en haut. Corriger.</p>
+</li>
+<li><p><strong>Inversion des bornes oubliée</strong> : $\int_b^a = -\int_a^b$. Vérifier l&#39;ordre.</p>
+</li>
+<li><p><strong>Linéarité mal appliquée</strong> : $\int (f \cdot g) \neq \int f \cdot \int g$. Le produit ne sort pas de l&#39;intégrale. UNIQUEMENT somme et constante.</p>
+</li>
+<li><p><strong>Choix d&#39;$u'$ et $v$ inversé en IPP</strong> : si la nouvelle intégrale est plus compliquée que la précédente, c&#39;est que tu as inversé. Pour $x \ln x$, c&#39;est $\ln$ qu&#39;on dérive (pas qu&#39;on intègre).</p>
+</li>
+<li><p><strong>Primitive incomplète</strong> : oublier le facteur $\dfrac{1}{a}$ pour $\int e^{ax} = \dfrac{1}{a}e^{ax}$. Erreur classique.</p>
+</li>
+<li><p><strong>Valeur moyenne sans division</strong> : oublier le $\dfrac{1}{b-a}$. La valeur moyenne, ce n&#39;est pas l&#39;intégrale toute seule.</p>
+</li>
+<li><p><strong>Confondre intégrale et primitive</strong> : l&#39;intégrale $\int_a^b f$ est un <strong>nombre</strong>. La primitive $F$ est une <strong>fonction</strong>. Ne pas écrire &quot;$\int_a^b f(t)\,dt = F(x)$&quot; — c&#39;est faux.</p>
+</li>
+<li><p><strong>Oubli des unités d&#39;aire</strong> : pour une question d&#39;aire, conclure avec &quot;u.a.&quot; ou la conversion réelle si l&#39;énoncé donne une échelle.</p>
+</li>
+<li><p><strong>Calcul $F(b) - F(a)$ fait à l&#39;envers</strong> : tu fais $F(a) - F(b)$ au lieu de $F(b) - F(a)$, et tu tombes sur le résultat opposé. Vérifier l&#39;ordre.</p>
+</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/integration.html">https://arthurjeaugey.com/revisions-maths/raw/integration.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

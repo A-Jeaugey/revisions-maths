@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primitives &amp; Équations différentielles — Fiche complète · RÉV.maths</title>
+<meta name="description" content="Fiche de révision Bac Spé Maths : Primitives &amp; Équations différentielles. y&#39; = ay + b · y&#39; = ay + φ.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Primitives &amp; Équations différentielles — Fiche complète · RÉV.maths">
+<meta property="og:description" content="Fiche de révision Bac Spé Maths : Primitives &amp; Équations différentielles. y&#39; = ay + b · y&#39; = ay + φ.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Primitives &amp; Équations différentielles — Fiche complète · RÉV.maths">
+<meta name="twitter:description" content="Fiche de révision Bac Spé Maths : Primitives &amp; Équations différentielles. y&#39; = ay + b · y&#39; = ay + φ.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Primitives & Équations différentielles — Fiche complète · RÉV.maths","description":"Fiche de révision Bac Spé Maths : Primitives & Équations différentielles. y' = ay + b · y' = ay + φ.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.497Z","url":"https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/primitives-edo">https://arthurjeaugey.com/revisions-maths/#/fiche/primitives-edo</a>.</div>
+<article><h1>📐 Fiche de Combat — Primitives et Équations Différentielles</h1>
+<blockquote>
+<p><strong>Bac blanc — Terminale Maths Spé</strong>
+Couvre primitives (lecture inverse de la dérivation) et équations différentielles ($y'=ay$, $y'=ay+b$, $y'=ay+\phi$).</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça dans l&#39;énoncé...</th>
+<th>Tu déclenches...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>« Déterminer une primitive de $f$ »</td>
+<td>Lecture inverse du tableau (§II.1)</td>
+</tr>
+<tr>
+<td>« Vérifier que $F$ est une primitive de $f$ »</td>
+<td>Calculer $F'$ et vérifier $F'(x) = f(x)$</td>
+</tr>
+<tr>
+<td>Forme $u'(x) e^{u(x)}$, $u'(x)\cdot u(x)^n$, $u'/u$</td>
+<td>Reconnaître la forme remarquable (§II.2)</td>
+</tr>
+<tr>
+<td>« Résoudre $y' = ay$ »</td>
+<td>Solutions $x \mapsto Ce^{ax}$ (§III.1)</td>
+</tr>
+<tr>
+<td>« Résoudre $y' = ay + b$ »</td>
+<td>Solution particulière constante $-b/a$ + générale $Ce^{ax} - b/a$ (§III.2)</td>
+</tr>
+<tr>
+<td>« Résoudre $y' = ay + \phi(x)$ »</td>
+<td>Trouver une solution particulière P, puis $f - P$ vérifie $y' = ay$ (§III.3)</td>
+</tr>
+<tr>
+<td>« Trouver la solution telle que $f(x_0) = y_0$ »</td>
+<td>Substituer pour trouver $C$ (§III, méthode condition initiale)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>I. Définitions fondamentales</h2>
+<h3>1. Équation différentielle</h3>
+<p>Une <strong>équation différentielle</strong> est une égalité reliant une fonction inconnue $y$, ses dérivées successives $y'$, $y''$, ..., et éventuellement la variable $x$ et d&#39;autres fonctions.</p>
+<p><strong>Résoudre une équation différentielle</strong>, c&#39;est trouver <strong>TOUTES</strong> les fonctions solutions vérifiant l&#39;égalité.</p>
+<p>⚠️ <strong>Attention</strong> : &quot;résoudre&quot; = trouver toutes les solutions. Pas juste une.</p>
+<p><strong>Exemples :</strong></p>
+<ul>
+<li>$y' = x^3$ et $y' - y = 1$ : équations du <strong>1er ordre</strong> (interviennent $y$ et $y'$).</li>
+<li>$y'' + y' = 2x$ : équation du <strong>2nd ordre</strong> (interviennent $y$, $y'$, $y''$).</li>
+</ul>
+<p>🎯 <strong>Au bac</strong> : tu rencontreras quasi exclusivement des équations du <strong>1er ordre</strong> de la forme $y' = ay$, $y' = ay + b$ ou $y' = ay + \phi(x)$.</p>
+<h3>2. Primitive d&#39;une fonction</h3>
+<p><strong>Définition :</strong> $F$ est une <strong>primitive</strong> de $f$ sur un intervalle $I$ si $F$ est dérivable sur $I$ et $F'(x) = f(x)$ pour tout $x \in I$.</p>
+<p><strong>Mnémonique :</strong> &quot;$F$ a pour dérivée $f$, donc $f$ a pour primitive $F$.&quot;</p>
+<p><strong>Lien avec les équations différentielles :</strong> trouver une primitive de $f$, c&#39;est résoudre l&#39;équation $y' = f$.</p>
+<h3>3. Trois propriétés fondamentales (à connaître par cœur)</h3>
+<p><strong>Propriété 1 :</strong> toute fonction <strong>continue</strong> sur $I$ admet des primitives sur $I$.</p>
+<p><strong>Propriété 2 :</strong> deux primitives de $f$ sur $I$ <strong>diffèrent d&#39;une constante</strong>.
+$$F \text{ et } G \text{ primitives de } f \implies F(x) - G(x) = k \quad (k \in \mathbb{R})$$</p>
+<p><strong>Conséquence</strong> : une fonction continue admet une <strong>infinité</strong> de primitives, toutes de la forme $F(x) + k$.</p>
+<p><strong>Propriété 3 (unicité avec condition initiale) :</strong> pour tous réels $x_0$ et $y_0$, il existe une <strong>unique</strong> primitive $F$ de $f$ telle que $F(x_0) = y_0$.</p>
+<p>🎯 <strong>Réflexe bac</strong> : quand l&#39;énoncé donne une condition $F(x_0) = y_0$, tu sais que la primitive est <strong>unique</strong>. Tu calcules $F(x) = (\text{primitive générale}) + k$ et tu trouves $k$ avec la condition.</p>
+<hr>
+<h2>II. Recherche de primitives</h2>
+<h3>1. Primitives des fonctions usuelles (lecture inverse de la dérivation)</h3>
+<p>🎯 <strong>À CONNAÎTRE PAR CŒUR</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Fonction $f$</th>
+<th>Une primitive $F$</th>
+<th>Intervalle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$f(x) = a$</td>
+<td>$F(x) = ax$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = x$</td>
+<td>$F(x) = \dfrac{1}{2}x^2$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = x^2$</td>
+<td>$F(x) = \dfrac{1}{3}x^3$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = x^n$ ($n \in \mathbb{N}^*$)</td>
+<td>$F(x) = \dfrac{1}{n+1}x^{n+1}$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = \dfrac{1}{x}$</td>
+<td>$F(x) = \ln x$</td>
+<td>$]0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$f(x) = \dfrac{1}{x^2}$</td>
+<td>$F(x) = -\dfrac{1}{x}$</td>
+<td>$]-\infty\,;\,0[$ ou $]0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$f(x) = e^x$</td>
+<td>$F(x) = e^x$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = \dfrac{1}{2\sqrt{x}}$</td>
+<td>$F(x) = \sqrt{x}$</td>
+<td>$]0\,;\,+\infty[$</td>
+</tr>
+<tr>
+<td>$f(x) = \cos x$</td>
+<td>$F(x) = \sin x$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td>$f(x) = \sin x$</td>
+<td>$F(x) = -\cos x$</td>
+<td>$\mathbb{R}$</td>
+</tr>
+</tbody></table>
+<p>⚠️ <strong>Le piège classique</strong> : la primitive de $\sin x$ est $-\cos x$ (signe moins), et la dérivée de $\cos x$ est $-\sin x$ (idem). Ne pas inverser.</p>
+<h3>2. Primitives de formes remarquables (LE tableau central)</h3>
+<p>🎯 <strong>C&#39;EST LE TABLEAU À MAÎTRISER</strong>. C&#39;est la lecture inverse des formules de dérivation des composées (cf. fiche limites/composée).</p>
+<table>
+<thead>
+<tr>
+<th>Fonction $f$</th>
+<th>Une primitive $F$</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$kf$</td>
+<td>$kF$</td>
+<td>$k$ réel</td>
+</tr>
+<tr>
+<td>$f + g$</td>
+<td>$F + G$</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$u'(x) e^{u(x)}$</td>
+<td>$e^{u(x)}$</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$2u'(x) \cdot u(x)$</td>
+<td>$u(x)^2$</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$u'(x) \cdot u(x)^n$</td>
+<td>$\dfrac{1}{n+1} u(x)^{n+1}$</td>
+<td>$n \in \mathbb{N}$</td>
+</tr>
+<tr>
+<td>$\dfrac{u'(x)}{u(x)}$</td>
+<td>$\ln(u(x))$ si $u > 0$, $\ln(-u(x))$ si $u < 0$</td>
+<td>$u$ ne s&#39;annule pas</td>
+</tr>
+<tr>
+<td>$\dfrac{u'(x)}{u(x)^n}$</td>
+<td>$\dfrac{-1}{(n-1) u(x)^{n-1}}$</td>
+<td>$n \neq 1$</td>
+</tr>
+<tr>
+<td>$\dfrac{u'(x)}{\sqrt{u(x)}}$</td>
+<td>$2\sqrt{u(x)}$</td>
+<td>$u(x) > 0$</td>
+</tr>
+<tr>
+<td>$u'(x) \sin(u(x))$</td>
+<td>$-\cos(u(x))$</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$u'(x) \cos(u(x))$</td>
+<td>$\sin(u(x))$</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Méthode</strong> : pour trouver une primitive d&#39;une expression compliquée, <strong>identifier la forme</strong> ($u' e^u$, $u'/u$, etc.) en repérant <strong>$u$</strong> et <strong>$u'$</strong>.</p>
+<h3>3. Exemples chiffrés (les classiques bac)</h3>
+<p><strong>Exemple 1 :</strong> primitive de $f(x) = 5x^2$ sur $\mathbb{R}$.</p>
+<p>Application directe : $F(x) = 5 \times \dfrac{1}{3}x^3 = \dfrac{5}{3}x^3$.</p>
+<p><strong>Exemple 2 :</strong> primitive de $f(x) = x^3 + \dfrac{1}{x}$ sur $]0\,;\,+\infty[$.</p>
+<p>Linéarité : $F(x) = \dfrac{1}{4}x^4 + \ln(x)$.</p>
+<p><strong>Exemple 3 (forme $u'e^u$) :</strong> primitive de $f(x) = 3e^{3x+1}$ sur $\mathbb{R}$.</p>
+<p>On reconnaît $f = u' e^u$ avec $u(x) = 3x+1$ et $u'(x) = 3$. Donc $F(x) = e^{3x+1}$.</p>
+<p><strong>Exemple 4 (forme $u'/u$) :</strong> primitive de $g(x) = \dfrac{4}{3x+1}$ sur $]-1/3\,;\,+\infty[$.</p>
+<p>On reconnaît la forme $\dfrac{u'}{u}$ avec $u(x) = 3x+1$, $u'(x) = 3$. On factorise pour faire apparaître $u'$ :
+$$g(x) = \dfrac{4}{3} \times \dfrac{3}{3x+1} = \dfrac{4}{3} \times \dfrac{u'(x)}{u(x)}$$</p>
+<p>Donc $G(x) = \dfrac{4}{3} \ln(3x+1)$.</p>
+<p><strong>Exemple 5 (forme $u'e^u$) :</strong> primitive de $h(x) = e^{3x+2}$ sur $\mathbb{R}$.</p>
+<p>On a besoin du facteur 3 manquant. On écrit :
+$$h(x) = \dfrac{1}{3} \times 3e^{3x+2} = \dfrac{1}{3} \times u'(x) e^{u(x)}$$</p>
+<p>Donc $H(x) = \dfrac{1}{3} e^{3x+2}$.</p>
+<p>🎯 <strong>Méthode &quot;forcer la forme&quot;</strong> : si on a $e^{ax+b}$ sans le facteur $a$, on multiplie/divise par $a$ pour forcer la forme $u'e^u$. C&#39;est l&#39;astuce n°1 au bac.</p>
+<h3>4. Méthode pour trouver une primitive (squelette)</h3>
+<ol>
+<li><strong>Identifier la forme</strong> : est-ce une fonction usuelle ? Une somme ? Une forme remarquable ($u'e^u$, $u'/u$, etc.) ?</li>
+<li><strong>Si somme</strong> : décomposer et primitiver chaque terme (linéarité).</li>
+<li><strong>Si forme remarquable</strong> : identifier $u$ et $u'$, écrire la primitive correspondante.</li>
+<li><strong>Si manque de constante</strong> : multiplier/diviser pour forcer la forme (technique du facteur).</li>
+<li><strong>Vérifier</strong> : dériver $F$ pour vérifier $F' = f$ (toujours faire la vérification rapide en brouillon).</li>
+</ol>
+<hr>
+<h2>III. Équations différentielles linéaires du 1er ordre</h2>
+<h3>1. Équation $y' = ay$ (homogène)</h3>
+<p>🎯 <strong>THÉORÈME CENTRAL</strong> : les solutions de $y' = ay$ sur $\mathbb{R}$ sont les fonctions :
+$$x \mapsto C e^{ax}$$</p>
+<p>où $C$ est une constante réelle quelconque.</p>
+<p><strong>Avec condition initiale</strong> : pour tous $x_0$ et $y_0$ donnés, il existe une <strong>unique</strong> solution $f$ telle que $f(x_0) = y_0$.</p>
+<p><strong>Allure des courbes</strong> :</p>
+<ul>
+<li>Si $a > 0$ et $C > 0$ : croissante, tend vers $+\infty$ en $+\infty$.</li>
+<li>Si $a > 0$ et $C < 0$ : décroissante, tend vers $-\infty$ en $+\infty$.</li>
+<li>Si $a < 0$ et $C > 0$ : décroissante (décroissance exponentielle).</li>
+<li>Si $a < 0$ et $C < 0$ : croissante (vers 0 par valeurs négatives).</li>
+</ul>
+<pre><code class="language-plot">{
+  &quot;title&quot;: &quot;Solutions de y&#39; = ay : famille C·eᵃˣ (a = -0,5, plusieurs C)&quot;,
+  &quot;fns&quot;: [
+    { &quot;fn&quot;: &quot;exp(-0.5*x)&quot;, &quot;color&quot;: &quot;#ff3366&quot; },
+    { &quot;fn&quot;: &quot;2*exp(-0.5*x)&quot;, &quot;color&quot;: &quot;#00d9ff&quot; },
+    { &quot;fn&quot;: &quot;0.5*exp(-0.5*x)&quot;, &quot;color&quot;: &quot;#c8ff00&quot; },
+    { &quot;fn&quot;: &quot;-exp(-0.5*x)&quot;, &quot;color&quot;: &quot;#ff8a00&quot; }
+  ],
+  &quot;xDomain&quot;: [-2, 6],
+  &quot;yDomain&quot;: [-3, 6],
+  &quot;height&quot;: 320
+}
+</code></pre>
+<blockquote>
+<p>Toutes les courbes sont des « cousines » de $e^{-0{,}5x}$ : seule la constante $C$ change. Décroissance exponentielle pour $C > 0$, croissance pour $C < 0$.</p>
+</blockquote>
+<h3>2. Équation $y' = ay + b$ (avec second membre constant, $a \neq 0$)</h3>
+<p>🎯 <strong>THÉORÈME</strong> : les solutions de $y' = ay + b$ sur $\mathbb{R}$ sont les fonctions :
+$$x \mapsto C e^{ax} - \dfrac{b}{a}$$</p>
+<p>où $C$ est une constante réelle.</p>
+<p><strong>Décomposition à comprendre</strong> :</p>
+<ul>
+<li><strong>Solution particulière constante</strong> : $p(x) = -\dfrac{b}{a}$ (vérifie $p'(x) = 0$ et $a \cdot p(x) + b = 0$). </li>
+<li><strong>Solutions générales</strong> = solutions de $y' = ay$ (qui sont $Ce^{ax}$) <strong>+ solution particulière</strong> $-b/a$.</li>
+</ul>
+<p><strong>Méthode systématique</strong> :</p>
+<ol>
+<li>Calculer la solution particulière constante $p = -\dfrac{b}{a}$.</li>
+<li>Écrire la solution générale : $y(x) = Ce^{ax} + p = Ce^{ax} - \dfrac{b}{a}$.</li>
+<li>Si une condition initiale est donnée, déterminer $C$.</li>
+</ol>
+<h3>3. Équation $y' = ay + \phi(x)$ (avec second membre fonction)</h3>
+<p>🎯 <strong>MÉTHODE</strong> : on procède de manière <strong>analogue</strong> à $y' = ay + b$, mais avec une solution particulière qui est une fonction $P(x)$ (et plus une constante).</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li><strong>Trouver (ou vérifier) une solution particulière</strong> $P$ de l&#39;équation. Souvent l&#39;énoncé la donne et demande de vérifier.</li>
+<li><strong>$f$ est solution</strong> $\iff$ <strong>$f - P$ est solution de $y' = ay$</strong>.</li>
+<li>Donc $f(x) - P(x) = Ce^{ax}$, soit $f(x) = Ce^{ax} + P(x)$.</li>
+<li>Si une condition initiale est donnée, déterminer $C$.</li>
+</ol>
+<p><strong>Justification (à savoir reproduire en exo)</strong> :</p>
+<p>Si $f$ et $P$ sont deux solutions de $(E) : y' = ay + \phi$, alors :</p>
+<ul>
+<li>$f' = af + \phi$</li>
+<li>$P' = aP + \phi$</li>
+</ul>
+<p>En soustrayant : $f' - P' = a(f - P)$, soit $(f - P)' = a(f - P)$.</p>
+<p>Donc $f - P$ est solution de $y' = ay$, donc de la forme $Ce^{ax}$.</p>
+<h3>4. Tableau récapitulatif des équations différentielles</h3>
+<p>🎯 <strong>À MÉMORISER COMME UNE TABLE</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Équation</th>
+<th>Solutions générales</th>
+<th>Méthode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$y' = f$</td>
+<td>$y = F + C$ avec $F$ primitive de $f$</td>
+<td>Trouver une primitive</td>
+</tr>
+<tr>
+<td>$y' = ay$</td>
+<td>$y(x) = Ce^{ax}$</td>
+<td>Direct (formule)</td>
+</tr>
+<tr>
+<td>$y' = ay + b$ ($a \neq 0$)</td>
+<td>$y(x) = Ce^{ax} - \dfrac{b}{a}$</td>
+<td>Sol. particulière constante $-b/a$ + sol. générale</td>
+</tr>
+<tr>
+<td>$y' = ay + \phi(x)$</td>
+<td>$y(x) = Ce^{ax} + P(x)$ avec $P$ sol. particulière</td>
+<td>Trouver/vérifier $P$, ajouter $Ce^{ax}$</td>
+</tr>
+</tbody></table>
+<h3>5. Méthode &quot;trouver la solution telle que $f(x_0) = y_0$&quot;</h3>
+<p>C&#39;est la dernière étape récurrente au bac.</p>
+<p><strong>Étapes</strong> :</p>
+<ol>
+<li>Écrire la solution générale (avec $C$).</li>
+<li>Substituer $x_0$ : $f(x_0) = y_0$ donne une équation en $C$.</li>
+<li>Résoudre pour trouver $C$.</li>
+<li>Réécrire la solution finale avec la valeur trouvée de $C$.</li>
+</ol>
+<hr>
+<h2>IV. Exemples chiffrés complets (les exos type bac)</h2>
+<h3>Exemple 1 : équation $y' = ay$ avec condition initiale</h3>
+<p><strong>Énoncé</strong> : résoudre $(E) : y' = -4y$ sur $\mathbb{R}$. Déterminer la solution $f$ telle que $f(2) = 1$.</p>
+<p><strong>Étape 1 — Solutions générales</strong> : les solutions sont $y(x) = Ce^{-4x}$ avec $C \in \mathbb{R}$.</p>
+<p><strong>Étape 2 — Condition initiale</strong> : $f(2) = 1$ donne $Ce^{-8} = 1$, soit $C = e^{8}$.</p>
+<p><strong>Étape 3 — Conclusion</strong> : $f(x) = e^8 \times e^{-4x} = e^{8 - 4x}$.</p>
+<h3>Exemple 2 : équation $y' = ay$ avec point sur la courbe</h3>
+<p><strong>Énoncé</strong> : déterminer la solution $g$ de $(E) : y' = -4y$ dont la courbe passe par $A(1\,;\,-3)$.</p>
+<p><strong>Solution</strong> : $g(1) = -3$ donne $Ce^{-4} = -3$, soit $C = -3e^4$.</p>
+<p>Donc $g(x) = -3e^4 \times e^{-4x} = -3e^{4-4x}$.</p>
+<h3>Exemple 3 : équation $y' = ay + b$</h3>
+<p><strong>Énoncé</strong> : soit $(E) : y' = 2y + 6$.</p>
+<ol>
+<li>Déterminer une solution particulière de $(E)$.</li>
+<li>En déduire toutes les solutions de $(E)$.</li>
+<li>Déterminer la solution dont la courbe passe par $(1\,;\,4)$.</li>
+</ol>
+<p><strong>Q1</strong> : la solution particulière constante est $p(x) = -\dfrac{b}{a} = -\dfrac{6}{2} = -3$.</p>
+<p><strong>Q2</strong> : les solutions sont $y(x) = Ce^{2x} - 3$ avec $C \in \mathbb{R}$.</p>
+<p><strong>Q3</strong> : la courbe passe par $(1\,;\,4)$ donne $f(1) = 4$, soit $Ce^{2} - 3 = 4$, donc $Ce^2 = 7$ et $C = 7e^{-2}$.</p>
+<p><strong>Conclusion</strong> : $f(x) = 7e^{-2} \times e^{2x} - 3 = 7e^{2x-2} - 3$.</p>
+<h3>Exemple 4 : équation $y' = ay + \phi(x)$</h3>
+<p><strong>Énoncé</strong> : soit $(E) : y' = 2y + e^{3x}$.</p>
+<ol>
+<li>Vérifier que $g : x \mapsto e^{3x}$ est solution de $(E)$.</li>
+<li>Montrer que $f$ est solution de $(E)$ $\iff$ $f - g$ est solution de $(E') : y' = 2y$.</li>
+<li>En déduire l&#39;ensemble des solutions de $(E)$.</li>
+</ol>
+<p><strong>Q1</strong> : $g(x) = e^{3x}$ donc $g'(x) = 3e^{3x}$. On vérifie :
+$$2g(x) + e^{3x} = 2e^{3x} + e^{3x} = 3e^{3x} = g'(x) \checkmark$$
+Donc $g$ est solution de $(E)$.</p>
+<p><strong>Q2</strong> : $f$ solution de $(E)$ $\iff$ $f' = 2f + e^{3x}$.
+Comme $g$ est solution : $g' = 2g + e^{3x}$.
+Soustraction : $f' - g' = 2(f - g)$, soit $(f - g)' = 2(f - g)$.
+Donc $f - g$ est solution de $(E') : y' = 2y$. ✓</p>
+<p><strong>Q3</strong> : les solutions de $(E')$ sont $x \mapsto Ce^{2x}$. Donc $f - g$ est de cette forme :
+$$f(x) - g(x) = Ce^{2x} \iff f(x) = Ce^{2x} + e^{3x}$$</p>
+<p>L&#39;ensemble des solutions de $(E)$ est $\{x \mapsto Ce^{2x} + e^{3x} \mid C \in \mathbb{R}\}$.</p>
+<hr>
+<h2>V. Diagramme de décision</h2>
+<pre><code class="language-mermaid">flowchart TD
+  E[&quot;Énoncé. Quel type&lt;br/&gt;de problème ?&quot;]
+  E --&gt; P1[&quot;Primitive de f ?&quot;]
+  E --&gt; P2[&quot;Vérifier F primitive ?&quot;]
+  E --&gt; P3[&quot;Résoudre y&#39; = ay ?&quot;]
+  E --&gt; P4[&quot;Résoudre y&#39; = ay + b ?&quot;]
+  E --&gt; P5[&quot;Résoudre y&#39; = ay + φ(x) ?&quot;]
+  E --&gt; P6[&quot;Solution avec f(x₀) = y₀ ?&quot;]
+
+  P1 --&gt; P1a[&quot;f usuelle → tableau §II.1&quot;]
+  P1 --&gt; P1b[&quot;Somme → linéarité&quot;]
+  P1 --&gt; P1c[&quot;Forme remarquable&lt;br/&gt;identifier u et u&#39;&lt;br/&gt;(§II.2)&quot;]
+
+  P2 --&gt; P2a[&quot;Calculer F&#39;&lt;br/&gt;vérifier F&#39;(x) = f(x)&quot;]
+
+  P3 --&gt; P3a[&quot;Solutions :&lt;br/&gt;x ↦ Ceᵃˣ&quot;]
+
+  P4 --&gt; P4a[&quot;Particulière : −b/a&quot;]
+  P4 --&gt; P4b[&quot;Solutions :&lt;br/&gt;x ↦ Ceᵃˣ − b/a&quot;]
+
+  P5 --&gt; P5a[&quot;Trouver une solution&lt;br/&gt;particulière P&quot;]
+  P5 --&gt; P5b[&quot;f − P solution&lt;br/&gt;de y&#39; = ay&quot;]
+  P5 --&gt; P5c[&quot;Solutions :&lt;br/&gt;x ↦ Ceᵃˣ + P(x)&quot;]
+
+  P6 --&gt; P6a[&quot;Écrire la solution&lt;br/&gt;générale (avec C)&quot;]
+  P6 --&gt; P6b[&quot;Substituer x₀&lt;br/&gt;résoudre pour C&quot;]
+
+  classDef root fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef branch fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class E root;
+  class P1,P2,P3,P4,P5,P6 branch;
+  class P1a,P1b,P1c,P2a,P3a,P4a,P4b,P5a,P5b,P5c,P6a,P6b leaf;
+</code></pre>
+<hr>
+<h2>VI. Anatomie d&#39;un exo bac type &quot;Équations différentielles&quot; (sessions 2024-2025)</h2>
+<p>🎯 <strong>Pattern récurrent confirmé sur 6 sujets analysés</strong> (Métropole 2024 J1, J2, 2025 J1, J2, septembre 2025, Amérique du Nord 2025 J1). Les ED tombent <strong>dans presque tous les sujets</strong> depuis 2024.</p>
+<h3>Forme 1 : QCM Vrai/Faux (Métropole 2024 J1)</h3>
+<p>🎯 <strong>Pattern observé</strong> : on donne $f(x) = 5xe^{-x}$ et l&#39;équation $(E): y' + y = 5e^{-x}$. On demande si $f$ est solution.</p>
+<p><strong>Méthode</strong> : dériver $f$, calculer $f' + f$, vérifier l&#39;égalité avec le membre de droite.</p>
+<p><strong>Calcul type</strong> :</p>
+<ul>
+<li>$f(x) = 5xe^{-x}$</li>
+<li>$f'(x) = 5e^{-x} + 5x \cdot (-e^{-x}) = 5e^{-x}(1 - x)$</li>
+<li>$f'(x) + f(x) = 5e^{-x}(1-x) + 5xe^{-x} = 5e^{-x}$ ✓</li>
+</ul>
+<p>L&#39;affirmation &quot;$f$ vérifie $(E)$&quot; est <strong>VRAIE</strong>.</p>
+<h3>Forme 2 : exo dédié aux ED en partie d&#39;un problème (très fréquent)</h3>
+<p><strong>Pattern observé sur Métropole 2024 J2 (chlore piscine), Métropole 2025 J1 (posidonie), Métropole sept 2025 J1 (glycémie), Amérique du Nord 2025 J1.</strong></p>
+<p><strong>Structure type</strong> :</p>
+<pre><code class="language-mermaid">flowchart TD
+  PA[&quot;Partie A&lt;br/&gt;Modèle discret&lt;br/&gt;(suite récurrente)&quot;]
+  PA --&gt; PA1[&quot;Étude u_{n+1} = f(u_n)&lt;br/&gt;récurrence, encadrement,&lt;br/&gt;convergence&quot;]
+
+  PB[&quot;Partie B — BASCULE&lt;br/&gt;Modèle continu (ED)&quot;]
+  PB --&gt; Q1[&quot;Q1. Vérifier qu&#39;une fonction&lt;br/&gt;est solution&quot;]
+  PB --&gt; Q2[&quot;Q2. Résoudre l&#39;homogène&lt;br/&gt;(H) : y&#39; = ay&quot;]
+  PB --&gt; Q3[&quot;Q3. En déduire (E)&lt;br/&gt;y&#39; = ay + b ou y&#39; = ay + φ(x)&quot;]
+  PB --&gt; Q4[&quot;Q4. Solution avec&lt;br/&gt;f(0) = … ou C = …&quot;]
+  PB --&gt; Q5[&quot;Q5. Étude de la solution&lt;br/&gt;(limites, variations, asymptote)&quot;]
+  PB --&gt; Q6[&quot;Q6. (parfois) intégrale&lt;br/&gt;ou valeur moyenne&quot;]
+
+  classDef part fill:#1a1a24,stroke:#ff3366,stroke-width:2px,color:#f5f5f7;
+  classDef step fill:#0e0e16,stroke:#00d9ff,color:#f5f5f7;
+  classDef leaf fill:transparent,stroke:#c8ff00,color:#c8ff00;
+  class PA,PB part;
+  class Q1,Q2,Q3 step;
+  class PA1,Q4,Q5,Q6 leaf;
+</code></pre>
+<h3>Les 5 questions-types qui reviennent à TOUS les bacs</h3>
+<h4>Q1 — &quot;Vérifier que $g$ est solution de $(E)$&quot;</h4>
+<p><strong>Méthode</strong> : calculer $g'$, calculer le membre de droite avec $g$, vérifier l&#39;égalité.</p>
+<p><strong>Exemple Métropole sept 2025 (glycémie)</strong> : &quot;Soit $u(t) = t e^{-0{,}4t}$. Vérifier que $u$ est solution de $(E) : y' + 0{,}4y = e^{-0{,}4t}$.&quot;</p>
+<p><strong>Calcul</strong> :</p>
+<ul>
+<li>$u'(t) = e^{-0{,}4t} + t \cdot (-0{,}4)e^{-0{,}4t} = e^{-0{,}4t}(1 - 0{,}4t)$</li>
+<li>$u'(t) + 0{,}4 u(t) = e^{-0{,}4t}(1 - 0{,}4t) + 0{,}4t e^{-0{,}4t} = e^{-0{,}4t}$ ✓</li>
+</ul>
+<h4>Q2 — &quot;Résoudre l&#39;équation homogène $(H) : y' = ay$ ou $y' + ay = 0$&quot;</h4>
+<p>⚠️ <strong>Attention au piège</strong> : $y' + ay = 0$ est équivalent à $y' = -ay$. Solutions : $y(x) = Ce^{-ax}$ (avec un signe <strong>moins</strong>).</p>
+<p><strong>Exemple Métropole sept 2025</strong> : $(H) : y' + 0{,}4 y = 0 \iff y' = -0{,}4 y$. Solutions : $y(t) = Ce^{-0{,}4t}$.</p>
+<h4>Q3 — &quot;En déduire les solutions de $(E)$&quot;</h4>
+<p><strong>Méthode</strong> : combiner solution particulière (donnée ou trouvée) + solution générale de l&#39;homogène.</p>
+<p>🎯 <strong>Pattern</strong> : si $u$ est solution particulière de $(E)$ et que les solutions de $(H)$ sont $Ce^{ax}$, alors les solutions de $(E)$ sont $f(t) = u(t) + Ce^{ax}$.</p>
+<p><strong>Exemple Métropole sept 2025</strong> : sol. particulière $u(t) = te^{-0{,}4t}$, sol. de $(H)$ : $Ce^{-0{,}4t}$. Donc solutions de $(E)$ : $f(t) = te^{-0{,}4t} + Ce^{-0{,}4t}$.</p>
+<h4>Q4 — &quot;Déterminer la solution avec une condition initiale&quot;</h4>
+<p><strong>Pattern type</strong> : &quot;Trouver $C$ tel que $f(0) = 0{,}9$&quot; ou &quot;tel que $\mathcal{C}_f$ passe par $A$&quot;.</p>
+<p><strong>Méthode</strong> : substituer, résoudre, conclure.</p>
+<h4>Q5 — &quot;Étude de la fonction solution&quot;</h4>
+<p>🎯 <strong>C&#39;est là où ED bascule sur étude de fonction</strong>. On t&#39;a donné une expression de $f$, et on enchaîne :</p>
+<ul>
+<li>Calculer $f'$</li>
+<li>Étudier les variations</li>
+<li>Calculer les limites en $\pm\infty$</li>
+<li>Déterminer une asymptote (souvent $y = -b/a$ pour les équations $y' = ay + b$)</li>
+<li>Étudier la convexité</li>
+<li>Parfois : calculer $\int_0^T f(t)\,dt$ ou la valeur moyenne (cf. fiche intégration)</li>
+</ul>
+<h3>Variante sophistiquée : &quot;changement de fonction&quot; (Métropole 2025 J1, posidonie)</h3>
+<p>🎯 <strong>Pattern avancé</strong> : on te donne une équation $(E_1)$ non-linéaire ou pas de la forme $y' = ay + b$. On pose $g = 1/f$ (ou autre transformation) et on demande de montrer que $g$ vérifie une équation différentielle plus simple $(E_2)$.</p>
+<p><strong>Exemple bac (Métropole 2025 J1, posidonie) :</strong></p>
+<ul>
+<li>$(E_1) : y' = 0{,}02 y(15 - y)$ (non-linéaire, pas au programme direct)</li>
+<li>On pose $g = 1/f$.</li>
+<li>Question : &quot;Montrer que $g$ est solution de $(E_2) : y' = -0{,}3 y + 0{,}02$&quot; (linéaire, classique).</li>
+</ul>
+<p><strong>Méthode</strong> : dériver $g = 1/f$ → $g'(t) = -\dfrac{f'(t)}{f(t)^2}$, puis substituer $f'(t) = 0{,}02 f(t)(15 - f(t))$ et simplifier.</p>
+<p><strong>Astuce</strong> : ces exos décomposent le difficile en étapes guidées. On n&#39;a <strong>jamais</strong> à inventer la transformation soi-même au bac.</p>
+<h3>Exemple complet : Métropole 2025 J1 (posidonie)</h3>
+<p><strong>Contexte</strong> : modélisation de la croissance d&#39;algues posidonies sur 20 hectares.</p>
+<p><strong>Partie B (squelette)</strong> :</p>
+<ol>
+<li>$f$ vérifie $(E_1) : y' = 0{,}02 y(15 - y)$ (non-linéaire).</li>
+<li>On pose $g(t) = 1/f(t)$.</li>
+<li><strong>Q :</strong> Montrer que $g$ est solution de $(E_2) : y' = -0{,}3 y + 0{,}02$. → Calcul direct via dérivation.</li>
+<li><strong>Q :</strong> Donner les solutions de $(E_2)$. → Solution particulière $\dfrac{0{,}02}{0{,}3} = \dfrac{1}{15}$. Solutions : $g(t) = Ce^{-0{,}3t} + \dfrac{1}{15}$.</li>
+<li><strong>Q :</strong> En déduire $f(t) = \dfrac{15}{14e^{-0{,}3t} + 1}$. → Utiliser $f = 1/g$ et la condition initiale $f(0) = 1$.</li>
+</ol>
+<p>🎯 <strong>Cette structure tombe à 70% sur le bac</strong> quand l&#39;exo contient des ED. La transformation de fonction est l&#39;astuce-clé.</p>
+<h3>Sujets analysés (pour ta culture)</h3>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Contexte</th>
+<th>Type d&#39;ED</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Métropole 2024 J1</strong></td>
+<td>QCM</td>
+<td>$y' + y = 5e^{-x}$ (vérification)</td>
+</tr>
+<tr>
+<td><strong>Métropole 2024 J2</strong></td>
+<td>Chlore piscine</td>
+<td>$y' = -0{,}08y + q$ (équation $y' = ay + b$ classique)</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J1</strong></td>
+<td>Posidonie</td>
+<td>$(E_1)$ non-linéaire → $(E_2) : y' = -0{,}3y + 0{,}02$ via transformation $g = 1/f$</td>
+</tr>
+<tr>
+<td><strong>Métropole 2025 J2</strong></td>
+<td>(étude fonction sans ED principale)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Métropole sept 2025 J1</strong></td>
+<td>Glycémie</td>
+<td>$(E) : y' + 0{,}4y = e^{-0{,}4t}$ via décomposition avec $u(t) = te^{-0{,}4t}$</td>
+</tr>
+<tr>
+<td><strong>Amérique du Nord 2025 J1</strong></td>
+<td>Manège (freinage)</td>
+<td>ED + étude fonction + IPP</td>
+</tr>
+</tbody></table>
+<p>🎯 <strong>Tu as 80% de chances d&#39;avoir une ED à ton bac blanc</strong>. Le pattern le plus fréquent : équation $y' = ay + b$ ou $y' = ay + \phi$, avec une fonction donnée à vérifier en solution particulière.</p>
+<hr>
+<h2>VII. Check-list de relecture</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Pour une primitive, j&#39;ai vérifié en dérivant : $F'(x) = f(x)$.</li>
+<li><input disabled="" type="checkbox"> Pour une forme remarquable, j&#39;ai bien identifié $u$ et $u'$ avant d&#39;écrire la primitive.</li>
+<li><input disabled="" type="checkbox"> Pour $\dfrac{u'}{u}$, j&#39;ai vérifié que $u$ ne s&#39;annule pas sur l&#39;intervalle.</li>
+<li><input disabled="" type="checkbox"> Pour $u'e^u$ ou $u'\sin u$, j&#39;ai pensé à <strong>multiplier/diviser</strong> par la constante manquante si nécessaire.</li>
+<li><input disabled="" type="checkbox"> Pour $y' = ay$, j&#39;ai bien écrit $Ce^{ax}$ (et pas $Ce^x$).</li>
+<li><input disabled="" type="checkbox"> Pour $y' = ay + b$, j&#39;ai ajouté la solution particulière $-\dfrac{b}{a}$ (avec le <strong>signe moins</strong>).</li>
+<li><input disabled="" type="checkbox"> Pour une condition initiale, j&#39;ai bien substitué et résolu pour $C$.</li>
+<li><input disabled="" type="checkbox"> Pour $y' = ay + \phi$, j&#39;ai bien justifié que $f - P$ est solution de $y' = ay$.</li>
+</ul>
+<hr>
+<h2>VIII. Anti-sèche : les pièges classiques du correcteur</h2>
+<ol>
+<li><p><strong>Oubli du signe moins dans $-b/a$</strong> : la solution particulière de $y' = ay + b$ est $-b/a$ et pas $b/a$. Erreur n°1.</p>
+</li>
+<li><p><strong>Primitive de $\sin x$ confondue avec dérivée</strong> : la primitive de $\sin x$ est $-\cos x$. Tu as bien souvent écrit $\cos x$ par réflexe. Vérifier en dérivant.</p>
+</li>
+<li><p><strong>Forme $u'e^u$ sans le facteur $u'$</strong> : pour $f(x) = e^{3x+2}$, la primitive n&#39;est PAS $e^{3x+2}$ mais $\dfrac{1}{3}e^{3x+2}$ (il faut diviser par $u' = 3$).</p>
+</li>
+<li><p><strong>Forme $\dfrac{u'}{u}$ avec $u$ négatif</strong> : si $u(x) < 0$, la primitive est $\ln(-u(x))$ (avec la valeur absolue ou le moins). Souvent écrit $\ln u$ qui n&#39;a pas de sens.</p>
+</li>
+<li><p><strong>Solution générale avec un seul terme</strong> : pour $y' = ay + b$, écrire $y = Ce^{ax}$ tout court est faux. Il manque le $-b/a$.</p>
+</li>
+<li><p><strong>Confusion entre $y' = ay$ et $y' = a$</strong> : le premier donne $Ce^{ax}$ (exponentielle), le second donne $ax + C$ (affine). Ne pas confondre.</p>
+</li>
+<li><p><strong>Constante $C$ oubliée</strong> : ne JAMAIS oublier le $+ C$ dans une primitive, ni le $C$ dans la solution générale d&#39;une ED. Si l&#39;énoncé demande &quot;toutes les solutions&quot;, $C$ est obligatoire.</p>
+</li>
+<li><p><strong>Vérification en dérivant non faite</strong> : pour les primitives, toujours vérifier en dérivant. Ça prend 10 secondes et évite les erreurs bêtes.</p>
+</li>
+<li><p><strong>Confusion ordre dans IPP</strong> : pas de panique, l&#39;IPP est dans la fiche intégration.</p>
+</li>
+<li><p><strong>Oubli de l&#39;intervalle de validité</strong> : pour $\ln$, $1/x$, $\sqrt{x}$, toujours préciser l&#39;intervalle où la primitive est définie.</p>
+</li>
+</ol>
+<hr>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html">https://arthurjeaugey.com/revisions-maths/raw/primitives-edo.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

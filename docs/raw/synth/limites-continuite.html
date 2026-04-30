@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limites · Continuité · Convexité — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Limites · Continuité · Convexité.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Limites · Continuité · Convexité — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Limites · Continuité · Convexité.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Limites · Continuité · Convexité — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Limites · Continuité · Convexité.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Limites · Continuité · Convexité — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Limites · Continuité · Convexité.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/limites-continuite">https://arthurjeaugey.com/revisions-maths/#/fiche/limites-continuite</a>.</div>
+<article><h1>📊 Limites · Continuité · Convexité · Composée — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Les 4 chapitres qui s&#39;enchaînent dans toute étude de fonction.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Limite avec FI</td>
+<td>Lever la FI : factoriser le terme dominant</td>
+</tr>
+<tr>
+<td>FI avec exp</td>
+<td>Croissances comparées, factoriser par <code>e^x</code></td>
+</tr>
+<tr>
+<td>FI avec racine</td>
+<td>Forme conjuguée</td>
+</tr>
+<tr>
+<td>« f(x) = k a une unique solution »</td>
+<td>TVI + monotonie = théorème de la <strong>bijection</strong></td>
+</tr>
+<tr>
+<td>« Valeur approchée à 10⁻ⁿ près »</td>
+<td>Balayage à la calculatrice</td>
+</tr>
+<tr>
+<td>« Étudier la convexité »</td>
+<td>Calculer <code>f&#39;&#39;</code>, étudier son signe</td>
+</tr>
+<tr>
+<td>« Point d&#39;inflexion »</td>
+<td><code>f&#39;&#39;</code> s&#39;annule en <strong>changeant de signe</strong></td>
+</tr>
+<tr>
+<td><code>U_{n+1} = f(U_n)</code> converge vers L</td>
+<td>Point fixe ⇒ citer la <strong>continuité</strong> de f en L</td>
+</tr>
+<tr>
+<td>Dériver <code>(u^n)</code>, <code>√u</code>, <code>e^u</code>, <code>ln u</code></td>
+<td>Formules de la composée</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Limites — formes indéterminées</strong></p>
+<p>Les <strong>4 FI</strong> : <code>+∞ − ∞</code>, <code>0 × ∞</code>, <code>∞/∞</code>, <code>0/0</code>.</p>
+<p><strong>Méthode pour lever une FI</strong> : transformer pour faire disparaître l&#39;indétermination.</p>
+<ul>
+<li>Polynôme : factoriser par le terme de plus haut degré</li>
+<li>Racine : multiplier par la quantité conjuguée</li>
+<li>Avec exp : croissances comparées</li>
+<li>Avec ln : croissances comparées (puissance gagne)</li>
+</ul>
+<p>⚠️ <code>L/0</code> n&#39;est PAS une FI mais nécessite l&#39;étude de <code>0^+</code> vs <code>0^-</code>.</p>
+<p><strong>Théorème des gendarmes</strong></p>
+<blockquote>
+<p>Si <code>h(x) ≤ f(x) ≤ g(x)</code> et <code>lim h = lim g = L</code>, alors <code>lim f = L</code>.</p>
+</blockquote>
+<p><strong>Théorèmes de comparaison</strong></p>
+<ul>
+<li><code>f ≥ g</code> et <code>lim g = +∞</code> ⇒ <code>lim f = +∞</code></li>
+<li><code>f ≤ g</code> et <code>lim g = −∞</code> ⇒ <code>lim f = −∞</code></li>
+</ul>
+<p><strong>Continuité</strong></p>
+<ul>
+<li>f continue en <code>a</code> ⇔ <code>lim_{x→a} f(x) = f(a)</code></li>
+<li>Toute fonction dérivable est continue (réciproque fausse)</li>
+<li>Polynômes, exp, ln, racines : continues sur leur domaine</li>
+</ul>
+<p><strong>TVI (théorème des valeurs intermédiaires)</strong></p>
+<blockquote>
+<p>Si f continue sur <code>[a,b]</code> et <code>k</code> entre <code>f(a)</code> et <code>f(b)</code>, alors <code>f(x) = k</code> admet <strong>au moins</strong> une solution dans <code>[a,b]</code>.</p>
+</blockquote>
+<p><strong>Bijection (TVI + stricte monotonie)</strong></p>
+<blockquote>
+<p>Si f continue <strong>et strictement monotone</strong> sur <code>[a,b]</code>, alors <code>f(x) = k</code> admet <strong>une unique</strong> solution.</p>
+</blockquote>
+<p>⚠️ TVI seul = au moins une. Pour l&#39;unicité : <strong>strictement monotone</strong> obligatoire.</p>
+<p><strong>Convexité — par f&#39;&#39;</strong></p>
+<ul>
+<li><code>f&#39;&#39;(x) ≥ 0</code> sur I ⇒ f convexe sur I (courbe au-dessus des cordes)</li>
+<li><code>f&#39;&#39;(x) ≤ 0</code> sur I ⇒ f concave sur I</li>
+<li>Point d&#39;inflexion : <code>f&#39;&#39;</code> s&#39;annule <strong>en changeant de signe</strong></li>
+</ul>
+<p>⚠️ Convexe ≠ croissante. Une fonction peut être convexe et décroissante (ex. <code>1/x</code>).</p>
+<p><strong>Tangente en a</strong>
+$$y = f'(a)(x - a) + f(a)$$</p>
+<ul>
+<li>Convexe : courbe <strong>au-dessus</strong> des tangentes</li>
+<li>Concave : courbe <strong>en-dessous</strong> des tangentes</li>
+</ul>
+<p><strong>Composée — dérivée</strong>
+$$(g \circ u)' = u' \cdot (g' \circ u)$$</p>
+<table>
+<thead>
+<tr>
+<th>Forme</th>
+<th>Dérivée</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>(u(x))^n</code></td>
+<td><code>n · u&#39;(x) · (u(x))^{n−1}</code></td>
+</tr>
+<tr>
+<td><code>√(u(x))</code></td>
+<td><code>u&#39;(x) / (2√(u(x)))</code> (avec u &gt; 0)</td>
+</tr>
+<tr>
+<td><code>e^{u(x)}</code></td>
+<td><code>u&#39;(x) · e^{u(x)}</code></td>
+</tr>
+<tr>
+<td><code>ln(u(x))</code></td>
+<td><code>u&#39;(x)/u(x)</code> (avec u &gt; 0)</td>
+</tr>
+<tr>
+<td><code>1/u(x)</code></td>
+<td><code>−u&#39;(x)/(u(x))²</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Asymptote horizontale</td>
+<td><code>lim_{x→±∞} f(x) = L</code> ⇒ <code>y = L</code> AH</td>
+</tr>
+<tr>
+<td>Asymptote verticale</td>
+<td><code>lim_{x→a} f(x) = ±∞</code> ⇒ <code>x = a</code> AV</td>
+</tr>
+<tr>
+<td>Croissances comparées</td>
+<td>exp &gt;&gt; puissances &gt;&gt; ln</td>
+</tr>
+<tr>
+<td>Limite usuelle</td>
+<td><code>lim_{x→0} sin(x)/x = 1</code></td>
+</tr>
+<tr>
+<td>Convexité</td>
+<td><code>f&#39;&#39; ≥ 0</code> ⇒ f convexe</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>TVI vs bijection : ne pas oublier « strictement monotone » pour l&#39;unicité</li>
+<li><code>f&#39;&#39; ≥ 0</code> strict ou large ? Pour le <strong>point</strong> d&#39;inflexion, il faut un <strong>changement de signe</strong></li>
+<li>Convexité ≠ monotonie (cf. <code>1/x</code>)</li>
+<li>Dériver une composée : oublier le <code>u&#39;(x)</code> est l&#39;erreur n°1</li>
+<li>Pour <code>√u</code> ou <code>ln u</code> : vérifier <code>u &gt; 0</code> (ou <code>u ≥ 0</code> pour la racine, mais pas pour la dérivée)</li>
+<li>Croissances comparées : ne pas les utiliser si une factorisation simple suffit</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> FI identifiée + méthode adaptée (factorisation, conjugué, croissances comparées)</li>
+<li><input disabled="" type="checkbox"> Pour TVI / bijection : continuité <strong>et</strong> monotonie citées explicitement</li>
+<li><input disabled="" type="checkbox"> Point d&#39;inflexion : f&#39;&#39; change de signe (pas juste « s&#39;annule »)</li>
+<li><input disabled="" type="checkbox"> Tangente : équation complète <code>y = f&#39;(a)(x−a) + f(a)</code></li>
+<li><input disabled="" type="checkbox"> Composée : <code>u&#39;(x)</code> jamais oublié</li>
+<li><input disabled="" type="checkbox"> Domaine de validité (ln u &gt; 0, dénominateur ≠ 0) toujours précisé</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html">https://arthurjeaugey.com/revisions-maths/raw/synth/limites-continuite.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

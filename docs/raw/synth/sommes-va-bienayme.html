@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sommes de VA &amp; Bienaymé-Tchebychev — Synthèse · RÉV.maths</title>
+<meta name="description" content="Synthèse compacte (réflexes, formules, pièges) : Sommes de VA &amp; Bienaymé-Tchebychev.">
+<link rel="canonical" href="https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sommes de VA &amp; Bienaymé-Tchebychev — Synthèse · RÉV.maths">
+<meta property="og:description" content="Synthèse compacte (réflexes, formules, pièges) : Sommes de VA &amp; Bienaymé-Tchebychev.">
+<meta property="og:url" content="https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html">
+<meta property="og:site_name" content="RÉV.maths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sommes de VA &amp; Bienaymé-Tchebychev — Synthèse · RÉV.maths">
+<meta name="twitter:description" content="Synthèse compacte (réflexes, formules, pièges) : Sommes de VA &amp; Bienaymé-Tchebychev.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.65;
+    color: #1a1a1f;
+    background: #fafafa;
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .banner {
+    background: #eef3ff; border: 1px solid #c8d6ff; color: #1f3a8a;
+    padding: 12px 16px; border-radius: 10px; font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .banner a { color: #1d4ed8; font-weight: 600; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 1.6em 0 0.6em; font-weight: 700; }
+  h1 { font-size: 2rem; margin-top: 0; border-bottom: 1px solid #e2e2e6; padding-bottom: 12px; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; }
+  p, ul, ol, blockquote, table { margin: 0.8em 0; }
+  ul, ol { padding-left: 1.5em; }
+  code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+         font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace; }
+  pre { background: #1a1a1f; color: #f5f5f5; padding: 14px 16px; border-radius: 8px;
+        overflow-x: auto; font-size: 0.9em; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  blockquote { border-left: 4px solid #c8d6ff; padding: 4px 16px; color: #555; background: #f5f7ff; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #d8d8de; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f3; }
+  hr { border: none; border-top: 1px solid #d8d8de; margin: 2em 0; }
+  a { color: #1d4ed8; }
+  footer.foot { margin-top: 60px; padding-top: 24px; border-top: 1px solid #d8d8de;
+                font-size: 13px; color: #555; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #15151a; color: #eaeaea; }
+    h1 { border-color: #2a2a32; }
+    code { background: #25252c; }
+    blockquote { background: #1d1f29; color: #bbb; border-color: #3b4f99; }
+    th { background: #25252c; } td, th { border-color: #2a2a32; }
+    .banner { background: #1d1f29; color: #b8caff; border-color: #2a3a6a; }
+    footer.foot, hr { border-color: #2a2a32; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sommes de VA & Bienaymé-Tchebychev — Synthèse · RÉV.maths","description":"Synthèse compacte (réflexes, formules, pièges) : Sommes de VA & Bienaymé-Tchebychev.","inLanguage":"fr","dateModified":"2026-04-30T12:35:59.501Z","url":"https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html","mainEntityOfPage":"https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html","isPartOf":{"@type":"WebSite","name":"RÉV.maths","url":"https://arthurjeaugey.com/revisions-maths/"},"author":{"@type":"Person","name":"Arthur Jeaugey"}}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="banner">📘 Version brute (lisible sans JavaScript, optimisée IA &amp; partage). Pour la fiche interactive, voir : <a href="https://arthurjeaugey.com/revisions-maths/#/fiche/sommes-va-bienayme">https://arthurjeaugey.com/revisions-maths/#/fiche/sommes-va-bienayme</a>.</div>
+<article><h1>🎲 Sommes de VA · Échantillons · Bienaymé-Tchebychev — Synthèse</h1>
+<blockquote>
+<p><strong>Bac Spé Maths · Terminale</strong>
+Suite de la fiche probas/binomiale : combinaisons linéaires de VA, échantillons, B-T, loi faible des grands nombres.</p>
+</blockquote>
+<hr>
+<h2>⚡ Carte des réflexes</h2>
+<table>
+<thead>
+<tr>
+<th>Tu vois ça…</th>
+<th>Tu déclenches…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$X_1 \sim \mathcal{B}(m,p)$, $X_2 \sim \mathcal{B}(n,p)$ indépendantes</td>
+<td>$X_1 + X_2 \sim \mathcal{B}(m+n, p)$</td>
+</tr>
+<tr>
+<td>Calculer $E(X+Y)$</td>
+<td>Linéarité de $E$ — <strong>TOUJOURS</strong> vraie</td>
+</tr>
+<tr>
+<td>Calculer $V(X+Y)$</td>
+<td>$V(X)+V(Y)$ <strong>uniquement si X et Y indépendantes</strong></td>
+</tr>
+<tr>
+<td>Échantillon de taille $n$, somme $S_n$, moyenne $M_n$</td>
+<td>$E(S_n)=nE(X)$, $V(M_n)=V(X)/n$</td>
+</tr>
+<tr>
+<td>Majorer $P(\|X-E(X)\| \geq \alpha)$</td>
+<td><strong>Bienaymé-Tchebychev</strong> : $\leq V(X)/\alpha^2$</td>
+</tr>
+<tr>
+<td>Majorer $P(\|M_n-\mu\| \geq \alpha)$ ou trouver $n$ minimal</td>
+<td><strong>Inégalité de concentration</strong> : $\leq V(X)/(n\alpha^2)$</td>
+</tr>
+<tr>
+<td>« Quand $n \to +\infty$ » avec $M_n$</td>
+<td>Loi faible des grands nombres</td>
+</tr>
+<tr>
+<td>$V(aX)$, $\sigma(aX)$</td>
+<td>$a^2 V(X)$ et $\|a\| \sigma(X)$</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Méthodes-clés</h2>
+<p><strong>Linéarité de l&#39;espérance (toujours vraie)</strong></p>
+<ul>
+<li>$E(X+Y) = E(X)+E(Y)$ (sans hypothèse d&#39;indépendance)</li>
+<li>$E(aX+b) = aE(X)+b$</li>
+<li>$E(aX+bY) = aE(X)+bE(Y)$</li>
+</ul>
+<p><strong>Variance d&#39;une somme — UNIQUEMENT si indépendantes</strong></p>
+<ul>
+<li>$X, Y$ indépendantes ⇒ $V(X+Y) = V(X)+V(Y)$</li>
+<li>$V(aX) = a^2 V(X)$ et $\sigma(aX) = |a|\sigma(X)$</li>
+<li>$V(X+b) = V(X)$ (constante = pas de dispersion en plus)</li>
+</ul>
+<p><strong>Stabilité de la binomiale</strong></p>
+<blockquote>
+<p>$X_1 \sim \mathcal{B}(m,p)$, $X_2 \sim \mathcal{B}(n,p)$ <strong>indépendantes</strong> et <strong>même $p$</strong>
+⇒ $X_1 + X_2 \sim \mathcal{B}(m+n, p)$</p>
+</blockquote>
+<p><strong>Échantillon $(X_1, …, X_n)$ iid de loi de $X$ ($\mu = E(X)$, $V = V(X)$)</strong></p>
+<ul>
+<li>$S_n = X_1 + \dots + X_n$ : $E(S_n) = n\mu$, $V(S_n) = nV$, $\sigma(S_n) = \sqrt{n}\,\sigma(X)$</li>
+<li>$M_n = S_n/n$ : $E(M_n) = \mu$, $V(M_n) = V/n$, $\sigma(M_n) = \sigma(X)/\sqrt{n}$</li>
+</ul>
+<p><strong>Bienaymé-Tchebychev</strong></p>
+<blockquote>
+<p>Pour $\alpha > 0$ : $P(|X - E(X)| \geq \alpha) \leq \dfrac{V(X)}{\alpha^2}$</p>
+</blockquote>
+<p><strong>Inégalité de concentration (B-T appliquée à $M_n$)</strong></p>
+<blockquote>
+<p>Pour $\alpha > 0$ : $P(|M_n - \mu| \geq \alpha) \leq \dfrac{V(X)}{n\alpha^2}$</p>
+</blockquote>
+<p><strong>Loi faible des grands nombres</strong></p>
+<blockquote>
+<p>$\lim_{n \to +\infty} P(|M_n - \mu| \geq \alpha) = 0$</p>
+</blockquote>
+<hr>
+<h2>🛠 Recette pour minorer $P(a < X < b)$ (5 étapes)</h2>
+<ol>
+<li><strong>Centre + rayon</strong> : $c = (a+b)/2$, $r = (b-a)/2$. Vérifier $c = E(X)$.</li>
+<li><strong>Reformuler</strong> : $\{a < X < b\} = \{|X - c| < r\}$.</li>
+<li><strong>Contraire</strong> : $P(a<X<b) = 1 - P(|X-c| \geq r)$.</li>
+<li><strong>B-T</strong> : $P(|X - E(X)| \geq r) \leq V(X)/r^2$.</li>
+<li><strong>Conclure</strong> : $P(a<X<b) \geq 1 - V(X)/r^2$.</li>
+</ol>
+<p>Variante &quot;trouver le plus petit $N$&quot; : remplacer $V(X)$ par $V(X)/N$, résoudre l&#39;inéquation, prendre l&#39;<strong>entier supérieur</strong> (pas l&#39;arrondi).</p>
+<hr>
+<h2>📐 Formules à mémoriser</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linéarité $E$</td>
+<td>$E(aX+bY) = aE(X)+bE(Y)$</td>
+</tr>
+<tr>
+<td>$V(aX+b)$</td>
+<td>$a^2 V(X)$</td>
+</tr>
+<tr>
+<td>$\sigma(aX)$</td>
+<td>$\|a\| \sigma(X)$</td>
+</tr>
+<tr>
+<td>Variance somme indépendante</td>
+<td>$V(X+Y) = V(X)+V(Y)$</td>
+</tr>
+<tr>
+<td>Échantillon — somme</td>
+<td>$E(S_n)=nE(X)$, $V(S_n)=nV(X)$</td>
+</tr>
+<tr>
+<td>Échantillon — moyenne</td>
+<td>$E(M_n)=E(X)$, $V(M_n)=V(X)/n$</td>
+</tr>
+<tr>
+<td>Stabilité ℬ</td>
+<td>$\mathcal{B}(m,p) + \mathcal{B}(n,p) = \mathcal{B}(m+n,p)$ (indép.)</td>
+</tr>
+<tr>
+<td>Bienaymé-Tchebychev</td>
+<td>$P(\|X-E(X)\| \geq \alpha) \leq V(X)/\alpha^2$</td>
+</tr>
+<tr>
+<td>Inégalité de concentration</td>
+<td>$P(\|M_n-\mu\| \geq \alpha) \leq V(X)/(n\alpha^2)$</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>⚠️ Pièges classiques</h2>
+<ul>
+<li>$V(X+Y) = V(X)+V(Y)$ <strong>sans justifier l&#39;indépendance</strong> → -1 point</li>
+<li>$V(aX) = aV(X)$ au lieu de $a^2 V(X)$ (la variance est en carrés)</li>
+<li>$\sigma(aX) = a\sigma(X)$ au lieu de $|a|\sigma(X)$ (oubli de la valeur absolue)</li>
+<li>Confondre $V(M_n) = V(X)/n$ et $V(S_n) = nV(X)$ (somme grandit, moyenne se concentre)</li>
+<li>Stabilité binomiale avec <strong>paramètres $p$ différents</strong> → ce n&#39;est plus une binomiale</li>
+<li>Oublier de <strong>reformuler</strong> $\{a < X < b\}$ en $\{|X-c| < r\}$ avant d&#39;appliquer B-T</li>
+<li>B-T donne un <strong>majorant</strong> de $P(\geq)$, donc un <strong>minorant</strong> de $P(<)$ — ne pas inverser</li>
+<li>Plus petit $N$ : prendre l&#39;<strong>entier supérieur</strong>, pas l&#39;arrondi</li>
+</ul>
+<hr>
+<h2>✅ Check-list bac</h2>
+<ul>
+<li><input disabled="" type="checkbox"> J&#39;ai cité <strong>explicitement</strong> l&#39;indépendance avant $V(X+Y)$</li>
+<li><input disabled="" type="checkbox"> $V(aX) = a^2 V(X)$ et $\sigma(aX) = |a|\sigma(X)$ (carré, valeur absolue)</li>
+<li><input disabled="" type="checkbox"> Stabilité ℬ : indépendance <strong>ET</strong> même $p$</li>
+<li><input disabled="" type="checkbox"> Pour B-T : centre $c = E(X)$, rayon $r$ correctement identifié</li>
+<li><input disabled="" type="checkbox"> Pour le plus petit $N$ : entier supérieur, pas arrondi</li>
+<li><input disabled="" type="checkbox"> Distinguer B-T (sur $X$) et inégalité de concentration (sur $M_n$, avec $n$ au dénominateur)</li>
+</ul>
+</article>
+<footer class="foot">
+  Source : <a href="https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html">https://arthurjeaugey.com/revisions-maths/raw/synth/sommes-va-bienayme.html</a> ·
+  Version interactive du site : <a href="https://arthurjeaugey.com/revisions-maths/">https://arthurjeaugey.com/revisions-maths/</a>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$",  right: "$",  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>

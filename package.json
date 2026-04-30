@@ -4,8 +4,10 @@
   "description": "Site de révisions Bac Spé Maths — fiches, réflexes, formulaire, quiz, annales 2024-2025.",
   "private": true,
   "scripts": {
+    "build:raw": "node scripts/build-raw.mjs",
     "build:pdfs": "node scripts/build-pdfs.js",
-    "build:pdf": "node scripts/build-pdfs.js"
+    "build:pdf": "node scripts/build-pdfs.js",
+    "build": "npm run build:raw && npm run build:pdfs"
   },
   "repository": {
     "type": "git",
