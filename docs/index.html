@@ -33,6 +33,14 @@
   <link rel="stylesheet" href="css/mobile.css?v=9">
 
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>∫</text></svg>">
+
+  <!-- Analytics : GoatCounter (compte parabellum, mutualisé avec revisions-philo).
+       no_onload désactive le hit auto au chargement : le routing par hash de la
+       SPA déclenche un goatcounter.count() manuel à chaque changement de route
+       (cf. docs/js/router.js). -->
+  <script data-goatcounter="https://parabellum.goatcounter.com/count"
+          data-goatcounter-settings='{"no_onload": true}'
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
