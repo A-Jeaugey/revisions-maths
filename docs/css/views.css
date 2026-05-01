@@ -780,18 +780,14 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 32px 0;
-  padding: 6px;
-  background: var(--bg-card);
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  width: fit-content;
   max-width: 100%;
-  overflow-x: auto;
 }
 
 .reflex-tab {
-  padding: 10px 18px;
+  padding: 9px 16px;
   border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
   font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
@@ -802,9 +798,14 @@
 .reflex-tab.active {
   background: var(--text);
   color: var(--bg);
+  border-color: var(--text);
 }
 
-.reflex-tab:not(.active):hover { color: var(--text); }
+.reflex-tab:not(.active):hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+}
 
 .reflex-modes {
   display: flex;
